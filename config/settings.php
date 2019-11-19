@@ -1,0 +1,20 @@
+<?php
+ return array (
+  'sitename' => 'Spama Data Base',
+  'siteurl' => 'http://spama.com',
+  'createdby' => 'Whatsapp - 00201008939750',
+  'site_email' => 'info@spama.com',
+  'logo' => 'assets/logo.jpg',
+  'BackendPath' => 'pro@admin',
+  'order_email' => NULL,
+  'sms_notifications' => NULL,
+  'DefaultLanguage' => NULL,
+  'order_sms' => NULL,
+  'general_manager_sms' => NULL,
+  'general_manager_email' => NULL,
+  'username_msegat' => NULL,
+  'apikey_msegat' => NULL,
+  'sender_msegat' => NULL,
+  'send_sms_from_time' => NULL,
+  'send_sms_to_time' => NULL,
+) ;
