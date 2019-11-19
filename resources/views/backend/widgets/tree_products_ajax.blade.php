@@ -21,7 +21,7 @@
 
   @foreach($categories->products as $category)
     <tr>
-      <th>{{ $category->sku }}  </th>
+      <th>{{ $category->sku }} {!! Form::hidden('products_doc[]', $category->id  , ['id'=>'products_doc'.$category->id ] ) !!}  </th>
       <th>{{ $category->title_ar }}</th>
       <th>{{ $category->title_en }}</th>
       <td>{!! Form::select('unit_id[]', $units ,  null , ['id'=>'unit_id_'.$category->id, 'style'=>'width:80px;', 'class' => 'form-control'  ] ) !!}</td>
@@ -29,7 +29,7 @@
       <td>{!! Form::text('price[]', null , ['id'=>'price_'.$category->id, 'class' => 'form-control', 'style'=>'width:80px;' , 'placeholder'=> __('backend.price') ] ) !!}</td>
       <td>{!! Form::text('estimate_consumption[]', null , ['id'=>'estimate_consumption_'.$category->id , 'style'=>'width:80px;', 'class' => 'form-control' , 'placeholder'=> __('backend.estimate_consumption') ] ) !!}</td>
     </tr>
-    {!! Form::hidden('products_doc[]', $category->id  , ['id'=>'products_doc'.$category->id, 'class' => 'form-control'  ] ) !!}
+    
   @endforeach
 
   </tbody>

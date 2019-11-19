@@ -17,18 +17,16 @@
                 <div class="card-content">
                   <div class="card-body">
                     <!-- Task List table -->
+ 
 @if(count($total_products))
 
-{{$total_products[0]['assessment_date']}}
-
-@if($total_products[0]['assessment_date'] == date('Y-m-d'))
+@if( $total_products[0]['assessment_date'] == date('Y-m-d'))
 
 <div class="col-md-12">
 
-
 <div class="table-responsive">
     
-<a style="float: left;"  href="{{url('')}}/{{config('settings.BackendPath')}}/consumer/products/{{$customer->id}}" class="btn btn-success btn">
+<a style="float: left;"  href="{{url('')}}/{{config('settings.BackendPath')}}/consumer/products/{{$total_products[0]['serial']}}" class="btn btn-success btn">
 <i class="icon-pencil"></i>     
 </a>         
 <table  class="table table-striped table-bordered">
@@ -40,7 +38,7 @@
       <th>{{__('backend.unit')}}</th>
       <th>{{__('backend.quantity')}} </th>
       <th>{{ __('backend.price') }}</th>
-      <th>{{__('backend.estimate_consumption')}}  </th>
+      <th>{{__('backend.estimate_consumption')}}</th>
     </tr>
   </thead>
   <tbody>
