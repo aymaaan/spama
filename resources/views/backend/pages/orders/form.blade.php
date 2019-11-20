@@ -108,7 +108,7 @@
 
     </div>
     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.stops')}}      </h4>
-    <div class="row">
+   <div><div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <Select id="colorselector1" class="form-control">
@@ -156,7 +156,7 @@
         </div>
 
     </div>
-
+</div>
     <button id='repeat_div' class="btn btn-success">{{ __('backend.add_stops') }}</button>
     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.destinations')}}      </h4>
     <div class="row">
