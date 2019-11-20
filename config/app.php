@@ -40,7 +40,7 @@ return [
     */
 
    // 'debug' => env('APP_DEBUG', $_SERVER['REMOTE_ADDR'] == '41.34.6.207' ? true : false),
-  	 'debug' => env('APP_DEBUG', false),
+  	 'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------

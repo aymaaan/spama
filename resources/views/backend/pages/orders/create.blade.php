@@ -11,11 +11,12 @@
                   <div class="card-header">
                     <h4 class="card-title">    {{__('backend.orders')}}    </h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
-                    
+
                   </div>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
+                    <h4><span>{{__('backend.name_order')}}  </span> : {{ strstr(Auth::user()->name, ' ', true) }}</h4>
                     <!-- Task List table -->
     
 {!! Form::open([ 'route' => 'orders.store', 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
@@ -111,6 +112,17 @@
 <script>
   
 $(document).ready(function(){
+  // $(function() {
+  //   var selData = new Array();
+  //   $(".colorselector1").each(function(i) {
+  //     //  I'm not familiar with this plugin, but by your use,
+  //     //  I assume calling .select2('data') returns the value
+  //     //  of some custom div made from the select box?
+  //     selData.push($(this).select2('data'));
+  //   });
+  //   console.log(selData);
+  // })
+
     $(function() {
         $('#colorselector').change(function(){
             $('.colors').hide();
@@ -120,34 +132,17 @@ $(document).ready(function(){
 
   $(function() {
     $('#colorselector1').change(function(){
-      $('.colors').hide();
+      $('.colors1').hide();
       $('#' + $(this).val()).show();
     });
   });
   $(function() {
     $('#colorselector2').change(function(){
-      $('.colors').hide();
+      $('.colors2').hide();
       $('#' + $(this).val()).show();
     });
   });
-  $('select[name="customer"]').on('change', function() {
-    var customer = $(this).val();
-    if(customer != 0){
-      $("#new_registration").hide();
-      $("#tools").show();
 
-      $("#assessment_products_doctor").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_products_doctor/"+customer);
-
-      $("#assessment_products_delegate").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_products_delegate/"+customer);
-
-      $("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_pricing/"+customer);
-
-    } else {
-      $("#new_registration").show();
-      $("#tools").hide();
-    }
-
-  });
   $("#customer").change( function() {
     console.log('jk');
     $.ajaxSetup({

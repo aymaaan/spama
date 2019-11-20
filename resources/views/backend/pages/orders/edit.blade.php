@@ -17,8 +17,8 @@
                 <div class="card-content">
                   <div class="card-body">
                     <!-- Task List table -->
-    
-{!! Form::model( $data ,[ 'url' =>  config('settings.BackendPath').'/orders/'.$data->id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
+                    <h4><span>{{__('backend.name_order')}}  </span> : {{ $user->name}}</h4>
+{!! Form::model( $data ,[ 'url' =>  config('settings.BackendPath').'/orders/'.$data->order_id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}
 
 @include('backend.pages.orders.form')
 
@@ -108,7 +108,25 @@
   
 $(document).ready(function(){
 
+  $(function() {
+    $('#colorselector').change(function(){
+      $('.colors').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
 
+  $(function() {
+    $('#colorselector1').change(function(){
+      $('.colors1').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
+  $(function() {
+    $('#colorselector2').change(function(){
+      $('.colors2').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
 $('#supplier_type').change(function(){
 
   $type = $(this).val();

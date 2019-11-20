@@ -38,7 +38,7 @@
         </div>
 
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.from_time')}} </label>
 
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.to_time')}} </label>
 
@@ -64,6 +64,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <Select id="colorselector" class="form-control">
+                    <option value="0" >----</option>
                     <option value="red">{{__('backend.from')}}</option>
                     <option value="yellow">{{__('backend.customer')}}</option>
                     <option value="blue">{{__('backend.other')}}</option>
@@ -72,7 +73,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="red" class="col-md-3 colors" style="display:none" >
+        <div id="red" class="col-md-4 colors" style="display:none" >
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
@@ -80,15 +81,22 @@
 
             </div>
         </div>
-        <div id="yellow" class="col-md-3 colors" style="display:none">
-            <div class="form-group">
-                <label for="projectinput1"> {{__('backend.customer')}} </label>
+        <div id="yellow" class="col-md-4 colors" style="display:none">
+            <div  class="form-group">
+                <select name="customer_start"  class="select2 form-control"  style="width: 330px !important;">
+                    <option value="0" >----</option>
+                    @foreach($customers as $customer)
+                        <option value="{{$customer->id}}">
 
-                {!! Form::text('customer', null , ['class' => 'form-control' ,'id'=>'customer', 'placeholder'=> __('backend.other')] ) !!}
-                <input type="hidden" name="customer_start" id="te">
+                            {{$customer->name}}
+
+                        </option>
+                    @endforeach
+
+                </select>
             </div>
         </div>
-        <div id="blue" class="col-md-3 colors" style="display:none">
+        <div id="blue" class="col-md-4 colors" style="display:none">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
@@ -104,6 +112,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <Select id="colorselector1" class="form-control">
+                    <option value="0" >----</option>
                     <option value="red1">{{__('backend.from')}}</option>
                     <option value="yellow1">{{__('backend.customer')}}</option>
                     <option value="blue1">{{__('backend.other')}}</option>
@@ -112,7 +121,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="red1" class="col-md-4 colors" style="display:none">
+        <div id="red1" class="col-md-4 colors1" style="display:none">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
@@ -121,26 +130,9 @@
             </div>
         </div>
 
-
-        <div id="blue1" class="col-md-4 colors" style="display:none">
-            <div class="form-group">
-                <label for="projectinput1"> {{__('backend.other')}} </label>
-
-                {!! Form::text('other_stop', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
-            </div>
-
-        </div>
-        <div class="row">
-        <div id="yellow1" class="col-md-6 colors" style="display:none">
-            {{--            <div class="form-group">--}}
-            {{--                <label for="projectinput1"> {{__('backend.customer')}} </label>--}}
-
-            {{--                {!! Form::text('customer', null , ['class' => 'form-control' ,'id'=>'customer', 'placeholder'=> __('backend.other')] ) !!}--}}
-            {{--                <input type="hidden" name="customer_stop" id="te">--}}
-            {{--            </div>--}}
-            <div class="form-group">
-                <select name="customer_stop[]" class="select2 form-control">
+        <div id="yellow1" class="col-md-4 colors1" style="display:none">
+            <div  class="form-group">
+                <select name="customer_stop"  class="select2 form-control"  style="width: 330px !important;">
                     <option value="0" >----</option>
                     @foreach($customers as $customer)
                         <option value="{{$customer->id}}">
@@ -152,14 +144,26 @@
 
                 </select>
             </div>
-        </div></div>
+        </div>
+        <div id="blue1" class="col-md-4 colors1" style="display:none">
+            <div class="form-group">
+                <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                {!! Form::text('other_stop', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+
+            </div>
+
+        </div>
+
     </div>
-{{--    <button id='repeat_div' class="btn btn-success">{{ __('backend.add_stops') }}</button>--}}
+
+    <button id='repeat_div' class="btn btn-success">{{ __('backend.add_stops') }}</button>
     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.destinations')}}      </h4>
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <Select id="colorselector2" class="form-control">
+                    <option value="0" >----</option>
                     <option value="red2">{{__('backend.from')}}</option>
                     <option value="yellow2">{{__('backend.customer')}}</option>
                     <option value="blue2">{{__('backend.other')}}</option>
@@ -168,7 +172,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="red2" class="col-md-4 colors" style="display:none">
+        <div id="red2" class="col-md-4 colors2" style="display:none">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
@@ -176,15 +180,22 @@
 
             </div>
         </div>
-        <div id="yellow2" class="col-md-4 colors" style="display:none">
-            <div class="form-group">
-                <label for="projectinput1"> {{__('backend.customer')}} </label>
+        <div id="yellow2" class="col-md-4 colors2" style="display:none">
+            <div  class="form-group">
+                <select name="customer_des"  class="select2 form-control"  style="width: 330px !important;">
+                    <option value="0" >----</option>
+                    @foreach($customers as $customer)
+                        <option value="{{$customer->id}}">
 
-                {!! Form::text('customer', null , ['class' => 'form-control' ,'id'=>'customer', 'placeholder'=> __('backend.other')] ) !!}
-                <input type="hidden" name="customer_des" id="te">
+                            {{$customer->name}}
+
+                        </option>
+                    @endforeach
+
+                </select>
             </div>
         </div>
-        <div id="blue2" class="col-md-4 colors" style="display:none">
+        <div id="blue2" class="col-md-4 colors2" style="display:none">
             <div class="form-group">
                 <label for="projectinput1"> {{__('backend.other')}} </label>
 

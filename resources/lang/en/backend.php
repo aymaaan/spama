@@ -270,4 +270,5 @@ return [
     'add_stops'=>' Add A Stop',
      'corporate_information' => 'Corporate Information',
     'activity' => 'Activity',
+    'name_order' => 'Applicant\'s Name',
 ];

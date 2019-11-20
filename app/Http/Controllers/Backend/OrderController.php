@@ -6,17 +6,19 @@ use App\Customers;
 use App\Driver;
 use App\Order;
 use App\City;
+use App\OrderStop;
 use App\User;
 use App\Branch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Validation\Rules\In;
 use Session;
 use Gate;
-
+use DB;
 
 class OrderController extends Controller
 {
@@ -62,8 +64,8 @@ class OrderController extends Controller
 
         $data = new Order;
         $data->date = $request->date;
-        $data->from_time = $request->from_time.' '.$request->from;
-        $data->to_time = $request->to_time.' '.$request->to;
+        $data->from_time = $request->from_time;
+        $data->to_time = $request->to_time;
         $data->branch_start = $request->branch_start;
         $data->customer_start = $request->customer_start;
         $data->other_start = $request->other_start;
@@ -72,9 +74,14 @@ class OrderController extends Controller
         $data->other_des = $request->other_des;
        // $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
+        $data->user_id = Auth::user()->id;
         $data->save();
-
-
+$orderStos = new OrderStop();
+        $orderStos->order_id =$request->$data->id;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->save();
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'success');
         return Redirect(config('settings.BackendPath') . '/orders');
@@ -86,9 +93,18 @@ class OrderController extends Controller
         if (Gate::denies(['update_orders'])) {
             abort(404);
         }
-        $data = Order::find($id);
-
-        return view('backend.pages.orders.edit', compact('data'));
+        $drivers = User::where('role','driver')->pluck('name','id');
+        $cities = City::pluck('title', 'id');
+        $branches = Branch::pluck('title', 'id');
+        $customers = Customers::all();
+        $data = DB::table('orders')
+            ->join('order_stops', 'orders.id', '=', 'order_stops.order_id')
+            ->select('orders.*', 'order_stops.*')
+            ->where('order_id',$id)
+            ->first();
+        $user = User::find($data->user_id)->first();
+//dd($data);
+        return view('backend.pages.orders.edit', compact('user','data','drivers','cities','branches','customers'));
     }
 
 
@@ -100,19 +116,27 @@ class OrderController extends Controller
 
 
         $data = Order::find($id);
-        $data->day = $request->day;
         $data->date = $request->date;
         $data->from_time = $request->from_time;
         $data->to_time = $request->to_time;
-        $data->to = $request->to;
-        $data->from = $request->from;
-        $data->destinations = $request->destinations;
-        $data->customer = $request->customer;
-        $data->customer_id = $request->customer_id;
-        $data->city_id = $request->city_id;
+        $data->branch_start = $request->branch_start;
+        $data->customer_start = $request->customer_start;
+        $data->other_start = $request->other_start;
+        $data->branch_des = $request->branch_des;
+        $data->customer_des = $request->customer_des;
+        $data->other_des = $request->other_des;
+        // $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
-        $data->notes = $request->notes;
+        $data->user_id = Auth::user()->id;
         $data->save();
+
+        $orderStops = Order::where('order_id',$id)->first();
+        $orderStos = OrderStop::find($orderStops->id);
+        $orderStos->order_id =$request->$data->id;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->save();
 
 
         Session::flash('msg', ' Done! ');
@@ -143,7 +167,8 @@ class OrderController extends Controller
         }
 
         Order::find($id)->delete();
-
+        $orderstop = OrderStop::where('order_id',$id)->first();
+        $orderstop->delete();
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'danger');
         return back();
