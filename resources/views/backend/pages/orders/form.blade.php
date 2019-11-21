@@ -108,55 +108,55 @@
 
     </div>
     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.stops')}}      </h4>
-   <div><div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <Select id="colorselector1" class="form-control">
-                    <option value="0" >----</option>
-                    <option value="red1">{{__('backend.from')}}</option>
-                    <option value="yellow1">{{__('backend.customer')}}</option>
-                    <option value="blue1">{{__('backend.other')}}</option>
-                </Select>
+    <div><div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <Select id="colorselector1" class="form-control">
+                        <option value="0" >----</option>
+                        <option value="red1">{{__('backend.from')}}</option>
+                        <option value="yellow1">{{__('backend.customer')}}</option>
+                        <option value="blue1">{{__('backend.other')}}</option>
+                    </Select>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <div id="red1" class="col-md-4 colors1" style="display:none">
+                <div class="form-group">
+                    <label for="projectinput1"> {{__('backend.from')}} </label>
+
+                    {!! Form::select('branch_stop',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+
+                </div>
+            </div>
+
+            <div id="yellow1" class="col-md-4 colors1" style="display:none">
+                <div  class="form-group">
+                    <select name="customer_stop"  class="select2 form-control"  style="width: 330px !important;">
+                        <option value="0" >----</option>
+                        @foreach($customers as $customer)
+                            <option value="{{$customer->id}}">
+
+                                {{$customer->name}}
+
+                            </option>
+                        @endforeach
+
+                    </select>
+                </div>
+            </div>
+            <div id="blue1" class="col-md-4 colors1" style="display:none">
+                <div class="form-group">
+                    <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                    {!! Form::text('other_stop', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+
+                </div>
+
+            </div>
+
         </div>
     </div>
-    <div class="row">
-        <div id="red1" class="col-md-4 colors1" style="display:none">
-            <div class="form-group">
-                <label for="projectinput1"> {{__('backend.from')}} </label>
-
-                {!! Form::select('branch_stop',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
-            </div>
-        </div>
-
-        <div id="yellow1" class="col-md-4 colors1" style="display:none">
-            <div  class="form-group">
-                <select name="customer_stop"  class="select2 form-control"  style="width: 330px !important;">
-                    <option value="0" >----</option>
-                    @foreach($customers as $customer)
-                        <option value="{{$customer->id}}">
-
-                            {{$customer->name}}
-
-                        </option>
-                    @endforeach
-
-                </select>
-            </div>
-        </div>
-        <div id="blue1" class="col-md-4 colors1" style="display:none">
-            <div class="form-group">
-                <label for="projectinput1"> {{__('backend.other')}} </label>
-
-                {!! Form::text('other_stop', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
     <button id='repeat_div' class="btn btn-success">{{ __('backend.add_stops') }}</button>
     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.destinations')}}      </h4>
     <div class="row">
