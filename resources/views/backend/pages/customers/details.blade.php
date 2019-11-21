@@ -535,6 +535,8 @@
   </tbody>
 </table>
 
+التقييم رقم ({{ $product->serial }}) بتاريخ {{ $product->assessment_date }}
+
 
 </div>
 
