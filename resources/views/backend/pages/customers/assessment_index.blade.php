@@ -23,11 +23,7 @@
                   <option value="0" >----</option>
                   @foreach($customers as $customer)
                           <option value="{{$customer->id}}">
-                          @if($customer->is_consumer == 1)
-                          {{$customer->name}}
-                          @else
-                          {{$customer->consumer_name}}
-                          @endif
+                          {{$customer->name}}    
                           </option>
                   @endforeach 
                         
@@ -46,7 +42,7 @@
 
                       <a id="assessment_products_delegate" href="" class="btn btn-info btn"> {{ __('backend.assessment') }}  </a>
 
-                      <a id="pricing" href="" class="btn btn-danger btn"> {{ __('backend.pricing') }}  </a>
+                  
 
                       </div>
 

@@ -106,6 +106,7 @@ class AssessmentController extends Controller
     $total_products = CustomersAssessmentProducts::where('customer_id',$id)
     ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
     ->groupBy('product_id')
+    ->where('assessment_date',date('Y-m-d'))
     ->orderBy('customers_assessment_products.id','desc')
     ->get();
     return view('backend.pages.customers.assessment_products_by_delegate' , compact('total_products','units','customer','categories') );
@@ -266,7 +267,7 @@ class AssessmentController extends Controller
     Session::flash('msg', ' تم اضافة المنتجات بنجاح ' );
     Session::flash('alert', 'success');
     
-    return Redirect( config('settings.BackendPath')."/assessment_products_delegate" . "/" . $id );
+    return Redirect( config('settings.BackendPath')."/assessment_products_delegate" . "/" . $customer_question->customer_id );
     
 
   }
@@ -301,7 +302,7 @@ class AssessmentController extends Controller
 
     $customer = Customers::find($id);
     $units = Units::where('status' , 1)->pluck('title' , 'id');
-    $total_products = CustomersAssessmentProducts::where('customer_id',$id)->with('info')->get();
+    $total_products = CustomersAssessmentProducts::where('serial',$id)->with('info')->get();
     return view('backend.pages.customers.consumer_products' ,compact('total_products','customer','units') );
 
   }
