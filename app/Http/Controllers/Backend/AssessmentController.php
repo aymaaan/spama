@@ -94,8 +94,6 @@ class AssessmentController extends Controller
 
   }
 
-
-  
   public function make_assessment_products_delegate(Request $request , $id , $lang = null )
   {
     if ( Gate::denies(['make_assessment'])  ) { abort(404); }
@@ -122,7 +120,10 @@ class AssessmentController extends Controller
     $categories = Categories::orderby('serial','asc')->get();
     $total_products = CustomersAssessmentProducts::where('customer_id',$id)
     ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
-    ->groupBy('product_id')->get();
+    ->groupBy('product_id')
+    ->where('assessment_date',date('Y-m-d'))
+    ->orderBy('customers_assessment_products.id','desc')
+    ->get();
     return view('backend.pages.customers.assessment_products_by_delegate' , compact('total_products','units','customer','categories') );
   }
 

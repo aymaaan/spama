@@ -244,11 +244,11 @@ return [
     'language' => 'Language',
     'bod' => 'Birth Of Date',
     'work_type'=>' Work Of Type',
-        'from' => 'From',
+    'from' => 'From',
     'to' => 'To',
-     'from_time' => 'From hour',
+    'from_time' => 'From hour',
     'to_time' => 'To hour',
     'corporate_information' => 'Corporate Information',
     'activity' => 'Activity',
-    
+    'show_pricing' => 'Pricing',
 ];

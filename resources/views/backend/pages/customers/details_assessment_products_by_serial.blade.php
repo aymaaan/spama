@@ -48,7 +48,7 @@
       <th> {{ $product->info['sku'] }}  </th>
       <th> {{ $product->info['title_ar'] }}</th>
       <th> {{ $product->info['title_en'] }} </th>
-      <td>{!! $product->unit_id  !!}</td>
+      <td>{!! $product->unit['title']  !!}</td>
       <td>{!! $product->total_all_products !!}</td>
       <td>{!! $product->total_all_price !!}</td>
       <td>{!! $product->total_all_estimate !!}</td>

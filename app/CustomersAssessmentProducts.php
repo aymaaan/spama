@@ -14,6 +14,13 @@ public function info() {
 
     }
 
+
+    public function unit() {
+
+        return $this->belongsTo(Units::class , 'unit_id' );
+
+    }
+
     public function user() {
 
         return $this->hasMany( User::class , 'id' ,'user_id' );

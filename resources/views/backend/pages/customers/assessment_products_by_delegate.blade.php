@@ -33,8 +33,13 @@
   <thead>
     <tr>
       <th>SKU</th>
+      @if( Auth::user()->display_content_ar == 1 )
       <th>{{__('backend.arabic_title')}}</th>
+      @endif
+      @if( Auth::user()->display_content_en == 1 )
       <th>{{__('backend.english_title')}}</th>
+      @endif
+
       <th>{{__('backend.unit')}}</th>
       <th>{{__('backend.quantity')}} </th>
       <th>{{ __('backend.price') }}</th>
@@ -46,9 +51,13 @@
   @foreach($total_products as $product)
     <tr>
       <th> {{ $product->info['sku'] }}  </th>
+      @if( Auth::user()->display_content_ar == 1 )
       <th> {{ $product->info['title_ar'] }}</th>
+      @endif
+      @if( Auth::user()->display_content_en == 1 )
       <th> {{ $product->info['title_en'] }} </th>
-      <td>{!! $product->unit_id  !!}</td>
+      @endif
+      <td>{!! $product->unit['title']  !!}</td>
       <td>{!! $product->total_all_products !!}</td>
       <td>{!! $product->total_all_price !!}</td>
       <td>{!! $product->total_all_estimate !!}</td>
@@ -278,11 +287,11 @@ var quantity =  $(this).val();
 var unit =  $("#unit_id_" + product_id ).val();
 if ( quantity > 0) {
 $("#price_" + product_id).prop('required',true);
-$("#estimate_consumption_" + product_id).prop('required',true);
+$("#estimate_consumption_" + product_id).val(0);
 $("#quantity_" + product_id).prop('required',true);
 } else {
 $("#price_" + product_id).prop('required',false);
-$("#estimate_consumption_" + product_id).prop('required',false);
+$("#estimate_consumption_" + product_id).val('');
 $("#quantity_" + product_id).prop('required',false);
 }
 $.ajax(
