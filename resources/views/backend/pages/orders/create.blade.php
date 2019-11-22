@@ -130,12 +130,12 @@
                 });
             });
 
-            $(function() {
-                $('#colorselector1').change(function(){
-                    $('.colors1').hide();
-                    $('#' + $(this).val()).show();
-                });
-            });
+            // $(function() {
+            //     $('#colorselector1').change(function(){
+            //         $('.colors1').hide();
+            //         $('#' + $(this).val()).show();
+            //     });
+            // });
             $(function() {
                 $('#colorselector2').change(function(){
                     $('.colors2').hide();
@@ -191,7 +191,22 @@
                 //$self.remove();
             });
         });
-
+        $(function () {
+            $("#repeat_div1").on('click', function (e) {
+                e.preventDefault();
+                var $self = $(this);
+                $self.before($self.prev('div').clone());
+                //$self.remove();
+            });
+        });
+        $(function () {
+            $("#repeat_div2").on('click', function (e) {
+                e.preventDefault();
+                var $self = $(this);
+                $self.before($self.prev('div').clone());
+                //$self.remove();
+            });
+        });
 
 
 

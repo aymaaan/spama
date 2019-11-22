@@ -76,11 +76,35 @@ class OrderController extends Controller
         $data->driver_id = $request->driver_id;
         $data->user_id = Auth::user()->id;
         $data->save();
+
 $orderStos = new OrderStop();
-        $orderStos->order_id =$request->$data->id;
-        $orderStos->branch_stop =$request->branch_stop;
-        $orderStos->branch_stop =$request->branch_stop;
-        $orderStos->branch_stop =$request->branch_stop;
+        $orderStos->order_id =$data->id;
+        if ($request->branch_stop > 0)
+        {$var = null;
+            foreach ($request->branch_stop as $item)
+            {
+                $var = $var . ','  . $item;
+                $orderStos->branch_stop =$var;
+            }
+        }
+        if ($request->customer_stop > 0)
+        {
+            foreach ($request->customer_stop as $item)
+            {
+                $orderStos->customer_stop =$item;
+            }
+        }
+        if ($request->other_stop > 0)
+        {
+            foreach ($request->other_stop as $item)
+            {
+
+                $orderStos->other_stop =$item;
+            }
+        }
+//        $orderStos->branch_stop[] =$request->branch_stop ;
+//        $orderStos->customer_stop[] =$request->customer_stop ;
+//        $orderStos->other_stop[] =$request->other_stop;
         $orderStos->save();
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'success');
@@ -90,9 +114,9 @@ $orderStos = new OrderStop();
 
     public function edit(Request $request, $id)
     {
-        if (Gate::denies(['update_orders'])) {
-            abort(404);
-        }
+//        if (Gate::denies(['update_orders'])) {
+//            abort(404);
+//        }
         $drivers = User::where('role','driver')->pluck('name','id');
         $cities = City::pluck('title', 'id');
         $branches = Branch::pluck('title', 'id');
