@@ -75,6 +75,23 @@ class CustomersController extends Controller
  }
 
 
+ public function pricing($id)
+ {
+
+  if ( Gate::denies(['customers','create_customers'])  ) { abort(404); }
+  $customer = Customers::find($id);
+  $serial = CustomersAssessmentProducts::where('customer_id',$id)->orderBy('serial','desc')->first();
+  if($serial) {
+  $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)
+   ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
+   ->groupBy('product_id')
+   ->orderBy('customers_assessment_products.id','desc')
+   ->get();
+ } else {
+   $total_products = [];
+ }
+  return view('backend.pages.customers.pricing' , compact('total_products','customer') );
+}
 
    public function create()
   {

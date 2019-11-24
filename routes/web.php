@@ -238,8 +238,8 @@ Route::get('/consumer/products/{id}', 'AssessmentController@consumer_products');
 Route::get('/assessment_products/{id}/delete', 'AssessmentController@products_delete');
 Route::get('/assessment_products/details/{id}', 'AssessmentController@details_assessment_products_by_serial');
 Route::get('/consumer/re_assessment/{id}', 'AssessmentController@re_assessment');
-
-
+Route::get('/consumer/re_assessment/{id}', 'AssessmentController@re_assessment');
+Route::get('/customers/pricing/{id}', 'CustomersController@pricing');
 
 //cities
 Route::resource('/cities', 'CityController');
@@ -275,4 +275,3 @@ Route::group( ['prefix' => Config::get('app.locale')  , 'namespace' => 'Frontend
 
 
 });
-

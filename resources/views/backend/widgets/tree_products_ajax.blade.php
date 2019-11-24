@@ -22,8 +22,12 @@
   @foreach($categories->products as $category)
     <tr>
       <th>{{ $category->sku }} {!! Form::hidden('products_doc[]', $category->id  , ['id'=>'products_doc'.$category->id ] ) !!}  </th>
+      @if( Auth::user()->display_content_ar == 1 )
       <th>{{ $category->title_ar }}</th>
+      @endif
+      @if( Auth::user()->display_content_en == 1 ) 
       <th>{{ $category->title_en }}</th>
+      @endif
       <td>{!! Form::select('unit_id[]', $units ,  null , ['id'=>'unit_id_'.$category->id, 'style'=>'width:80px;', 'class' => 'form-control'  ] ) !!}</td>
       <td>{!! Form::number('quantity[]', null , ['id'=>'quantity' , 'product_id'=> $category->id , 'style'=>'width:80px;', 'class' => 'form-control' , 'placeholder'=> __('backend.quantity') ] ) !!}</td>
       <td>{!! Form::text('price[]', null , ['id'=>'price_'.$category->id, 'class' => 'form-control', 'style'=>'width:80px;' , 'placeholder'=> __('backend.price') ] ) !!}</td>

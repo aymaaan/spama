@@ -32,10 +32,7 @@
             aria-expanded="false">{{ __('backend.activity') }}</a>
           </li>
 
-          <li class="nav-item">
-            <a style="width: 200px;"  class="nav-link" id="show_pricing-tab2" data-toggle="tab" href="#show_pricing" aria-controls="profile2"
-            aria-expanded="false">{{ __('backend.show_pricing') }}</a>
-          </li>
+        
 
 
         </ul>
@@ -487,61 +484,7 @@
 
 
 
-
-
-
-
-
-
-
-
-<div role="tabpanel" class="tab-pane" id="show_pricing" aria-labelledby="show_pricing-tab2" aria-expanded="true">
-  
-    
-<div class="col-md-12">
-        
-
-<table id="example" class="table table-striped table-bordered zero-configuration dataTable">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">رقم المنتج</th>
-      <th scope="col">البيان</th>
-      <th scope="col">الوحدة</th>
-      <th scope="col">الكمية</th>
-      <th scope="col">سعر الوحدة</th>
-      <th scope="col"> المجموع </th>
-    </tr>
-  </thead>
-  <tbody>
-
-
-@foreach($total_products as $k=>$product)
-    <tr>
-      <th> {{ $k + 1 }}</th>
-
-      <th> {{ $product->info['sku'] }} </th>
-      <th> {{ $product->info['title_ar'] }} </th>
-      <th> {{ $product->unit['title']  }} </th>
-      <th> {{ $product->total_all_products  }} </th>
-      <th> {{ round($product->total_all_price / $product->total_all_products)    }} </th>
-      <th> {{ $product->total_all_price  }} </th>
-    </tr>
-@endforeach
-    
-
-   
-
-  </tbody>
-</table>
-
-التقييم رقم ({{ $product->serial }}) بتاريخ {{ $product->assessment_date }}
-
-
-</div>
-
-
-</div>   
+ 
 		  
 </div>
 

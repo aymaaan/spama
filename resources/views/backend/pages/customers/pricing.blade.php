@@ -9,43 +9,304 @@
               <div class="card">
                 <div class="card-head">
                   <div class="card-header">
-                    <h4 class="card-title">  {{ __('backend.assessment') }}   </h4>
+                    <h4 class="card-title">عرض اسعار</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                     
                   </div>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                  
-                  <div class="col-md-6">
-
-                  <select name="customer" id="customer" class="select2 form-control">
-                  <option value="0" >----</option>
-                  @foreach($customers as $customer)
-                          <option value="{{$customer->id}}">
-                          {{$customer->name}}    
-                          </option>
-                  @endforeach 
-                        
-                      </select>
-
-                      </div>
-
-                      <hr>
 
 
-                      <a  id="new_registration" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/create?ref=assessment" class="btn btn-success btn"> {{ __('backend.new_registration') }}  </a>
 
-                     <div style="display:none;" id="tools"> 
+<div class="row">
 
-                      <a id="assessment_products_doctor"  href="" class="btn btn-success btn"> {{ __('backend.assessment_products_by_doctor') }}  </a>
+@if($total_products)
 
-                      <a id="assessment_products_delegate" href="" class="btn btn-info btn"> {{ __('backend.assessment') }}  </a>
+<div class="col-md-12">
 
-                      <a id="assessment_products_pricing" href="" class="btn btn-danger btn"> {{ __('backend.pricing') }}  </a>
+    <div class="form-group">
+   
+      رقم  : {{ $total_products[0]->serial }}
+
+    </div>
+  
+    </div>
 
 
-                      </div>
+    
+<div class="col-md-12">
+
+<div class="form-group">
+
+  التاريخ  : {{ $total_products[0]->assessment_date }}
+
+</div>
+
+</div>
+
+@endif
+
+<div class="col-md-12">
+
+    <div class="form-group">
+   
+      السيد  : {{$customer->name}}
+
+    </div>
+  
+    </div>
+
+
+    <div class="col-md-12">
+    <div class="form-group">
+    
+     
+      العنوان  : {{$customer->address}}
+
+
+    </div>
+  
+    </div>
+
+             
+    
+
+    <div class="col-md-12">
+
+    <h4 class="form-section"><i class="la la-commenting"></i>  موجز التسعيرة     </h4>
+   
+    <div class="form-group">
+    
+     
+      المجموع  :
+      
+      @if($total_products)
+      
+       {{$total_products->sum('total_all_price')}}
+
+       @else
+
+       0
+
+       @endif
+
+
+    </div>
+  
+    </div>
+
+
+    
+    <div class="col-md-12">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الخصم  : ------
+
+
+    </div>
+  
+    </div>
+
+
+    <div class="col-md-12">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الصافى  : ------
+
+
+    </div>
+  
+    </div>
+
+    
+    <div class="col-md-12">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الضريبة  : ------
+
+
+    </div>
+  
+    </div>
+
+
+
+
+<div class="col-md-12">
+
+    
+   
+<div class="form-group">
+
+ 
+  الصافى مع الضريبة  : ------
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-12">
+
+<h4 class="form-section"><i class="la la-commenting"></i>  الشروط والاحكام      </h4>
+   
+<div class="form-group">
+
+ 
+   طريقة الدفع   : ------
+
+
+</div>
+
+</div>
+
+
+<div class="col-md-12">
+
+<div class="form-group">
+
+ 
+   صلاحية العرض    : ------
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-12">
+
+<div class="form-group">
+
+ 
+   مكان التسليم     : ------
+
+
+</div>
+
+</div>
+
+
+<div class="col-md-12">
+
+<div class="form-group">
+
+ 
+   مدة التوريد      : ------
+
+
+</div>
+
+</div>
+
+<div class="col-md-12">
+
+<div class="form-group">
+
+ 
+   ملاحظات       : ------
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+@if($total_products)
+
+
+     <div class="col-md-12">
+        
+
+        <table id="example" class="table table-striped table-bordered zero-configuration dataTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">رقم المنتج</th>
+              <th scope="col">البيان</th>
+              <th scope="col">الوحدة</th>
+              <th scope="col">الكمية</th>
+              <th scope="col">سعر الوحدة</th>
+              <th scope="col"> المجموع </th>
+            </tr>
+          </thead>
+          <tbody>
+        
+        
+        @foreach( $total_products as $k=>$product)
+            <tr>
+              <th> {{ $k + 1 }}</th>
+        
+              <th> {{ $product->info['sku'] }} </th>
+              <th> {{ $product->info['title_ar'] }} </th>
+              <th> {{ $product->unit['title']  }} </th>
+              <th> {{ $product->total_all_products  }} </th>
+              <th> {{ round($product->total_all_price / $product->total_all_products)    }} </th>
+              <th> {{ $product->total_all_price  }} </th>
+            </tr>
+        @endforeach
+            
+        
+           
+        
+          </tbody>
+        </table>
+        
+   
+        </div>
+
+        @endif
+	  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     </div>
@@ -146,7 +407,7 @@ $("#assessment_products_doctor").attr("href","{{url('')}}/{{config('settings.Bac
 
 $("#assessment_products_delegate").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_products_delegate/"+customer);
 
-$("#assessment_products_pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/"+customer);
+$("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_pricing/"+customer);
 
 } else {
   $("#new_registration").show(); 
