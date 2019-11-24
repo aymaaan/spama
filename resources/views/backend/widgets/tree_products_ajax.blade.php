@@ -4,8 +4,12 @@
   <thead>
     <tr>
       <th scope="col">SKU</th>
+      @if( Auth::user()->display_content_ar == 1 )
       <th scope="col">{{__('backend.arabic_title')}}</th>
+      @endif
+      @if( Auth::user()->display_content_en == 1 ) 
       <th scope="col">{{__('backend.english_title')}}</th>
+      @endif
       <th  scope="col">{{__('backend.unit')}}</th>
       <th scope="col"> {{__('backend.quantity')}} </th>
       <th scope="col"> {{ __('backend.price') }}</th>
