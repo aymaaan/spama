@@ -228,6 +228,7 @@ Route::get('/tree_products/{id}/{customer_id}/{request_by}', 'AssessmentControll
 Route::get('/assessment/{id}', 'AssessmentController@make_assessment');
 Route::post('/assessment/{id}', 'AssessmentController@post_assessment');
 
+Route::get('/pricing', 'AssessmentController@pricing_index');
 
 //customers assessment products
 Route::get('/assessment_products_doctor/{id}', 'AssessmentController@make_assessment_products_doctor');

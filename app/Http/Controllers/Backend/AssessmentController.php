@@ -276,13 +276,20 @@ class AssessmentController extends Controller
 
 
 
-
-
   public function assessment_index(Request $request )
   {
     if ( Gate::denies(['make_assessment'])  ) { abort(404); }
     $customers = Customers::where('customer_type','individual')->get();
     return view('backend.pages.customers.assessment_index' ,compact('customers') );
+
+  }
+
+
+  public function pricing_index(Request $request )
+  {
+    if ( Gate::denies(['make_assessment'])  ) { abort(404); }
+    $customers = Customers::where('customer_type','individual')->get();
+    return view('backend.pages.customers.pricing_index' ,compact('customers') );
 
   }
 
