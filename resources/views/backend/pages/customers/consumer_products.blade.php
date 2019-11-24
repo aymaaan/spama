@@ -18,7 +18,7 @@
                   <div class="card-body">
                   
 
-<form method="post" action="{{url('')}}/{{config('settings.BackendPath')}}/post_assessment_update_products_delegate/{{$customer->id}}">
+<form method="post" action="{{url('')}}/{{config('settings.BackendPath')}}/post_assessment_update_products_delegate/{{$total_products[0]->customer_id}}">
 
 <div class="table-responsive">
              
