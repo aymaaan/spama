@@ -23,7 +23,7 @@
 
 @if($total_products)
 
-<div class="col-md-12">
+<div class="col-md-6">
 
     <div class="form-group">
    
@@ -35,7 +35,7 @@
 
 
     
-<div class="col-md-12">
+<div class="col-md-6">
 
 <div class="form-group">
 
@@ -47,7 +47,7 @@
 
 @endif
 
-<div class="col-md-12">
+<div class="col-md-6">
 
     <div class="form-group">
    
@@ -58,7 +58,7 @@
     </div>
 
 
-    <div class="col-md-12">
+    <div class="col-md-6">
     <div class="form-group">
     
      
@@ -66,16 +66,29 @@
 
 
     </div>
-  
+               
+    <br>
     </div>
 
-             
-    
+
+
 
     <div class="col-md-12">
+ 
+ <div class="form-group">
+ 
+ <h4 class="form-section"><i class="la la-commenting"></i>  موجز التسعيرة     </h4>
+ 
+ 
+ </div>
+ 
+ </div>
+      
 
-    <h4 class="form-section"><i class="la la-commenting"></i>  موجز التسعيرة     </h4>
+    <div class="col-md-6">
+
    
+    
     <div class="form-group">
     
      
@@ -97,8 +110,7 @@
     </div>
 
 
-    
-    <div class="col-md-12">
+    <div class="col-md-6">
 
     
    
@@ -113,7 +125,7 @@
     </div>
 
 
-    <div class="col-md-12">
+    <div class="col-md-6">
 
     
    
@@ -127,8 +139,7 @@
   
     </div>
 
-    
-    <div class="col-md-12">
+    <div class="col-md-6">
 
     
    
@@ -144,8 +155,7 @@
 
 
 
-
-<div class="col-md-12">
+    <div class="col-md-6">
 
     
    
@@ -163,14 +173,23 @@
 
 
 
-
-
-
-
 <div class="col-md-12">
+ 
+<div class="form-group">
 
+ 
 <h4 class="form-section"><i class="la la-commenting"></i>  الشروط والاحكام      </h4>
-   
+  
+
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+ 
 <div class="form-group">
 
  
@@ -181,8 +200,7 @@
 
 </div>
 
-
-<div class="col-md-12">
+<div class="col-md-6">
 
 <div class="form-group">
 
@@ -197,8 +215,7 @@
 
 
 
-
-<div class="col-md-12">
+<div class="col-md-6">
 
 <div class="form-group">
 
@@ -210,8 +227,7 @@
 
 </div>
 
-
-<div class="col-md-12">
+<div class="col-md-6">
 
 <div class="form-group">
 
@@ -223,8 +239,7 @@
 
 </div>
 
-<div class="col-md-12">
-
+<div class="col-md-6">
 <div class="form-group">
 
  
@@ -241,6 +256,16 @@
 
 
 
+<div class="col-md-12">
+ 
+ <div class="form-group">
+ 
+ <h4 class="form-section"><i class="la la-commenting"></i>  تفاصيل التسعيرة      </h4>
+ 
+ 
+ </div>
+ 
+ </div>
 
 
 
