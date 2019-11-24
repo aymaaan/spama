@@ -42,9 +42,6 @@
 
                       <a id="assessment_products_delegate" href="" class="btn btn-info btn"> {{ __('backend.assessment') }}  </a>
 
-                      <a id="assessment_products_pricing" href="" class="btn btn-danger btn"> {{ __('backend.show_pricing') }}  </a>
-
-
                       </div>
 
 
