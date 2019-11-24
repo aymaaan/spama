@@ -122,8 +122,15 @@
             //   });
             //   console.log(selData);
             // })
-
             $(function() {
+            var counter = 0;
+            $("#addMe").click(function(){
+                counter++;
+                $('#theCount_'+counter).show();
+
+            });
+            });
+                $(function() {
                 $('#colorselector').change(function(){
                     $('.colors').hide();
                     $('#' + $(this).val()).show();

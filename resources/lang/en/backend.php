@@ -272,4 +272,6 @@ return [
  'activity' => 'Activity',
  'name_order' => 'Applicant\'s Name',
  'show_pricing' => 'Pricing',
+'branch' => 'Branches',
+
 ];
