@@ -9,7 +9,7 @@
               <div class="card">
                 <div class="card-head">
                   <div class="card-header">
-                    <h4 class="card-title">  {{ __('backend.assessment') }}   </h4>
+                    <h4 class="card-title">  {{ __('backend.pricing') }}   </h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                     
                   </div>
@@ -17,61 +17,27 @@
                 <div class="card-content">
                   <div class="card-body">
                   
+                  <div class="col-md-6">
 
-<form method="post" action="{{url('')}}/{{config('settings.BackendPath')}}/post_assessment_update_products_delegate/{{$total_products[0]->customer_id}}">
+                  <select name="customer" id="customer" class="select2 form-control">
+                  <option value="0" >----</option>
+                  @foreach($customers as $customer)
+                          <option value="{{$customer->id}}">
+                          {{$customer->name}}    
+                          </option>
+                  @endforeach 
+                        
+                      </select>
 
-<div class="table-responsive">
-             
-<table  class="table table-striped table-bordered zero-configuration dataTable">
-  <thead>
-    <tr>
-      <th>SKU</th>
-      <th>{{__('backend.title')}}</th>
-      <th> {{__('backend.by')}}  </th>
-      
-      <th>{{__('backend.unit')}}</th>
-      <th> {{__('backend.quantity')}} </th>
-      <th> {{ __('backend.price') }}</th>
-      <th>  {{__('backend.estimate_consumption')}}  </th>
-     
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
+                      </div>
+
+                      <hr>
 
 
-  @foreach($total_products as $product)
-    <tr>
-      <th> {{ $product->info['sku'] }}  </th>
-      <th> {{ $product->info['title_ar'] }}  </th>
-      <th> @if($product->request_by == 'delegates') {{'تقييم'}} @else {{'احالة'}} @endif  </th>
-      <td >{!! Form::select('unit_id[]', $units ,  $product->unit_id , ['id'=>'unit_id_'.$product->id, 'class' => 'form-control' , 'style'=>'width:100px;'] ) !!}</td>
-      <td>{!! Form::number('quantity[]', $product->quantity , ['id'=>'quantity' , 'product_id'=> $product->id , 'class' => 'form-control' , 'style'=>'width:80px;' , 'placeholder'=> __('backend.quantity') ] ) !!}</td>
-      <td>{!! Form::text('price[]', $product->price , ['id'=>'price_'.$product->id, 'class' => 'form-control', 'style'=>'width:80px;'  ,  'placeholder'=> __('backend.price') ] ) !!}</td>
-      <td>{!! Form::text('estimate_consumption[]',  $product->estimate_consumption , ['id'=>'estimate_consumption_'.$product->id , 'style'=>'width:80px;', 'class' => 'form-control' , 'placeholder'=> __('backend.estimate_consumption') ] ) !!}</td>
-
-      <th> <a href="{{url('')}}/{{config('settings.BackendPath')}}/assessment_products/{{$product->id}}/delete" class="badge badge badge-danger float-right"><i class="la la-trash"></i> </a>  </th>
-      <th> {{$product->created_at}}  </th>
-    </tr>
-    {!! Form::hidden('products_doc[]', $product->product_id  , ['id'=>'products_doc'.$product->id, 'class' => 'form-control'  ] ) !!}
-    {!! Form::hidden('assessment_id[]', $product->id  , ['id'=>'assessment_id'.$product->id, 'class' => 'form-control'  ] ) !!}
-    
-  @endforeach
-
-  </tbody>
-</table>
-</div>
-{!! Form::token() !!}
+                      <a id="assessment_products_pricing" href="" class="btn btn-danger btn"> {{ __('backend.show_pricing') }}  </a>
 
 
-<button  type="submit" class="btn btn-success btn">
-<i class="icon-action-undo"></i>  تحديث   
-</button>
-
-
-</form>
-
+                      </div>
 
 
                     </div>
@@ -172,7 +138,7 @@ $("#assessment_products_doctor").attr("href","{{url('')}}/{{config('settings.Bac
 
 $("#assessment_products_delegate").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_products_delegate/"+customer);
 
-$("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_pricing/"+customer);
+$("#assessment_products_pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/"+customer);
 
 } else {
   $("#new_registration").show(); 
@@ -183,41 +149,6 @@ $("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assess
 
       });
   
-
-
-
-//Price
-$(document).on('change','#quantity',function(e)
-{
-e.preventDefault();
-var product_id = $(this).attr('product_id');
-var quantity =  $(this).val();
-var unit =  $("#unit_id_" + product_id ).val();
-if ( quantity > 0) {
-$("#price_" + product_id).prop('required',true);
-$("#estimate_consumption_" + product_id).prop('required',true);
-$("#quantity_" + product_id).prop('required',true);
-} else {
-$("#price_" + product_id).prop('required',false);
-$("#estimate_consumption_" + product_id).prop('required',false);
-$("#quantity_" + product_id).prop('required',false);
-}
-$.ajax(
-        {
-         url: "{{url('')}}/{{config('settings.BackendPath')}}/products/get_consumer_price/1/" + unit + "/" + quantity,
-         type: 'GET',
-
-       }).done( 
-
-       function(data) {
-        $("#price_" + product_id).val(data.customer_price);
-        
-        });
-
-});
-//Price
-
-
 </script>
 
 @endsection

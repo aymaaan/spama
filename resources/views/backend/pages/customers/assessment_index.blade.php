@@ -42,8 +42,6 @@
 
                       <a id="assessment_products_delegate" href="" class="btn btn-info btn"> {{ __('backend.assessment') }}  </a>
 
-                  
-
                       </div>
 
 
@@ -145,7 +143,7 @@ $("#assessment_products_doctor").attr("href","{{url('')}}/{{config('settings.Bac
 
 $("#assessment_products_delegate").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_products_delegate/"+customer);
 
-$("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assessment_pricing/"+customer);
+$("#assessment_products_pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/"+customer);
 
 } else {
   $("#new_registration").show(); 

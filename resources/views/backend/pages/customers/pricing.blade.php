@@ -9,68 +9,328 @@
               <div class="card">
                 <div class="card-head">
                   <div class="card-header">
-                    <h4 class="card-title">  {{ __('backend.assessment') }}   </h4>
+                    <h4 class="card-title">عرض اسعار</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                     
                   </div>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                  
-
-<form method="post" action="{{url('')}}/{{config('settings.BackendPath')}}/post_assessment_update_products_delegate/{{$total_products[0]->customer_id}}">
-
-<div class="table-responsive">
-             
-<table  class="table table-striped table-bordered zero-configuration dataTable">
-  <thead>
-    <tr>
-      <th>SKU</th>
-      <th>{{__('backend.title')}}</th>
-      <th> {{__('backend.by')}}  </th>
-      
-      <th>{{__('backend.unit')}}</th>
-      <th> {{__('backend.quantity')}} </th>
-      <th> {{ __('backend.price') }}</th>
-      <th>  {{__('backend.estimate_consumption')}}  </th>
-     
-      <th> </th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
 
 
-  @foreach($total_products as $product)
-    <tr>
-      <th> {{ $product->info['sku'] }}  </th>
-      <th> {{ $product->info['title_ar'] }}  </th>
-      <th> @if($product->request_by == 'delegates') {{'تقييم'}} @else {{'احالة'}} @endif  </th>
-      <td >{!! Form::select('unit_id[]', $units ,  $product->unit_id , ['id'=>'unit_id_'.$product->id, 'class' => 'form-control' , 'style'=>'width:100px;'] ) !!}</td>
-      <td>{!! Form::number('quantity[]', $product->quantity , ['id'=>'quantity' , 'product_id'=> $product->id , 'class' => 'form-control' , 'style'=>'width:80px;' , 'placeholder'=> __('backend.quantity') ] ) !!}</td>
-      <td>{!! Form::text('price[]', $product->price , ['id'=>'price_'.$product->id, 'class' => 'form-control', 'style'=>'width:80px;'  ,  'placeholder'=> __('backend.price') ] ) !!}</td>
-      <td>{!! Form::text('estimate_consumption[]',  $product->estimate_consumption , ['id'=>'estimate_consumption_'.$product->id , 'style'=>'width:80px;', 'class' => 'form-control' , 'placeholder'=> __('backend.estimate_consumption') ] ) !!}</td>
 
-      <th> <a href="{{url('')}}/{{config('settings.BackendPath')}}/assessment_products/{{$product->id}}/delete" class="badge badge badge-danger float-right"><i class="la la-trash"></i> </a>  </th>
-      <th> {{$product->created_at}}  </th>
-    </tr>
-    {!! Form::hidden('products_doc[]', $product->product_id  , ['id'=>'products_doc'.$product->id, 'class' => 'form-control'  ] ) !!}
-    {!! Form::hidden('assessment_id[]', $product->id  , ['id'=>'assessment_id'.$product->id, 'class' => 'form-control'  ] ) !!}
+<div class="row">
+
+@if($total_products)
+
+<div class="col-md-6">
+
+    <div class="form-group">
+   
+      رقم  : {{ $total_products[0]->serial }}
+
+    </div>
+  
+    </div>
+
+
     
-  @endforeach
+<div class="col-md-6">
 
-  </tbody>
-</table>
+<div class="form-group">
+
+  التاريخ  : {{ $total_products[0]->assessment_date }}
+
 </div>
-{!! Form::token() !!}
+
+</div>
+
+@endif
+
+<div class="col-md-6">
+
+    <div class="form-group">
+   
+      السيد  : {{$customer->name}}
+
+    </div>
+  
+    </div>
 
 
-<button  type="submit" class="btn btn-success btn">
-<i class="icon-action-undo"></i>  تحديث   
-</button>
+    <div class="col-md-6">
+    <div class="form-group">
+    
+     
+      العنوان  : {{$customer->address}}
 
 
-</form>
+    </div>
+               
+    <br>
+    </div>
+
+
+
+
+    <div class="col-md-12">
+ 
+ <div class="form-group">
+ 
+ <h4 class="form-section"><i class="la la-commenting"></i>  موجز التسعيرة     </h4>
+ 
+ 
+ </div>
+ 
+ </div>
+      
+
+    <div class="col-md-6">
+
+   
+    
+    <div class="form-group">
+    
+     
+      المجموع  :
+      
+      @if($total_products)
+      
+       {{$total_products->sum('total_all_price')}}
+
+       @else
+
+       0
+
+       @endif
+
+
+    </div>
+  
+    </div>
+
+
+    <div class="col-md-6">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الخصم  : ------
+
+
+    </div>
+  
+    </div>
+
+
+    <div class="col-md-6">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الصافى  : ------
+
+
+    </div>
+  
+    </div>
+
+    <div class="col-md-6">
+
+    
+   
+    <div class="form-group">
+    
+     
+      الضريبة  : ------
+
+
+    </div>
+  
+    </div>
+
+
+
+    <div class="col-md-6">
+
+    
+   
+<div class="form-group">
+
+ 
+  الصافى مع الضريبة  : ------
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-12">
+ 
+<div class="form-group">
+
+ 
+<h4 class="form-section"><i class="la la-commenting"></i>  الشروط والاحكام      </h4>
+  
+
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-6">
+ 
+<div class="form-group">
+
+ 
+   طريقة الدفع   : ------
+
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="form-group">
+
+ 
+   صلاحية العرض    : ------
+
+
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+<div class="form-group">
+
+ 
+   مكان التسليم     : ------
+
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+
+<div class="form-group">
+
+ 
+   مدة التوريد      : ------
+
+
+</div>
+
+</div>
+
+<div class="col-md-6">
+<div class="form-group">
+
+ 
+   ملاحظات       : ------
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-12">
+ 
+ <div class="form-group">
+ 
+ <h4 class="form-section"><i class="la la-commenting"></i>  تفاصيل التسعيرة      </h4>
+ 
+ 
+ </div>
+ 
+ </div>
+
+
+
+
+@if($total_products)
+
+
+     <div class="col-md-12">
+        
+
+        <table id="example" class="table table-striped table-bordered zero-configuration dataTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">رقم المنتج</th>
+              <th scope="col">البيان</th>
+              <th scope="col">الوحدة</th>
+              <th scope="col">الكمية</th>
+              <th scope="col">سعر الوحدة</th>
+              <th scope="col"> المجموع </th>
+            </tr>
+          </thead>
+          <tbody>
+        
+        
+        @foreach( $total_products as $k=>$product)
+            <tr>
+              <th> {{ $k + 1 }}</th>
+        
+              <th> {{ $product->info['sku'] }} </th>
+              <th> {{ $product->info['title_ar'] }} </th>
+              <th> {{ $product->unit['title']  }} </th>
+              <th> {{ $product->total_all_products  }} </th>
+              <th> {{ round($product->total_all_price / $product->total_all_products)    }} </th>
+              <th> {{ $product->total_all_price  }} </th>
+            </tr>
+        @endforeach
+            
+        
+           
+        
+          </tbody>
+        </table>
+        
+   
+        </div>
+
+        @endif
+	  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -183,41 +443,6 @@ $("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assess
 
       });
   
-
-
-
-//Price
-$(document).on('change','#quantity',function(e)
-{
-e.preventDefault();
-var product_id = $(this).attr('product_id');
-var quantity =  $(this).val();
-var unit =  $("#unit_id_" + product_id ).val();
-if ( quantity > 0) {
-$("#price_" + product_id).prop('required',true);
-$("#estimate_consumption_" + product_id).prop('required',true);
-$("#quantity_" + product_id).prop('required',true);
-} else {
-$("#price_" + product_id).prop('required',false);
-$("#estimate_consumption_" + product_id).prop('required',false);
-$("#quantity_" + product_id).prop('required',false);
-}
-$.ajax(
-        {
-         url: "{{url('')}}/{{config('settings.BackendPath')}}/products/get_consumer_price/1/" + unit + "/" + quantity,
-         type: 'GET',
-
-       }).done( 
-
-       function(data) {
-        $("#price_" + product_id).val(data.customer_price);
-        
-        });
-
-});
-//Price
-
-
 </script>
 
 @endsection

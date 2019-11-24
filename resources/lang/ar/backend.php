@@ -224,7 +224,7 @@
   'good' => 'جيدة',
   'assessment_products_by_doctor' => 'إحالة من طبيب',
   'assessment_products_by_delegate' => 'منتجات المندوب',
-  'pricing' => 'التسعير',
+  'pricing' => 'عرض الاسعار',
   'choose_file' => 'اختر الملف',
   'new_registration' => 'تسجيل جديد',
   'estimate_consumption' => 'الاستهلاك بالايام',

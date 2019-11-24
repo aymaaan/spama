@@ -228,6 +228,7 @@ Route::get('/tree_products/{id}/{customer_id}/{request_by}', 'AssessmentControll
 Route::get('/assessment/{id}', 'AssessmentController@make_assessment');
 Route::post('/assessment/{id}', 'AssessmentController@post_assessment');
 
+Route::get('/pricing', 'AssessmentController@pricing_index');
 
 //customers assessment products
 Route::get('/assessment_products_doctor/{id}', 'AssessmentController@make_assessment_products_doctor');
@@ -238,8 +239,8 @@ Route::get('/consumer/products/{id}', 'AssessmentController@consumer_products');
 Route::get('/assessment_products/{id}/delete', 'AssessmentController@products_delete');
 Route::get('/assessment_products/details/{id}', 'AssessmentController@details_assessment_products_by_serial');
 Route::get('/consumer/re_assessment/{id}', 'AssessmentController@re_assessment');
-
-
+Route::get('/consumer/re_assessment/{id}', 'AssessmentController@re_assessment');
+Route::get('/customers/pricing/{id}', 'CustomersController@pricing');
 
 //cities
 Route::resource('/cities', 'CityController');
@@ -275,4 +276,3 @@ Route::group( ['prefix' => Config::get('app.locale')  , 'namespace' => 'Frontend
 
 
 });
-
