@@ -78,28 +78,32 @@ class OrderController extends Controller
         $data->save();
 
 $orderStos = new OrderStop();
-        $orderStos->order_id =$data->id;
+//        $orderStos->order_id =$data->id;
         if ($request->branch_stop > 0)
-        {$var = null;
-            foreach ($request->branch_stop as $item)
+        {
+            foreach ($request->branch_stop as $k=>$item)
             {
-                $var = $var . ','  . $item;
-                $orderStos->branch_stop =$var;
+                $orderStos->order_id =$data->id;
+                $orderStos->branch_stop =$item;
+                $orderStos->save();
             }
         }
         if ($request->customer_stop > 0)
         {
-            foreach ($request->customer_stop as $item)
+            foreach ($request->customer_stop as $k=>$item)
             {
+                $orderStos->order_id =$data->id;
                 $orderStos->customer_stop =$item;
+                $orderStos->save();
             }
         }
         if ($request->other_stop > 0)
         {
-            foreach ($request->other_stop as $item)
+            foreach ($request->other_stop as $k=>$item)
             {
-
+                $orderStos->order_id =$data->id;
                 $orderStos->other_stop =$item;
+                $orderStos->save();
             }
         }
 //        $orderStos->branch_stop[] =$request->branch_stop ;

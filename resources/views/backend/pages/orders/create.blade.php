@@ -124,11 +124,95 @@
             // })
             $(function() {
             var counter = 0;
-            $("#addMe").click(function(){
+            $("#addMe").click(function(event)
+            {
+                event.preventDefault(); // cancel default behavior
                 counter++;
-                $('#theCount_'+counter).show();
 
+                $('#theCount_'+counter).show();
+                //... rest of add logic
             });
+                $("#Remove_1").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_1').remove();
+                });
+                $("#Remove_2").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_2').remove();
+                });
+                $("#Remove_3").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_3').remove();
+                });
+                $("#Remove_4").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_4').remove();
+                });
+                $("#Remove_5").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_5').remove();
+                });
+                $("#Remove_6").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_6').remove();
+                });
+                $("#Remove_7").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_7').remove();
+                });
+                $("#Remove_8").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_8').remove();
+                });
+                $("#Remove_9").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_9').remove();
+                });
+                $("#Remove_10").click(function(event)
+                {
+                    event.preventDefault(); // cancel default behavior
+
+                    $('#theCount_10').remove();
+                });
+                //
+            });
+            // $(function() {
+            // var counter = 0;
+            // $("#addMe").click(function(){
+            //     counter++;
+            //
+            //     $('#theCount_'+counter).show();
+            //
+            // });
+            // });
+            function submitForm(form) {
+                alert("submitted");
+            }
+
+            $('#send').click(function(e) {
+                this.disabled = true;
+            });
+
+            $('#frm').submit(function(e) {
+                submitForm(this);
             });
                 $(function() {
                 $('#colorselector').change(function(){
