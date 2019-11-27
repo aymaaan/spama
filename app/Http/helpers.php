@@ -137,59 +137,7 @@ function generate_2digits_serial($table) {
   return $serial;
 }
 
-function SendSMS ($number,$msg,$time = null) {
 
-if( config('settings.sms_notifications') == 'ON' ) {
-
-$timeToSend = null;
-$numbers = '+966'.$number;
-$userName = config('settings.username_msegat') ;
-$apiKey = config('settings.apikey_msegat') ;
-$msgEncoding = 'UTF8' ;
-$userSender = config('settings.sender_msegat');
-$msg = $msg;
-$reqDlr = 'false';
-
-
-
-
-      if ( $time != null ) {
-          
-          $timeToSend = "later";
-         
-      }  
-
-
-$url = 'https://www.msegat.com/gw/';
-
-if ( $timeToSend == 'later') {
-
-  $myvars = 'userName=' . $userName . '&apiKey=' . $apiKey . '&msgEncoding=' . $msgEncoding . '&userSender=' . $userSender . '&numbers=' . $numbers . '&reqDlr=' . $reqDlr . '&reqDlr=' . $reqDlr . '&msg=' . $msg . '&timeToSend=later'. '&exactTime='.$time   ;
-
-    
-} else {
-    
- $myvars = 'userName=' . $userName . '&apiKey=' . $apiKey . '&msgEncoding=' . $msgEncoding . '&userSender=' . $userSender . '&numbers=' . $numbers . '&reqDlr=' . $reqDlr . '&reqDlr=' . $reqDlr . '&msg=' . $msg  ;
-
-}
-
-
-
-$ch = curl_init( $url );
-curl_setopt( $ch, CURLOPT_POST, 1);
-curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
-curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-curl_setopt( $ch, CURLOPT_HEADER, 0);
-curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-
-$response = curl_exec( $ch );
-
-
-
-
-}
-
-}
 
 
 function coupoun () {

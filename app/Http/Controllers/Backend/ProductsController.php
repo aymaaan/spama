@@ -131,8 +131,11 @@ public function get_names_products_ajax(Request $request , $type)
   public function get_consumer_price_ajax(Request $request , $product_id , $unit_id , $quantity )
   {
     $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$unit_id)->first();
+
+
     if($products_units) {
       $customer_price = $products_units->customer_price * $quantity;
+    
     } else {
       $customer_price = 0;
     }
@@ -140,6 +143,8 @@ public function get_names_products_ajax(Request $request , $type)
     if(!$customer_price) {
       $customer_price = 0;
     }
+
+   
    return response()->json(['customer_price'=>  $customer_price ]);
 
 
