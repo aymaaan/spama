@@ -81,7 +81,7 @@ Route::get('/products/get_product_serial_ajax/{sku}', 'ProductsController@get_pr
 Route::get('/products/photos/delete/{id}', 'ProductsController@delete_photos');
 Route::get('/products/get_consumer_price/{product_id}/{unit_id}/{quantity}', 'ProductsController@get_consumer_price_ajax');
 Route::resource('/products', 'ProductsController');
-
+Route::post('/pricing/update_settings_pricing', 'CustomersController@update_settings_pricing');
 
 //ZIP files
 Route::get('/coupons/qr/{title}', 'ArchiveZipController@zip_qr');

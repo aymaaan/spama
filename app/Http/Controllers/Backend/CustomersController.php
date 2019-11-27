@@ -14,6 +14,7 @@ use App\Diseases;
 use App\AssessmentQuestions;
 use App\CustomersAssessmentProducts;
 use App\Doctors;
+use App\CustomersPricingSettings;
 use Session;
 use Gate;
 use Auth;
@@ -88,13 +89,20 @@ class CustomersController extends Controller
    ->orderBy('customers_assessment_products.id','desc')
    ->get();
 
+$pricing_settings = CustomersPricingSettings::where('serial' , $serial->serial)->first();
+if(isset($pricing_settings->discount)) {
+  $discount = $total_products->sum('total_all_price')  * $pricing_settings->discount / 100 ;
+} else {
+  $discount = 0;
+}
+
+
 
 $total_vat = 0;
 
 foreach($total_products as $product) {
   if($product->info['value_added'] == 'YES') {
     $total_vat = $total_vat + ( $product->total_all_price  * 5 / 100);
-    
   }
 }
 
@@ -103,7 +111,7 @@ foreach($total_products as $product) {
  } else {
    $total_products = [];
  }
-  return view('backend.pages.customers.pricing' , compact('total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('discount','total_vat','total_products','customer') );
 }
 
    public function create()
@@ -292,6 +300,19 @@ public function update(Request $request, $id)
   }
 
 
+  public function update_settings_pricing( Request $request )
+  {
+    if ( Gate::denies(['update_customers'])  ) { abort(404); }
+    $data = CustomersPricingSettings::where('serial' , $request->serial)->first();
+if(!$data) {
+  $data = new CustomersPricingSettings;
+}
+    $data->discount = $request->discount;
+    $data->serial = $request->serial;
+    $data->save();
+    
+    return back();
+  }
 
 
 
