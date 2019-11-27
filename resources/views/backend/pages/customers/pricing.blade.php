@@ -326,7 +326,7 @@
               <th> {{ $product->unit['title']  }} </th>
               <th> {{ $product->total_all_products  }} </th>
               <th> {{ round($product->total_all_price / $product->total_all_products)    }} </th>
-              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else لا يوجد @endif </th>
+              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
               <th> {{ $product->total_all_price  }} </th>
             </tr>
         @endforeach
