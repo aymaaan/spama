@@ -102,7 +102,7 @@
 
        0
 
-       @endif
+      @endif
 
 
     </div>
@@ -132,7 +132,15 @@
     <div class="form-group">
     
      
-      الصافى  : ------
+      الصافى  :  @if($total_products)
+      
+      {{$total_products->sum('total_all_price')}}
+
+      @else
+
+      0
+
+     @endif
 
 
     </div>
@@ -146,7 +154,16 @@
     <div class="form-group">
     
      
-      الضريبة  : ------
+      الضريبة  : 
+      @if( $total_vat && $total_vat > 0)
+      
+      {{ $total_vat }}
+
+      @else
+
+     لا يوجد
+
+     @endif
 
 
     </div>
@@ -162,7 +179,15 @@
 <div class="form-group">
 
  
-  الصافى مع الضريبة  : ------
+  الصافى مع الضريبة  :  @if($total_products)
+      
+      {{ $total_products->sum('total_all_price') + $total_vat }}
+
+      @else
+
+     ---
+
+     @endif
 
 
 </div>
@@ -285,6 +310,7 @@
               <th scope="col">الوحدة</th>
               <th scope="col">الكمية</th>
               <th scope="col">سعر الوحدة</th>
+              <th scope="col"> الضريبة </th>
               <th scope="col"> المجموع </th>
             </tr>
           </thead>
@@ -300,6 +326,7 @@
               <th> {{ $product->unit['title']  }} </th>
               <th> {{ $product->total_all_products  }} </th>
               <th> {{ round($product->total_all_price / $product->total_all_products)    }} </th>
+              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else لا يوجد @endif </th>
               <th> {{ $product->total_all_price  }} </th>
             </tr>
         @endforeach

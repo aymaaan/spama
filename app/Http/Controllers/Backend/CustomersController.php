@@ -87,10 +87,23 @@ class CustomersController extends Controller
    ->groupBy('product_id')
    ->orderBy('customers_assessment_products.id','desc')
    ->get();
+
+
+$total_vat = 0;
+
+foreach($total_products as $product) {
+  if($product->info['value_added'] == 'YES') {
+    $total_vat = $total_vat + ( $product->total_all_price  * 5 / 100);
+    
+  }
+}
+
+
+
  } else {
    $total_products = [];
  }
-  return view('backend.pages.customers.pricing' , compact('total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('total_vat','total_products','customer') );
 }
 
    public function create()
