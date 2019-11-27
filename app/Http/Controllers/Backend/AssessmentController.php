@@ -175,6 +175,14 @@ class AssessmentController extends Controller
 
 
     foreach( $total_products as $k=>$product) {
+
+    $products_units = \DB::table('products_units')->where('product_id'  , $product->product_id )->where('unit_id', $product->unit_id )->first();
+
+    if($products_units) {
+      $customer_price = $products_units->customer_price ;
+    } else {
+      $customer_price = $request->price[$k] / $request->quantity[$k];
+    }
    
      $customer_question = new CustomersAssessmentProducts;
      $customer_question->customer_id = $product->customer_id;
@@ -187,6 +195,7 @@ class AssessmentController extends Controller
      $customer_question->assessment_date = date('Y-m-d');
      $customer_question->serial = $serial + 1;
      $customer_question->user_id = \Auth::user()->id;
+     $customer_question->unit_price = $customer_price;
      $customer_question->save();
     
     }
@@ -226,6 +235,19 @@ class AssessmentController extends Controller
 
     foreach( $request->products_doc as $k=>$product_id) {
       if ( $request->quantity[$k] && $request->price[$k] && $request->estimate_consumption[$k] ) {
+
+
+
+
+    $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
+
+    if($products_units) {
+      $customer_price = $products_units->customer_price ;
+    } else {
+      $customer_price = $request->price[$k] / $request->quantity[$k];
+    }
+
+
      $customer_question = new CustomersAssessmentProducts;
      $customer_question->customer_id = $id;
      $customer_question->product_id = $product_id;
@@ -237,6 +259,7 @@ class AssessmentController extends Controller
      $customer_question->assessment_date = date('Y-m-d');
      $customer_question->serial = $serial + 1;
      $customer_question->user_id = \Auth::user()->id;
+     $customer_question->unit_price = $customer_price;
      $customer_question->save();
     }
     

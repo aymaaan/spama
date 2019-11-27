@@ -155,7 +155,7 @@
     
      
       الضريبة  : 
-      @if( $total_vat && $total_vat > 0)
+      @if( isset($total_vat) && $total_vat > 0)
       
       {{ $total_vat }}
 
