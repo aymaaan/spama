@@ -235,7 +235,7 @@ class AssessmentController extends Controller
 
     foreach( $request->products_doc as $k=>$product_id) {
 
-    if ( $request->quantity[$k] && $request->price[$k] && $request->estimate_consumption[$k] ) {
+    if ( $request->quantity[$k] && $request->price[$k] ) {
 
     $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
 
