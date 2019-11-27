@@ -25,7 +25,7 @@ public function names() {
 
 public function products() {
 
-    return $this->hasMany('App\Products' , 'mother_product_id' , 'serial');
+    return $this->hasMany('App\Products' , 'mother_product_id' , 'serial')->groupBy('sku');
 
 
 }
