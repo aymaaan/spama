@@ -306,7 +306,7 @@
      <div class="col-md-12">
         
 
-        <table id="example" class="table table-striped table-bordered zero-configuration dataTable">
+        <table id="example" class="table table-striped table-bordered table-responsive  zero-configuration dataTable">
           <thead>
             <tr>
               <th scope="col">#</th>
