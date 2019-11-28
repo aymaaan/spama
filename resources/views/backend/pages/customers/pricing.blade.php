@@ -315,8 +315,9 @@
               <th scope="col">الوحدة</th>
               <th scope="col">الكمية</th>
               <th scope="col">سعر الوحدة</th>
-              <th scope="col"> الضريبة </th>
+              
               <th scope="col"> الخصم </th>
+              <th scope="col"> الضريبة </th>
               <th scope="col"> المجموع </th>
             </tr>
           </thead>
@@ -332,12 +333,13 @@
               <th> {{ $product->unit['title']  }} </th>
               <th> {{ $product->total_all_products  }} </th>
               <th> {{ $product->unit_price }} </th>
-              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
-              <th   >
+              <th>
               <a href="#" data-toggle="modal" data-target="#settings_discount_{{$product->id}}" >
-               {{ $product->total_all_price * $product->discount / 100 }} 
+               {{ $product->discount }} %
                </a>
                </th>
+              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
+              
               <th>
               @if($product->info['value_added'] == 'YES')
                {{ $product->total_all_price +  $product->total_all_price * 5 / 100 -  ( $product->total_all_price * $product->discount / 100  ) }}
