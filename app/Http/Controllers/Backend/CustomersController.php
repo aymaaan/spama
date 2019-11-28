@@ -95,9 +95,10 @@ class CustomersController extends Controller
 $total_vat = 0;
 $total_discount = 0;
 foreach($total_products as $product) {
+  $total_discount = $total_discount + ( $product->total_all_price  * $product->discount / 100);
   if($product->info['value_added'] == 'YES') {
     $total_vat = $total_vat + ( $product->total_all_price  * 5 / 100);
-    $total_discount = $total_discount + ( $product->total_all_price  * $product->discount / 100);;
+    
   }
 }
 
