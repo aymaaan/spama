@@ -119,12 +119,8 @@
   
 
 
-            
-<a href="#"  data-toggle="modal" data-target="#settings_pricing" >
-
-      الخصم  :  {{ $discount }}
-      
-</a>
+      الخصم  :  {{ $total_discount }}
+ 
 
 
     </div>
@@ -139,7 +135,7 @@
      
       الصافى  :  @if($total_products)
       
-      {{ $total_products->sum('total_all_price') - $discount  }}
+      {{ $total_products->sum('total_all_price') - $total_discount  }}
 
       @else
 
@@ -160,15 +156,15 @@
     
      
       الضريبة  : 
-      @if( isset($total_vat) && $total_vat > 0)
+    @if( isset($total_vat) && $total_vat > 0)
       
       {{ $total_vat }}
 
-      @else
+    @else
 
      لا يوجد
 
-     @endif
+    @endif
 
 
     </div>
@@ -186,7 +182,7 @@
  
   الصافى مع الضريبة  :  @if($total_products)
       
-      {{ $total_products->sum('total_all_price') + $total_vat -  $discount }}
+      {{ $total_products->sum('total_all_price') + $total_vat -  $total_discount }}
 
       @else
 
@@ -285,58 +281,6 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="settings_pricing" tabindex="-1" role="dialog" aria-labelledby="settings_user" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
-@if($total_products[0]->serial)
-{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
-
-<div class="form-body">
-
-{!! Form::hidden('serial', $total_products[0]->serial , ['class' => 'form-control' ] ) !!}
-
-
-<div class="row">
-                          
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput1"> <B> % نسبة الخصم  </B>   </label>
-
-                              {!! Form::text('discount', $discount  , ['class' => 'form-control' ] ) !!}
-                             
-                            </div>
-                          </div>
-
-                          </div>
-
-</div>
-
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
-        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
-      </div>
-
-      {!!Form::close()!!}
-      @endif
-
-    </div>
-
-
-  </div>
-</div>
 
 
 
@@ -372,13 +316,14 @@
               <th scope="col">الكمية</th>
               <th scope="col">سعر الوحدة</th>
               <th scope="col"> الضريبة </th>
+              <th scope="col"> الخصم </th>
               <th scope="col"> المجموع </th>
             </tr>
           </thead>
           <tbody>
         
         
-        @foreach( $total_products as $k=>$product)
+@foreach( $total_products as $k=>$product)
             <tr>
               <th> {{ $k + 1 }}</th>
         
@@ -388,14 +333,79 @@
               <th> {{ $product->total_all_products  }} </th>
               <th> {{ $product->unit_price }} </th>
               <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
+              <th   >
+              <a href="#" data-toggle="modal" data-target="#settings_discount_{{$product->id}}" >
+               {{ $product->total_all_price * $product->discount / 100 }} 
+               </a>
+               </th>
               <th>
               @if($product->info['value_added'] == 'YES')
-               {{ $product->total_all_price +  $product->total_all_price * 5 / 100 }}
+               {{ $product->total_all_price +  $product->total_all_price * 5 / 100 -  ( $product->total_all_price * $product->discount / 100  ) }}
                @else
-               {{ $product->total_all_price  }}
+               {{ $product->total_all_price -  ( $product->total_all_price * $product->discount / 100  ) }}
                @endif
                 </th>
             </tr>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="settings_discount_{{$product->id}}" tabindex="-1" role="dialog" aria-labelledby="settings_user" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_discount_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('row_id', $product->id , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> % نسبة الخصم  | {{ $product->info['title_ar'] }}  </B>   </label>
+
+                              {!! Form::text('discount', $product->discount  , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
         @endforeach
             
         

@@ -89,20 +89,15 @@ class CustomersController extends Controller
    ->orderBy('customers_assessment_products.id','desc')
    ->get();
 
-$pricing_settings = CustomersPricingSettings::where('serial' , $serial->serial)->first();
-if(isset($pricing_settings->discount)) {
-  $discount = $total_products->sum('total_all_price')  * $pricing_settings->discount / 100 ;
-} else {
-  $discount = 0;
-}
 
 
 
 $total_vat = 0;
-
+$total_discount = 0;
 foreach($total_products as $product) {
   if($product->info['value_added'] == 'YES') {
     $total_vat = $total_vat + ( $product->total_all_price  * 5 / 100);
+    $total_discount = $total_discount + ( $product->total_all_price  * $product->discount / 100);;
   }
 }
 
@@ -111,7 +106,7 @@ foreach($total_products as $product) {
  } else {
    $total_products = [];
  }
-  return view('backend.pages.customers.pricing' , compact('discount','total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('total_discount','total_vat','total_products','customer') );
 }
 
    public function create()
@@ -311,6 +306,22 @@ if(!$data) {
     $data->serial = $request->serial;
     $data->save();
     
+    return back();
+  }
+
+
+
+
+  
+  public function update_discount_pricing( Request $request )
+  {
+    if ( Gate::denies(['update_customers'])  ) { abort(404); }
+    $data = CustomersAssessmentProducts::find( $request->row_id )->first();
+if(!$data) {
+  $data = new CustomersAssessmentProducts;
+}
+    $data->discount = $request->discount;
+    $data->save();
     return back();
   }
 
