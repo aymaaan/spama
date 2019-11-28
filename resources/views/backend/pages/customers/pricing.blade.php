@@ -335,7 +335,8 @@
               <th> {{ $product->unit_price }} </th>
               <th>
               <a href="#" data-toggle="modal" data-target="#settings_discount_{{$product->id}}" >
-               {{ $product->discount }} %
+               
+               {{ $product->discount OR '0' }}%
                </a>
                </th>
               <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
