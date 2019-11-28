@@ -56,7 +56,8 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-// dd($request->toArray());
+//        dd($request->toArray());
+
 //        if (Gate::denies(['create_orders'])) {
 //            abort(404);
 //        }
@@ -77,39 +78,27 @@ class OrderController extends Controller
         $data->user_id = Auth::user()->id;
         $data->save();
 
-$orderStos = new OrderStop();
+
 //        $orderStos->order_id =$data->id;
-        if ($request->branch_stop > 0)
-        {
-            foreach ($request->branch_stop as $k=>$item)
-            {
-                $orderStos->order_id =$data->id;
-                $orderStos->branch_stop =$item;
-                $orderStos->save();
-            }
+        if ($request->stop_value && $request->stop_type > 0)
+
+            foreach ($request->stop_value as $k=>$item) {
+                if ($item > 0) {
+                 //   dd($item);
+                    $orderStos = new OrderStop();
+                    $orderStos->order_id = $data->id;
+                    $orderStos->stop_value = $item;
+                    //$orderStos->stop_type = $item['stop_type'];
+                    $orderStos->save();
+                }
+
         }
-        if ($request->customer_stop > 0)
-        {
-            foreach ($request->customer_stop as $k=>$item)
-            {
-                $orderStos->order_id =$data->id;
-                $orderStos->customer_stop =$item;
-                $orderStos->save();
-            }
-        }
-        if ($request->other_stop > 0)
-        {
-            foreach ($request->other_stop as $k=>$item)
-            {
-                $orderStos->order_id =$data->id;
-                $orderStos->other_stop =$item;
-                $orderStos->save();
-            }
-        }
+
+
 //        $orderStos->branch_stop[] =$request->branch_stop ;
 //        $orderStos->customer_stop[] =$request->customer_stop ;
 //        $orderStos->other_stop[] =$request->other_stop;
-        $orderStos->save();
+//        $orderStos->save();
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'success');
         return Redirect(config('settings.BackendPath') . '/orders');

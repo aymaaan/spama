@@ -145,8 +145,8 @@
                     <div class="form-group">
                         <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                        {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                        {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                        <input type="hidden" value="branch" name="stop_type[]">
                     </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@
                 <div id="yellow1" class="col-md-4 colors1">
                     <div class="form-group">
                         <label for="projectinput1"> {{__('backend.customer')}} </label>
-                        <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                        <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                             <option value="0">----</option>
                             @foreach($customers as $customer)
                                 <option value="{{$customer->id}}">
@@ -170,6 +170,7 @@
                             @endforeach
 
                         </select>
+                        <input type="hidden" value="customer" name="stop_type[]">
                     </div>
                 </div>
 
@@ -183,8 +184,8 @@
                     <div class="form-group">
                         <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                        {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                        {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                        <input type="hidden" value="other" name="stop_type[]">
                     </div>
                 </div>
             </div>
@@ -232,8 +233,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+<input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -246,7 +247,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -257,6 +258,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -270,8 +272,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -321,8 +323,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -335,7 +337,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -346,6 +348,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -359,8 +362,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -410,8 +413,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -424,7 +427,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -435,6 +438,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -448,8 +452,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -499,8 +503,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -513,7 +517,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -524,6 +528,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -537,8 +542,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">stop_value
                             </div>
                         </div>
                     </div>
@@ -588,8 +593,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -602,7 +607,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -613,6 +618,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -626,8 +632,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -677,8 +683,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -691,7 +697,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -702,6 +708,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -715,8 +722,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -766,8 +773,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -780,7 +787,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -791,6 +798,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -804,8 +812,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -855,8 +863,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -869,7 +877,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -880,6 +888,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -893,8 +902,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -944,8 +953,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                                {!! Form::select('branch_stop[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
-
+                                {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                         </div>
                     </div>
@@ -958,7 +967,7 @@
                         <div id="yellow1" class="col-md-4 colors1">
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.customer')}} </label>
-                                <select name="customer_stop[]" class="select2 form-control" style="width: 330px !important;">
+                                <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
                                     <option value="0">----</option>
                                     @foreach($customers as $customer)
                                         <option value="{{$customer->id}}">
@@ -969,6 +978,7 @@
                                     @endforeach
 
                                 </select>
+                                <input type="hidden" value="customer" name="stop_type[]">
                             </div>
                         </div>
 
@@ -982,8 +992,8 @@
                             <div class="form-group">
                                 <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                                {!! Form::text('other_stop[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                                {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                <input type="hidden" value="other" name="stop_type[]">
                             </div>
                         </div>
                     </div>
