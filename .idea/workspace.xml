@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11709764-651c-4958-b7f0-34011aab15ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/backend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +24,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2292">
-              <caret line="192" column="35" selection-start-line="192" selection-start-column="35" selection-end-line="192" selection-end-column="35" />
+            <state relative-caret-position="132">
+              <caret line="178" column="9" selection-end-line="307" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/lang/ar/backend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7371">
+              <caret line="273" column="2" selection-start-line="273" selection-start-column="2" selection-end-line="273" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="274" selection-start-line="274" selection-end-line="274" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -32,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+            <state relative-caret-position="-439">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
               <folding>
                 <element signature="e#48#66#0#PHP" expanded="true" />
               </folding>
@@ -44,33 +63,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="997" selection-start-line="997" selection-end-line="997" />
+            <state relative-caret-position="96">
+              <caret line="147" column="52" selection-start-line="147" selection-start-column="52" selection-end-line="147" selection-end-column="52" />
               <folding>
                 <element signature="n#ul#0;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#3;n#div#0;n#!!top" />
                 <element signature="n#ul#0;n#div#1;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#2;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#ul#0;n#div#3;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#div#4;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#li#3;n#ul#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#ul#0;n#div#5;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#5;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#ul#0;n#div#6;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#6;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#ul#0;n#div#7;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#7;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#ul#0;n#div#8;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#8;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#div#9;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#ul#0;n#div#9;n#div#3;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#9;n#div#3;n#div#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -82,6 +79,7 @@
     <findStrings>
       <find>stop</find>
       <find>un</find>
+      <find>branch_stop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,10 +94,10 @@
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/products/create.blade.php" />
         <option value="$PROJECT_DIR$/app/OrderStop.php" />
-        <option value="$PROJECT_DIR$/resources/lang/ar/backend.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/backend.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/lang/ar/backend.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" />
       </list>
     </option>
@@ -215,7 +213,7 @@
       <path value="$PROJECT_DIR$/vendor/consoletvs/support" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="60" />
     <option name="y" value="148" />
     <option name="width" value="1054" />
@@ -394,16 +392,18 @@
       <workItem from="1574513947161" duration="6726000" />
       <workItem from="1574626902808" duration="5445000" />
       <workItem from="1574716187656" duration="8322000" />
+      <workItem from="1574794296949" duration="1709000" />
+      <workItem from="1574881986716" duration="9505000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53190000" />
+    <option name="totallyTimeSpent" value="64404000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.093797274" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -469,20 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7371">
-          <caret line="273" column="2" selection-start-line="273" selection-start-column="2" selection-end-line="274" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7398">
-          <caret line="274" selection-start-line="274" selection-end-line="274" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/OrderStop.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -511,50 +497,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/ar/backend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="997" selection-start-line="997" selection-end-line="997" />
-          <folding>
-            <element signature="n#ul#0;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#1;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#2;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#2;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#3;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#div#4;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#li#3;n#ul#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#4;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#5;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#5;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#6;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#6;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#7;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#7;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#ul#0;n#div#8;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#8;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#div#9;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#ul#0;n#div#9;n#div#3;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#9;n#div#3;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="7371">
+          <caret line="273" column="2" selection-start-line="273" selection-start-column="2" selection-end-line="273" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2292">
-          <caret line="192" column="35" selection-start-line="192" selection-start-column="35" selection-end-line="192" selection-end-column="35" />
+        <state relative-caret-position="132">
+          <caret line="178" column="9" selection-end-line="307" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="274" selection-start-line="274" selection-end-line="274" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="147" column="52" selection-start-line="147" selection-start-column="52" selection-end-line="147" selection-end-column="52" />
+          <folding>
+            <element signature="n#ul#0;n#div#3;n#div#0;n#!!top" />
+            <element signature="n#ul#0;n#div#1;n#div#3;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="104" column="45" selection-start-line="104" selection-start-column="45" selection-end-line="104" selection-end-column="45" />
+        <state relative-caret-position="-439">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="e#48#66#0#PHP" expanded="true" />
           </folding>
