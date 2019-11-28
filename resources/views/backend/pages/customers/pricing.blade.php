@@ -339,11 +339,13 @@
               %{{ $product->discount OR '0' }}
                </a>
                </th>
-              <th> @if($product->info['value_added'] == 'YES') {{ $product->total_all_price * 5 / 100 }} @else 0  @endif </th>
+              <th> @if($product->info['value_added'] == 'YES') {{ ($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100 }} @else 0  @endif </th>
               
               <th>
+                
+
               @if($product->info['value_added'] == 'YES')
-               {{ $product->total_all_price + ( $product->total_all_price * $product->discount / 100  ) +  $product->total_all_price * 5 / 100  }}
+               {{ $product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) +  (($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100)  }}
                @else
                {{ $product->total_all_price -  ( $product->total_all_price * $product->discount / 100  ) }}
                @endif
