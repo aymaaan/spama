@@ -317,10 +317,9 @@ if(!$data) {
   public function update_discount_pricing( Request $request )
   {
     if ( Gate::denies(['update_customers'])  ) { abort(404); }
-    $data = CustomersAssessmentProducts::find( $request->row_id )->first();
-if(!$data) {
-  $data = new CustomersAssessmentProducts;
-}
+   
+    $data = CustomersAssessmentProducts::find( $request->row_id );
+
     $data->discount = $request->discount;
     $data->save();
     return back();
