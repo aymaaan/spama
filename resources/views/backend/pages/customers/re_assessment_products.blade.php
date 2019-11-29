@@ -311,7 +311,7 @@ $("#quantity_" + product_id).prop('required',false);
 }
 $.ajax(
         {
-         url: "{{url('')}}/{{config('settings.BackendPath')}}/products/get_consumer_price/1/" + unit + "/" + quantity,
+         url: "{{url('')}}/{{config('settings.BackendPath')}}/products/get_consumer_price/"+ product_id +"/" + unit + "/" + quantity,
          type: 'GET',
 
        }).done( 

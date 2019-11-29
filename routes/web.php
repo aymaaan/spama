@@ -82,6 +82,7 @@ Route::get('/products/photos/delete/{id}', 'ProductsController@delete_photos');
 Route::get('/products/get_consumer_price/{product_id}/{unit_id}/{quantity}', 'ProductsController@get_consumer_price_ajax');
 Route::resource('/products', 'ProductsController');
 Route::post('/pricing/update_settings_pricing', 'CustomersController@update_settings_pricing');
+Route::post('/pricing/update_discount_pricing', 'CustomersController@update_discount_pricing');
 
 //ZIP files
 Route::get('/coupons/qr/{title}', 'ArchiveZipController@zip_qr');
