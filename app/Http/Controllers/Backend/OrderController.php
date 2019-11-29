@@ -62,7 +62,7 @@ class OrderController extends Controller
 //            abort(404);
 //        }
 
-
+//
         $data = new Order;
         $data->date = $request->date;
         $data->from_time = $request->from_time;
@@ -84,11 +84,12 @@ class OrderController extends Controller
 
             foreach ($request->stop_value as $k=>$item) {
                 if ($item > 0) {
-                 //   dd($item);
+                  // dd($item[$k]);
+
                     $orderStos = new OrderStop();
                     $orderStos->order_id = $data->id;
                     $orderStos->stop_value = $item;
-                    //$orderStos->stop_type = $item['stop_type'];
+                    $orderStos->stop_type = $request->stop_type[$k];
                     $orderStos->save();
                 }
 
@@ -114,14 +115,18 @@ class OrderController extends Controller
         $cities = City::pluck('title', 'id');
         $branches = Branch::pluck('title', 'id');
         $customers = Customers::all();
-        $data = DB::table('orders')
-            ->join('order_stops', 'orders.id', '=', 'order_stops.order_id')
-            ->select('orders.*', 'order_stops.*')
-            ->where('order_id',$id)
-            ->first();
+        $data = Order::find($id);
+        $dataStop = OrderStop::where('order_id',$data->id)->get();
+
+//            DB::table('orders')
+//            ->join('order_stops', 'orders.id', '=', 'order_stops.order_id')
+//            ->select('orders.*', 'order_stops.*')
+//            ->where('order_id',$id)
+//            ->first();
+//        dd($dataStop);
         $user = User::find($data->user_id)->first();
-//dd($data);
-        return view('backend.pages.orders.edit', compact('user','data','drivers','cities','branches','customers'));
+
+        return view('backend.pages.orders.edit', compact('dataStop','user','data','drivers','cities','branches','customers'));
     }
 
 
@@ -179,13 +184,25 @@ class OrderController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        if (Gate::denies(['delete_orders'])) {
-            abort(404);
-        }
+//        if (Gate::denies(['delete_orders'])) {
+//            abort(404);
+//        }
 
         Order::find($id)->delete();
         $orderstop = OrderStop::where('order_id',$id)->first();
         $orderstop->delete();
+        Session::flash('msg', ' Done! ');
+        Session::flash('alert', 'danger');
+        return back();
+    }
+    public function destoryStop(Request $request, $id)
+    {
+//        if (Gate::denies(['delete_orders'])) {
+//            abort(404);
+//        }
+
+        OrderStop::find($id)->delete();
+
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'danger');
         return back();

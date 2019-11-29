@@ -258,6 +258,7 @@ Route::get('/drivers/{id}/delete', 'DriverController@destroy');
 //orders
 Route::resource('/orders', 'OrderController');
 Route::get('/orders/{id}/delete', 'OrderController@destroy');
+Route::get('/orders/{id}/delete/stop', 'OrderController@destoryStop');
 Route::get('/getCustomer', 'OrderController@getCustomer');
 
 //branches
