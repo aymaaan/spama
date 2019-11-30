@@ -130,62 +130,64 @@
                   </div>
                   <div>
                     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.stops')}}      </h4>
-                @foreach($dataStop as $stop)
+{{--                @php $count = 0; @endphp--}}
+{{--                    @foreach($dataStop as $stop)--}}
+                        <div id="upd">
                     <ul class="nav nav-tabs nav-topline">
 
 
                       <li class="nav-item">
-                        <a style="width: 200px;" class="nav-link @if ($stop->stop_type == 'branch') active @endif" id="home-tab2" data-toggle="tab" href="#home2"
+                        <a style="width: 200px;" class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
                            aria-controls="home2"
                            aria-expanded="true">{{ __('backend.branch') }}</a>
                       </li>
 
 
                       <li class="nav-item">
-                        <a style="width: 200px;" class="nav-link @if ($stop->stop_type == 'customer') active @endif" id="profile-tab2" data-toggle="tab" href="#profile2"
+                        <a style="width: 200px;" class="nav-link " id="profile-tab" data-toggle="tab" href="#profile"
                            aria-controls="profile2"
                            aria-expanded="false">{{ __('backend.customer') }}</a>
                       </li>
 
 
                       <li class="nav-item">
-                        <a style="width: 200px;" class="nav-link @if ($stop->stop_type == 'other') active @endif"  id="websites_properties-tab2" data-toggle="tab"
+                        <a style="width: 200px;" class="nav-link "  id="websites_properties-tab" data-toggle="tab"
                            href="#websites_properties" aria-controls="websites_properties"
                            aria-expanded="false">{{ __('backend.other') }}</a>
                       </li>
 
-{{--                      <li class="nav-item">--}}
-{{--                        <button href="{{config('settings.BackendPath').'/orders/'.$stop->id.'/delete/stop'}}" class="btn btn-danger">{{ __('backend.remove') }}</button>--}}
 
-{{--                      </li>--}}
 
-                      <input type="hidden" value="{{$stop->id}}" name="order_id[]">
+
                     </ul>
                     <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
-                      <div role="tabpanel" class="tab-pane active" id="home2" aria-labelledby="home-tab2" aria-expanded="true">
+                      <div role="tabpanel" class="tab-pane active" id="home" aria-labelledby="home-tab" aria-expanded="true">
+
+                        @foreach($branchStop as $branch)
 
 
-                        <div class="row">
-
-                          <div id="red1" class="col-md-4 colors1">
+                          <div id="red1" class="col-md-3 colors1">
                             <div class="form-group">
                               <label for="projectinput1"> {{__('backend.from')}} </label>
 
-                              {!! Form::select('stop_value[]',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                              {!! Form::select('stop_value[]',$branches,$branch->stop_value, ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
                               <input type="hidden" value="branch" name="stop_type[]">
                             </div>
                           </div>
-                        </div>
+                          <div class="col-md-1">                              <button href="{{config('settings.BackendPath').'/orders/'.$branch->id.'/delete/stop'}}" class="btn btn-danger">X</button>
+                          </div>
 
 
-                      </div>
-                      <div class="tab-pane" id="profile2" role="tabpanel" aria-labelledby="profile-tab2"
+@endforeach
+{{--                      </div>--}}
+                      <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab"
                            aria-expanded="false">
-                        <div class="row">
-                          <div id="yellow1" class="col-md-4 colors1">
+                        @foreach($customerStop as $customer)
+
+                          <div  class="col-md-2 ">
                             <div class="form-group">
                               <label for="projectinput1"> {{__('backend.customer')}} </label>
-                              <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;">
+                              <select name="stop_value[]" class="select2 form-control" style="width: 330px !important;" value="{{$customer->stop_value}}">
                                 <option value="0">----</option>
                                 @foreach($customers as $customer)
                                   <option value="{{$customer->id}}">
@@ -196,30 +198,38 @@
                                 @endforeach
 
                               </select>
-                              <input type="hidden" value="customer" name="stop_type[]">
-                            </div>
+
+                            </div><input type="hidden" value="customer" name="stop_type[]">
+                          </div>
+                          <div class="col-md-1">                              <a href="{{config('settings.BackendPath').'/orders/'.$branch->id.'/delete/stop'}}" class="btn btn-danger">X</a>
                           </div>
 
-                        </div>
-
+                        @endforeach
                       </div>
-                      <div class="tab-pane" id="websites_properties" role="tabpanel" aria-labelledby="websites_properties-tab2"
+                      <div class="tab-pane" id="websites_properties" role="tabpanel" aria-labelledby="websites_properties-tab"
                            aria-expanded="false">
-                        <div class="row">
-                          <div id="blue1" class="col-md-4 colors1">
+                        @foreach($otherStop as $other)
+
+                          <div id="blue1" class="col-md-3 colors1">
                             <div class="form-group">
                               <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                              {!! Form::text('stop_value[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                              {!! Form::text('stop_value[]', $other->stop_value, ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
                               <input type="hidden" value="other" name="stop_type[]">
                             </div>
                           </div>
-                        </div>
+                          <div class="col-md-1">                              <a href="{{config('settings.BackendPath').'/orders/'.$branch->id.'/delete/stop'}}" class="btn btn-danger">X</a>
+                          </div>
 
+                        @endforeach
+{{--</div>--}}
                       </div>
 
                     </div>
-@endforeach
+                    </div>
+                        </div>
+{{--@endforeach--}}
+{{--                        </div>--}}
                     <div id="theCount_1" style="display: none">
                       <ul class="nav nav-tabs nav-topline">
 

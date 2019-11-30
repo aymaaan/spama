@@ -116,8 +116,10 @@ class OrderController extends Controller
         $branches = Branch::pluck('title', 'id');
         $customers = Customers::all();
         $data = Order::find($id);
-        $dataStop = OrderStop::where('order_id',$data->id)->get();
-
+        $branchStop = OrderStop::where('order_id',$data->id)->where('stop_type','branch')->get();
+        $customerStop = OrderStop::where('order_id',$data->id)->where('stop_type','customer')->get();
+        $otherStop = OrderStop::where('order_id',$data->id)->where('stop_type','other')->get();
+//dd($branchStop);
 //            DB::table('orders')
 //            ->join('order_stops', 'orders.id', '=', 'order_stops.order_id')
 //            ->select('orders.*', 'order_stops.*')
@@ -126,7 +128,7 @@ class OrderController extends Controller
 //        dd($dataStop);
         $user = User::find($data->user_id)->first();
 
-        return view('backend.pages.orders.edit', compact('dataStop','user','data','drivers','cities','branches','customers'));
+        return view('backend.pages.orders.edit', compact('branchStop','customerStop','otherStop','user','data','drivers','cities','branches','customers'));
     }
 
 
@@ -195,12 +197,12 @@ class OrderController extends Controller
         Session::flash('alert', 'danger');
         return back();
     }
-    public function destoryStop(Request $request, $id)
+    public function destoryStop( $id)
     {
 //        if (Gate::denies(['delete_orders'])) {
 //            abort(404);
 //        }
-
+dd($id);
         OrderStop::find($id)->delete();
 
         Session::flash('msg', ' Done! ');
