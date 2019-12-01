@@ -134,9 +134,9 @@ class OrderController extends Controller
 
     public function update(Request $request, $id)
     {
-        if (Gate::denies(['update_orders'])) {
-            abort(404);
-        }
+//        if (Gate::denies(['update_orders'])) {
+//            abort(404);
+//        }
 
 
         $data = Order::find($id);
@@ -154,13 +154,26 @@ class OrderController extends Controller
         $data->user_id = Auth::user()->id;
         $data->save();
 
-        $orderStops = Order::where('order_id',$id)->first();
-        $orderStos = OrderStop::find($orderStops->id);
-        $orderStos->order_id =$request->$data->id;
-        $orderStos->branch_stop =$request->branch_stop;
-        $orderStos->branch_stop =$request->branch_stop;
-        $orderStos->branch_stop =$request->branch_stop;
-        $orderStos->save();
+if ($request->order_id > 0 ){
+    foreach ($request->order_id as $k=>$item){
+        $orderStops = OrderStop::find($item);
+        $orderStops->stop_value = $request->stop_value[$k];
+        $orderStops->stop_type = $request->stop_type[$k];
+        $orderStops->save();
+    }
+}else{
+        foreach ($request->stop_value as $k=>$item) {
+            if ($item > 0) {
+                $orderStos = new OrderStop();
+                $orderStos->order_id = $id;
+                $orderStos->stop_value = $item;
+                $orderStos->stop_type = $request->stop_type[$k];
+                $orderStos->save();
+            }
+
+        }
+}
+
 
 
         Session::flash('msg', ' Done! ');
@@ -202,7 +215,7 @@ class OrderController extends Controller
 //        if (Gate::denies(['delete_orders'])) {
 //            abort(404);
 //        }
-dd($id);
+
         OrderStop::find($id)->delete();
 
         Session::flash('msg', ' Done! ');
