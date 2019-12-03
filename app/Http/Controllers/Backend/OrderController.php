@@ -155,8 +155,9 @@ class OrderController extends Controller
         $data->save();
 
 if ($request->order_id > 0 ){
+
     foreach ($request->order_id as $k=>$item){
-        $orderStops = OrderStop::find($item);
+        $orderStops = OrderStop::find($item); dd($orderStops );
         $orderStops->stop_value = $request->stop_value[$k];
         $orderStops->stop_type = $request->stop_type[$k];
         $orderStops->save();
