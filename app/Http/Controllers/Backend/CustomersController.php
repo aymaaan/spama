@@ -14,6 +14,7 @@ use App\Diseases;
 use App\AssessmentQuestions;
 use App\CustomersAssessmentProducts;
 use App\Doctors;
+use App\Branch;
 use App\CustomersPricingSettings;
 use Session;
 use Gate;
@@ -89,8 +90,45 @@ class CustomersController extends Controller
    ->orderBy('customers_assessment_products.id','desc')
    ->get();
 
+   $pricing_settings = CustomersPricingSettings::where('serial',$serial->serial)->first();
+
+   if($pricing_settings) {
+     $payment_before =  $pricing_settings->payment_before;
+     $payment_while =  $pricing_settings->payment_while;
+     $payment_after =  $pricing_settings->payment_after;
+     $offer_validity = $pricing_settings->offer_validity;
+     $supplying_duration = $pricing_settings->supplying_duration;
+     $notes = $pricing_settings->notes;
+     $delivery_place_type = $pricing_settings->delivery_place_type;
+     if( $delivery_place_type == 'customer') {
+     $delivery_place_value = Customers::find($pricing_settings->delivery_place_value);
+     $delivery_place_value =  $delivery_place_value->name;
+    }
+    elseif( $delivery_place_type == 'from') {
+     
+      $delivery_place_value = Branch::find($pricing_settings->delivery_place_value);
+      $delivery_place_value =  $delivery_place_value->title;
+     } else {
+      $delivery_place_value =  $pricing_settings->delivery_place_value;
+     }
 
 
+
+
+
+
+   } else {
+    $payment_before = 0;
+    $payment_while = 0;
+    $payment_after = 0;
+    $offer_validity = 0;
+   $supplying_duration = 0;
+   $notes = null;
+   $delivery_place_type = null;
+   $delivery_place_value = null;
+   }
+
+   
 
 $total_vat = 0;
 $total_discount = 0;
@@ -101,13 +139,21 @@ foreach($total_products as $product) {
     
   }
 }
-
-
-
  } else {
    $total_products = [];
+   $payment_before = 0;
+   $payment_while = 0;
+   $payment_after = 0;
+   $offer_validity = 0;
+   $supplying_duration = 0;
+   $notes = 0;
+   $delivery_place_type = 0;
+   $delivery_place_value = 0;
  }
-  return view('backend.pages.customers.pricing' , compact('total_discount','total_vat','total_products','customer') );
+
+
+
+  return view('backend.pages.customers.pricing' , compact('delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
 }
 
    public function create()
@@ -298,14 +344,53 @@ public function update(Request $request, $id)
 
   public function update_settings_pricing( Request $request )
   {
+
+   
     if ( Gate::denies(['update_customers'])  ) { abort(404); }
     $data = CustomersPricingSettings::where('serial' , $request->serial)->first();
 if(!$data) {
   $data = new CustomersPricingSettings;
 }
-    $data->discount = $request->discount;
+
+if($request->serial) {
+    
+   if( $request->payment_before ) {
+    $data->payment_before = $request->payment_before;
+   }
+
+   if( $request->payment_while ) {
+    $data->payment_while = $request->payment_while;
+   }
+
+   if($request->payment_after ) {
+    $data->payment_after = $request->payment_after;
+   }
+
+   if($request->offer_validity) {
+    $data->offer_validity = $request->offer_validity;
+   }
+
+   if($request->supplying_duration) {
+    $data->supplying_duration = $request->supplying_duration;
+   }
+
+   if($request->delivery_place_type) {
+    $data->delivery_place_type = $request->delivery_place_type;
+   }
+
+   if($request->delivery_place_value) {
+    $data->delivery_place_value = $request->delivery_place_value;
+   }
+
+   
+   if($request->notes) {
+    $data->notes = $request->notes;
+   }
+
     $data->serial = $request->serial;
     $data->save();
+
+  }
     
     return back();
   }
@@ -326,5 +411,30 @@ if(!$data) {
   }
 
 
+  
+  
+  public function get_delivery_place_type( Request $request , $id )
+  {
+    if ( Gate::denies(['update_customers'])  ) { abort(404); }
+   
+    if(  $id  == 'from') {
+
+      $data = Branch::get();
+
+
+    } elseif (  $id  == 'customer') {
+
+      $data = Customers::get();
+
+    } 
+    
+    return view('backend.widgets.get_delivery_place_type' , compact('data','id'));
+
+
+  }
+
+
+
+  
 
 }
