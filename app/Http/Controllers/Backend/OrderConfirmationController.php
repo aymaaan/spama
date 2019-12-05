@@ -6,7 +6,7 @@ use App\Customers;
 use App\Driver;
 use App\Order;
 use App\City;
-use App\order_confirmationtop;
+use App\Status;
 use App\User;
 use App\Branch;
 use Illuminate\Http\Request;
@@ -35,7 +35,7 @@ class OrderConfirmationController extends Controller
 //            abort(404);
 //        }
         $statuses = Status::all();
-        $data = Order::where('order_status','pending')->get();
+        $data = Order::where('order_status',1)->get();
 
         return view('backend.pages.order_confirmation.index', compact('data','statuses'));
     }
@@ -155,10 +155,10 @@ class OrderConfirmationController extends Controller
 
     public function statusChange(Request $request)
     {
+//dd($request->status_id);
 
-        \Illuminate\Support\Facades\DB::table('book_dates')
-            ->where('id', $request->id)
-            ->update(['status_id' => $request->status_id]);
+        Order::where('id', $request->id)
+            ->update(['order_status' => $request->status_id]);
         if ($request->status_id == 1) {
             $color = '#e67e22';
 

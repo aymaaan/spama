@@ -269,6 +269,7 @@ Route::get('/branches/{id}/delete', 'BranchController@destroy');
 //branches
 Route::resource('/order_confirmation', 'OrderConfirmationController');
 Route::get('/order_confirmation/{id}/delete', 'OrderConfirmationController@destroy');
+Route::get('/statusChange', 'OrderConfirmationController@statusChange');
 
 
 });

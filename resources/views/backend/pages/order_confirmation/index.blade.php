@@ -49,10 +49,12 @@
                                     </thead>
                                     <tbody>
 
+                                    <script src="{{url('')}}/assets/app-assets/js/core/libraries/jquery.min.js" type="text/javascript"></script>
                                     @foreach ( $data as $k=>$row )
-
+<input type="hidden" id="order_id{{ $row->id }}" value="{{ $row->id }}">
                                         <tr>
-                                            <td>{{$k+1}}</td>
+                                            <td >{{$k+1}}</td>
+
                                             <td>{{$row->date}}</td>
                                             <td>
                                                 @php
@@ -71,23 +73,24 @@
                                             <td>
 
 
-                                                <select  class="bs-select form-control input-small status{{$item->id}}" data-style="blue" style="background:<?php
-                                                if($item->status_id == 1){echo '#e67e22';}
-                                                if($item->status_id == 2){echo '#2ecc71';}
-                                                if($item->status_id == 3){echo '#e74c3c';}
+                                                <select  class="bs-select form-control input-small status{{$row->id}}" data-style="blue" style="background:<?php
+//                                                if($row->order_status == 1){echo '#e67e22';}
+                                                if($row->order_status == 1){echo 'white';}
+                                                if($row->order_status == 2){echo '#2ecc71';}
+                                                if($row->order_status == 3){echo '#e74c3c';}
                                                 ?>">
 
                                                     {{--<option>{{\App\Status::where('id',$item->status_id )->get()->implode('name_en')}}</option>--}}
                                                     @foreach($statuses as $status)
 
 
-                                                        <option id="op{{$status->id}}" @if($status->id == $item->status_id ) selected
-                                                                @endif value="{{$status->id}}">{{$status->name_en}}</option>
+                                                        <option id="op{{$status->id}}" @if($status->id == $row->order_status ) selected
+                                                                @endif value="{{$status->id}}">{{$status->name}}</option>
                                                     @endforeach
                                                 </select>
                                                 <script>
                                                     $(function () {
-                                                        $('.status{{$item->id}}').change(function () {
+                                                        $('.status{{$row->id}}').change(function () {
 
                                                             $.ajaxSetup({
                                                                 headers: {
@@ -96,14 +99,14 @@
                                                             });
 
                                                             $.ajax({
-                                                                url: "/admin/statusChange",
+                                                                url: "/spama/pro@admin/statusChange",
                                                                 type: "GET",
                                                                 data: {
-                                                                    status_id: $('.status{{$item->id}}').val(),
-                                                                    id: $('#book_id{{$item->id}}').text()
+                                                                    status_id: $('.status{{$row->id}}').val(),
+                                                                    id: $('#order_id{{$row->id}}').val()
                                                                 },
                                                                 success: function (result) {
-                                                                    $('.status{{$item->id}}').css({'background': result});
+                                                                    $('.status{{$row->id}}').css({'background': result});
 
 
                                                                 }
