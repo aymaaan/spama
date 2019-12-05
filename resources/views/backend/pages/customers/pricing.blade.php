@@ -218,25 +218,284 @@
  
 <div class="form-group">
 
- 
-   طريقة الدفع   : ------
+<a href="#" data-toggle="modal" data-target="#settings_payment_methods" >
+   طريقة الدفع  
+   
+   
+</a>
+
+:  التعميد {{$payment_before}}% - التسليم {{$payment_while}}% - التركيب {{$payment_after }}%
 
 
 </div>
 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="settings_payment_methods" tabindex="-1" role="dialog" aria-labelledby="settings_payment_methods" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> %  التعميد</B>   </label>
+
+                              {!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> %  التسليم</B>   </label>
+
+                              {!! Form::text('payment_while', $payment_while  , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> %  التركيب</B>   </label>
+
+                              {!! Form::text('payment_after', $payment_after , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
 </div>
 
 <div class="col-md-6">
 
 <div class="form-group">
 
+<a href="#" data-toggle="modal" data-target="#settings_offer_validity" >
  
-   صلاحية العرض    : ------
+   صلاحية العرض    : 
+
+   </a>
+
+   {{$offer_validity}}
 
 
 </div>
 
 </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="settings_offer_validity" tabindex="-1" role="dialog" aria-labelledby="settings_payment_methods" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> صلاحية العرض </B>   </label>
+
+                              {!! Form::text('offer_validity', $offer_validity  , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+
+
+<!-- End MOdal -->
+
+
+<div class="col-md-6">
+
+<div class="form-group">
+
+ 
+<a href="#" data-toggle="modal" data-target="#settings_delivery_place" >
+ 
+   مكان التسليم     : 
+
+</a>
+
+@if($delivery_place_type == 'from')
+فرع :
+@elseif($delivery_place_type == 'customer')
+عميل :
+@endif
+
+{{$delivery_place_value}}
+
+
+</div>
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="settings_delivery_place" tabindex="-1" role="dialog" aria-labelledby="settings_payment_methods" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+
+
+
+
+                          
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>   مكان التسليم   </B>   </label>
+
+                             
+                                                      
+<Select required name="delivery_place_type" id="colorselector2" class="form-control">
+<option >----</option>
+<option value="from">{{__('backend.from')}}</option>
+<option value="customer">{{__('backend.customer')}}</option>
+<option value="other">{{__('backend.other')}}</option>
+</Select>
+                             
+                            </div>
+                          </div>
+
+
+
+
+                          <div id="delivery_place_div" class="col-md-9">
+
+
+                          
+                          </div>
+
+
+
+
+
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+
+
+
+
+
+
+
 
 
 
@@ -245,36 +504,156 @@
 
 <div class="form-group">
 
- 
-   مكان التسليم     : ------
+<a href="#" data-toggle="modal" data-target="#settings_supplying_duration" >
 
+   مدة التوريد      :
+
+</a>
+
+{{$supplying_duration}}
 
 </div>
 
 </div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="settings_supplying_duration" tabindex="-1" role="dialog" aria-labelledby="settings_payment_methods" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  مدة التوريد  </B>   </label>
+
+                              {!! Form::text('supplying_duration', $supplying_duration  , ['class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+
+
+
+
+
 
 <div class="col-md-6">
-
 <div class="form-group">
 
  
-   مدة التوريد      : ------
+<a href="#" data-toggle="modal" data-target="#settings_notes" >
+   ملاحظات :  
+</a>
 
-
-</div>
-
-</div>
-
-<div class="col-md-6">
-<div class="form-group">
-
- 
-   ملاحظات       : ------
-
+{{$notes}}
 
 </div>
 
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="settings_notes" tabindex="-1" role="dialog" aria-labelledby="settings_payment_methods" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  ملاحظات   </B>   </label>
+
+                              {!! Form::textarea('notes', $notes  , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+
+
+
+
+
+
+
 
 </div>
 
@@ -551,6 +930,33 @@ $("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assess
         });
 
       });
+
+
+
+  
+  $('select[name="delivery_place_type"]').on('change', function() {
+  var delivery_place_type = $(this).val();
+  
+           
+           $.ajax({
+  
+             beforeSend: function() {
+                $("#loading-image").show();              
+             },
+             
+               success: function() {
+               $('#delivery_place_div').load("{{url('')}}/{{config('settings.BackendPath')}}/pricing/delivery_place_type/"+ delivery_place_type );
+               $("#loading-image").hide();
+  
+               
+               
+             }
+        });
+        
+    
+          });
+
+
   
 </script>
 
