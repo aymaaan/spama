@@ -116,12 +116,7 @@
    
     <div class="form-group">
 
-  
-
-
       الخصم  :  {{ $total_discount }}
- 
-
 
     </div>
   
@@ -171,12 +166,8 @@
   
     </div>
 
-
-
     <div class="col-md-6">
 
-    
-   
 <div class="form-group">
 
  
@@ -195,10 +186,6 @@
 
 </div>
 
-
-
-
-
 <div class="col-md-12">
  
 <div class="form-group">
@@ -213,7 +200,6 @@
 </div>
 
 
-
 <div class="col-md-6">
  
 <div class="form-group">
@@ -224,7 +210,7 @@
    
 </a>
 
-:  التعميد {{$payment_before}}% - التسليم {{$payment_while}}% - التركيب {{$payment_after }}%
+:  قبل التعميد {{$payment_before}}% - عند التسليم {{$payment_while}}% - بعد التركيب {{$payment_after }}%
 
 
 </div>
@@ -254,7 +240,7 @@
                           
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  التعميد</B>   </label>
+                              <label for="projectinput1"> <B> %  قبل التعميد</B>   </label>
 
                               {!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!}
                              
@@ -264,7 +250,7 @@
 
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  التسليم</B>   </label>
+                              <label for="projectinput1"> <B> %  عند التسليم</B>   </label>
 
                               {!! Form::text('payment_while', $payment_while  , ['class' => 'form-control' ] ) !!}
                              
@@ -274,23 +260,16 @@
 
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  التركيب</B>   </label>
+                              <label for="projectinput1"> <B> %  بعد التركيب</B>   </label>
 
                               {!! Form::text('payment_after', $payment_after , ['class' => 'form-control' ] ) !!}
                              
                             </div>
                           </div>
 
-
-
-
-
-
                           </div>
 
 </div>
-
-
 
       </div>
       <div class="modal-footer">
@@ -317,14 +296,12 @@
 
    </a>
 
-   {{$offer_validity}}
+   {{$offer_validity}} يوم
 
 
 </div>
 
 </div>
-
-
 
 
 <!-- Modal -->
@@ -357,14 +334,9 @@
                             </div>
                           </div>
 
-
-
-
                           </div>
 
 </div>
-
-
 
       </div>
       <div class="modal-footer">
@@ -395,12 +367,6 @@
    مكان التسليم     : 
 
 </a>
-
-@if($delivery_place_type == 'from')
-فرع :
-@elseif($delivery_place_type == 'customer')
-عميل :
-@endif
 
 {{$delivery_place_value}}
 

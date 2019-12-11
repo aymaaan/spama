@@ -102,12 +102,12 @@ class CustomersController extends Controller
      $delivery_place_type = $pricing_settings->delivery_place_type;
      if( $delivery_place_type == 'customer') {
      $delivery_place_value = Customers::find($pricing_settings->delivery_place_value);
-     $delivery_place_value =  $delivery_place_value->name;
+     $delivery_place_value =  $delivery_place_value->address;
     }
     elseif( $delivery_place_type == 'from') {
      
       $delivery_place_value = Branch::find($pricing_settings->delivery_place_value);
-      $delivery_place_value =  $delivery_place_value->title;
+      $delivery_place_value =  $delivery_place_value->address;
      } else {
       $delivery_place_value =  $pricing_settings->delivery_place_value;
      }
