@@ -13,12 +13,10 @@
             <div class="card-header">
               
                <h4 class="card-title"> <B> {{ __('backend.products') }}   </B></h4>
+
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                       
                     <div class="heading-elements">
-
-
-                      
 
                       @can('create_products')
 
@@ -131,7 +129,21 @@
    </div>
    @endif
 
+@if($total_fast_added > 0 && !isset($_GET['t']))
 
+
+
+<div class="alert alert-primary" role=""  >
+<a style="color:#000;" href="?t=FAST_ADDED">
+
+لديك {{$total_fast_added }} منتج تم اضافتة يحتاج الى استكمال بيانات
+
+  </a>
+</div>
+
+
+
+@endif
 
                   @include('backend.includes.errors')
                   <table class="table-striped table-bordered table-responsive" id="data_list">
@@ -222,7 +234,7 @@ $.noConflict();
                      "url": "{{ url('') }}/{{config('settings.BackendPath')}}/all_products",
                      "dataType": "json",
                      "type": "POST",
-                     "data":{ _token: "{{csrf_token()}}"}
+                     "data":{ _token: "{{csrf_token()}}",fast_added:"{{$_GET['t'] ?? '0'}}"}
                    },
             "columns": [
                 { "data": "id" },

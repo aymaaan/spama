@@ -647,10 +647,120 @@
 
 @if($total_products)
 
+<!-- Modal -->
+<div class="modal fade" id="settings_add_fast_product" tabindex="-1" role="dialog" aria-labelledby="settings_add_fast_product" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing"> أضافة منتج سريع </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/settings_add_fast_product'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('customer_id', $customer->id   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  أسم المنتج عربي   </B>   </label>
+
+                              {!! Form::text('title_ar', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  أسم المنتج بالانجليزية   </B>   </label>
+
+                              {!! Form::text('title_en', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الوحدة  </B>   </label>
+
+                              {!! Form::select('unit_id', $units , null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> سعر الوحدة  </B>   </label>
+
+                              {!! Form::text('unit_price', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الكمية  </B>   </label>
+
+                              {!! Form::text('quantity', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الاستهلاك  </B>   </label>
+
+                              {!! Form::text('estimate_consumption', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+
+
+
 
      <div class="col-md-12">
         
-
+     <a href="#" data-toggle="modal" data-target="#settings_add_fast_product" style="float:left;"  class="btn btn-success"> اضافة منتجات  </a>
         <table id="example" class="table table-striped table-bordered table-responsive  zero-configuration dataTable">
           <thead>
             <tr>
@@ -737,8 +847,6 @@
 
 </div>
 
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
@@ -770,21 +878,6 @@
         @endif
 	  
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -15,6 +15,8 @@ use App\AssessmentQuestions;
 use App\CustomersAssessmentProducts;
 use App\Doctors;
 use App\Branch;
+use App\Units;
+use App\Products;
 use App\CustomersPricingSettings;
 use Session;
 use Gate;
@@ -152,8 +154,9 @@ foreach($total_products as $product) {
  }
 
 
+$units = Units::where('status' , 1)->pluck('title' , 'id');
 
-  return view('backend.pages.customers.pricing' , compact('delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
 }
 
    public function create()
@@ -432,6 +435,44 @@ if($request->serial) {
 
 
   }
+
+
+
+
+
+  public function settings_add_fast_product( Request $request )
+  {
+    if ( Gate::denies(['update_customers'])  ) { abort(404); }
+
+
+    $data = new Products;
+    $data->title_ar = $request->title_ar;
+    $data->title_en = $request->title_en;
+    $data->sku = "FAST_ADDED";
+    $data->save();
+   
+     $customer_question = new CustomersAssessmentProducts;
+     $customer_question->customer_id = $request->customer_id;
+     $customer_question->unit_id = $request->unit_id;
+     $customer_question->unit_price = $request->unit_price;
+     $customer_question->user_id = \Auth::user()->id;
+     $customer_question->serial = $request->serial;
+     $customer_question->assessment_date = date('Y-m-d');
+     $customer_question->price = $request->quantity  * $request->unit_price;
+     $customer_question->quantity = $request->quantity;
+     $customer_question->request_by = 'delegates';
+     $customer_question->estimate_consumption = $request->estimate_consumption;
+     $customer_question->product_id = $data->id;
+     $customer_question->save();
+
+
+    return back();
+  }
+
+  
+
+
+
 
 
 

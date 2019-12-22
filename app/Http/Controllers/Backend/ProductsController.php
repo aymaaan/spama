@@ -154,8 +154,8 @@ public function get_names_products_ajax(Request $request , $type)
   {
     
     if ( Gate::denies(['products'])  ) { abort(404); }
-
-    return view('backend.pages.products.index' );
+    $total_fast_added = Products::where('sku' , 'FAST_ADDED')->count(); 
+    return view('backend.pages.products.index' , compact('total_fast_added'));
   }
 
 
@@ -511,12 +511,12 @@ $repositories = Repositories::where('status' , 1)->pluck('title_ar' , 'id');
 $coupons = Coupons::where('status' , 1)->pluck('title' , 'id');
 $quantity_prices = QuantityPrices::get();
 
-
-
-
 $category = Categories::where('serial' , $data->category_id)->first();
+if($category) {
 $mother_products = MotherProducts::where('categories_id' , $category->id )->get();
-
+} else {
+$mother_products = MotherProducts::get();
+}
 if(isset($data->mother_product_id)) {
 $motherproduct = MotherProducts::where('serial' , $data->mother_product_id)->first();
 }
@@ -815,7 +815,7 @@ return view('backend.pages.products.show'  , compact('product','websites') );
 
 
 
-  public function all_products(Request $request)
+  public function all_products(Request $request )
     {
         
         $columns = array( 
@@ -828,7 +828,15 @@ return view('backend.pages.products.show'  , compact('product','websites') );
                         );
 
 
-        $totalData = Products::count();     
+         
+        
+        if ( $_POST['fast_added'] == "FAST_ADDED"  ) {
+          $totalData = Products::where('sku' , 'FAST_ADDED')->count(); 
+        } else {
+          $totalData = Products::count(); 
+        }
+        
+        
         $totalFiltered = $totalData; 
  
         $limit = $request->input('length');
@@ -837,17 +845,34 @@ return view('backend.pages.products.show'  , compact('product','websites') );
         $dir = $request->input('order.0.dir');
 
 
-        $posts = Products::query();
+        
+          $posts = Products::query();
+
+      
 
             
         if(empty($request->input('search.value')))
-        {       
+        {  
+
+
+          if ( $_POST['fast_added'] == "FAST_ADDED"  ) {
 
             $posts = $posts->offset($start)
+            ->limit($limit)
+            ->orderBy($order,$dir)
+            ->where('sku' , 'FAST_ADDED')
+            ->get();
+
+          } else {
+  
+             $posts = $posts->offset($start)
                          ->limit($limit)
                          ->orderBy($order,$dir)
                          ->get();
 
+          }
+
+   
         }
         else {
 
