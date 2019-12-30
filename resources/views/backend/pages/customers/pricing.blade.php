@@ -759,7 +759,7 @@
 
 
      <div class="col-md-12">
-        
+     
      <a href="#" data-toggle="modal" data-target="#settings_add_fast_product" style="float:left;"  class="btn btn-success"> اضافة منتجات  </a>
         <table id="example" class="table table-striped table-bordered table-responsive  zero-configuration dataTable">
           <thead>
@@ -783,7 +783,7 @@
             <tr>
               <th> {{ $k + 1 }}</th>
         
-              <th> {{ $product->info['sku'] }} </th>
+              <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif</th>
               <th> {{ $product->info['title_ar'] }} </th>
               <th> {{ $product->unit['title']  }} </th>
               <th> {{ $product->total_all_products  }} </th>
@@ -872,7 +872,7 @@
           </tbody>
         </table>
         
-   
+        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print"  style="float:left;" class="btn btn-info">  طباعة   </a> 
         </div>
 
         @endif

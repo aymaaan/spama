@@ -37,23 +37,16 @@ class CustomersController extends Controller
   
   public function get_followed_delegate_ajax($id)
   {
-
-
     $data = SalesDelegates::where('channel_id' , $id )->get();
     return view('backend.widgets.followed_delegate_dropdown' , compact('data'));
-
-
   }
 
 
   public function index(Request $request)
   {
-
-    
     if ( Gate::denies(['customers'])  ) { abort(404); }
     $data = Customers::paginate(10);
     return view('backend.pages.customers.index' , compact('data') );
-
   }
 
 
@@ -104,12 +97,15 @@ class CustomersController extends Controller
      $delivery_place_type = $pricing_settings->delivery_place_type;
      if( $delivery_place_type == 'customer') {
      $delivery_place_value = Customers::find($pricing_settings->delivery_place_value);
-     $delivery_place_value =  $delivery_place_value->address;
+     if(isset($delivery_place_value->address)) {
+     $delivery_place_value =  $delivery_place_value->address ;
+     } else {
+        $delivery_place_value =   '' ; 
+     }
     }
     elseif( $delivery_place_type == 'from') {
-     
       $delivery_place_value = Branch::find($pricing_settings->delivery_place_value);
-      $delivery_place_value =  $delivery_place_value->address;
+      $delivery_place_value =  $delivery_place_value->address ? : '';
      } else {
       $delivery_place_value =  $pricing_settings->delivery_place_value;
      }
@@ -156,7 +152,15 @@ foreach($total_products as $product) {
 
 $units = Units::where('status' , 1)->pluck('title' , 'id');
 
+
+if(isset( $_GET['t'] ) && $_GET['t'] == 'print') {
+
+  return view('backend.pages.customers.pricing_print' , compact('units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+
+} else {
   return view('backend.pages.customers.pricing' , compact('units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+}
+
 }
 
    public function create()
