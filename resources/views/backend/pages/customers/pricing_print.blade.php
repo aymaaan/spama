@@ -100,6 +100,7 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
      0
 
      @endif</div>
+     
   <div class="payment"><b>طريقة الدفع&nbsp;:&nbsp;</b>  قبل التعميد {{$payment_before}}% - عند التسليم {{$payment_while}}% - بعد التركيب {{$payment_after }}%</div>
   <div class="exp"><b>صلاحية العرض&nbsp;:&nbsp;</b>  {{$offer_validity}} يوم </div>
   <div class="du"><b>مدة التوريد&nbsp;:&nbsp;</b> {{$supplying_duration}}</div>
@@ -112,8 +113,6 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
 
 
  </table>
-
-
 
 
 </page>
