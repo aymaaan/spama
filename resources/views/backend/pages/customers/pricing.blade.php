@@ -210,7 +210,7 @@
    
 </a>
 
-:  قبل التعميد {{$payment_before}}% - عند التسليم {{$payment_while}}% - بعد التركيب {{$payment_after }}%
+:  {{__('backend.'.$pricing_settings->payment_title1)}} التعميد {{$payment_before}}% - {{__('backend.'.$pricing_settings->payment_title2)}} التسليم {{$payment_while}}% - {{__('backend.'.$pricing_settings->payment_title3)}} التركيب {{$payment_after }}%
 
 
 </div>
@@ -237,20 +237,50 @@
 {!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
-                          
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput1"> <B> %  قبل التعميد</B>   </label>
 
-                              {!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!}
+                           <div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title1', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
                              
                             </div>
                           </div>
 
 
+                          
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  عند التسليم</B>   </label>
+                             
+<label for="projectinput1"> <B>  التعميد %</B>   </label>
+{!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!} 
+                             
+                            </div>
+                          </div>
+
+
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title2', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  التسليم %</B>   </label>
 
                               {!! Form::text('payment_while', $payment_while  , ['class' => 'form-control' ] ) !!}
                              
@@ -258,9 +288,28 @@
                           </div>
 
 
+                          </div>
+
+
+                          
+
+<div class="row">
+
+
+
+<div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title3', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
+                             
+                            </div>
+                          </div>
+
+
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  بعد التركيب</B>   </label>
+                              <label for="projectinput1"> <B>  التركيب %</B>   </label>
 
                               {!! Form::text('payment_after', $payment_after , ['class' => 'form-control' ] ) !!}
                              

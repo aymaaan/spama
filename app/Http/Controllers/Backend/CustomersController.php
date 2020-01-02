@@ -75,6 +75,7 @@ class CustomersController extends Controller
  public function pricing($id)
  {
 
+
   if ( Gate::denies(['customers','create_customers'])  ) { abort(404); }
   $customer = Customers::find($id);
   $serial = CustomersAssessmentProducts::where('customer_id',$id)->orderBy('serial','desc')->first();
@@ -110,17 +111,12 @@ class CustomersController extends Controller
       $delivery_place_value =  $pricing_settings->delivery_place_value;
      }
 
-
-
-
-
-
    } else {
     $payment_before = 0;
     $payment_while = 0;
     $payment_after = 0;
     $offer_validity = 0;
-   $supplying_duration = 0;
+    $supplying_duration = 0;
    $notes = null;
    $delivery_place_type = null;
    $delivery_place_value = null;
@@ -155,10 +151,10 @@ $units = Units::where('status' , 1)->pluck('title' , 'id');
 
 if(isset( $_GET['t'] ) && $_GET['t'] == 'print') {
 
-  return view('backend.pages.customers.pricing_print' , compact('units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing_print' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
 
 } else {
-  return view('backend.pages.customers.pricing' , compact('units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
 }
 
 }
@@ -363,14 +359,17 @@ if($request->serial) {
     
    if( $request->payment_before ) {
     $data->payment_before = $request->payment_before;
+    $data->payment_title1 = $request->payment_title1;
    }
 
    if( $request->payment_while ) {
     $data->payment_while = $request->payment_while;
+    $data->payment_title2 = $request->payment_title2;
    }
 
    if($request->payment_after ) {
     $data->payment_after = $request->payment_after;
+    $data->payment_title3 = $request->payment_title3;
    }
 
    if($request->offer_validity) {

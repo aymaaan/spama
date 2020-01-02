@@ -273,5 +273,8 @@ return [
  'name_order' => 'Applicant\'s Name',
  'show_pricing' => 'Pricing',
 'branch' => 'Branches',
+'before' => 'قبل',
+     'while' => 'اثناء',
+     'after' => 'بعد',
 
 ];
