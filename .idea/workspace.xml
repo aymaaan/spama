@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11709764-651c-4958-b7f0-34011aab15ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderConfirmationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderConfirmationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -23,20 +23,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="271" column="69" selection-start-line="271" selection-start-column="69" selection-end-line="271" selection-end-column="69" />
+            <state relative-caret-position="7263">
+              <caret line="269" selection-start-line="269" selection-end-line="271" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2592">
+              <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="131" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="66" selection-start-line="66" selection-end-line="74" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php">
+        <entry file="file://$USER_HOME$/Articles.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="101" column="98" selection-start-line="101" selection-start-column="98" selection-end-line="101" selection-end-column="98" />
-              <folding>
-                <element signature="e#3666#4014#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="191">
+              <caret line="132" column="34" lean-forward="true" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/products/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34722">
+              <caret line="1286" column="84" selection-start-line="1286" selection-start-column="38" selection-end-line="1286" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/versions/4-12/orders.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1917">
+              <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -44,7 +86,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Downloads/city_dent/resources/views/admin/pages/booking_appointments/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
+            <state relative-caret-position="2430">
               <caret line="90" column="84" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="84" />
             </state>
           </provider>
@@ -53,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderConfirmationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="3834">
               <caret line="158" selection-start-line="158" selection-end-line="158" />
               <folding>
                 <element signature="e#48#66#0#PHP" expanded="true" />
@@ -75,10 +117,12 @@
       <find>$item</find>
       <find>jquery</find>
       <find>book_id</find>
+      <find>pending</find>
       <find>core</find>
     </findStrings>
     <replaceStrings>
       <replace>order_confirmation</replace>
+      <replace>1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -100,9 +144,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Status.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderConfirmationController.php" />
+        <option value="$PROJECT_DIR$/database/versions/4-12/orders.sql" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php" />
+        <option value="$USER_HOME$/Articles.js" />
       </list>
     </option>
   </component>
@@ -228,6 +274,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,6 +358,24 @@
             <path>
               <item name="spama" type="b2602c69:ProjectViewProjectNode" />
               <item name="spama" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spama" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spama" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="versions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spama" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spama" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="versions" type="462c0819:PsiDirectoryNode" />
+              <item name="4-12" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spama" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spama" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,6 +440,15 @@
             <path>
               <item name="spama" type="b2602c69:ProjectViewProjectNode" />
               <item name="spama" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="products" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spama" type="b2602c69:ProjectViewProjectNode" />
+              <item name="spama" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -396,7 +470,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -459,18 +532,20 @@
       <workItem from="1575239564916" duration="593000" />
       <workItem from="1575312411282" duration="8498000" />
       <workItem from="1575416464543" duration="687000" />
-      <workItem from="1575561514675" duration="4819000" />
+      <workItem from="1575561514675" duration="6952000" />
+      <workItem from="1576021185660" duration="178000" />
+      <workItem from="1576094625766" duration="1431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113790000" />
+    <option name="totallyTimeSpent" value="117532000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10590015" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2980333" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -564,13 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/products/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/LanguagesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1863">
@@ -631,13 +699,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/form.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/create.blade.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/City.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -668,21 +729,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="271" column="69" selection-start-line="271" selection-start-column="69" selection-end-line="271" selection-end-column="69" />
+        <state relative-caret-position="7263">
+          <caret line="269" selection-start-line="269" selection-end-line="271" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2592">
+          <caret line="101" column="64" selection-start-line="101" selection-start-column="64" selection-end-line="101" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/products/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34722">
+          <caret line="1286" column="84" selection-start-line="1286" selection-start-column="38" selection-end-line="1286" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/versions/4-12/orders.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1917">
+          <caret line="71" column="78" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Downloads/city_dent/resources/views/admin/pages/booking_appointments/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
+        <state relative-caret-position="2430">
           <caret line="90" column="84" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="84" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderConfirmationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="3834">
           <caret line="158" selection-start-line="158" selection-end-line="158" />
           <folding>
             <element signature="e#48#66#0#PHP" expanded="true" />
@@ -690,13 +779,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/order_confirmation/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="101" column="98" selection-start-line="101" selection-start-column="98" selection-end-line="101" selection-end-column="98" />
-          <folding>
-            <element signature="e#3666#4014#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="94">
+          <caret line="66" selection-start-line="66" selection-end-line="74" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Articles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="132" column="34" lean-forward="true" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
         </state>
       </provider>
     </entry>

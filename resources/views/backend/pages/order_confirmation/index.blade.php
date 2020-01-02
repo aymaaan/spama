@@ -99,7 +99,7 @@
                                                             });
 
                                                             $.ajax({
-                                                                url: "/spama/pro@admin/statusChange",
+                                                                url: "{{url('')}}/{{config('settings.BackendPath')}}/statusChange",
                                                                 type: "GET",
                                                                 data: {
                                                                     status_id: $('.status{{$row->id}}').val(),
