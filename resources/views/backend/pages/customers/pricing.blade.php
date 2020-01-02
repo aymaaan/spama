@@ -116,12 +116,7 @@
    
     <div class="form-group">
 
-  
-
-
       الخصم  :  {{ $total_discount }}
- 
-
 
     </div>
   
@@ -171,12 +166,8 @@
   
     </div>
 
-
-
     <div class="col-md-6">
 
-    
-   
 <div class="form-group">
 
  
@@ -195,10 +186,6 @@
 
 </div>
 
-
-
-
-
 <div class="col-md-12">
  
 <div class="form-group">
@@ -213,7 +200,6 @@
 </div>
 
 
-
 <div class="col-md-6">
  
 <div class="form-group">
@@ -223,9 +209,15 @@
    
    
 </a>
-
-:  التعميد {{$payment_before}}% - التسليم {{$payment_while}}% - التركيب {{$payment_after }}%
-
+@if($pricing_settings->payment_title1)
+:  {{__('backend.'.$pricing_settings->payment_title1)}} التعميد {{$payment_before}}% -
+@endif
+@if($pricing_settings->payment_title2)
+ {{__('backend.'.$pricing_settings->payment_title2)}} التسليم {{$payment_while}}% -
+ @endif
+ @if($pricing_settings->payment_title3)
+  {{__('backend.'.$pricing_settings->payment_title3)}} التركيب {{$payment_after }}%
+  @endif
 
 </div>
 
@@ -251,20 +243,50 @@
 {!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
-                          
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput1"> <B> %  التعميد</B>   </label>
 
-                              {!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!}
+                           <div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title1', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
                              
                             </div>
                           </div>
 
 
+                          
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  التسليم</B>   </label>
+                             
+<label for="projectinput1"> <B>  التعميد %</B>   </label>
+{!! Form::text('payment_before', $payment_before  , ['class' => 'form-control' ] ) !!} 
+                             
+                            </div>
+                          </div>
+
+
+
+</div>
+
+
+
+
+<div class="row">
+
+<div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title2', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  التسليم %</B>   </label>
 
                               {!! Form::text('payment_while', $payment_while  , ['class' => 'form-control' ] ) !!}
                              
@@ -272,25 +294,37 @@
                           </div>
 
 
+                          </div>
+
+
+                          
+
+<div class="row">
+
+
+
+<div class="col-md-3">
+                            <div class="form-group">
+                             
+<label for="projectinput1"> <B> المرحلة </B>   </label>
+{!! Form::select('payment_title3', [ 'before'=>__('backend.before') ,  'while'=>__('backend.while') , 'after'=>__('backend.after')]  , null  , ['required' => 'required','class' => 'form-control' , 'placeholder'=>'----'] ) !!}
+                             
+                            </div>
+                          </div>
+
+
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label for="projectinput1"> <B> %  التركيب</B>   </label>
+                              <label for="projectinput1"> <B>  التركيب %</B>   </label>
 
                               {!! Form::text('payment_after', $payment_after , ['class' => 'form-control' ] ) !!}
                              
                             </div>
                           </div>
 
-
-
-
-
-
                           </div>
 
 </div>
-
-
 
       </div>
       <div class="modal-footer">
@@ -317,14 +351,12 @@
 
    </a>
 
-   {{$offer_validity}}
+   {{$offer_validity}} يوم
 
 
 </div>
 
 </div>
-
-
 
 
 <!-- Modal -->
@@ -357,14 +389,9 @@
                             </div>
                           </div>
 
-
-
-
                           </div>
 
 </div>
-
-
 
       </div>
       <div class="modal-footer">
@@ -395,12 +422,6 @@
    مكان التسليم     : 
 
 </a>
-
-@if($delivery_place_type == 'from')
-فرع :
-@elseif($delivery_place_type == 'customer')
-عميل :
-@endif
 
 {{$delivery_place_value}}
 
@@ -681,10 +702,120 @@
 
 @if($total_products)
 
+<!-- Modal -->
+<div class="modal fade" id="settings_add_fast_product" tabindex="-1" role="dialog" aria-labelledby="settings_add_fast_product" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing"> أضافة منتج سريع </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/settings_add_fast_product'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('customer_id', $customer->id   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  أسم المنتج عربي   </B>   </label>
+
+                              {!! Form::text('title_ar', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  أسم المنتج بالانجليزية   </B>   </label>
+
+                              {!! Form::text('title_en', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الوحدة  </B>   </label>
+
+                              {!! Form::select('unit_id', $units , null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> سعر الوحدة  </B>   </label>
+
+                              {!! Form::text('unit_price', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الكمية  </B>   </label>
+
+                              {!! Form::text('quantity', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B> الاستهلاك  </B>   </label>
+
+                              {!! Form::text('estimate_consumption', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          
+
+
+                          </div>
+
+</div>
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+
+
+
 
      <div class="col-md-12">
-        
-
+     
+     <a href="#" data-toggle="modal" data-target="#settings_add_fast_product" style="float:left;"  class="btn btn-success"> اضافة منتجات  </a>
         <table id="example" class="table table-striped table-bordered table-responsive  zero-configuration dataTable">
           <thead>
             <tr>
@@ -707,7 +838,7 @@
             <tr>
               <th> {{ $k + 1 }}</th>
         
-              <th> {{ $product->info['sku'] }} </th>
+              <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif</th>
               <th> {{ $product->info['title_ar'] }} </th>
               <th> {{ $product->unit['title']  }} </th>
               <th> {{ $product->total_all_products  }} </th>
@@ -771,8 +902,6 @@
 
 </div>
 
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
@@ -798,27 +927,12 @@
           </tbody>
         </table>
         
-   
+        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print"  style="float:left;" class="btn btn-info">  طباعة   </a> 
         </div>
 
         @endif
 	  
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

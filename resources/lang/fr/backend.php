@@ -251,4 +251,7 @@ return [
     'corporate_information' => 'Corporate Information',
     'activity' => 'Activity',
     'show_pricing' => 'Pricing',
+    'before' => 'قبل',
+    'while' => 'اثناء',
+    'after' => 'بعد',
 ];
