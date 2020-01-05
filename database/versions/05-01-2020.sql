@@ -14,5 +14,9 @@ INSERT INTO `permissions` (`id`, `name`, `label`, `is_menu`, `order_list`, `icon
 INSERT INTO `permissions` (`id`, `name`, `label`, `is_menu`, `order_list`, `icon`, `parent_id`, `created_at`, `updated_at`) VALUES (NULL, 'create_departments', 'اضافة قسم ادارى', '0', '', NULL, '233', CURRENT_TIMESTAMP, NULL);
 INSERT INTO `permissions` (`id`, `name`, `label`, `is_menu`, `order_list`, `icon`, `parent_id`, `created_at`, `updated_at`) VALUES (NULL, 'update_departments', 'تحديث قسم ادارى', '0', NULL, NULL, '233', CURRENT_TIMESTAMP, NULL);
 INSERT INTO `permissions` (`id`, `name`, `label`, `is_menu`, `order_list`, `icon`, `parent_id`, `created_at`, `updated_at`) VALUES (NULL, 'delete_departments', 'حذف قسم ادارى', '0', NULL, NULL, '233', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `permission_role` (`id`, `role_id`, `permission_id`, `created_at`, `updated_at`) VALUES (NULL, '1', '233', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `permission_role` (`id`, `role_id`, `permission_id`, `created_at`, `updated_at`) VALUES (NULL, '1', '234', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `permission_role` (`id`, `role_id`, `permission_id`, `created_at`, `updated_at`) VALUES (NULL, '1', '235', CURRENT_TIMESTAMP, NULL);
+INSERT INTO `permission_role` (`id`, `role_id`, `permission_id`, `created_at`, `updated_at`) VALUES (NULL, '1', '236', CURRENT_TIMESTAMP, NULL);
 
 
