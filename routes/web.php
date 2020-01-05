@@ -109,6 +109,12 @@ Route::get('/mother-products/approve/{id}/{status}', 'MotherProductsController@a
 Route::get('/mother-products/{id}/delete', 'MotherProductsController@destroy');
 
 
+//Departments
+Route::resource('/departments', 'DepartmentsController');
+Route::get('/departments/approve/{id}/{status}', 'DepartmentsController@approve');
+Route::get('/departments/{id}/delete', 'DepartmentsController@destroy');
+
+
 //Brands
 Route::resource('/brands', 'BrandsController');
 Route::get('/brands/approve/{id}/{status}', 'BrandsController@approve');

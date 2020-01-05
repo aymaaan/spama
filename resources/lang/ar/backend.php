@@ -21,7 +21,7 @@
   'brands' => 'العلامات التجارية',
   'units' => 'الوحدات',
   'types' => 'أنواع المنتجات',
-  'users' => 'المستخدمين',
+  'users' => 'الموظفين',
   'settings' => 'الإعدادات',
   'add_product' => 'اضافة منتج',
   'add_mother_product' => 'اضافة منتج ام',
@@ -276,4 +276,10 @@
      'before' => 'قبل',
      'while' => 'اثناء',
      'after' => 'بعد',
+     'departments' => 'الاقسام الادارية',
+     'add_departments' => 'اضافة ادارة جديدة',
+     'parent_section' => 'الادارة التابع لها',
+     'master_department' => 'ادارة اساسية غير تابعة',
+     'direct_manager' => 'المدير المباشر',
+     
 ) ;

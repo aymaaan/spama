@@ -22,7 +22,7 @@ return [
     'brands' => 'Brands',
     'units' => 'Units',
     'types' => 'Types',
-    'users' => 'Users',
+    'users' => 'Employees',
     'roles' => 'Roles',
     'settings' => 'Settings',
     'add_product' => 'Add Product',
@@ -254,4 +254,9 @@ return [
     'before' => 'قبل',
     'while' => 'اثناء',
     'after' => 'بعد',
+    'departments' => 'Departments',
+    'add_departments' => 'Add Department',
+    'parent_section' => 'Parent Department',
+    'master_department' => 'Master Department',
+    
 ];
