@@ -128,7 +128,8 @@ class UsersController extends Controller
     $data->photo = $filename;
     
   }
-
+  
+  $data->employee_id = $user->id;
   $data->serial = $LastEmployeeNumber;
   $data->first_name = $request->name;
   $data->last_name = $request->last_name;

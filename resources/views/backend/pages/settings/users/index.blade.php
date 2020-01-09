@@ -29,7 +29,9 @@
                       <table id="users-contacts" style='width:100%;' class="table datatable table-hover table-responsive">
                         <thead>
                           <tr>
-                            
+
+                          
+                          <th> S/N </th>
                             <th>  {{__('backend.name')}} </th>
                             <th> {{__('backend.email')}}   </th>
 
@@ -50,7 +52,7 @@
 @foreach ( $users->where('id','!=',1) as $user )
 
                           <tr>
-
+                          <td>{{$user->data['serial']}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->phone}}</td>

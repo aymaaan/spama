@@ -71,3 +71,4 @@ CREATE TABLE IF NOT EXISTS `employees_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+ALTER TABLE `employees` ADD `employee_id` INT NOT NULL AFTER `id`;
