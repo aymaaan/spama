@@ -232,11 +232,11 @@ return [
     'new_registration' => 'New Registration',
     'estimate_consumption' => 'Estimate Consumption',
     'by' => 'By',
-     'cities' => 'Cities List',
+    'cities' => 'Cities List',
     'add_cities' => 'Add City',
-     'nationalities' => 'Nationalities',
+    'nationalities' => 'Nationalities',
     'add_nationalities' => 'Add Nationality',
-     'drivers' => ' Drivers',
+    'drivers' => ' Drivers',
     'add_driver' => 'Add Driver',
     'city' => ' City',
     'nationality' => ' Nationality',
@@ -258,5 +258,30 @@ return [
     'add_departments' => 'Add Department',
     'parent_section' => 'Parent Department',
     'master_department' => 'Master Department',
-    
+    'personal_photo' => 'Personal Photo',
+    'last_name' => 'Last Name',
+    'father_name' => 'Father Name',
+    'add_employee' => 'Add Employee',
+    'name_english' => 'Name in english',
+    'social_status' => 'Social Status',
+  'unmarried' => 'Unmarried',
+  'married' => 'Married',
+  'absolute' => 'Absolute',
+  'widower' => 'Widower',
+  'number_childrens' => 'Number Childrens',
+  'number_escorts' => 'Number Escorts',
+  'nationality' => 'Nationality',
+  'mobile' => 'Mobile',
+  'mobile_work' => 'Mobile Work',
+  'shunt_work' => 'Shunt Work',
+  'personal_email' => 'Personal Email',
+  'work_email' => 'Work Email',
+
+
+
+
+
+
+
+
 ];

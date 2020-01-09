@@ -72,8 +72,6 @@ if($data->save()) {
 
          foreach ($request->field_type_categories as $key => $type) {
 
-          dd('dd');
-     
           if ($type != '') {
           $WebsitesFields = new WebsitesFields; 
           $WebsitesFields->name = str_replace(' ','_',$request->label_en_categories[$key].'_'.$data->id);
