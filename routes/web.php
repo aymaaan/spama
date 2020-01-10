@@ -42,6 +42,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/block/{id}/{action}', 'UsersController@block');
 Route::get('/users/{id}/delete', 'UsersController@destroy');
 Route::get('/users/{id}/ip', 'UsersController@ip_index');
+Route::get('/users/details/{id}', 'UsersController@details');
 Route::post('/user/update_settings', 'UsersController@update_settings');
 
 Route::get('/settings', 'SettingsController@index');

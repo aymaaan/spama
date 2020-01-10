@@ -9,7 +9,7 @@
               <div class="card">
                 <div class="card-head">
                   <div class="card-header">
-                    <h4 class="card-title"> {{__('backend.users')}} </h4>
+                    <h4 class="card-title"> {{__('backend.employees')}} </h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                     @can('create_users')
                     <div class="heading-elements">
@@ -31,13 +31,13 @@
                           <tr>
 
                           
-                          <th> S/N </th>
+                          <th>  {{__('backend.employee_s_n')}}  </th>
                             <th>  {{__('backend.name')}} </th>
-                            <th> {{__('backend.email')}}   </th>
+                            <th> {{__('backend.email')}} / {{__('backend.phone')}}   </th>
 
-                             <th> {{__('backend.phone')}} </th>
+                           
 
-                              <th> {{__('backend.job')}}  </th>
+                            <th> {{__('backend.job')}}  </th>
                             
                             <th> {{__('backend.roles')}}  </th>
                             
@@ -54,9 +54,9 @@
                           <tr>
                           <td>{{$user->data['serial']}}</td>
                             <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->phone}}</td>
-                            <td>{{$user->job}}</td>
+                            <td>{{$user->email}} </br> {{$user->phone}}</td>
+                            
+                            <td>{{$user->data['job']}}</td>
                             
                             <th> @foreach ($user->roles as $role ) {{$role->title}} @endforeach </th>
                             
@@ -77,6 +77,10 @@
                               @endcan
 
 
+                              
+                           @can('update_users') 
+                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/users/details/{{$user->id}}" class="badge badge badge-info float-right"><i class="la la-eye"></i>    </a>
+                           @endcan
 
 
                             </td>
@@ -107,7 +111,7 @@
 
 @section('head')
 
-        <title>{{config('settings.sitename')}}</title>
+        <title> {{ __('backend.employees') }}  | {{config('settings.sitename')}}</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

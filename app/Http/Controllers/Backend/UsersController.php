@@ -52,6 +52,13 @@ class UsersController extends Controller
 
 
 
+  public function details($id)
+  {
+    if ( Gate::denies(['users'])  ) { abort(404); }
+    $user = User::find($id);
+    return view('backend.pages.settings.users.details' , compact('user') );
+  }
+
   
   
   
@@ -228,8 +235,8 @@ public function edit($id)
   $user = User::find($id);
   $roles = Role::get();
   $nationaliies = Nationality::pluck('title' , 'id');
+  $departments = Department::pluck('title' , 'id');
   $managers = User::pluck('name' , 'id');
-  $departments = Department::pluck('name' , 'id');
   return view('backend.pages.settings.users.edit', compact('nationaliies','managers','roles','user','departments')  );
 }
 

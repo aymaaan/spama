@@ -344,5 +344,11 @@ return [
   'choose_file' => 'Choose file',
   'file_name' => 'File Name',
   'department' => 'Department',
-
+  'employees' => 'Employees',
+  'full_name' => 'Full Name',
+  'age' => 'Age',
+  'total_working_hours' => 'Total working hours',
+  'employee_s_n' => 'S/N',
+  'total_working_hours_weelky' => 'Weelky Total working hours',
+  'total_working_hours_daily' => 'Daily Total working hours',
 ];

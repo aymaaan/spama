@@ -356,7 +356,7 @@
                       aria-expanded="false">
 
      
-                      <div class="row">
+<div class="row">
 
 
 
@@ -457,54 +457,55 @@
    
 <select name="work_time_from_1" class="select2 form-control" >
 <option value="">{{ __('backend.from') }}</option>
+
 <option @if( old('work_time_from_1') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
-<option @if( old('work_time_from_1') == '00:30' ) selected  @endif value="00:30">12:30 AM</option>
+
 <option @if( old('work_time_from_1') == '01:00' ) selected  @endif value="01:00">01:00 AM</option>
-<option @if( old('work_time_from_1') == '01:30' ) selected  @endif value="01:30">01:30 AM</option>
+
 <option @if( old('work_time_from_1') == '02:00' ) selected  @endif value="02:00">02:00 AM</option> 
-<option @if( old('work_time_from_1') == '02:30' ) selected  @endif value="02:30">02:30 AM</option>
+
 <option @if( old('work_time_from_1') == '03:00' ) selected  @endif value="03:00">03:00 AM</option>
-<option @if( old('work_time_from_1') == '03:30' ) selected  @endif value="03:30">03:30 AM</option>
+
 <option @if( old('work_time_from_1') == '04:00' ) selected  @endif value="04:00">04:00 AM</option>
-<option @if( old('work_time_from_1') == '04:30' ) selected  @endif value="04:30">04:30 AM</option>
+
 <option @if( old('work_time_from_1') == '05:00' ) selected  @endif value="05:00">05:00 AM</option>
-<option @if( old('work_time_from_1') == '05:30' ) selected  @endif value="05:30">05:30 AM</option>
+
 <option @if( old('work_time_from_1') == '06:00' ) selected  @endif value="06:00">06:00 AM</option>
-<option @if( old('work_time_from_1') == '06:30' ) selected  @endif value="06:30">06:30 AM</option>
+
 <option @if( old('work_time_from_1') == '07:00' ) selected  @endif value="07:00">07:00 AM</option>
-<option @if( old('work_time_from_1') == '07:30' ) selected  @endif value="07:30">07:30 AM</option>
+
 <option @if( old('work_time_from_1') == '08:00' ) selected  @endif value="08:00">08:00 AM</option>
-<option @if( old('work_time_from_1') == '08:30' ) selected  @endif value="08:30">08:30 AM</option>
+
 <option @if( old('work_time_from_1') == '09:00' ) selected  @endif value="09:00">09:00 AM</option>
-<option @if( old('work_time_from_1') == '09:30' ) selected  @endif value="09:30">09:30 AM</option>
+
 <option @if( old('work_time_from_1') == '10:00' ) selected  @endif value="10:00">10:00 AM</option>
-<option @if( old('work_time_from_1') == '10:30' ) selected  @endif value="10:30">10:30 AM</option>
+
 <option @if( old('work_time_from_1') == '11:00' ) selected  @endif value="11:00">11:00 AM</option>
-<option @if( old('work_time_from_1') == '11:30' ) selected  @endif value="11:30">11:30 AM</option>
+
 <option @if( old('work_time_from_1') == '12:00' ) selected  @endif value="12:00">12:00 PM</option>
-<option @if( old('work_time_from_1') == '12:30' ) selected  @endif value="12:30">12:30 PM</option>
+
 <option @if( old('work_time_from_1') == '13:00' ) selected  @endif value="13:00">01:00 PM</option>
-<option @if( old('work_time_from_1') == '13:30' ) selected  @endif value="13:30">01:30 PM</option>
+
 <option @if( old('work_time_from_1') == '14:00' ) selected  @endif value="14:00">02:00 PM</option> 
-<option @if( old('work_time_from_1') == '14:30' ) selected  @endif value="14:30">02:30 PM</option>
+
 <option @if( old('work_time_from_1') == '15:00' ) selected  @endif value="15:00">03:00 PM</option>
-<option @if( old('work_time_from_1') == '15:30' ) selected  @endif value="15:30">03:30 PM</option>
+
 <option @if( old('work_time_from_1') == '16:00' ) selected  @endif value="16:00">04:00 PM</option>
-<option @if( old('work_time_from_1') == '16:30' ) selected  @endif value="16:30">04:30 PM</option>
+
 <option @if( old('work_time_from_1') == '17:00' ) selected  @endif value="17:00">05:00 PM</option>
-<option @if( old('work_time_from_1') == '17:30' ) selected  @endif value="17:30">05:30 PM</option>
+
 <option @if( old('work_time_from_1') == '18:00' ) selected  @endif value="18:00">06:00 PM</option>
-<option @if( old('work_time_from_1') == '18:30' ) selected  @endif value="18:30">06:30 PM</option>
+
 <option @if( old('work_time_from_1') == '19:00' ) selected  @endif value="19:00">07:00 PM</option>
-<option @if( old('work_time_from_1') == '19:30' ) selected  @endif value="19:30">07:30 PM</option>
+
 <option @if( old('work_time_from_1') == '20:00' ) selected  @endif value="20:00">08:00 PM</option>
-<option @if( old('work_time_from_1') == '20:30' ) selected  @endif value="20:30">08:30 PM</option>
+
 <option @if( old('work_time_from_1') == '21:00' ) selected  @endif value="20:00">09:00 PM</option>
-<option @if( old('work_time_from_1') == '21:30' ) selected  @endif value="21:30">09:30 PM</option>
+
 <option @if( old('work_time_from_1') == '22:00' ) selected  @endif value="21:00">10:00 PM</option>
-<option @if( old('work_time_from_1') == '22:30' ) selected  @endif value="22:30">10:30 PM</option>
+
 <option @if( old('work_time_from_1') == '23:00' ) selected  @endif value="23:00">11:00 PM</option>
-<option @if( old('work_time_from_1') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
+
 </select>  
  
   </div>
@@ -519,54 +520,54 @@
    
 <select name="work_time_to_1" class="select2 form-control" >
 <option value="">{{ __('backend.to') }}</option>
+
 <option @if( old('work_time_to_1') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
-<option @if( old('work_time_to_1') == '00:30' ) selected  @endif value="00:30">12:30 AM</option>
+
 <option @if( old('work_time_to_1') == '01:00' ) selected  @endif value="01:00">01:00 AM</option>
-<option @if( old('work_time_to_1') == '01:30' ) selected  @endif value="01:30">01:30 AM</option>
+
 <option @if( old('work_time_to_1') == '02:00' ) selected  @endif value="02:00">02:00 AM</option> 
-<option @if( old('work_time_to_1') == '02:30' ) selected  @endif value="02:30">02:30 AM</option>
+
 <option @if( old('work_time_to_1') == '03:00' ) selected  @endif value="03:00">03:00 AM</option>
-<option @if( old('work_time_to_1') == '03:30' ) selected  @endif value="03:30">03:30 AM</option>
+
 <option @if( old('work_time_to_1') == '04:00' ) selected  @endif value="04:00">04:00 AM</option>
-<option @if( old('work_time_to_1') == '04:30' ) selected  @endif value="04:30">04:30 AM</option>
+
 <option @if( old('work_time_to_1') == '05:00' ) selected  @endif value="05:00">05:00 AM</option>
-<option @if( old('work_time_to_1') == '05:30' ) selected  @endif value="05:30">05:30 AM</option>
+
 <option @if( old('work_time_to_1') == '06:00' ) selected  @endif value="06:00">06:00 AM</option>
-<option @if( old('work_time_to_1') == '06:30' ) selected  @endif value="06:30">06:30 AM</option>
+
 <option @if( old('work_time_to_1') == '07:00' ) selected  @endif value="07:00">07:00 AM</option>
-<option @if( old('work_time_to_1') == '07:30' ) selected  @endif value="07:30">07:30 AM</option>
+
 <option @if( old('work_time_to_1') == '08:00' ) selected  @endif value="08:00">08:00 AM</option>
-<option @if( old('work_time_to_1') == '08:30' ) selected  @endif value="08:30">08:30 AM</option>
+
 <option @if( old('work_time_to_1') == '09:00' ) selected  @endif value="09:00">09:00 AM</option>
-<option @if( old('work_time_to_1') == '09:30' ) selected  @endif value="09:30">09:30 AM</option>
+
 <option @if( old('work_time_to_1') == '10:00' ) selected  @endif value="10:00">10:00 AM</option>
-<option @if( old('work_time_to_1') == '10:30' ) selected  @endif value="10:30">10:30 AM</option>
+
 <option @if( old('work_time_to_1') == '11:00' ) selected  @endif value="11:00">11:00 AM</option>
-<option @if( old('work_time_to_1') == '11:30' ) selected  @endif value="11:30">11:30 AM</option>
+
 <option @if( old('work_time_to_1') == '12:00' ) selected  @endif value="12:00">12:00 PM</option>
-<option @if( old('work_time_to_1') == '12:30' ) selected  @endif value="12:30">12:30 PM</option>
+
 <option @if( old('work_time_to_1') == '13:00' ) selected  @endif value="13:00">01:00 PM</option>
-<option @if( old('work_time_to_1') == '13:30' ) selected  @endif value="13:30">01:30 PM</option>
+
 <option @if( old('work_time_to_1') == '14:00' ) selected  @endif value="14:00">02:00 PM</option> 
-<option @if( old('work_time_to_1') == '14:30' ) selected  @endif value="14:30">02:30 PM</option>
+
 <option @if( old('work_time_to_1') == '15:00' ) selected  @endif value="15:00">03:00 PM</option>
-<option @if( old('work_time_to_1') == '15:30' ) selected  @endif value="15:30">03:30 PM</option>
+
 <option @if( old('work_time_to_1') == '16:00' ) selected  @endif value="16:00">04:00 PM</option>
-<option @if( old('work_time_to_1') == '16:30' ) selected  @endif value="16:30">04:30 PM</option>
+
 <option @if( old('work_time_to_1') == '17:00' ) selected  @endif value="17:00">05:00 PM</option>
-<option @if( old('work_time_to_1') == '17:30' ) selected  @endif value="17:30">05:30 PM</option>
+
 <option @if( old('work_time_to_1') == '18:00' ) selected  @endif value="18:00">06:00 PM</option>
-<option @if( old('work_time_to_1') == '18:30' ) selected  @endif value="18:30">06:30 PM</option>
+
 <option @if( old('work_time_to_1') == '19:00' ) selected  @endif value="19:00">07:00 PM</option>
-<option @if( old('work_time_to_1') == '19:30' ) selected  @endif value="19:30">07:30 PM</option>
+
 <option @if( old('work_time_to_1') == '20:00' ) selected  @endif value="20:00">08:00 PM</option>
-<option @if( old('work_time_to_1') == '20:30' ) selected  @endif value="20:30">08:30 PM</option>
+
 <option @if( old('work_time_to_1') == '21:00' ) selected  @endif value="20:00">09:00 PM</option>
-<option @if( old('work_time_to_1') == '21:30' ) selected  @endif value="21:30">09:30 PM</option>
+
 <option @if( old('work_time_to_1') == '22:00' ) selected  @endif value="21:00">10:00 PM</option>
-<option @if( old('work_time_to_1') == '22:30' ) selected  @endif value="22:30">10:30 PM</option>
+
 <option @if( old('work_time_to_1') == '23:00' ) selected  @endif value="23:00">11:00 PM</option>
-<option @if( old('work_time_to_1') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 </select> 
 
  
@@ -585,54 +586,54 @@
 <select name="work_time_from_2" class="select2 form-control" >
 
 <option value="">{{ __('backend.from') }}</option>
+
 <option @if( old('work_time_from_2') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
-<option @if( old('work_time_from_2') == '00:30' ) selected  @endif value="00:30">12:30 AM</option>
+
 <option @if( old('work_time_from_2') == '01:00' ) selected  @endif value="01:00">01:00 AM</option>
-<option @if( old('work_time_from_2') == '01:30' ) selected  @endif value="01:30">01:30 AM</option>
+
 <option @if( old('work_time_from_2') == '02:00' ) selected  @endif value="02:00">02:00 AM</option> 
-<option @if( old('work_time_from_2') == '02:30' ) selected  @endif value="02:30">02:30 AM</option>
+
 <option @if( old('work_time_from_2') == '03:00' ) selected  @endif value="03:00">03:00 AM</option>
-<option @if( old('work_time_from_2') == '03:30' ) selected  @endif value="03:30">03:30 AM</option>
+
 <option @if( old('work_time_from_2') == '04:00' ) selected  @endif value="04:00">04:00 AM</option>
-<option @if( old('work_time_from_2') == '04:30' ) selected  @endif value="04:30">04:30 AM</option>
+
 <option @if( old('work_time_from_2') == '05:00' ) selected  @endif value="05:00">05:00 AM</option>
-<option @if( old('work_time_from_2') == '05:30' ) selected  @endif value="05:30">05:30 AM</option>
+
 <option @if( old('work_time_from_2') == '06:00' ) selected  @endif value="06:00">06:00 AM</option>
-<option @if( old('work_time_from_2') == '06:30' ) selected  @endif value="06:30">06:30 AM</option>
+
 <option @if( old('work_time_from_2') == '07:00' ) selected  @endif value="07:00">07:00 AM</option>
-<option @if( old('work_time_from_2') == '07:30' ) selected  @endif value="07:30">07:30 AM</option>
+
 <option @if( old('work_time_from_2') == '08:00' ) selected  @endif value="08:00">08:00 AM</option>
-<option @if( old('work_time_from_2') == '08:30' ) selected  @endif value="08:30">08:30 AM</option>
+
 <option @if( old('work_time_from_2') == '09:00' ) selected  @endif value="09:00">09:00 AM</option>
-<option @if( old('work_time_from_2') == '09:30' ) selected  @endif value="09:30">09:30 AM</option>
+
 <option @if( old('work_time_from_2') == '10:00' ) selected  @endif value="10:00">10:00 AM</option>
-<option @if( old('work_time_from_2') == '10:30' ) selected  @endif value="10:30">10:30 AM</option>
+
 <option @if( old('work_time_from_2') == '11:00' ) selected  @endif value="11:00">11:00 AM</option>
-<option @if( old('work_time_from_2') == '11:30' ) selected  @endif value="11:30">11:30 AM</option>
+
 <option @if( old('work_time_from_2') == '12:00' ) selected  @endif value="12:00">12:00 PM</option>
-<option @if( old('work_time_from_2') == '12:30' ) selected  @endif value="12:30">12:30 PM</option>
+
 <option @if( old('work_time_from_2') == '13:00' ) selected  @endif value="13:00">01:00 PM</option>
-<option @if( old('work_time_from_2') == '13:30' ) selected  @endif value="13:30">01:30 PM</option>
+
 <option @if( old('work_time_from_2') == '14:00' ) selected  @endif value="14:00">02:00 PM</option> 
-<option @if( old('work_time_from_2') == '14:30' ) selected  @endif value="14:30">02:30 PM</option>
+
 <option @if( old('work_time_from_2') == '15:00' ) selected  @endif value="15:00">03:00 PM</option>
-<option @if( old('work_time_from_2') == '15:30' ) selected  @endif value="15:30">03:30 PM</option>
+
 <option @if( old('work_time_from_2') == '16:00' ) selected  @endif value="16:00">04:00 PM</option>
-<option @if( old('work_time_from_2') == '16:30' ) selected  @endif value="16:30">04:30 PM</option>
+
 <option @if( old('work_time_from_2') == '17:00' ) selected  @endif value="17:00">05:00 PM</option>
-<option @if( old('work_time_from_2') == '17:30' ) selected  @endif value="17:30">05:30 PM</option>
+
 <option @if( old('work_time_from_2') == '18:00' ) selected  @endif value="18:00">06:00 PM</option>
-<option @if( old('work_time_from_2') == '18:30' ) selected  @endif value="18:30">06:30 PM</option>
+
 <option @if( old('work_time_from_2') == '19:00' ) selected  @endif value="19:00">07:00 PM</option>
-<option @if( old('work_time_from_2') == '19:30' ) selected  @endif value="19:30">07:30 PM</option>
+
 <option @if( old('work_time_from_2') == '20:00' ) selected  @endif value="20:00">08:00 PM</option>
-<option @if( old('work_time_from_2') == '20:30' ) selected  @endif value="20:30">08:30 PM</option>
+
 <option @if( old('work_time_from_2') == '21:00' ) selected  @endif value="20:00">09:00 PM</option>
-<option @if( old('work_time_from_2') == '21:30' ) selected  @endif value="21:30">09:30 PM</option>
+
 <option @if( old('work_time_from_2') == '22:00' ) selected  @endif value="21:00">10:00 PM</option>
-<option @if( old('work_time_from_2') == '22:30' ) selected  @endif value="22:30">10:30 PM</option>
+
 <option @if( old('work_time_from_2') == '23:00' ) selected  @endif value="23:00">11:00 PM</option>
-<option @if( old('work_time_from_2') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 
 </select> 
  
@@ -648,54 +649,54 @@
  <select name="work_time_to_2" class="select2 form-control" >
 
 <option value="">{{ __('backend.to') }}</option>
+
 <option @if( old('work_time_to_2') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
-<option @if( old('work_time_to_2') == '00:30' ) selected  @endif value="00:30">12:30 AM</option>
+
 <option @if( old('work_time_to_2') == '01:00' ) selected  @endif value="01:00">01:00 AM</option>
-<option @if( old('work_time_to_2') == '01:30' ) selected  @endif value="01:30">01:30 AM</option>
+
 <option @if( old('work_time_to_2') == '02:00' ) selected  @endif value="02:00">02:00 AM</option> 
-<option @if( old('work_time_to_2') == '02:30' ) selected  @endif value="02:30">02:30 AM</option>
+
 <option @if( old('work_time_to_2') == '03:00' ) selected  @endif value="03:00">03:00 AM</option>
-<option @if( old('work_time_to_2') == '03:30' ) selected  @endif value="03:30">03:30 AM</option>
+
 <option @if( old('work_time_to_2') == '04:00' ) selected  @endif value="04:00">04:00 AM</option>
-<option @if( old('work_time_to_2') == '04:30' ) selected  @endif value="04:30">04:30 AM</option>
+
 <option @if( old('work_time_to_2') == '05:00' ) selected  @endif value="05:00">05:00 AM</option>
-<option @if( old('work_time_to_2') == '05:30' ) selected  @endif value="05:30">05:30 AM</option>
+
 <option @if( old('work_time_to_2') == '06:00' ) selected  @endif value="06:00">06:00 AM</option>
-<option @if( old('work_time_to_2') == '06:30' ) selected  @endif value="06:30">06:30 AM</option>
+
 <option @if( old('work_time_to_2') == '07:00' ) selected  @endif value="07:00">07:00 AM</option>
-<option @if( old('work_time_to_2') == '07:30' ) selected  @endif value="07:30">07:30 AM</option>
+
 <option @if( old('work_time_to_2') == '08:00' ) selected  @endif value="08:00">08:00 AM</option>
-<option @if( old('work_time_to_2') == '08:30' ) selected  @endif value="08:30">08:30 AM</option>
+
 <option @if( old('work_time_to_2') == '09:00' ) selected  @endif value="09:00">09:00 AM</option>
-<option @if( old('work_time_to_2') == '09:30' ) selected  @endif value="09:30">09:30 AM</option>
+
 <option @if( old('work_time_to_2') == '10:00' ) selected  @endif value="10:00">10:00 AM</option>
-<option @if( old('work_time_to_2') == '10:30' ) selected  @endif value="10:30">10:30 AM</option>
+
 <option @if( old('work_time_to_2') == '11:00' ) selected  @endif value="11:00">11:00 AM</option>
-<option @if( old('work_time_to_2') == '11:30' ) selected  @endif value="11:30">11:30 AM</option>
+
 <option @if( old('work_time_to_2') == '12:00' ) selected  @endif value="12:00">12:00 PM</option>
-<option @if( old('work_time_to_2') == '12:30' ) selected  @endif value="12:30">12:30 PM</option>
+
 <option @if( old('work_time_to_2') == '13:00' ) selected  @endif value="13:00">01:00 PM</option>
-<option @if( old('work_time_to_2') == '13:30' ) selected  @endif value="13:30">01:30 PM</option>
+
 <option @if( old('work_time_to_2') == '14:00' ) selected  @endif value="14:00">02:00 PM</option> 
-<option @if( old('work_time_to_2') == '14:30' ) selected  @endif value="14:30">02:30 PM</option>
+
 <option @if( old('work_time_to_2') == '15:00' ) selected  @endif value="15:00">03:00 PM</option>
-<option @if( old('work_time_to_2') == '15:30' ) selected  @endif value="15:30">03:30 PM</option>
+
 <option @if( old('work_time_to_2') == '16:00' ) selected  @endif value="16:00">04:00 PM</option>
-<option @if( old('work_time_to_2') == '16:30' ) selected  @endif value="16:30">04:30 PM</option>
+
 <option @if( old('work_time_to_2') == '17:00' ) selected  @endif value="17:00">05:00 PM</option>
-<option @if( old('work_time_to_2') == '17:30' ) selected  @endif value="17:30">05:30 PM</option>
+
 <option @if( old('work_time_to_2') == '18:00' ) selected  @endif value="18:00">06:00 PM</option>
-<option @if( old('work_time_to_2') == '18:30' ) selected  @endif value="18:30">06:30 PM</option>
+
 <option @if( old('work_time_to_2') == '19:00' ) selected  @endif value="19:00">07:00 PM</option>
-<option @if( old('work_time_to_2') == '19:30' ) selected  @endif value="19:30">07:30 PM</option>
+
 <option @if( old('work_time_to_2') == '20:00' ) selected  @endif value="20:00">08:00 PM</option>
-<option @if( old('work_time_to_2') == '20:30' ) selected  @endif value="20:30">08:30 PM</option>
+
 <option @if( old('work_time_to_2') == '21:00' ) selected  @endif value="20:00">09:00 PM</option>
-<option @if( old('work_time_to_2') == '21:30' ) selected  @endif value="21:30">09:30 PM</option>
+
 <option @if( old('work_time_to_2') == '22:00' ) selected  @endif value="21:00">10:00 PM</option>
-<option @if( old('work_time_to_2') == '22:30' ) selected  @endif value="22:30">10:30 PM</option>
+
 <option @if( old('work_time_to_2') == '23:00' ) selected  @endif value="23:00">11:00 PM</option>
-<option @if( old('work_time_to_2') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 
 </select> 
  
@@ -891,16 +892,6 @@
                       </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
