@@ -15,7 +15,7 @@
                     <div class="heading-elements">
                     <a href="{{url(config('settings.BackendPath').'/users/create')}}">
                       <button class="btn btn-primary btn">
-                      <i class="la la-plus-square-o"></i> {{__('backend.add_user')}}   </button>
+                      <i class="la la-plus-square-o"></i> {{__('backend.add_employee')}}   </button>
                       </a> </div> 
                       @endcan
                     

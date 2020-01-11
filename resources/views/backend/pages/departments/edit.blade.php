@@ -9,7 +9,7 @@
               <div class="card">
                 <div class="card-head">
                   <div class="card-header">
-                    <h4 class="card-title"> {{__('backend.users')}} </h4>
+                    <h4 class="card-title">  {{ __('backend.departments') }}   </h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
                     
                   </div>
@@ -18,9 +18,9 @@
                   <div class="card-body">
                     <!-- Task List table -->
     
-{!! Form::open([ 'route' => 'users.store', 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
-  
-@include('backend.pages.settings.users.form')
+{!! Form::model( $data ,[ 'url' =>  config('settings.BackendPath').'/departments/'.$data->id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+@include('backend.pages.departments.form')
 
 {!!Form::close()!!}
 
@@ -45,7 +45,7 @@
 
 @section('head')
 
-        <title> {{__('backend.users')}} | {{config('settings.sitename')}}</title>
+        <title>{{ __('backend.departments') }} | {{config('settings.sitename')}}</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,9 +55,6 @@
   <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
   rel="stylesheet">
   <!-- BEGIN VENDOR CSS-->
-  <!-- BEGIN VENDOR CSS-->
-  <link rel="stylesheet" type="text/css" href="{{url('')}}/assets/app-assets/vendors/css/forms/selects/select2.min.css">
-
   <link rel="stylesheet" type="text/css" href="{{url('')}}/assets/app-assets/css-rtl/vendors.css">
   <link rel="stylesheet" type="text/css" href="{{url('')}}/assets/app-assets/vendors/css/weather-icons/climacons.min.css">
   <link rel="stylesheet" type="text/css" href="{{url('')}}/assets/app-assets/fonts/meteocons/style.css">
@@ -92,8 +89,6 @@
   <script src="{{url('')}}/assets/app-assets/vendors/js/charts/chartist.min.js" type="text/javascript"></script>
   <script src="{{url('')}}/assets/app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js"
   type="text/javascript"></script>
-  <script src="{{url('')}}/assets/app-assets/vendors/js/forms/select/select2.full.min.js" type="text/javascript"></script>
-  <!-- END PAGE VENDOR JS-->
   <script src="{{url('')}}/assets/app-assets/vendors/js/charts/raphael-min.js" type="text/javascript"></script>
   <script src="{{url('')}}/assets/app-assets/vendors/js/charts/morris.min.js" type="text/javascript"></script>
   <script src="{{url('')}}/assets/app-assets/vendors/js/timeline/horizontal-timeline.js" type="text/javascript"></script>
@@ -104,35 +99,7 @@
   <script src="{{url('')}}/assets/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
   <!-- END MODERN JS-->
   <!-- BEGIN PAGE LEVEL JS-->
-  <script src="{{url('')}}/assets/app-assets/js/scripts/forms/select/form-select2.js" type="text/javascript"></script>
-
   <script src="{{url('')}}/assets/app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
 
-
-  <script>
-  $(function () {
-    $("#repeat_div").on('click', function (e) {
-        e.preventDefault();
-        var $self = $(this);
-        $self.before($self.prev('div').clone());
-        //$self.remove();
-    });
-});
-
-$(function () {
-    $("#repeat_div_file").on('click', function (e) {
-        e.preventDefault();
-        var $self = $(this);
-        $self.before($self.prev('div').clone());
-        //$self.remove();
-    });
-});
-
-
-
-
-
-
-</script>
 @endsection

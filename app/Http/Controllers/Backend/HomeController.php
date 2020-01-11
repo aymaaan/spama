@@ -12,18 +12,12 @@ use App\Coupons;
 use App\CustomersAssessmentProducts;
 use Cache;
 use Auth;
-
-
 use App\NamesMotherProducts;
 use App\Features;
 
 
-
-
 class HomeController extends Controller
 {
-
-
     public function __construct()
     {
         $this->middleware('auth');

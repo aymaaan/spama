@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             //'role_id' => 'required',
 			//'email' => 'required|min:6|unique:users,email,'.$request->segment(3),
 			'email' => 'required|min:6',
-			'phone' => 'required|regex:/(05)[0-9]{8}/'
+			//'phone' => 'required|regex:/(05)[0-9]{8}/'
 		
 			
 						
