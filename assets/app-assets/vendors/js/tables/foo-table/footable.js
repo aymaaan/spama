@@ -2417,7 +2417,7 @@
 		 * @instance
 		 * @protected
 		 * @param {(*|jQuery)} valueOrElement - The value or jQuery cell object.
-		 * @returns {(moment|null)}
+		 * @returns {(moment.js|null)}
 		 * @this FooTable.DateColumn
 		 */
 		parser: function(valueOrElement){

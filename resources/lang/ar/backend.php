@@ -276,4 +276,11 @@
      'before' => 'قبل',
      'while' => 'اثناء',
      'after' => 'بعد',
+     'browse' => 'إستعراض',
+     'date_to' => 'إلي تاريخ',
+     'date_from' => 'من تاريخ',
+     'pending_orders' => 'الطلبات المعلقه',
+     'confirmed_orders' => 'الطلبات المؤكده',
+     'map_review' => 'إستعراض جغرافي',
+     'calendar_review' => 'إستعراض تقويمي',
 ) ;

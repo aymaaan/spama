@@ -274,7 +274,16 @@ return [
  'show_pricing' => 'Pricing',
 'branch' => 'Branches',
 'before' => 'قبل',
-     'while' => 'اثناء',
-     'after' => 'بعد',
+'while' => 'اثناء',
+'after' => 'بعد',
+'date_to' => 'To Date',
+'date_from' => 'From Date',
+'pending_orders' => 'Pending Orders',
+'confirmed_orders' => 'Confirmed Orders',
+'map_review' => 'Geographic review',
+'calendar_review' => 'Calendar review',
+'status' => 'Status',
+'browse' => 'Browse',
+
 
 ];

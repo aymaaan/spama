@@ -7,6 +7,7 @@ use App\Driver;
 use App\Order;
 use App\City;
 use App\OrderStop;
+use App\Status;
 use App\User;
 use App\Branch;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\In;
 use Session;
 use Gate;
@@ -35,9 +37,57 @@ class OrderController extends Controller
 //            abort(404);
 //        }
 
-        $data = Order::get();
+$totalPending = Order::where('order_status',1)->count();
+$totalConfirmed = Order::where('order_status',2)->count();
 
-        return view('backend.pages.orders.index', compact('data'));
+        return view('backend.pages.orders.index',compact('totalPending','totalConfirmed'));
+    }
+    public function details($id)
+    {
+//        if (Gate::denies(['orders'])) {
+//            abort(404);
+//        }
+
+        $data = Order::find($id);
+
+        return view('backend.pages.orders.details', compact('data'));
+    }
+    public function confirmedOrder(Request $request)
+    {
+//        if (Gate::denies(['orders'])) {
+//            abort(404);
+//        }
+        $inputs= Input::get ();
+
+        if($inputs){
+
+            $date1 = Input::get ( 'date_from' );
+            $date2 = Input::get ( 'date_to' );
+            $time1 = Input::get ('from_time');
+            $time2 = Input::get ('to_time');
+            $driver = Input::get ( 'driver' );
+            $user = Input::get ( 'customer' );
+            $drivers = User::where('role','driver')->pluck('name','id');
+            $customers = Customers::pluck('name','id');
+            $statuses = Status::all();
+           $data = Order::query()
+
+         ->where('order_status',2)
+            ->whereBetween('date', [$date1, $date2])
+            ->orWhere('from_time', $time1)
+            ->orWhere('to_time', $time2)
+            ->orWhere('driver_id', $driver)
+            ->orWhere('user_id', $user)
+            //   ->orWhere('date', 'LIKE', "%$date1%")
+            ->orderBy('id', 'DESC')->get();
+            return view('backend.pages.orders.confirmed_order', compact('data','drivers','customers','statuses'));
+
+        }
+        $customers = Customers::pluck('name','id');
+        $drivers = User::where('role','driver')->pluck('name','id');
+        $data = Order::where('order_status',2)->orderBy('id','DESC')->get();
+        $statuses = Status::all();
+        return view('backend.pages.orders.confirmed_order', compact('data','drivers','customers','statuses'));
     }
 
 
@@ -73,8 +123,9 @@ class OrderController extends Controller
         $data->branch_des = $request->branch_des;
         $data->customer_des = $request->customer_des;
         $data->other_des = $request->other_des;
-       // $data->city_id = $request->city_id;
+        $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
+        $data->order_status = 1;
         $data->user_id = Auth::user()->id;
         $data->save();
 
@@ -119,7 +170,8 @@ class OrderController extends Controller
         $branchStop = OrderStop::where('order_id',$data->id)->where('stop_type','branch')->get();
         $customerStop = OrderStop::where('order_id',$data->id)->where('stop_type','customer')->get();
         $otherStop = OrderStop::where('order_id',$data->id)->where('stop_type','other')->get();
-//dd($branchStop);
+        $statuses = Status::all();
+
 //            DB::table('orders')
 //            ->join('order_stops', 'orders.id', '=', 'order_stops.order_id')
 //            ->select('orders.*', 'order_stops.*')
@@ -128,7 +180,7 @@ class OrderController extends Controller
 //        dd($dataStop);
         $user = User::find($data->user_id)->first();
 
-        return view('backend.pages.orders.edit', compact('branchStop','customerStop','otherStop','user','data','drivers','cities','branches','customers'));
+        return view('backend.pages.orders.edit', compact('branchStop','customerStop','otherStop','user','data','drivers','cities','branches','customers','statuses'));
     }
 
 
@@ -149,15 +201,16 @@ class OrderController extends Controller
         $data->branch_des = $request->branch_des;
         $data->customer_des = $request->customer_des;
         $data->other_des = $request->other_des;
-        // $data->city_id = $request->city_id;
+         $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
+        $data->order_status = $request->order_status;
         $data->user_id = Auth::user()->id;
         $data->save();
 
 if ($request->order_id > 0 ){
 
     foreach ($request->order_id as $k=>$item){
-        $orderStops = OrderStop::find($item); dd($orderStops );
+        $orderStops = OrderStop::find($item);
         $orderStops->stop_value = $request->stop_value[$k];
         $orderStops->stop_type = $request->stop_type[$k];
         $orderStops->save();
@@ -180,22 +233,9 @@ if ($request->order_id > 0 ){
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'success');
         return Redirect(config('settings.BackendPath') . '/orders');
-
     }
 
 
-
-//  public function approve(Request $request , $id , $status)
-//  {
-//    if ( Gate::denies(['update_orders'])  ) { abort(404); }
-//    $data = Order::find($id);
-//    $data->status = $status;
-//    $data->save();
-//    Session::flash('msg', ' Done! ' );
-//    Session::flash('alert', 'success');
-//    return back();
-//  }
-//
 
 
     public function destroy(Request $request, $id)
@@ -231,8 +271,7 @@ if ($request->order_id > 0 ){
         $customer = Customers::where('name', 'LIKE', '%' . $q . '%')->first();
         //dd($customer);
         return $customer;
-        // echo $customer->name;
-//echo   $customer->id;
+
 
     }
 }
