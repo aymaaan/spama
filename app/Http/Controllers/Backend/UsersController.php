@@ -74,7 +74,7 @@ class UsersController extends Controller
  }
 
 
- public function store(Request $request)
+ public function store(UserRequest $request)
  {
 
   if ( Gate::denies(['users','create_users'])  ) { abort(404); }
