@@ -8,7 +8,7 @@
   'BackendPath' => 'pro@admin',
   'order_email' => NULL,
   'sms_notifications' => NULL,
-  'DefaultLanguage' => NULL,
+  'DefaultLanguage' => 'ar',
   'order_sms' => NULL,
   'general_manager_sms' => NULL,
   'general_manager_email' => NULL,

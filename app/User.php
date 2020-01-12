@@ -93,15 +93,33 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 }
 
 
-  public function nationality() {
 
-   return $this->belongsTo(NationalitiesLanguages::class , 'parent_id');
-
- }
     public function driver()
     {
         return $this->hasOne(Driver::class,'user_id');
     }
+    
+
+    public function data() {
+
+        return $this->hasOne(Employee::class , 'employee_id');
+     
+    }
+
+
+      public function close_persons() {
+
+        return $this->hasMany(EmployeesClosePersons::class , 'employee_id');
+     
+      }
+      
+     
+      public function employee_files() {
+
+        return $this->hasMany(EmployeesFiles::class , 'employee_id');
+     
+      }
+
     
 
 }
