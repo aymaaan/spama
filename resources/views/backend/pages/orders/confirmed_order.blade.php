@@ -352,7 +352,7 @@
 
 
                                                 @can('update_orders')
-                                                    <a href="{{url('')}}/{{config('settings.BackendPath')}}/orders/{{$row->id}}/edit"
+                                                    <a href="{{url('')}}/{{config('settings.BackendPath')}}/orders/{{$row->id}}/edit?t=confirmed"
                                                        class="badge badge badge-info float-right"><i
                                                                 class="la la-pencil"></i> </a>
                                                 @endcan

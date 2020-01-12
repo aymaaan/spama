@@ -351,4 +351,12 @@ return [
   'employee_s_n' => 'S/N',
   'total_working_hours_weelky' => 'Weelky Total working hours',
   'total_working_hours_daily' => 'Daily Total working hours',
+    'date_to' => 'To Date',
+    'date_from' => 'From Date',
+    'pending_orders' => 'Pending Orders',
+    'confirmed_orders' => 'Confirmed Orders',
+    'map_review' => 'Geographic review',
+    'calendar_review' => 'Calendar review',
+    'status' => 'Status',
+    'browse' => 'Browse',
 ];

@@ -19,7 +19,7 @@
                 <!-- Task List table -->
                 <h4><span>{{__('backend.name_order')}}  </span> : {{ $user->name}}</h4>
                 {!! Form::model( $data ,[ 'url' =>  config('settings.BackendPath').'/orders/'.$data->id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}
-
+                <input type="hidden" name="cat" value="{{ $inputs }}">
                 <div class="form-body">
 
                   @include('backend.includes.errors')

@@ -37,11 +37,12 @@ class OrderController extends Controller
 //            abort(404);
 //        }
 
-$totalPending = Order::where('order_status',1)->count();
-$totalConfirmed = Order::where('order_status',2)->count();
+        $totalPending = Order::where('order_status', 1)->count();
+        $totalConfirmed = Order::where('order_status', 2)->count();
 
-        return view('backend.pages.orders.index',compact('totalPending','totalConfirmed'));
+        return view('backend.pages.orders.index', compact('totalPending', 'totalConfirmed'));
     }
+
     public function details($id)
     {
 //        if (Gate::denies(['orders'])) {
@@ -52,55 +53,55 @@ $totalConfirmed = Order::where('order_status',2)->count();
 
         return view('backend.pages.orders.details', compact('data'));
     }
+
     public function confirmedOrder(Request $request)
     {
 //        if (Gate::denies(['orders'])) {
 //            abort(404);
 //        }
-        $inputs= Input::get ();
+        $inputs = Input::get();
 
-        if($inputs){
+        if ($inputs) {
 
-            $date1 = Input::get ( 'date_from' );
-            $date2 = Input::get ( 'date_to' );
-            $time1 = Input::get ('from_time');
-            $time2 = Input::get ('to_time');
-            $driver = Input::get ( 'driver' );
-            $user = Input::get ( 'customer' );
-            $drivers = User::where('role','driver')->pluck('name','id');
-            $customers = Customers::pluck('name','id');
+            $date1 = Input::get('date_from');
+            $date2 = Input::get('date_to');
+            $time1 = Input::get('from_time');
+            $time2 = Input::get('to_time');
+            $driver = Input::get('driver');
+            $user = Input::get('customer');
+            $drivers = User::where('role', 'driver')->pluck('name', 'id');
+            $customers = Customers::pluck('name', 'id');
             $statuses = Status::all();
-           $data = Order::query()
-
-         ->where('order_status',2)
-            ->whereBetween('date', [$date1, $date2])
-            ->orWhere('from_time', $time1)
-            ->orWhere('to_time', $time2)
-            ->orWhere('driver_id', $driver)
-            ->orWhere('user_id', $user)
-            //   ->orWhere('date', 'LIKE', "%$date1%")
-            ->orderBy('id', 'DESC')->get();
-            return view('backend.pages.orders.confirmed_order', compact('data','drivers','customers','statuses'));
+            $data = Order::query()
+                ->where('order_status', 2)
+                ->whereBetween('date', [$date1, $date2])
+                ->orWhere('from_time', $time1)
+                ->orWhere('to_time', $time2)
+                ->orWhere('driver_id', $driver)
+                ->orWhere('user_id', $user)
+                //   ->orWhere('date', 'LIKE', "%$date1%")
+                ->orderBy('id', 'DESC')->get();
+            return view('backend.pages.orders.confirmed_order', compact('data', 'drivers', 'customers', 'statuses'));
 
         }
-        $customers = Customers::pluck('name','id');
-        $drivers = User::where('role','driver')->pluck('name','id');
-        $data = Order::where('order_status',2)->orderBy('id','DESC')->get();
+        $customers = Customers::pluck('name', 'id');
+        $drivers = User::where('role', 'driver')->pluck('name', 'id');
+        $data = Order::where('order_status', 2)->orderBy('id', 'DESC')->get();
         $statuses = Status::all();
-        return view('backend.pages.orders.confirmed_order', compact('data','drivers','customers','statuses'));
+        return view('backend.pages.orders.confirmed_order', compact('data', 'drivers', 'customers', 'statuses'));
     }
 
 
     public function create(Request $request)
     {
         //if ( Gate::denies(['create_orders'])  ) { abort(404); }
-        $drivers = User::where('role','driver')->pluck('name','id');
+        $drivers = User::where('role', 'driver')->pluck('name', 'id');
         $cities = City::pluck('title', 'id');
         $branches = Branch::pluck('title', 'id');
         $customers = Customers::all();
         $days = ['Saturday' => 'Saturday', 'Sunday' => 'Sunday', 'Monday' => 'Monday', 'Tuesday' => 'Tuesday'
             , 'Wednesday' => 'Wednesday', 'Thursday' => 'Thursday', 'Friday' => 'Friday'];
-        return view('backend.pages.orders.create', compact('customers','drivers', 'days','cities','branches'));
+        return view('backend.pages.orders.create', compact('customers', 'drivers', 'days', 'cities', 'branches'));
     }
 
 
@@ -133,9 +134,9 @@ $totalConfirmed = Order::where('order_status',2)->count();
 //        $orderStos->order_id =$data->id;
         if ($request->stop_value && $request->stop_type > 0)
 
-            foreach ($request->stop_value as $k=>$item) {
+            foreach ($request->stop_value as $k => $item) {
                 if ($item > 0) {
-                  // dd($item[$k]);
+                    // dd($item[$k]);
 
                     $orderStos = new OrderStop();
                     $orderStos->order_id = $data->id;
@@ -144,7 +145,7 @@ $totalConfirmed = Order::where('order_status',2)->count();
                     $orderStos->save();
                 }
 
-        }
+            }
 
 
 //        $orderStos->branch_stop[] =$request->branch_stop ;
@@ -162,14 +163,17 @@ $totalConfirmed = Order::where('order_status',2)->count();
 //        if (Gate::denies(['update_orders'])) {
 //            abort(404);
 //        }
-        $drivers = User::where('role','driver')->pluck('name','id');
+        $inputs = Input::get('t');
+
+
+        $drivers = User::where('role', 'driver')->pluck('name', 'id');
         $cities = City::pluck('title', 'id');
         $branches = Branch::pluck('title', 'id');
         $customers = Customers::all();
         $data = Order::find($id);
-        $branchStop = OrderStop::where('order_id',$data->id)->where('stop_type','branch')->get();
-        $customerStop = OrderStop::where('order_id',$data->id)->where('stop_type','customer')->get();
-        $otherStop = OrderStop::where('order_id',$data->id)->where('stop_type','other')->get();
+        $branchStop = OrderStop::where('order_id', $data->id)->where('stop_type', 'branch')->get();
+        $customerStop = OrderStop::where('order_id', $data->id)->where('stop_type', 'customer')->get();
+        $otherStop = OrderStop::where('order_id', $data->id)->where('stop_type', 'other')->get();
         $statuses = Status::all();
 
 //            DB::table('orders')
@@ -180,7 +184,7 @@ $totalConfirmed = Order::where('order_status',2)->count();
 //        dd($dataStop);
         $user = User::find($data->user_id)->first();
 
-        return view('backend.pages.orders.edit', compact('branchStop','customerStop','otherStop','user','data','drivers','cities','branches','customers','statuses'));
+        return view('backend.pages.orders.edit', compact('branchStop', 'customerStop', 'otherStop', 'user', 'data', 'drivers', 'cities', 'branches', 'customers', 'statuses', 'inputs'));
     }
 
 
@@ -189,7 +193,6 @@ $totalConfirmed = Order::where('order_status',2)->count();
 //        if (Gate::denies(['update_orders'])) {
 //            abort(404);
 //        }
-
 
         $data = Order::find($id);
         $data->date = $request->date;
@@ -201,41 +204,43 @@ $totalConfirmed = Order::where('order_status',2)->count();
         $data->branch_des = $request->branch_des;
         $data->customer_des = $request->customer_des;
         $data->other_des = $request->other_des;
-         $data->city_id = $request->city_id;
+        $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
         $data->order_status = $request->order_status;
         $data->user_id = Auth::user()->id;
         $data->save();
 
-if ($request->order_id > 0 ){
+        if ($request->order_id > 0) {
 
-    foreach ($request->order_id as $k=>$item){
-        $orderStops = OrderStop::find($item);
-        $orderStops->stop_value = $request->stop_value[$k];
-        $orderStops->stop_type = $request->stop_type[$k];
-        $orderStops->save();
-    }
-}else{
-        foreach ($request->stop_value as $k=>$item) {
-            if ($item > 0) {
-                $orderStos = new OrderStop();
-                $orderStos->order_id = $id;
-                $orderStos->stop_value = $item;
-                $orderStos->stop_type = $request->stop_type[$k];
-                $orderStos->save();
+            foreach ($request->order_id as $k => $item) {
+                $orderStops = OrderStop::find($item);
+                $orderStops->stop_value = $request->stop_value[$k];
+                $orderStops->stop_type = $request->stop_type[$k];
+                $orderStops->save();
             }
+        } else {
+            foreach ($request->stop_value as $k => $item) {
+                if ($item > 0) {
+                    $orderStos = new OrderStop();
+                    $orderStos->order_id = $id;
+                    $orderStos->stop_value = $item;
+                    $orderStos->stop_type = $request->stop_type[$k];
+                    $orderStos->save();
+                }
 
+            }
         }
-}
-
 
 
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'success');
-        return Redirect(config('settings.BackendPath') . '/orders');
+        if ($request->cat == "pending") {
+            return Redirect(config('settings.BackendPath') . '/orderPending');
+        } elseif ($request->cat == "confirmed") {
+            return Redirect(config('settings.BackendPath') . '/orders/confirmed/order');
+        }
+        return Redirect(config('settings.BackendPath') . '/orders/confirmed/order');
     }
-
-
 
 
     public function destroy(Request $request, $id)
@@ -245,13 +250,14 @@ if ($request->order_id > 0 ){
 //        }
 
         Order::find($id)->delete();
-        $orderstop = OrderStop::where('order_id',$id)->first();
+        $orderstop = OrderStop::where('order_id', $id)->first();
         $orderstop->delete();
         Session::flash('msg', ' Done! ');
         Session::flash('alert', 'danger');
         return back();
     }
-    public function destoryStop( $id)
+
+    public function destoryStop($id)
     {
 //        if (Gate::denies(['delete_orders'])) {
 //            abort(404);
