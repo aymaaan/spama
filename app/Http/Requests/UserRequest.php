@@ -52,7 +52,7 @@ class UserRequest extends FormRequest
             'housing_allowance' => 'required',
             //'role_id' => 'required',
 			'email' => 'required|min:6|unique:users,email,'.$request->segment(3),
-			'phone' => 'required|size:11|numeric'
+			'phone' => 'required|size:10|numeric'
 
         ];
     }
@@ -104,7 +104,7 @@ class UserRequest extends FormRequest
 
     'required' => ' <B> :attribute </B> حقل مطلوب',
     'unique' => '<B> :attribute </B> مسجل من قبل ',
-    'size' => '<B> :attribute </B> مكون من 11 رقم ',
+    'size' => '<B> :attribute </B> مكون من 10 رقم ',
     
         ];
     }
