@@ -18,7 +18,7 @@
                   <div class="card-body">
                     <!-- Task List table -->
     
-{!! Form::model( $user ,[ 'url' =>  config('settings.BackendPath').'/users/'.$user->id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
+{!! Form::model( $user ,[ 'url' =>  config('settings.BackendPath').'/users/'.$user->employee_id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
 
 @include('backend.pages.settings.users.form')
 

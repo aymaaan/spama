@@ -62,7 +62,7 @@
                     <img  class="card-img img-fluid mb-1" src="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$user->data['photo']}}" alt="Card image cap">
                     
 
-                  </div>
+               </div>
                            
                             </div>
                           </div>

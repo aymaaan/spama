@@ -39,7 +39,7 @@
 
                             <th> {{__('backend.job')}}  </th>
                             
-                            <th> {{__('backend.roles')}}  </th>
+                            
                             
                             <th> {{__('backend.options')}} </th>
                           </tr>
@@ -57,10 +57,6 @@
                             <td>{{$user->email}} </br> {{$user->phone}}</td>
                             
                             <td>{{$user->data['job']}}</td>
-                            
-                            <th> @foreach ($user->roles as $role ) {{$role->title}} @endforeach </th>
-                            
-                          
                             
                             <td> 
 
