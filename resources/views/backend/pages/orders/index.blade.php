@@ -3,120 +3,146 @@
 @section('content')
 
     <div class="app-content content">
-        <div class="content-body">
-            <section class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-head">
-                            <div class="card-header">
-                                <h4 class="card-title"><B>   {{__('backend.orders')}}     </B></h4>
-                                <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
-                                @can('create_orders')
-                                    <div class="heading-elements">
-                                        <a href="{{url('')}}/{{config('settings.BackendPath')}}/orders/create">
+        <div class="content-wrapper">
+
+            <div class="content-header row">
 
 
-                                            <button class="btn btn-primary btn">
-                                                <i class="la la-plus-square-o"></i> {{__('backend.add_orders')}}
-                                            </button>
+
+                        <h4 class="card-title"><B>   {{__('backend.orders')}}     </B></h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
 
 
-                                        </a></div>
-                                @endcan
+
+
+
+            </div>
+
+
+            <div class="content-body">
+                <!-- eCommerce statistic -->
+
+
+                                <div class="row">
+
+                                        <div class="col-xl-3 col-lg-3 col-12">
+                                            <div class="card pull-up">
+                                                <div class="card-content">
+                                                    <a href="{{url(config('settings.BackendPath'))}}/orders/create">
+                                                        <div class="card-body">
+                                                            <div class="media d-flex">
+                                                                <div class="media-body text-left">
+                                                                    <h3 class="info"> +</h3>
+                                                                    <h5> {{ __('backend.add_orders') }} </h5>
+                                                                </div>
+                                                                <div>
+                                                                    <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <div class="col-xl-3 col-lg-3 col-12">
+                                        <div class="card pull-up">
+                                            <div class="card-content">
+                                                <a href="{{url(config('settings.BackendPath'))}}/orderPending">
+                                                    <div class="card-body">
+                                                        <div class="media d-flex">
+                                                            <div class="media-body text-left">
+                                                                <h3 class="info"> {{$totalPending}} </h3>
+                                                                <h5>{{ __('backend.pending_orders') }}</h5>
+                                                            </div>
+                                                            <div>
+                                                                <i class="icon-user-follow success font-large-2 float-right"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-12">
+                                        <div class="card pull-up">
+                                            <div class="card-content">
+                                                <a href="{{url(config('settings.BackendPath'))}}/orders/confirmed/order">
+                                                    <div class="card-body">
+                                                        <div class="media d-flex">
+                                                            <div class="media-body text-left">
+                                                                <h3 class="info"> {{$totalConfirmed}} </h3>
+                                                                <h5>{{ __('backend.confirmed_orders') }}</h5>
+                                                            </div>
+                                                            <div>
+                                                                <i class="icon-basket-loaded warning font-large-2 float-right"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <br>
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-3 col-12">
+                                        <div class="card pull-up">
+                                            <div class="card-content">
+                                                <a href="#">
+                                                    <div class="card-body">
+                                                        <div class="media d-flex">
+                                                            <div class="media-body text-left">
+                                                                <h3 class="info"> - </h3>
+                                                                <h5>{{ __('backend.calendar_review') }}</h5>
+                                                            </div>
+                                                            <div>
+                                                                <i class="icon-basket-loaded success font-large-2 float-right"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-lg-3 col-12">
+                                        <div class="card pull-up">
+                                            <div class="card-content">
+                                                <a href="#">
+                                                    <div class="card-body">
+                                                        <div class="media d-flex">
+                                                            <div class="media-body text-left">
+                                                                <h3 class="info"> - </h3>
+                                                                <h5>{{ __('backend.map_review') }}</h5>
+                                                            </div>
+                                                            <div>
+                                                                <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                       
+                                </div>
 
 
                             </div>
                         </div>
-                        <div class="card-content">
-                            <div class="card-body">
-                                <!-- Task List table -->
-                                @include('backend.includes.errors')
-                                <table id="users-contacts" style='width:100%;'
-                                       class="table datatable table-hover table-responsive">
-                                    <thead>
-                                    <tr>
-                                        <th> #ID</th>
-                                        <th>  {{__('backend.date')}}  </th>
-                                        <th>  {{__('backend.name_order')}}  </th>
-                                        <th>  {{__('backend.city')}}  </th>
 
-                                        <th>  {{__('backend.from_time')}}  </th>
-                                        <th>  {{__('backend.option')}}  </th>
-
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    @foreach ( $data as $k=>$row )
-
-                                        <tr>
-                                            <td>{{$k+1}}</td>
-                                            <td>{{$row->date}}</td>
-                                            <td>
-                                                @php
-                                                    $userName =  \App\User::find($row->user_id)->first()
-                                                @endphp
-                          {{$userName->name}}
-                                            </td>
-                                            <td>
-                                                @php
-                                                    $city =  \App\City::find($row->city_id)->first()
-                                                @endphp
-                                                {{$city->title_en}}
-                                            </td>
-                                            <td>{{date('h:i A', strtotime($row->from_time))}}</td>
-
-
-                                            <td>
-
-
-                                                @can('delete_orders')
-                                                    <a title="Delete Post"
-                                                       href="{{url(config('settings.BackendPath').'/orders/'.$row->id.'/delete')}}"
-                                                       class="badge badge badge-danger float-right"><i
-                                                                class="la la-trash"></i> </a>
-                                                @endcan
-
-
-
-{{--                                                @can('update_orders')--}}
-{{--                                                    @if($row->status == 1 )--}}
-{{--                                                        <a title='Block orders'--}}
-{{--                                                           href="{{url(config('settings.BackendPath').'/orders/approve/'.$row->id.'/0')}}"--}}
-{{--                                                           class="badge badge badge-success float-right"><i--}}
-{{--                                                                    class="la la-check"></i> </a>--}}
-{{--                                                    @else--}}
-{{--                                                        <a title='Publish orders'--}}
-{{--                                                           href="{{url(config('settings.BackendPath').'/orders/approve/'.$row->id.'/1')}}"--}}
-{{--                                                           class="badge badge badge-danger float-right"><i--}}
-{{--                                                                    class="la la-ban "></i> </a>--}}
-{{--                                                    @endif--}}
-{{--                                                @endcan--}}
-
-
-                                                @can('update_orders')
-                                                    <a href="{{url('')}}/{{config('settings.BackendPath')}}/orders/{{$row->id}}/edit"
-                                                       class="badge badge badge-info float-right"><i
-                                                                class="la la-pencil"></i> </a>
-                                                @endcan
-
-
-                                            </td>
-
-
-                                        </tr>
-
-                                    @endforeach
-
-
-                                </table>
-
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </section>
+
+
         </div>
     </div>
 

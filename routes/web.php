@@ -269,14 +269,15 @@ Route::resource('/orders', 'OrderController');
 Route::get('/orders/{id}/delete', 'OrderController@destroy');
 Route::get('/orders/{id}/delete/stop', 'OrderController@destoryStop');
 Route::get('/getCustomer', 'OrderController@getCustomer');
-
+Route::get('/orders/confirmed/order', 'OrderController@confirmedOrder');
+Route::get('/orders/details/{id}', 'OrderController@details');
 //branches
 Route::resource('/branches', 'BranchController');
 Route::get('/branches/{id}/delete', 'BranchController@destroy');
 
 //branches
-Route::resource('/order_confirmation', 'OrderConfirmationController');
-Route::get('/statusChange', 'OrderConfirmationController@statusChange');
+Route::resource('/orderPending', 'OrderPendingController');
+Route::get('/statusChange', 'OrderPendingController@statusChange');
 
 
 });

@@ -9,7 +9,7 @@
           <div class="card">
             <div class="card-head">
               <div class="card-header">
-                <h4 class="card-title">  {{__('backend.cities')}}    </h4>
+                <h4 class="card-title">  {{__('backend.orders')}}    </h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
 
               </div>
@@ -77,58 +77,156 @@
 
                       </div>
                     </div>
-
-
-                  </div>
-                  <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.starting')}}      </h4>
-                  <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <Select id="colorselector" class="form-control">
-                          <option value="0">----</option>
-                          <option value="red">{{__('backend.from')}}</option>
-                          <option value="yellow">{{__('backend.customer')}}</option>
-                          <option value="blue">{{__('backend.other')}}</option>
-                        </Select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div id="red" class="col-md-4 colors" style="display:none">
-                      <div class="form-group">
-                        <label for="projectinput1"> {{__('backend.from')}} </label>
+                        <label for="projectinput1"> {{__('backend.to_time')}} </label>
 
-                        {!! Form::select('branch_start',$branches, $data->branch_start , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                        <select  class="bs-select form-control input-small status" data-style="blue" name="order_status" >
+                          @foreach($statuses as $status)
 
-                      </div>
-                    </div>
-                    <div id="yellow" class="col-md-4 colors" style="display:none">
-                      <div class="form-group">
-                        <select name="customer_start" class="select2 form-control" style="width: 330px !important;">
-                          <option value="0">----</option>
-                          @foreach($customers as $customer)
-                            <option value="{{$customer->id}}">
 
-                              {{$customer->name}}
-
-                            </option>
+                            <option  @if($status->id == $data->order_status ) selected
+                                     @endif value="{{$status->id}}">{{$status->name}}</option>
                           @endforeach
-
                         </select>
                       </div>
                     </div>
-                    <div id="blue" class="col-md-4 colors" style="display:none">
-                      <div class="form-group">
-                        <label for="projectinput1"> {{__('backend.other')}} </label>
 
-                        {!! Form::text('other_start', $data->other_start , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                  </div>
+                  <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.starting')}}      </h4>
+                  <ul class="nav nav-tabs nav-topline">
 
+
+                    <li class="nav-item">
+                      <a style="width: 200px;" class="nav-link active" id="home-tabx" data-toggle="tab" href="#homex"
+                         aria-controls="homex"
+                         aria-expanded="true">{{ __('backend.branch') }}</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a style="width: 200px;" class="nav-link" id="profile-tabx" data-toggle="tab" href="#profilex"
+                         aria-controls="profilex"
+                         aria-expanded="false">{{ __('backend.customer') }}</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a style="width: 200px;" class="nav-link" id="websites_properties-tabx" data-toggle="tab"
+                         href="#websites_propertiesx" aria-controls="websites_propertiesx"
+                         aria-expanded="false">{{ __('backend.other') }}</a>
+                    </li>
+
+
+
+
+                  </ul>
+                  <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
+                    <div role="tabpanel" class="tab-pane active" id="homex" aria-labelledby="home-tabx" aria-expanded="true">
+
+
+                      <div class="row">
+
+                        <div id="red" class="col-md-4 colors1">
+                          <div class="form-group">
+                            <label for="projectinput1"> {{__('backend.from')}} </label>
+
+                            {!! Form::select('branch_start',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                            <input type="hidden" value="branch" name="stop_type[]">
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+                    <div class="tab-pane" id="profilex" role="tabpanel" aria-labelledby="profile-tabx"
+                         aria-expanded="false">
+                      <div class="row">
+                        <div id="yellow" class="col-md-4 colors1">
+                          <div class="form-group">
+                            <label for="projectinput1"> {{__('backend.customer')}} </label>
+                            <select name="customer_start" class="select2 form-control" style="width: 330px !important;">
+                              <option value="0">----</option>
+                              @foreach($customers as $customer)
+                                <option value="{{$customer->id}}">
+
+                                  {{$customer->name}}
+
+                                </option>
+                              @endforeach
+
+                            </select>
+{{--                            <input type="hidden" value="customer" name="stop_type[]">--}}
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <div class="tab-pane" id="websites_propertiesx" role="tabpanex" aria-labelledby="websites_properties-tabx"
+                         aria-expanded="false">
+                      <div class="row">
+                        <div id="blue" class="col-md-4 colors1">
+                          <div class="form-group">
+                            <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                            {!! Form::text('other_start', $data->other_start , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                            {{--                                                        <input type="hidden" value="other" name="stop_type[]">--}}
+                          </div>
+                        </div>
                       </div>
 
                     </div>
 
                   </div>
-                  <div>
+                  {{--                  <div class="row">--}}
+{{--                    <div class="col-md-4">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <Select id="colorselector" class="form-control">--}}
+{{--                          <option value="0">----</option>--}}
+{{--                          <option value="red">{{__('backend.from')}}</option>--}}
+{{--                          <option value="yellow">{{__('backend.customer')}}</option>--}}
+{{--                          <option value="blue">{{__('backend.other')}}</option>--}}
+{{--                        </Select>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                  <div class="row">--}}
+{{--                    <div id="red" class="col-md-4 colors" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <label for="projectinput1"> {{__('backend.from')}} </label>--}}
+
+{{--                        {!! Form::select('branch_start',$branches, $data->branch_start , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}--}}
+
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                    <div id="yellow" class="col-md-4 colors" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <select name="customer_start" class="select2 form-control" style="width: 330px !important;">--}}
+{{--                          <option value="0">----</option>--}}
+{{--                          @foreach($customers as $customer)--}}
+{{--                            <option value="{{$customer->id}}">--}}
+
+{{--                              {{$customer->name}}--}}
+
+{{--                            </option>--}}
+{{--                          @endforeach--}}
+
+{{--                        </select>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                    <div id="blue" class="col-md-4 colors" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <label for="projectinput1"> {{__('backend.other')}} </label>--}}
+
+{{--                        {!! Form::text('other_start', $data->other_start , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}--}}
+
+{{--                      </div>--}}
+
+{{--                    </div>--}}
+
+{{--                  </div>--}}
+{{--                  <div>--}}
                     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.stops')}}      </h4>
                       <div id="theCount">
                           <ul class="nav nav-tabs nav-topline">
@@ -1184,53 +1282,139 @@
                   {{--    </div>--}}
 
                   <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.destinations')}}      </h4>
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <Select id="colorselector2" class="form-control">
-                          <option value="0">----</option>
-                          <option value="red2">{{__('backend.from')}}</option>
-                          <option value="yellow2">{{__('backend.customer')}}</option>
-                          <option value="blue2">{{__('backend.other')}}</option>
-                        </Select>
+
+                <ul class="nav nav-tabs nav-topline">
+
+
+                  <li class="nav-item">
+                    <a style="width: 200px;" class="nav-link active" id="home-tabz" data-toggle="tab" href="#homez"
+                       aria-controls="homez"
+                       aria-expanded="true">{{ __('backend.branch') }}</a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a style="width: 200px;" class="nav-link" id="profile-tabz" data-toggle="tab" href="#profilez"
+                       aria-controls="profilez"
+                       aria-expanded="false">{{ __('backend.customer') }}</a>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <a style="width: 200px;" class="nav-link" id="websites_properties-tabz" data-toggle="tab"
+                       href="#websites_propertiesz" aria-controls="websites_propertiesz"
+                       aria-expanded="false">{{ __('backend.other') }}</a>
+                  </li>
+
+
+
+
+                </ul>
+                <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
+                  <div role="tabpanel" class="tab-pane active" id="homez" aria-labelledby="home-tabz" aria-expanded="true">
+
+
+                    <div class="row">
+
+                      <div id="red2" class="col-md-4 colors1">
+                        <div class="form-group">
+                          <label for="projectinput1"> {{__('backend.from')}} </label>
+
+                          {!! Form::select('branch_des',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                          <input type="hidden" value="branch" name="stop_type[]">
+                        </div>
                       </div>
                     </div>
+
+
                   </div>
-                  <div class="row">
-                    <div id="red2" class="col-md-4 colors2" style="display:none">
-                      <div class="form-group">
-                        <label for="projectinput1"> {{__('backend.from')}} </label>
+                  <div class="tab-pane" id="profilez" role="tabpanel" aria-labelledby="profile-tabz"
+                       aria-expanded="false">
+                    <div class="row">
+                      <div id="yellow2" class="col-md-4 colors1">
+                        <div class="form-group">
+                          <label for="projectinput1"> {{__('backend.customer')}} </label>
+                          <select name="customer_des" class="select2 form-control" style="width: 330px !important;">
+                            <option value="0">----</option>
+                            @foreach($customers as $customer)
+                              <option value="{{$customer->id}}">
 
-                        {!! Form::select('branch_des',$branches, $data->branch_des , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                {{$customer->name}}
 
-                      </div>
-                    </div>
-                    <div id="yellow2" class="col-md-4 colors2" style="display:none">
-                      <div class="form-group">
-                        <select name="customer_des" class="select2 form-control" style="width: 330px !important;">
-                          <option value="0">----</option>
-                          @foreach($customers as $customer)
-                            <option value="{{$customer->id}}">
+                              </option>
+                            @endforeach
 
-                              {{$customer->name}}
-
-                            </option>
-                          @endforeach
-
-                        </select>
-                      </div>
-                    </div>
-                    <div id="blue2" class="col-md-4 colors2" style="display:none">
-                      <div class="form-group">
-                        <label for="projectinput1"> {{__('backend.other')}} </label>
-
-                        {!! Form::text('other_des', $data->other_des , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
-
+                          </select>
+                          <input type="hidden" value="customer" name="stop_type[]">
+                        </div>
                       </div>
 
                     </div>
 
                   </div>
+                  <div class="tab-pane" id="websites_propertiesz" role="tabpanez" aria-labelledby="websites_properties-tabz"
+                       aria-expanded="false">
+                    <div class="row">
+                      <div id="blue2" class="col-md-4 colors1">
+                        <div class="form-group">
+                          <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                          {!! Form::text('other_des', $data->other_des , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                          {{--                                                        <input type="hidden" value="other" name="stop_type[]">--}}
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                  {{--                  <div class="row">--}}
+{{--                    <div class="col-md-4">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <Select id="colorselector2" class="form-control">--}}
+{{--                          <option value="0">----</option>--}}
+{{--                          <option value="red2">{{__('backend.from')}}</option>--}}
+{{--                          <option value="yellow2">{{__('backend.customer')}}</option>--}}
+{{--                          <option value="blue2">{{__('backend.other')}}</option>--}}
+{{--                        </Select>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                  </div>--}}
+{{--                  <div class="row">--}}
+{{--                    <div id="red2" class="col-md-4 colors2" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <label for="projectinput1"> {{__('backend.from')}} </label>--}}
+
+{{--                        {!! Form::select('branch_des',$branches, $data->branch_des , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}--}}
+
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                    <div id="yellow2" class="col-md-4 colors2" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <select name="customer_des" class="select2 form-control" style="width: 330px !important;">--}}
+{{--                          <option value="0">----</option>--}}
+{{--                          @foreach($customers as $customer)--}}
+{{--                            <option value="{{$customer->id}}">--}}
+
+{{--                              {{$customer->name}}--}}
+
+{{--                            </option>--}}
+{{--                          @endforeach--}}
+
+{{--                        </select>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+{{--                    <div id="blue2" class="col-md-4 colors2" style="display:none">--}}
+{{--                      <div class="form-group">--}}
+{{--                        <label for="projectinput1"> {{__('backend.other')}} </label>--}}
+
+{{--                        {!! Form::text('other_des', $data->other_des , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}--}}
+
+{{--                      </div>--}}
+
+{{--                    </div>--}}
+
+{{--                  </div>--}}
 
                 </div>
 
@@ -1255,8 +1439,8 @@
               </div>
             </div>
           </div>
-        </div>
-    </div>
+
+
     </section>
   </div>
   </div>

@@ -64,71 +64,344 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="projectinput1"> {{__('backend.from_time')}} </label>
-
-                                                {!! Form::time('from_time', null , ['class' => 'form-control' , 'placeholder'=> __('backend.from_time')] ) !!}
-
+                                                <select name="from_time" class="select2 form-control" >
+                                                    <option value="">{{ __('backend.to') }}</option>
+                                                    <option  value="00:00">12:00 AM</option>
+                                                    <option  value="00:15">12:15 AM</option>
+                                                    <option  value="00:30">12:30 AM</option>
+                                                    <option  value="00:45">12:45 AM</option>
+                                                    <option  value="01:00">01:00 AM</option>
+                                                    <option  value="01:15">01:15 AM</option>
+                                                    <option  value="01:30">01:30 AM</option>
+                                                    <option  value="01:45">01:45 AM</option>
+                                                    <option  value="02:00">02:00 AM</option>
+                                                    <option  value="02:15">02:15 AM</option>
+                                                    <option  value="02:30">02:30 AM</option>
+                                                    <option  value="02:45">02:45 AM</option>
+                                                    <option  value="03:00">03:00 AM</option>
+                                                    <option  value="03:15">03:15 AM</option>
+                                                    <option  value="03:30">03:30 AM</option>
+                                                    <option  value="03:45">03:45 AM</option>
+                                                    <option  value="04:00">04:00 AM</option>
+                                                    <option  value="04:15">04:15 AM</option>
+                                                    <option  value="04:30">04:30 AM</option>
+                                                    <option  value="04:45">04:45 AM</option>
+                                                    <option  value="05:00">05:00 AM</option>
+                                                    <option  value="05:15">05:15 AM</option>
+                                                    <option  value="05:30">05:30 AM</option>
+                                                    <option  value="05:45">05:45 AM</option>
+                                                    <option  value="06:00">06:00 AM</option>
+                                                    <option  value="06:15">06:15 AM</option>
+                                                    <option  value="06:30">06:30 AM</option>
+                                                    <option  value="06:45">06:45 AM</option>
+                                                    <option  value="07:00">07:00 AM</option>
+                                                    <option  value="07:15">07:15 AM</option>
+                                                    <option  value="07:30">07:30 AM</option>
+                                                    <option  value="07:45">07:45 AM</option>
+                                                    <option value="08:00">08:00 AM</option>
+                                                    <option value="08:15">08:15 AM</option>
+                                                    <option  value="08:30">08:30 AM</option>
+                                                    <option  value="08:45">08:45 AM</option>
+                                                    <option  value="09:00">09:00 AM</option>
+                                                    <option  value="09:15">09:15 AM</option>
+                                                    <option  value="09:30">09:30 AM</option>
+                                                    <option  value="09:45">09:45 AM</option>
+                                                    <option  value="10:00">10:00 AM</option>
+                                                    <option  value="10:15">10:15 AM</option>
+                                                    <option  value="10:30">10:30 AM</option>
+                                                    <option  value="10:45">10:45 AM</option>
+                                                    <option  value="11:00">11:00 AM</option>
+                                                    <option  value="11:15">11:15 AM</option>
+                                                    <option  value="11:30">11:30 AM</option>
+                                                    <option  value="11:45">11:45 AM</option>
+                                                    <option  value="12:00">12:00 PM</option>
+                                                    <option  value="12:15">12:15 PM</option>
+                                                    <option  value="12:30">12:30 PM</option>
+                                                    <option  value="12:45">12:45 PM</option>
+                                                    <option  value="13:00">01:00 PM</option>
+                                                    <option  value="13:15">01:15 PM</option>
+                                                    <option  value="13:30">01:30 PM</option>
+                                                    <option  value="13:45">01:45 PM</option>
+                                                    <option  value="14:00">02:00 PM</option>
+                                                    <option  value="14:15">02:15 PM</option>
+                                                    <option  value="14:30">02:30 PM</option>
+                                                    <option  value="14:45">02:45 PM</option>
+                                                    <option  value="15:00">03:00 PM</option>
+                                                    <option  value="15:15">03:15 PM</option>
+                                                    <option  value="15:30">03:30 PM</option>
+                                                    <option  value="15:45">03:45 PM</option>
+                                                    <option  value="16:00">04:00 PM</option>
+                                                    <option  value="16:15">04:15 PM</option>
+                                                    <option  value="16:30">04:30 PM</option>
+                                                    <option  value="16:45">04:45 PM</option>
+                                                    <option  value="17:00">05:00 PM</option>
+                                                    <option  value="17:15">05:15 PM</option>
+                                                    <option  value="17:30">05:30 PM</option>
+                                                    <option  value="17:45">05:45 PM</option>
+                                                    <option  value="18:00">06:00 PM</option>
+                                                    <option  value="18:15">06:15 PM</option>
+                                                    <option  value="18:30">06:30 PM</option>
+                                                    <option  value="18:45">06:45 PM</option>
+                                                    <option  value="19:00">07:00 PM</option>
+                                                    <option  value="19:15">07:15 PM</option>
+                                                    <option  value="19:30">07:30 PM</option>
+                                                    <option  value="19:45">07:45 PM</option>
+                                                    <option  value="20:00">08:00 PM</option>
+                                                    <option  value="20:15">08:15 PM</option>
+                                                    <option  value="20:30">08:30 PM</option>
+                                                    <option  value="20:45">08:45 PM</option>
+                                                    <option  value="21:00">09:00 PM</option>
+                                                    <option  value="21:15">09:15 PM</option>
+                                                    <option  value="21:30">09:30 PM</option>
+                                                    <option  value="21:45">09:45 PM</option>
+                                                    <option  value="22:00">10:00 PM</option>
+                                                    <option  value="22:30">10:30 PM</option>
+                                                    <option  value="22:45">10:45 PM</option>
+                                                    <option  value="23:00">11:00 PM</option>
+                                                    <option  value="23:30">11:30 PM</option>
+                                                    <option  value="23:45">11:45 PM</option>
+                                                </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="projectinput1"> {{__('backend.to_time')}} </label>
-
-                                                {!! Form::time('to_time', null , ['class' => 'form-control' , 'placeholder'=> __('backend.to_time')] ) !!}
-
+                                                <select name="to_time" class="select2 form-control" >
+                                                    <option value="">{{ __('backend.to') }}</option>
+                                                    <option  value="00:00">12:00 AM</option>
+                                                    <option  value="00:15">12:15 AM</option>
+                                                    <option  value="00:30">12:30 AM</option>
+                                                    <option  value="00:45">12:45 AM</option>
+                                                    <option  value="01:00">01:00 AM</option>
+                                                    <option  value="01:15">01:15 AM</option>
+                                                    <option  value="01:30">01:30 AM</option>
+                                                    <option  value="01:45">01:45 AM</option>
+                                                    <option  value="02:00">02:00 AM</option>
+                                                    <option  value="02:15">02:15 AM</option>
+                                                    <option  value="02:30">02:30 AM</option>
+                                                    <option  value="02:45">02:45 AM</option>
+                                                    <option  value="03:00">03:00 AM</option>
+                                                    <option  value="03:15">03:15 AM</option>
+                                                    <option  value="03:30">03:30 AM</option>
+                                                    <option  value="03:45">03:45 AM</option>
+                                                    <option  value="04:00">04:00 AM</option>
+                                                    <option  value="04:15">04:15 AM</option>
+                                                    <option  value="04:30">04:30 AM</option>
+                                                    <option  value="04:45">04:45 AM</option>
+                                                    <option  value="05:00">05:00 AM</option>
+                                                    <option  value="05:15">05:15 AM</option>
+                                                    <option  value="05:30">05:30 AM</option>
+                                                    <option  value="05:45">05:45 AM</option>
+                                                    <option  value="06:00">06:00 AM</option>
+                                                    <option  value="06:15">06:15 AM</option>
+                                                    <option  value="06:30">06:30 AM</option>
+                                                    <option  value="06:45">06:45 AM</option>
+                                                    <option  value="07:00">07:00 AM</option>
+                                                    <option  value="07:15">07:15 AM</option>
+                                                    <option  value="07:30">07:30 AM</option>
+                                                    <option  value="07:45">07:45 AM</option>
+                                                    <option value="08:00">08:00 AM</option>
+                                                    <option value="08:15">08:15 AM</option>
+                                                    <option  value="08:30">08:30 AM</option>
+                                                    <option  value="08:45">08:45 AM</option>
+                                                    <option  value="09:00">09:00 AM</option>
+                                                    <option  value="09:15">09:15 AM</option>
+                                                    <option  value="09:30">09:30 AM</option>
+                                                    <option  value="09:45">09:45 AM</option>
+                                                    <option  value="10:00">10:00 AM</option>
+                                                    <option  value="10:15">10:15 AM</option>
+                                                    <option  value="10:30">10:30 AM</option>
+                                                    <option  value="10:45">10:45 AM</option>
+                                                    <option  value="11:00">11:00 AM</option>
+                                                    <option  value="11:15">11:15 AM</option>
+                                                    <option  value="11:30">11:30 AM</option>
+                                                    <option  value="11:45">11:45 AM</option>
+                                                    <option  value="12:00">12:00 PM</option>
+                                                    <option  value="12:15">12:15 PM</option>
+                                                    <option  value="12:30">12:30 PM</option>
+                                                    <option  value="12:45">12:45 PM</option>
+                                                    <option  value="13:00">01:00 PM</option>
+                                                    <option  value="13:15">01:15 PM</option>
+                                                    <option  value="13:30">01:30 PM</option>
+                                                    <option  value="13:45">01:45 PM</option>
+                                                    <option  value="14:00">02:00 PM</option>
+                                                    <option  value="14:15">02:15 PM</option>
+                                                    <option  value="14:30">02:30 PM</option>
+                                                    <option  value="14:45">02:45 PM</option>
+                                                    <option  value="15:00">03:00 PM</option>
+                                                    <option  value="15:15">03:15 PM</option>
+                                                    <option  value="15:30">03:30 PM</option>
+                                                    <option  value="15:45">03:45 PM</option>
+                                                    <option  value="16:00">04:00 PM</option>
+                                                    <option  value="16:15">04:15 PM</option>
+                                                    <option  value="16:30">04:30 PM</option>
+                                                    <option  value="16:45">04:45 PM</option>
+                                                    <option  value="17:00">05:00 PM</option>
+                                                    <option  value="17:15">05:15 PM</option>
+                                                    <option  value="17:30">05:30 PM</option>
+                                                    <option  value="17:45">05:45 PM</option>
+                                                    <option  value="18:00">06:00 PM</option>
+                                                    <option  value="18:15">06:15 PM</option>
+                                                    <option  value="18:30">06:30 PM</option>
+                                                    <option  value="18:45">06:45 PM</option>
+                                                    <option  value="19:00">07:00 PM</option>
+                                                    <option  value="19:15">07:15 PM</option>
+                                                    <option  value="19:30">07:30 PM</option>
+                                                    <option  value="19:45">07:45 PM</option>
+                                                    <option  value="20:00">08:00 PM</option>
+                                                    <option  value="20:15">08:15 PM</option>
+                                                    <option  value="20:30">08:30 PM</option>
+                                                    <option  value="20:45">08:45 PM</option>
+                                                    <option  value="21:00">09:00 PM</option>
+                                                    <option  value="21:15">09:15 PM</option>
+                                                    <option  value="21:30">09:30 PM</option>
+                                                    <option  value="21:45">09:45 PM</option>
+                                                    <option  value="22:00">10:00 PM</option>
+                                                    <option  value="22:30">10:30 PM</option>
+                                                    <option  value="22:45">10:45 PM</option>
+                                                    <option  value="23:00">11:00 PM</option>
+                                                    <option  value="23:30">11:30 PM</option>
+                                                    <option  value="23:45">11:45 PM</option>
+                                                </select>
                                             </div>
                                         </div>
 
 
                                     </div>
                                     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.starting')}}      </h4>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <Select id="colorselector" class="form-control">
-                                                    <option value="0">----</option>
-                                                    <option value="red">{{__('backend.from')}}</option>
-                                                    <option value="yellow">{{__('backend.customer')}}</option>
-                                                    <option value="blue">{{__('backend.other')}}</option>
-                                                </Select>
+                                    <ul class="nav nav-tabs nav-topline">
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link active" id="home-tabx" data-toggle="tab" href="#homex"
+                                               aria-controls="homex"
+                                               aria-expanded="true">{{ __('backend.branch') }}</a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link" id="profile-tabx" data-toggle="tab" href="#profilex"
+                                               aria-controls="profilex"
+                                               aria-expanded="false">{{ __('backend.customer') }}</a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link" id="websites_properties-tabx" data-toggle="tab"
+                                               href="#websites_propertiesx" aria-controls="websites_propertiesx"
+                                               aria-expanded="false">{{ __('backend.other') }}</a>
+                                        </li>
+
+
+
+
+                                    </ul>
+                                    <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
+                                        <div role="tabpanel" class="tab-pane active" id="homex" aria-labelledby="home-tabx" aria-expanded="true">
+
+
+                                            <div class="row">
+
+                                                <div id="red" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.from')}} </label>
+
+                                                        {!! Form::select('branch_start',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                                        <input type="hidden" value="branch" name="stop_type[]">
+                                                    </div>
+                                                </div>
                                             </div>
+
+
                                         </div>
+                                        <div class="tab-pane" id="profilex" role="tabpanel" aria-labelledby="profile-tabx"
+                                             aria-expanded="false">
+                                            <div class="row">
+                                                <div id="yellow" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.customer')}} </label>
+                                                        <select name="customer_start" class="select2 form-control" style="width: 330px !important;">
+                                                            <option value="0">----</option>
+                                                            @foreach($customers as $customer)
+                                                                <option value="{{$customer->id}}">
+
+                                                                    {{$customer->name}}
+
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
+                                                        <input type="hidden" value="customer" name="stop_type[]">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="websites_propertiesx" role="tabpanex" aria-labelledby="websites_properties-tabx"
+                                             aria-expanded="false">
+                                            <div class="row">
+                                                <div id="blue" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                                                        {!! Form::text('other_start', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+{{--                                                        <input type="hidden" value="other" name="stop_type[]">--}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                     </div>
-                                    <div class="row">
-                                        <div id="red" class="col-md-4 colors" style="display:none">
-                                            <div class="form-group">
-                                                <label for="projectinput1"> {{__('backend.from')}} </label>
+                                    {{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <Select id="colorselector" class="form-control">--}}
+{{--                                                    <option value="0">----</option>--}}
+{{--                                                    <option value="red">{{__('backend.from')}}</option>--}}
+{{--                                                    <option value="yellow">{{__('backend.customer')}}</option>--}}
+{{--                                                    <option value="blue">{{__('backend.other')}}</option>--}}
+{{--                                                </Select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div id="red" class="col-md-4 colors" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="projectinput1"> {{__('backend.from')}} </label>--}}
 
-                                                {!! Form::select('branch_start',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+{{--                                                {!! Form::select('branch_start',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}--}}
 
-                                            </div>
-                                        </div>
-                                        <div id="yellow" class="col-md-4 colors" style="display:none">
-                                            <div class="form-group">
-                                                <select name="customer_start" class="select2 form-control" style="width: 330px !important;">
-                                                    <option value="0">----</option>
-                                                    @foreach($customers as $customer)
-                                                        <option value="{{$customer->id}}">
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div id="yellow" class="col-md-4 colors" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <select name="customer_start" class="select2 form-control" style="width: 330px !important;">--}}
+{{--                                                    <option value="0">----</option>--}}
+{{--                                                    @foreach($customers as $customer)--}}
+{{--                                                        <option value="{{$customer->id}}">--}}
 
-                                                            {{$customer->name}}
+{{--                                                            {{$customer->name}}--}}
 
-                                                        </option>
-                                                    @endforeach
+{{--                                                        </option>--}}
+{{--                                                    @endforeach--}}
 
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div id="blue" class="col-md-4 colors" style="display:none">
-                                            <div class="form-group">
-                                                <label for="projectinput1"> {{__('backend.other')}} </label>
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div id="blue" class="col-md-4 colors" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="projectinput1"> {{__('backend.other')}} </label>--}}
 
-                                                {!! Form::text('other_start', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+{{--                                                {!! Form::text('other_start', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}--}}
 
-                                            </div>
+{{--                                            </div>--}}
 
-                                        </div>
+{{--                                        </div>--}}
 
-                                    </div>
+{{--                                    </div>--}}
                                     <div>
                                         <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.stops')}}      </h4>
                                         <ul class="nav nav-tabs nav-topline">
@@ -1074,53 +1347,140 @@
                                     {{--    </div>--}}
 
                                     <h4 class="form-section"><i class="la la-commenting"></i> {{__('backend.destinations')}}      </h4>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <Select id="colorselector2" class="form-control">
-                                                    <option value="0">----</option>
-                                                    <option value="red2">{{__('backend.from')}}</option>
-                                                    <option value="yellow2">{{__('backend.customer')}}</option>
-                                                    <option value="blue2">{{__('backend.other')}}</option>
-                                                </Select>
+                                    <ul class="nav nav-tabs nav-topline">
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link active" id="home-tabz" data-toggle="tab" href="#homez"
+                                               aria-controls="homez"
+                                               aria-expanded="true">{{ __('backend.branch') }}</a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link" id="profile-tabz" data-toggle="tab" href="#profilez"
+                                               aria-controls="profilez"
+                                               aria-expanded="false">{{ __('backend.customer') }}</a>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a style="width: 200px;" class="nav-link" id="websites_properties-tabz" data-toggle="tab"
+                                               href="#websites_propertiesz" aria-controls="websites_propertiesz"
+                                               aria-expanded="false">{{ __('backend.other') }}</a>
+                                        </li>
+
+
+
+
+                                    </ul>
+                                    <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
+                                        <div role="tabpanel" class="tab-pane active" id="homez" aria-labelledby="home-tabz" aria-expanded="true">
+
+
+                                            <div class="row">
+
+                                                <div id="red2" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.from')}} </label>
+
+                                                        {!! Form::select('branch_des',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+                                                        <input type="hidden" value="branch" name="stop_type[]">
+                                                    </div>
+                                                </div>
                                             </div>
+
+
                                         </div>
+                                        <div class="tab-pane" id="profilez" role="tabpanel" aria-labelledby="profile-tabz"
+                                             aria-expanded="false">
+                                            <div class="row">
+                                                <div id="yellow2" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.customer')}} </label>
+                                                        <select name="customer_des" class="select2 form-control" style="width: 330px !important;">
+                                                            <option value="0">----</option>
+                                                            @foreach($customers as $customer)
+                                                                <option value="{{$customer->id}}">
+
+                                                                    {{$customer->name}}
+
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
+                                                        <input type="hidden" value="customer" name="stop_type[]">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="websites_propertiesz" role="tabpanez" aria-labelledby="websites_properties-tabz"
+                                             aria-expanded="false">
+                                            <div class="row">
+                                                <div id="blue2" class="col-md-4 colors1">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1"> {{__('backend.other')}} </label>
+
+                                                        {!! Form::text('other_des', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+                                                        {{--                                                        <input type="hidden" value="other" name="stop_type[]">--}}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
                                     </div>
-                                    <div class="row">
-                                        <div id="red2" class="col-md-4 colors2" style="display:none">
-                                            <div class="form-group">
-                                                <label for="projectinput1"> {{__('backend.from')}} </label>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <Select id="colorselector2" class="form-control">--}}
+{{--                                                    <option value="0">----</option>--}}
+{{--                                                    <option value="red2">{{__('backend.from')}}</option>--}}
+{{--                                                    <option value="yellow2">{{__('backend.customer')}}</option>--}}
+{{--                                                    <option value="blue2">{{__('backend.other')}}</option>--}}
+{{--                                                </Select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div id="red2" class="col-md-4 colors2" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="projectinput1"> {{__('backend.from')}} </label>--}}
 
-                                                {!! Form::select('branch_des',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}
+{{--                                                {!! Form::select('branch_des',$branches, null , ['class' => 'form-control' , 'placeholder'=>'-- Choose Branch --'] ) !!}--}}
 
-                                            </div>
-                                        </div>
-                                        <div id="yellow2" class="col-md-4 colors2" style="display:none">
-                                            <div class="form-group">
-                                                <select name="customer_des" class="select2 form-control" style="width: 330px !important;">
-                                                    <option value="0">----</option>
-                                                    @foreach($customers as $customer)
-                                                        <option value="{{$customer->id}}">
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div id="yellow2" class="col-md-4 colors2" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <select name="customer_des" class="select2 form-control" style="width: 330px !important;">--}}
+{{--                                                    <option value="0">----</option>--}}
+{{--                                                    @foreach($customers as $customer)--}}
+{{--                                                        <option value="{{$customer->id}}">--}}
 
-                                                            {{$customer->name}}
+{{--                                                            {{$customer->name}}--}}
 
-                                                        </option>
-                                                    @endforeach
+{{--                                                        </option>--}}
+{{--                                                    @endforeach--}}
 
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div id="blue2" class="col-md-4 colors2" style="display:none">
-                                            <div class="form-group">
-                                                <label for="projectinput1"> {{__('backend.other')}} </label>
+{{--                                                </select>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div id="blue2" class="col-md-4 colors2" style="display:none">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="projectinput1"> {{__('backend.other')}} </label>--}}
 
-                                                {!! Form::text('other_des', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}
+{{--                                                {!! Form::text('other_des', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other')] ) !!}--}}
 
-                                            </div>
+{{--                                            </div>--}}
 
-                                        </div>
+{{--                                        </div>--}}
 
-                                    </div>
+{{--                                    </div>--}}
 
                                 </div>
 
@@ -1146,7 +1506,7 @@
                         </div>
                     </div>
                 </div>
-        </div>
+
         </section>
     </div>
     </div>
@@ -1189,9 +1549,9 @@
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="assets/css/style-rtl.css">
-    <!-- END Custom CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />    <!-- END Custom CSS-->
 
-
+    <link rel='stylesheet' type='text/css'href='{{url('')}}/assets/backend/timepicki.css'/>
 
 
 @endsection
@@ -1214,12 +1574,17 @@
     <script src="{{url('')}}/assets/app-assets/js/core/app-menu.js" type="text/javascript"></script>
     <script src="{{url('')}}/assets/app-assets/js/core/app.js" type="text/javascript"></script>
     <script src="{{url('')}}/assets/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+
     <!-- END MODERN JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <script src="{{url('')}}/assets/app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
     <script src="{{url('')}}/assets/app-assets/js/scripts/forms/select/form-select2.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
+    <script type='text/javascript'src='{{url('')}}/assets/backend/timepicki.js'></script>
+    <script type='text/javascript' >
+        $('#timepicker').timepicki();
+    </script>
     <script>
 
         $(document).ready(function(){
