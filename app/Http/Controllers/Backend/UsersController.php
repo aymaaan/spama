@@ -46,7 +46,7 @@ class UsersController extends Controller
   public function index(Request $request)
   {
     if ( Gate::denies(['users'])  ) { abort(404); }
-    $users = User::orderby('id','desc')->where('role' , 'admin')->paginate(30);
+    $users = User::orderby('id','desc')->paginate(30);
     return view('backend.pages.settings.users.index' , compact('users') );
   }
 

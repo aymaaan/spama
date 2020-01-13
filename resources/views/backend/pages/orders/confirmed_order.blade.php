@@ -285,7 +285,9 @@
                                         <th> #ID</th>
                                         <th>  {{__('backend.date')}}  </th>
                                         <th>  {{__('backend.name_order')}}  </th>
+                                        <th>  {{__('backend.employee_s_n')}}  </th>
                                         <th>  {{__('backend.driver')}}  </th>
+                                        <th>  {{__('backend.employee_s_n')}}  </th>
                                         <th>  {{__('backend.city')}}  </th>
 
                                         <th>  {{__('backend.from_time')}}  </th>
@@ -309,10 +311,22 @@
                                                 {{$userName->name}}
                                             </td>
                                             <td>
+                                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{$userName->name}}">
+{{$userName->data['serial']}}
+</span>
+                                            </td>
+                                            <td>
                                                 @php
                                                     $driverName =  \App\User::find($row->driver_id);
                                                 @endphp
                                                 {{$driverName->name}}
+
+                                            </td>
+                                            <td>
+                                                                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{$driverName->name}}">
+{{$driverName->data['serial']}}
+</span>
+
                                             </td>
                                             <td>
                                                 @php
