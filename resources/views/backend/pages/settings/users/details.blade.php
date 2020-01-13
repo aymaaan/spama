@@ -231,18 +231,84 @@
   </div>
 </div>
 
+</div>
 
+<h4 class="form-section"> {{__('backend.national_address')}} </h4>
 
+<div class="row">
 
 <div class="col-md-4">
   <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address']}} </h4>
+  <label for="projectinput3">  {{__('backend.national_address_building_number')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_building_number']}} </h4>
 
   </div>
 </div>
 
 
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_street')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_street']}} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_district')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_district']}} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_city')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_city']}} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_zip')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_zip']}} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_additional')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_additional']}} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.national_address_unit')}}   </label>
+    <h4 class="card-title">{{$user->data['national_address_unit']}} </h4>
+
+  </div>
+</div>
+
+
+
+</div>
+
+<div class="row">
 
 <div class="col-md-4">
   <div class="form-group">
