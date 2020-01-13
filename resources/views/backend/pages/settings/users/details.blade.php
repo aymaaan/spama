@@ -234,7 +234,7 @@
 </div>
 
 <h4 class="form-section"> {{__('backend.national_address')}} </h4>
-
+<hr>
 <div class="row">
 
 <div class="col-md-4">
