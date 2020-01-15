@@ -113,6 +113,27 @@
 <script>
 
 
+$('select[name="work_place_country"]').on('change', function() {
+var country = $($(this)).val();
+
+         $.ajax({
+
+           beforeSend: function() {
+              $("#loading-image").show();              
+           },
+           
+             success: function() {
+             $('#cities_ajax').load("{{url('')}}/{{config('settings.BackendPath')}}/cities/get_cities_ajax/"+ country );
+             $("#loading-image").hide();
+
+             
+           }
+      });
+      
+  
+});
+
+
 
 $(document).ready(function(){
 

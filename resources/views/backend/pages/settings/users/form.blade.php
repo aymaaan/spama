@@ -507,10 +507,24 @@
 
 <div class="col-md-4">
   <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_place')}}   </label>
+    <label for="projectinput3">  {{__('backend.work_place_country')}}   </label>
 
-    {!! Form::text('work_place', null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place')] ) !!}
+    {!! Form::select('work_place_country' , $countries ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_country')] ) !!}
  
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.work_place_city')}}   </label>
+<p id="cities_ajax">
+
+    {!! Form::select('work_place_city' , $cities ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_city')] ) !!}
+
+
+ </p>
   </div>
 </div>
 

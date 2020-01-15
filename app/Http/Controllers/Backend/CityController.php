@@ -4,17 +4,24 @@ namespace App\Http\Controllers\backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\City;
-
+use App\Nationality;
 use Session;
 use Gate;
 
 
 class CityController extends Controller
 {
-
   public function __construct()
   {
     $this->middleware('auth');
+  }
+
+ 
+  public function get_cities_ajax(Request $request , $country)
+  {
+    if ( Gate::denies(['cities'])  ) { abort(404); }
+    $cities = City::where('parent_id' , $country )->pluck('title','id');
+    return view('backend.widgets.cities_dropdown' , compact('cities'));
   }
 
 
@@ -22,7 +29,11 @@ class CityController extends Controller
   {
     if ( Gate::denies(['cities'])  ) { abort(404); }
   
+    if( $request->get('id') ) {
+    $data = City::where('parent_id', $request->get('id'))->get();
+  } else {
     $data = City::get();
+  }
   
     return view('backend.pages.cities.index' , compact('data') );
   }
@@ -32,8 +43,8 @@ class CityController extends Controller
   public function create(Request $request)
   {
    if ( Gate::denies(['create_cities'])  ) { abort(404); }
-
-   return view('backend.pages.cities.create' );
+   $countries = Nationality::pluck('country_name_ar','id');
+   return view('backend.pages.cities.create' , compact('countries') );
  }
 
 
@@ -46,13 +57,14 @@ class CityController extends Controller
   $data = new City;
   $data->title =  $request->title;
   $data->title_en =  $request->title_en;
+  $data->parent_id =  $request->parent_id;
   $data->save();
 
 
 
     Session::flash('msg', ' Done! ' );
     Session::flash('alert', 'success');
-    return Redirect( config('settings.BackendPath').'/cities');
+    return Redirect( config('settings.BackendPath').'/cities?id=' . $data->parent_id );
   }
 
 
@@ -61,8 +73,8 @@ class CityController extends Controller
   {
     if ( Gate::denies(['update_cities'])  ) { abort(404); }
     $data  = City::find($id);
-
-    return view('backend.pages.cities.edit', compact('data')  ); 
+    $countries = Nationality::pluck('country_name_ar','id');
+    return view('backend.pages.cities.edit', compact('data','countries')  ); 
   }
 
 
@@ -75,13 +87,14 @@ class CityController extends Controller
     $data = City::find($id);
     $data->title =  $request->title;
     $data->title_en =  $request->title_en;
+    $data->parent_id =  $request->parent_id;
     $data->save();
 
  
 
     Session::flash('msg', ' Done! ' );
     Session::flash('alert', 'success');
-    return Redirect(config('settings.BackendPath').'/cities');
+    return Redirect(config('settings.BackendPath').'/cities?id=' . $data->parent_id);
 
   }
 

@@ -13,7 +13,7 @@
               <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
               @can('create_cities')
               <div class="heading-elements">
-                <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities/create">
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities/create?country={{$_GET['id'] ?? 0 }}">
 
 
                   <button class="btn btn-primary btn">
@@ -39,8 +39,6 @@
                        
                         <th>  {{__('backend.options')}}  </th>
                         
-                        
-                        
                       </tr>
                     </thead>
                     <tbody>
@@ -48,25 +46,19 @@
                       @foreach ( $data as $k=>$row )
 
                       <tr>
+                      
                         <td>{{$k+1}}</td>
                         <td>{{$row->title}}</td>
                         <td>{{$row->title_en}}</td>
                        
- 
                         <td>
-
 
                           @can('delete_cities') 
                           <a title="Delete Post" href="{{url(config('settings.BackendPath').'/cities/'.$row->id.'/delete')}}" class="badge badge badge-danger float-right"><i class="la la-trash"></i> </a>
                           @endcan
 
-
-
- 
-
-
                           @can('update_cities') 
-                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities/{{$row->id}}/edit" class="badge badge badge-info float-right"><i class="la la-pencil"></i> </a>
+                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities/{{$row->id}}/edit?country={{$row->parent_id}}" class="badge badge badge-info float-right"><i class="la la-pencil"></i> </a>
                            @endcan
 
 

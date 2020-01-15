@@ -10,7 +10,7 @@
 
                         <div class="row">
                           
-                          <div class="col-md-6">
+                          <div class="col-md-3">
                             <div class="form-group">
                               <label for="projectinput1"> {{ __('backend.arabic_title')}}  </label>
 
@@ -22,11 +22,21 @@
 
 
 
-                          <div class="col-md-6">
+                          <div class="col-md-3">
                             <div class="form-group">
                               <label for="projectinput1"> {{ __('backend.english_title')}}  </label>
 
                               {!! Form::text('title_en', null , ['class' => 'form-control' , 'placeholder'=> __('backend.english_title')] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput1"> {{ __('backend.country')}}  </label>
+
+                              {!! Form::select('parent_id' , $countries  , $_GET['country'] , ['class' => 'form-control' , 'placeholder'=> __('backend.country')] ) !!}
                              
                             </div>
                           </div>

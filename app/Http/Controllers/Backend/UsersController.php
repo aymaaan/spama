@@ -6,6 +6,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
+use App\City;
 use App\VerifyUser;
 use App\Nationality;
 use App\Employee;
@@ -64,13 +65,14 @@ class UsersController extends Controller
   
   public function create()
   {
-  
    if ( Gate::denies(['users','create_users'])  ) { abort(404); }
    $roles = Role::get();
    $nationaliies = Nationality::pluck('title' , 'id');
    $departments = Department::pluck('title' , 'id');
    $managers = User::pluck('name' , 'id');
-   return view('backend.pages.settings.users.create' , compact('roles','nationaliies','managers','departments'));
+   $countries = Nationality::pluck('country_name_ar','id');
+
+   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments'));
  }
 
 
@@ -171,7 +173,8 @@ class UsersController extends Controller
   $data->passport_number = $request->passport_number;
   $data->passport_expiry = $request->passport_expiry;
   $data->private_situation = $request->private_situation;
-  $data->work_place = $request->work_place;
+  $data->work_place_country = $request->work_place_country;
+  $data->work_place_city = $request->work_place_city;
   $data->work_start_at = $request->work_start_at;
   $data->job = $request->job;
   $data->job_type = $request->job_type;
@@ -233,13 +236,7 @@ foreach( $request->close_names  as $k=>$name) {
   Session::flash('alert', 'success');
   return Redirect(config('settings.BackendPath').'/users');
 
-
-
-
-
 }
-
-
 
 public function edit($id)
 {
@@ -251,10 +248,17 @@ public function edit($id)
   $nationaliies = Nationality::pluck('title' , 'id');
   $departments = Department::pluck('title' , 'id');
   $managers = User::pluck('name' , 'id');
-  return view('backend.pages.settings.users.edit', compact('nationaliies','managers','roles','user','departments')  );
+  $countries = Nationality::pluck('country_name_ar','id');
+  if(isset($user->work_place_city)){
+  $city = City::find($user->work_place_city);
+  $cities = City::where('parent_id' , $city->parent_id )->pluck('title','id');
+} else {
+  $cities = City::pluck('title','id');
 }
 
 
+  return view('backend.pages.settings.users.edit', compact('countries', 'cities','nationaliies','managers','roles','user','departments')  );
+}
 
 public function update(UserRequest $request, $id)
 {
@@ -281,9 +285,6 @@ if($request->role_id){
   }
 }
 
-
-
-
    $data = Employee::where('employee_id' , $user->id)->first();
 
   if ($request->file('personal_photo') ) {
@@ -294,7 +295,6 @@ if($request->role_id){
     $filename = "personal_photo.".$extension;
     $personal_photo->move($destinationPath , $filename);
     $data->photo = $filename;
-    
   }
  
   $data->first_name = $request->name;
@@ -328,7 +328,8 @@ if($request->role_id){
   $data->passport_number = $request->passport_number;
   $data->passport_expiry = $request->passport_expiry;
   $data->private_situation = $request->private_situation;
-  $data->work_place = $request->work_place;
+  $data->work_place_country = $request->work_place_country;
+  $data->work_place_city = $request->work_place_city;
   $data->work_start_at = $request->work_start_at;
   $data->job = $request->job;
   $data->job_type = $request->job_type;

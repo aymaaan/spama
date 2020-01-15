@@ -36,12 +36,12 @@ class UserRequest extends FormRequest
             'personal_email' => 'required|email',
             'birth_date' => 'required',
             'birth_place' => 'required',
-            'identification_number' => 'required',
+            'identification_number' => 'required|digits:10',
             'identification_expiry' => 'required',
             'passport_number' => 'required',
             'passport_expiry' => 'required',
             'private_situation' => 'required',
-            'work_place' => 'required',
+            'work_place_country' => 'required',
             'work_start_at' => 'required',
             'job' => 'required',
             'job_type' => 'required',
@@ -52,7 +52,9 @@ class UserRequest extends FormRequest
             'housing_allowance' => 'required',
             //'role_id' => 'required',
 			'email' => 'required|min:6|unique:users,email,'.$request->segment(3),
-			'phone' => 'required|digits:10'
+            'phone' => 'required|digits:10',
+            'work_days' => 'required'
+            
 
         ];
     }
@@ -79,7 +81,7 @@ class UserRequest extends FormRequest
              'passport_number' => 'رقم جواز السفر',
             'passport_expiry' => 'تاريخ انتهاء جواز السفر',
             'private_situation' => 'هل لديه وضع خاص؟',
-            'work_place' => 'مكان العمل',
+            'work_place_country' => 'مكان العمل',
             'work_start_at' => 'تاريخ استلام العمل',
             'job' => 'المسمي الوظيفي',
             'job_type' => 'نوع الوظيفة',
@@ -89,7 +91,9 @@ class UserRequest extends FormRequest
             'basic_salary' => 'الراتب الاساسي',
             'housing_allowance' => 'بدل السكن',
             'email' => 'البريد الالكتروني',
-			'phone' => 'رقم الجوال'
+            'phone' => 'رقم الجوال',
+            'work_days' => 'ايام العمل',
+            
    
         ];
     }
