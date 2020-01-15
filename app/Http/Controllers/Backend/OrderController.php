@@ -282,5 +282,24 @@ class OrderController extends Controller
 
     }
 
+    public function statusChange(Request $request)
+    {
+//dd($request->status_id);
+
+        Order::where('id', $request->id)
+            ->update(['order_status' => $request->status_id]);
+        if ($request->status_id == 1) {
+            $color = '#e67e22';
+
+        } else if ($request->status_id == 2) {
+            $color = '#2ecc71';
+
+        } else if ($request->status_id == 3) {
+            $color = '#e74c3c';
+        }
+
+        return $color;
+    }
+
 
 }

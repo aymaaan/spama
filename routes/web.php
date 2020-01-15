@@ -280,6 +280,8 @@ Route::get('/branches/{id}/delete', 'BranchController@destroy');
 Route::resource('/orderPending', 'OrderPendingController');
 Route::get('/statusChange', 'OrderPendingController@statusChange');
 
+Route::resource('/jobs', 'JobController');
+Route::get('/jobs/{id}/delete', 'JobController@destroy');
 
 });
 

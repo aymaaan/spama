@@ -370,7 +370,7 @@ return array (
   'admin' => 'مدير',
   'Doctor' => 'طبيب',
   'supervisor' => 'مشرف',
-  'test' => 'test',
+  'jobs' => 'الوظائف',
   'test' => 'test',
   'test' => 'test',
   'test' => 'test',
