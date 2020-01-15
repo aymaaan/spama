@@ -76,7 +76,8 @@
 
 
                            @can('update_nationalities') 
-                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/nationalities/{{$row->id}}/edit" class="badge badge badge-info float-right"><i class="la la-pencil"></i> </a>
+                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities?id=
+                              {{$row->id}}" class="badge badge badge-info float-right"><i class="la la-file"></i> </a>
                            @endcan
 
 
