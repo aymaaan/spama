@@ -153,7 +153,15 @@ class UsersController extends Controller
   $data->work_email = $request->work_email;
   $data->birth_date = $request->birth_date;
   $data->birth_place = $request->birth_place;
-  $data->national_address = $request->national_address;
+
+  $data->national_address_building_number = $request->national_address_building_number;
+  $data->national_address_street = $request->national_address_street;
+  $data->national_address_district = $request->national_address_district;
+  $data->national_address_city = $request->national_address_city;
+  $data->national_address_zip = $request->national_address_zip;
+  $data->national_address_additional = $request->national_address_additional;
+  $data->national_address_unit = $request->national_address_unit;
+  
   $data->identification_number = $request->identification_number;
   $data->identification_expiry = $request->identification_expiry;
   $data->passport_number = $request->passport_number;
@@ -299,7 +307,15 @@ if($request->role_id){
   $data->work_email = $request->work_email;
   $data->birth_date = $request->birth_date;
   $data->birth_place = $request->birth_place;
-  $data->national_address = $request->national_address;
+ 
+  $data->national_address_building_number = $request->national_address_building_number;
+  $data->national_address_street = $request->national_address_street;
+  $data->national_address_district = $request->national_address_district;
+  $data->national_address_city = $request->national_address_city;
+  $data->national_address_zip = $request->national_address_zip;
+  $data->national_address_additional = $request->national_address_additional;
+  $data->national_address_unit = $request->national_address_unit;
+  
   $data->identification_number = $request->identification_number;
   $data->identification_expiry = $request->identification_expiry;
   $data->passport_number = $request->passport_number;

@@ -247,16 +247,91 @@
   </div>
 </div>
 
+</div>
+
+
+<h4 class="form-section"> {{__('backend.national_address')}} </h4>
+
+<div class="row">
+
+
+
+
+<div class="col-md-2">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_building_number')}}   </label>
+
+    {!! Form::number('national_address_building_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_building_number')] ) !!}
+ 
+  </div>
+</div>
 <div class="col-md-4">
   <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address')}}   </label>
+    <label for="projectinput3">  {{__('backend.national_address_street')}}   </label>
 
-    {!! Form::text('national_address', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address')] ) !!}
+    {!! Form::text('national_address_street', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_street')] ) !!}
+ 
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_district')}}   </label>
+
+    {!! Form::text('national_address_district', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_district')] ) !!}
+ 
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_city')}}   </label>
+
+    {!! Form::text('national_address_city', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_city')] ) !!}
+ 
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_zip')}}   </label>
+
+    {!! Form::number('national_address_zip', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_zip')] ) !!}
+ 
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_additional')}}   </label>
+
+    {!! Form::number('national_address_additional', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_additional')] ) !!}
+ 
+  </div>
+</div>
+<div class="col-md-2">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.national_address_unit')}}   </label>
+
+    {!! Form::number('national_address_unit', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_unit')] ) !!}
  
   </div>
 </div>
 
 
+
+
+
+</div>
+
+<h4 class="form-section"></h4>
+
+
+
+
+
+
+
+
+
+
+<div class="row">
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.identification_number')}}   </label>
@@ -480,7 +555,7 @@
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
 
-    {!! Form::select('direct_manager', $managers  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.direct_manager')] ) !!}
+    {!! Form::select('manager_id', $managers  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.direct_manager')] ) !!}
  
   </div>
 </div>
@@ -680,20 +755,12 @@
 
 
 
-<div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.total_salary')}}   </label>
-
-    {!! Form::text('total_salary', null , ['class' => 'form-control' , 'placeholder'=> __('backend.total_salary')] ) !!}
- 
-  </div>
-</div>
 
 <div class="col-md-2">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.basic_salary')}}   </label>
 
-    {!! Form::text('basic_salary', null , ['class' => 'form-control' , 'placeholder'=> __('backend.basic_salary')] ) !!}
+    {!! Form::text('basic_salary', null , ['id' => 'basic_salary','class' => 'form-control salary' , 'placeholder'=> __('backend.basic_salary')] ) !!}
  
   </div>
 </div>
@@ -704,7 +771,7 @@
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.housing_allowance')}}   </label>
 
-    {!! Form::text('housing_allowance', null , ['class' => 'form-control' , 'placeholder'=> __('backend.housing_allowance')] ) !!}
+    {!! Form::text('housing_allowance', null , ['id' => 'housing_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.housing_allowance')] ) !!}
  
   </div>
 </div>
@@ -715,7 +782,7 @@
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.transportation_allowance')}}   </label>
 
-    {!! Form::text('transportation_allowance', null , ['class' => 'form-control' , 'placeholder'=> __('backend.transportation_allowance')] ) !!}
+    {!! Form::text('transportation_allowance', null , ['id' => 'transportation_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.transportation_allowance')] ) !!}
  
   </div>
 </div>
@@ -727,7 +794,19 @@
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.other_allowance')}}   </label>
 
-    {!! Form::text('other_allowance', null , ['class' => 'form-control' , 'placeholder'=> __('backend.other_allowance')] ) !!}
+    {!! Form::text('other_allowance', null , ['id' => 'other_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.other_allowance')] ) !!}
+ 
+  </div>
+</div>
+
+
+
+
+<div class="col-md-2">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.total_salary')}}   </label>
+
+    {!! Form::text('total_salary', null , ['id' => 'total_salary','class' => 'form-control' , 'placeholder'=> __('backend.total_salary')] ) !!}
  
   </div>
 </div>
