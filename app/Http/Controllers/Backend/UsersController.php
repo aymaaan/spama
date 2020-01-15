@@ -95,7 +95,7 @@ class UsersController extends Controller
   $user->name = $request->name;
   $user->email = $request->email;
   $user->phone = $request->phone;
-  $user->role = $request->job_role;
+  $user->role = $request->role;
   if( $request->password) {
   $user->password = Hash::make($request->password);
   }
@@ -259,7 +259,7 @@ public function update(UserRequest $request, $id)
   $user->name = $request->name;
   $user->email = $request->email;
   $user->phone = $request->phone;
-  $user->role = $request->job_role;
+  $user->role = $request->role;
   if( $request->password) {
   $user->password = Hash::make($request->password);
   }

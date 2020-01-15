@@ -359,4 +359,7 @@ return [
     'calendar_review' => 'Calendar review',
     'status' => 'Status',
     'browse' => 'Browse',
+    'admin' => 'Admin',
+    'Doctor' => 'Doctor',
+    'supervisor' => 'Supervisor',
 ];

@@ -563,7 +563,7 @@
         <div class="form-group">
             <label for="projectinput3">  {{__('backend.job')}}   </label>
 
-            {!! Form::select('job_role', [ 'doctor'=>__('backend.Doctor') ,  'admin'=>__('backend.admin') ,  'supervisor'=>__('backend.supervisor') ,  'driver'=>__('backend.driver')   ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.roles')] ) !!}
+            {!! Form::select('role', [ 'doctor'=>__('backend.Doctor') ,  'admin'=>__('backend.admin') ,  'supervisor'=>__('backend.supervisor') ,  'driver'=>__('backend.driver')   ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.roles')] ) !!}
 
         </div>
     </div>

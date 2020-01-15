@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11709764-651c-4958-b7f0-34011aab15ec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/orders/confirmed_order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/orders/confirmed_order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/orders/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/orders/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/pending/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/pending/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/backend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/backend.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/backend.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,23 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="253" column="14" selection-end-line="404" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="63" column="78" selection-start-line="63" selection-start-column="78" selection-end-line="63" selection-end-column="78" />
-              <folding>
-                <element signature="e#48#66#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="4563">
+              <caret line="261" column="14" selection-end-line="420" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -92,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="493" column="10" lean-forward="true" selection-end-line="886" selection-end-column="18" />
+            <state relative-caret-position="162">
+              <caret line="565" column="30" selection-start-line="565" selection-start-column="30" selection-end-line="565" selection-end-column="30" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
               </folding>
@@ -114,10 +96,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/settings/users/index.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="42" column="28" lean-forward="true" selection-end-line="166" selection-end-column="11" />
+            <state relative-caret-position="267">
+              <caret line="360" column="25" lean-forward="true" selection-end-line="365" />
             </state>
           </provider>
         </entry>
@@ -125,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="80" column="34" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="34" />
+            <state relative-caret-position="199">
+              <caret line="68" column="15" selection-end-line="286" />
               <folding>
                 <element signature="e#48#66#0#PHP" expanded="true" />
               </folding>
@@ -145,8 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>orders</find>
-      <find>$item</find>
       <find>book_id</find>
       <find>pending</find>
       <find>core</find>
@@ -175,6 +155,8 @@
       <find>order_id</find>
       <find>br</find>
       <find>role</find>
+      <find>driver</find>
+      <find>brows</find>
     </findStrings>
     <replaceStrings>
       <replace>order_confirmation</replace>
@@ -207,8 +189,6 @@
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/details.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/pending/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/lang/ar/backend.php" />
-        <option value="$PROJECT_DIR$/resources/lang/en/backend.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/orders/edit.blade.php" />
@@ -216,9 +196,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend/pages/pending/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/lang/en/backend.php" />
+        <option value="$PROJECT_DIR$/resources/lang/ar/backend.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php" />
       </list>
     </option>
   </component>
@@ -613,12 +595,12 @@
       <workItem from="1578703038007" duration="11251000" />
       <workItem from="1578745675969" duration="15717000" />
       <workItem from="1578861097181" duration="8013000" />
-      <workItem from="1579036404315" duration="9855000" />
+      <workItem from="1579036404315" duration="10793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208139000" />
+    <option name="totallyTimeSpent" value="209077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -833,20 +815,6 @@
     <entry file="file://$PROJECT_DIR$/routes/console.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="360" column="25" selection-start-line="360" selection-start-column="25" selection-end-line="360" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/ar/backend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="360" column="42" selection-start-line="360" selection-start-column="42" selection-end-line="360" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/backend (2).php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -925,26 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="80" column="34" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="34" />
-          <folding>
-            <element signature="e#48#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="63" column="78" selection-start-line="63" selection-start-column="78" selection-end-line="63" selection-end-column="78" />
-          <folding>
-            <element signature="e#48#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/orders/confirmed_order.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -970,6 +918,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="68" column="15" selection-end-line="286" />
+          <folding>
+            <element signature="e#48#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/OrderPendingController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="62" column="9" lean-forward="true" selection-end-line="150" />
+          <folding>
+            <element signature="e#48#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4563">
+          <caret line="261" column="14" selection-end-line="420" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/settings/users/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -977,13 +952,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/ar/backend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="493" column="10" lean-forward="true" selection-end-line="886" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="286">
+          <caret line="370" column="21" lean-forward="true" selection-end-line="421" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -994,10 +966,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Backend/UsersController.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/backend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="253" column="14" selection-end-line="404" selection-end-column="1" />
+        <state relative-caret-position="267">
+          <caret line="360" column="25" lean-forward="true" selection-end-line="365" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/pages/settings/users/form.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="565" column="30" selection-start-line="565" selection-start-column="30" selection-end-line="565" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
