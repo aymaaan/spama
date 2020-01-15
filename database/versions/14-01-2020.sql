@@ -1,4 +1,4 @@
-﻿DROP TABLE `spama`.`nationalities`;
+﻿DROP TABLE `elweeeys_products_system`.`nationalities`;
 ALTER TABLE `cities` ADD `parent_id` INT NOT NULL AFTER `status`;
 
 
@@ -26,7 +26,7 @@ TRUNCATE TABLE `employees`
 ALTER TABLE `employees` CHANGE `work_place` `work_place_country` INT NULL DEFAULT NULL;
 ALTER TABLE `employees` ADD `work_place_city` INT NULL AFTER `work_place_country`;
 
-DROP TABLE `spama`.`cities`;
+DROP TABLE `elweeeys_products_system`.`cities`;
 DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
