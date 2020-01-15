@@ -16,13 +16,12 @@ CREATE TABLE IF NOT EXISTS `nationalities` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
 INSERT INTO `nationalities` (`id`, `code`, `country_name_ar`, `country_name_en`, `title`, `title_en`, `status`,  `created_at`, `updated_at`) VALUES
 (1, 'SA', 'السعودية', 'Saudi', 'سعودى', 'Saudi', 1,  '2019-11-08 18:42:02', '2019-11-08 18:42:02'),
 (2, 'EG', 'مصر', 'Egypt', 'مصرى', 'Egyptian', 1,  '2019-11-08 18:42:23', '2019-11-08 18:42:23'),
 (3, 'TR', 'تركيا', 'Turky', 'تركى', 'Turky', 1,  '2019-11-08 18:42:37', '2019-11-08 18:42:37');
 
-TRUNCATE TABLE `employees`
+TRUNCATE TABLE `employees`;
 ALTER TABLE `employees` CHANGE `work_place` `work_place_country` INT NULL DEFAULT NULL;
 ALTER TABLE `employees` ADD `work_place_city` INT NULL AFTER `work_place_country`;
 
