@@ -1,6 +1,5 @@
 ﻿DROP TABLE `elweeeys_products_system`.`nationalities`;
-ALTER TABLE `cities` ADD `parent_id` INT NOT NULL AFTER `status`;
-
+DROP TABLE `elweeeys_products_system`.`cities`;
 
 DROP TABLE IF EXISTS `nationalities`;
 CREATE TABLE IF NOT EXISTS `nationalities` (
@@ -15,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `nationalities` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 INSERT INTO `nationalities` (`id`, `code`, `country_name_ar`, `country_name_en`, `title`, `title_en`, `status`,  `created_at`, `updated_at`) VALUES
 (1, 'SA', 'السعودية', 'Saudi', 'سعودى', 'Saudi', 1,  '2019-11-08 18:42:02', '2019-11-08 18:42:02'),
@@ -45,4 +45,3 @@ INSERT INTO `cities` (`id`, `title`, `title_en`, `status`, `parent_id`, `created
 (4, 'القاهرة', 'Cairo', 1, 2, '2020-01-15 08:39:53', '2020-01-15 08:39:53'),
 (5, 'الجيزة', 'Giza', 1, 2, '2020-01-15 08:40:11', '2020-01-15 08:40:11'),
 (6, 'انقرة', 'Ankra', 1, 3, '2020-01-15 09:03:15', '2020-01-15 09:03:15');
-
