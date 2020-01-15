@@ -46,9 +46,10 @@ class NationalityController extends Controller
   $data = new Nationality;
   $data->title =  $request->title;
   $data->title_en =  $request->title_en;
+  $data->country_name_en =  $request->country_name_en;
+  $data->country_name_ar =  $request->country_name_ar;
+  $data->code =  $request->code;
   $data->save();
-
-
 
     Session::flash('msg', ' Done! ' );
     Session::flash('alert', 'success');
@@ -66,7 +67,6 @@ class NationalityController extends Controller
   }
 
 
-
   public function update(Request $request, $id)
   {
     if ( Gate::denies(['update_nationalities'])  ) { abort(404); }
@@ -75,9 +75,10 @@ class NationalityController extends Controller
     $data = Nationality::find($id);
     $data->title =  $request->title;
     $data->title_en =  $request->title_en;
+    $data->country_name_en =  $request->country_name_en;
+    $data->country_name_ar =  $request->country_name_ar;
+    $data->code =  $request->code;
     $data->save();
-
- 
 
     Session::flash('msg', ' Done! ' );
     Session::flash('alert', 'success');

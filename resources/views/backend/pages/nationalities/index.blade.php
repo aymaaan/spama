@@ -34,8 +34,12 @@
                     <thead>
                       <tr>
                         <th> #ID </th>
-                        <th>  {{__('backend.arabic_title')}}  </th>
-                        <th>  {{__('backend.english_title')}}  </th>
+
+
+                        <th>  {{__('backend.country_name_ar')}}  </th>
+                        <th>  {{__('backend.nationality_ar')}}  </th>
+                        <th>  {{__('backend.country_name_en')}}</th>
+                        <th>  {{__('backend.nationality_en')}}  </th>
                        
                         <th>  {{__('backend.options')}}  </th>
                         
@@ -49,7 +53,9 @@
 
                       <tr>
                         <td>{{$k+1}}</td>
+                        <td>{{$row->country_name_ar}}</td>
                         <td>{{$row->title}}</td>
+                        <td>{{$row->country_name_en}}</td>
                         <td>{{$row->title_en}}</td>
                        
  
@@ -66,6 +72,12 @@
 
                           @can('update_nationalities') 
                               <a href="{{url('')}}/{{config('settings.BackendPath')}}/nationalities/{{$row->id}}/edit" class="badge badge badge-info float-right"><i class="la la-pencil"></i> </a>
+                           @endcan
+
+
+                           @can('update_nationalities') 
+                              <a href="{{url('')}}/{{config('settings.BackendPath')}}/cities?id=
+                              {{$row->id}}" class="badge badge badge-info float-right"><i class="la la-file"></i> </a>
                            @endcan
 
 

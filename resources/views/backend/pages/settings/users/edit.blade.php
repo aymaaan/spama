@@ -17,11 +17,11 @@
                 <div class="card-content">
                   <div class="card-body">
                     <!-- Task List table -->
-    
+
+
+
 {!! Form::model( $user ,[ 'url' =>  config('settings.BackendPath').'/users/'.$user->employee_id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
-
 @include('backend.pages.settings.users.form')
-
 {!!Form::close()!!}
 
 
@@ -112,7 +112,25 @@
 
   <script>
 
-    
+$('select[name="work_place_country"]').on('change', function() {
+var country = $($(this)).val();
+
+         $.ajax({
+
+           beforeSend: function() {
+              $("#loading-image").show();              
+           },
+           
+             success: function() {
+             $('#cities_ajax').load("{{url('')}}/{{config('settings.BackendPath')}}/cities/get_cities_ajax/"+ country );
+             $("#loading-image").hide();
+
+             
+           }
+      });
+      
+  
+});
 
 $(document).ready(function(){
 

@@ -25,4 +25,23 @@ class Employee extends Model
       return $this->belongsTo(User::class , 'manager_id');
    
   }
+
+
+  public function work_country() {
+
+    return $this->belongsTo(Nationality::class , 'work_place_country');
+ 
+}
+
+
+
+public function work_city() {
+
+  return $this->belongsTo(City::class , 'work_place_city');
+
+}
+
+
+
+
 }

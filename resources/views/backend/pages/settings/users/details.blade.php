@@ -231,75 +231,17 @@
   </div>
 </div>
 
-</div>
 
-<h4 class="form-section"> {{__('backend.national_address')}} </h4>
-<hr>
-<div class="row">
-
-<div class="col-md-4">
+<div class="col-md-12">
   <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_building_number')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_building_number']}} </h4>
-
-  </div>
-</div>
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_street')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_street']}} </h4>
-
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_district')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_district']}} </h4>
-
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_city')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_city']}} </h4>
-
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_zip')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_zip']}} </h4>
-
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_additional')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_additional']}} </h4>
-
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-  <label for="projectinput3">  {{__('backend.national_address_unit')}}   </label>
-    <h4 class="card-title">{{$user->data['national_address_unit']}} </h4>
+  
+  <label for="projectinput3">
+  <B>{{__('backend.national_address')}}:</B> </br>
+    {{__('backend.national_address_building_number')}}: {{$user->data['national_address_building_number']}} - {{__('backend.national_address_street')}}: {{$user->data['national_address_street']}} - {{__('backend.national_address_district')}}: {{$user->data['national_address_district']}} - {{__('backend.national_address_city')}}: {{$user->data['national_address_city']}} - {{__('backend.national_address_zip')}}: {{$user->data['national_address_zip']}} - {{__('backend.national_address_additional')}}: {{$user->data['national_address_additional']}} - {{__('backend.national_address_unit')}}: {{$user->data['national_address_unit']}}
+    
+    
+    
+    </label>
 
   </div>
 </div>
@@ -307,7 +249,7 @@
 
 
 </div>
-
+</br>
 <div class="row">
 
 <div class="col-md-4">
@@ -363,6 +305,7 @@
 
 
 @forelse( $user->close_persons as $person)
+@if( $person->name )
 
 <div class="col-md-12">
   <div class="form-group">
@@ -371,6 +314,7 @@
 
   </div>
 </div>
+@endif
 
 @empty
 
@@ -426,10 +370,11 @@
 <div class="col-md-4">
   <div class="form-group">
   <label for="projectinput3">  {{__('backend.work_place')}}   </label>
-    <h4 class="card-title">{{ $user->data['work_place'] }} </h4>
+    <h4 class="card-title">{{ $user->data['work_country']['country_name_ar'] }} - {{ $user->data['work_city']['title'] }}</h4>
 
   </div>
 </div>
+
 
 <div class="col-md-4">
   <div class="form-group">

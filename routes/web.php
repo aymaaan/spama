@@ -254,6 +254,7 @@ Route::get('/customers/pricing/{id}', 'CustomersController@pricing');
 //cities
 Route::resource('/cities', 'CityController');
 Route::get('/cities/{id}/delete', 'CityController@destroy');
+Route::get('/cities/get_cities_ajax/{country}', 'CityController@get_cities_ajax');
     
 //nationalities
 Route::resource('/nationalities', 'NationalityController');
