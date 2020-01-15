@@ -45,7 +45,7 @@ class OrderPendingController extends Controller
             $user = Input::get ( 'user_id' );
             $statuses = Status::all();
             $drivers = User::where('role','driver')->pluck('name','id');
-            $customers = Customers::pluck('name','id');
+            $customers = User::where('role', '!=', 'driver')->pluck('name', 'id');
             $data = Order::query()
                 //   ->where('date', 'LIKE', "%$date1%")
                 ->where('order_status',1)
@@ -61,7 +61,7 @@ class OrderPendingController extends Controller
             return view('backend.pages.pending.index', compact('data','drivers','customers','statuses'));
 
         }
-        $customers = Customers::pluck('name','id');
+        $customers = User::where('role', '!=', 'driver')->pluck('name', 'id');
         $drivers = User::where('role','driver')->pluck('name','id');
         $data = Order::where('order_status',1)->orderBy('id', 'DESC')->get();
         $statuses = Status::all();

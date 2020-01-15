@@ -276,6 +276,7 @@
                                         </div>
 
                                     </div>
+
                                     <div class="form-actions">
 
                                         <button type="submit" class="btn btn-primary">
@@ -301,7 +302,7 @@
                                         <th>  {{__('backend.driver')}}  </th>
                                         <th>  {{__('backend.employee_s_n')}}  </th>
                                         <th>  {{__('backend.city')}}  </th>
-
+                                        <th>  {{__('backend.status')}}  </th>
                                         <th>  {{__('backend.from_time')}}  </th>
                                         <th>  {{__('backend.to_time')}}  </th>
                                         {{--                                        <th>  {{__('backend.status')}}  </th>--}}
@@ -312,8 +313,7 @@
                                     </thead>
                                     <tbody>
 
-                                    <script src="{{url('')}}/assets/app-assets/js/core/libraries/jquery.min.js"
-                                            type="text/javascript"></script>
+
                                     @foreach ( $data as $k=>$row )
                                         <input type="hidden" id="order_id{{ $row->id }}" value="{{ $row->id }}">
                                         <tr>
@@ -350,6 +350,56 @@
                                                     $city =  \App\City::find($row->city_id)->first()
                                                 @endphp
                                                 {{$city->title_en}}
+                                            </td>
+                                            <td>
+                                            <td>
+
+                                                <script src="{{url('')}}/assets/app-assets/js/core/libraries/jquery.min.js"
+                                                        type="text/javascript"></script>
+                                                <select  class="bs-select form-control input-small status{{$row->id}}" data-style="blue" style="background:<?php
+                                                //                                                if($row->order_status == 1){echo '#e67e22';}
+                                                if($row->order_status == 1){echo 'white';}
+                                                if($row->order_status == 2){echo '#2ecc71';}
+                                                if($row->order_status == 3){echo '#e74c3c';}
+                                                ?>">
+
+                                                    {{--<option>{{\App\Status::where('id',$item->status_id )->get()->implode('name_en')}}</option>--}}
+                                                    @foreach($statuses as $status)
+
+
+                                                        <option id="op{{$status->id}}" @if($status->id == $row->order_status ) selected
+                                                                @endif value="{{$status->id}}">{{$status->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                                <script>
+                                                    $(function () {
+
+                                                        $('.status{{$row->id}}').change(function () {
+                                                            console.log('fdsfds')
+                                                            $.ajaxSetup({
+                                                                headers: {
+                                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                                                }
+                                                            });
+
+                                                            $.ajax({
+                                                                url: "{{url('')}}/{{config('settings.BackendPath')}}/statusChange",
+                                                                type: "GET",
+                                                                data: {
+                                                                    status_id: $('.status{{$row->id}}').val(),
+                                                                    id: $('#order_id{{$row->id}}').val()
+                                                                },
+                                                                success: function (result) {
+                                                                    $('.status{{$row->id}}').css({'background': result});
+                                                                    console.log({{$row->id}})
+
+                                                                }
+                                                            })
+
+                                                        })
+                                                    })
+                                                </script>
+                                            </td>
                                             </td>
                                             <td>{{date('h:i A', strtotime($row->from_time))}}</td>
                                             <td>{{date('h:i A', strtotime($row->to_time))}}</td>
