@@ -70,7 +70,7 @@ class OrderController extends Controller
             $driver = Input::get('driver');
             $user = Input::get('customer');
             $drivers = User::where('role', 'driver')->pluck('name', 'id');
-            $customers = Customers::pluck('name', 'id');
+            $customers = User::where('role', '!=', 'driver')->pluck('name', 'id');
             $statuses = Status::all();
             $data = Order::query()
                 ->where('order_status', 2)
@@ -84,7 +84,8 @@ class OrderController extends Controller
             return view('backend.pages.orders.confirmed_order', compact('data', 'drivers', 'customers', 'statuses'));
 
         }
-        $customers = Customers::pluck('name', 'id');
+        $customers = User::where('role', '!=', 'driver')->pluck('name', 'id');
+
         $drivers = User::where('role', 'driver')->pluck('name', 'id');
         $data = Order::where('order_status', 2)->orderBy('id', 'DESC')->get();
         $statuses = Status::all();
@@ -280,4 +281,6 @@ class OrderController extends Controller
 
 
     }
+
+
 }

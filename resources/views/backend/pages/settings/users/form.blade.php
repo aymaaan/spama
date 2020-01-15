@@ -493,7 +493,7 @@
 
 
 
-                        
+
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.private_situation')}}   </label>
@@ -573,7 +573,14 @@
  
   </div>
 </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="projectinput3">  {{__('backend.job')}}   </label>
 
+            {!! Form::select('role', [ 'doctor'=>__('backend.Doctor') ,  'admin'=>__('backend.admin') ,  'supervisor'=>__('backend.supervisor') ,  'driver'=>__('backend.driver')   ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.roles')] ) !!}
+
+        </div>
+    </div>
 
 <div class="col-md-12">
   <div class="form-group">

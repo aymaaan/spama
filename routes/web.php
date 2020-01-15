@@ -272,6 +272,7 @@ Route::get('/orders/{id}/delete/stop', 'OrderController@destoryStop');
 Route::get('/getCustomer', 'OrderController@getCustomer');
 Route::get('/orders/confirmed/order', 'OrderController@confirmedOrder');
 Route::get('/orders/details/{id}', 'OrderController@details');
+
 //branches
 Route::resource('/branches', 'BranchController');
 Route::get('/branches/{id}/delete', 'BranchController@destroy');
