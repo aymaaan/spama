@@ -351,7 +351,7 @@
                                                 @endphp
                                                 {{$city->title_en}}
                                             </td>
-                                            <td>
+
                                             <td>
 
                                                 <script src="{{url('')}}/assets/app-assets/js/core/libraries/jquery.min.js"
@@ -400,7 +400,7 @@
                                                     })
                                                 </script>
                                             </td>
-                                            </td>
+                                            
                                             <td>{{date('h:i A', strtotime($row->from_time))}}</td>
                                             <td>{{date('h:i A', strtotime($row->to_time))}}</td>
 

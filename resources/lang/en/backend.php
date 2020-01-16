@@ -319,7 +319,6 @@ return [
   'private_situation' => 'Private Situation',
   'work_place' => 'Work Place',
   'work_start_at' => 'Work start at',
-  'job' => 'Job',
   'job_type' => 'Job type',
   'full_time' => 'full_time',
   'part_time' => 'Part time',
@@ -362,4 +361,6 @@ return [
     'admin' => 'Admin',
     'Doctor' => 'Doctor',
     'supervisor' => 'Supervisor',
+    'jobs' => 'Jobs',
+    'add_jobs' => 'Add Job',
 ];

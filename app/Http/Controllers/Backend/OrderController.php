@@ -42,6 +42,13 @@ class OrderController extends Controller
 
         return view('backend.pages.orders.index', compact('totalPending', 'totalConfirmed'));
     }
+    public function calendar(Request $request)
+    {
+        $totalPending = Order::where('order_status', 1)->count();
+        $totalConfirmed = Order::where('order_status', 2)->count();
+
+        return view('backend.pages.orders.form', compact('totalPending', 'totalConfirmed'));
+    }
 
     public function details($id)
     {
@@ -70,7 +77,7 @@ class OrderController extends Controller
             $driver = Input::get('driver');
             $user = Input::get('customer');
             $drivers = User::where('role', 'driver')->pluck('name', 'id');
-            $customers = User::where('role', '!=', 'driver')->pluck('name', 'id');
+            $customers = User::where('role', '!=', 'driver')->pluck('name', 'name');
             $statuses = Status::all();
             $data = Order::query()
                 ->where('order_status', 2)
@@ -97,7 +104,7 @@ class OrderController extends Controller
     {
         //if ( Gate::denies(['create_orders'])  ) { abort(404); }
         $drivers = User::where('role', 'driver')->pluck('name', 'id');
-        $cities = City::pluck('title', 'id');
+        $cities = City::where('parent_id',1)->pluck('title', 'id');
         $branches = Branch::pluck('title', 'id');
         $customers = Customers::all();
         $days = ['Saturday' => 'Saturday', 'Sunday' => 'Sunday', 'Monday' => 'Monday', 'Tuesday' => 'Tuesday'
@@ -280,6 +287,25 @@ class OrderController extends Controller
         return $customer;
 
 
+    }
+
+    public function statusChange(Request $request)
+    {
+//dd($request->status_id);
+
+        Order::where('id', $request->id)
+            ->update(['order_status' => $request->status_id]);
+        if ($request->status_id == 1) {
+            $color = '#e67e22';
+
+        } else if ($request->status_id == 2) {
+            $color = '#2ecc71';
+
+        } else if ($request->status_id == 3) {
+            $color = '#e74c3c';
+        }
+
+        return $color;
     }
 
 
