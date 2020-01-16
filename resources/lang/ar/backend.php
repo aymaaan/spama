@@ -377,7 +377,7 @@ return array (
   'Doctor' => 'طبيب',
   'supervisor' => 'مشرف',
   'jobs' => 'الوظائف',
-  'test' => 'test',
+  'add_jobs' => 'إضافة وظيفة',
   'test' => 'test',
   'test' => 'test',
   'test' => 'test',

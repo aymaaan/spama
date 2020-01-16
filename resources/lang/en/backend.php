@@ -362,5 +362,5 @@ return [
     'Doctor' => 'Doctor',
     'supervisor' => 'Supervisor',
     'jobs' => 'Jobs',
-
+    'add_jobs' => 'Add Job',
 ];

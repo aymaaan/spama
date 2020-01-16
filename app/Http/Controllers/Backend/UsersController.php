@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\backend;
+use App\Job;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
@@ -71,8 +72,8 @@ class UsersController extends Controller
    $departments = Department::pluck('title' , 'id');
    $managers = User::pluck('name' , 'id');
    $countries = Nationality::pluck('country_name_ar','id');
-
-   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments'));
+   $jobs = Job::pluck('name','name');
+   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments','jobs'));
  }
 
 
@@ -172,7 +173,6 @@ class UsersController extends Controller
   $data->work_place_country = $request->work_place_country;
   $data->work_place_city = $request->work_place_city;
   $data->work_start_at = $request->work_start_at;
-  $data->job = $request->job;
   $data->job_type = $request->job_type;
   $data->work_days = json_encode($request->work_days);
   if( $request->work_time_from_1 || $request->work_time_from_2) {
@@ -324,7 +324,6 @@ if($request->role_id){
   $data->work_place_country = $request->work_place_country;
   $data->work_place_city = $request->work_place_city;
   $data->work_start_at = $request->work_start_at;
-  $data->job = $request->job;
   $data->job_type = $request->job_type;
   $data->work_days = json_encode($request->work_days);
   if( $request->work_time_from_1 || $request->work_time_from_2) {
