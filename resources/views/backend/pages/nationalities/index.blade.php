@@ -66,10 +66,6 @@
                           <a title="Delete Post" href="{{url(config('settings.BackendPath').'/nationalities/'.$row->id.'/delete')}}" class="badge badge badge-danger float-right"><i class="la la-trash"></i> </a>
                           @endcan
 
-
-
-      
-
                           @can('update_nationalities') 
                               <a href="{{url('')}}/{{config('settings.BackendPath')}}/nationalities/{{$row->id}}/edit" class="badge badge badge-info float-right"><i class="la la-pencil"></i> </a>
                            @endcan

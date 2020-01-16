@@ -71,8 +71,8 @@ class UsersController extends Controller
    $departments = Department::pluck('title' , 'id');
    $managers = User::pluck('name' , 'id');
    $countries = Nationality::pluck('country_name_ar','id');
-
-   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments'));
+   $cities = City::pluck('title','id');
+   return view('backend.pages.settings.users.create' , compact('cities','countries','roles','nationaliies','managers','departments'));
  }
 
 
