@@ -38,6 +38,12 @@
             aria-expanded="false">{{ __('backend.files') }}</a>
           </li>
 
+
+          <li class="nav-item">
+            <a style="width: 200px;"  class="nav-link" id="custodies-tab2" data-toggle="tab" href="#custodies" aria-controls="photos_properties"
+            aria-expanded="false">{{ __('backend.custodies') }}</a>
+          </li>
+
         
 
 
@@ -348,6 +354,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 <div class="tab-pane" id="administrative_information" role="tabpanel" aria-labelledby="administrative_information-tab2"
                       aria-expanded="false">
 
@@ -570,7 +587,7 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
    
    @forelse( $user->employee_files as $file)
 
-    <h4 class="card-title"> - <a target="_blank" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$file->file_name}}">  {{$file->file_title}} </h4>
+    <h4 class="card-title"> - <a target="_blank" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$file->file_name}}">  {{$file->file_title}} </a> </h4>
 
     @empty
 
@@ -587,7 +604,270 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 
 
 
+
+
+
+
+<div class="tab-pane" id="administrative_information" role="tabpanel" aria-labelledby="administrative_information-tab2"
+                      aria-expanded="false">
+
+<div class="row">
+
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.private_situation')}}   </label>
+    <h4 class="card-title">{{ __('backend.'.$user->data['private_situation']) }} </h4>
+
+  </div>
+</div>
+
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.work_place')}}   </label>
+    <h4 class="card-title">{{ $user->data['work_country']['country_name_ar'] }} - {{ $user->data['work_city']['title'] }}</h4>
+
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.work_start_at')}}   </label>
+    <h4 class="card-title">{{ $user->data['work_start_at'] }} </h4>
+
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.job')}}   </label>
+    <h4 class="card-title">{{ $user->data['job'] }} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+  <label for="projectinput3">  {{__('backend.job_type')}}   </label>
+    <h4 class="card-title">{{ __('backend.'.$user->data['job_type']) }} </h4>
+
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.department')}}   </label>
+
+    <h4 class="card-title">{{ $user->data->department['title'] }} </h4>
  
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
+
+    <h4 class="card-title">{{ $user->data->manager['name'] }} </h4>
+ 
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.work_days')}}  </label>
+
+    <h4 class="card-title">
+
+    @foreach( json_decode($user->data->work_days, true)   as $day  )
+    -  {{ __('backend.'.$day)  }} 
+    @endforeach
+
+    </h4>
+ 
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{ __('backend.work_time')}}   </label>
+
+    <h4 class="card-title">
+
+    
+
+    @foreach( json_decode($user->data->work_times, true)   as $k=>$time  )
+    @if( $k == 'from_2')
+     </br>
+     @endif
+
+     {{ __('backend.'.str_replace('_1','', str_replace('_2','', $k ) )) }} : {{ $time  }} 
+
+    @endforeach
+
+    </h4>
+ 
+  </div>
+</div>
+
+@php
+$from_1 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['from_1'] ?? '00:00');
+$to_1 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['to_1'] ?? '00:00');
+$from_2 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['from_2'] ?? '00:00');
+$to_2 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['to_2'] ?? '00:00');
+$diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
+@endphp
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.total_working_hours_daily')}}   </label>
+
+    <h4 class="card-title"> {{ $diff_in_hours }}  </h4>
+ 
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.total_working_hours_weelky')}}   </label>
+
+    <h4 class="card-title"> {{ $diff_in_hours * count(json_decode($user->data->work_days, true)) }}  </h4>
+ 
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.total_salary')}}   </label>
+
+    <h4 class="card-title">{{ $user->data['total_salary'] }} </h4>
+ 
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.basic_salary')}}   </label>
+
+    <h4 class="card-title">{{ $user->data['basic_salary'] }} </h4>
+ 
+  </div>
+</div>
+
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.housing_allowance')}}   </label>
+
+    <h4 class="card-title">{{ $user->data['housing_allowance'] }} </h4>
+ 
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.transportation_allowance')}}   </label>
+
+    <h4 class="card-title">{{ $user->data['transportation_allowance'] }} </h4>
+ 
+  </div>
+</div>
+
+
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.other_allowance')}}   </label>
+
+    <h4 class="card-title">{{ $user->data['other_allowance'] }} </h4>
+ 
+  </div>
+</div>
+
+
+
+
+
+
+  
+</div>
+
+</div>   
+
+
+
+ 
+
+
+<div class="tab-pane" id="custodies" role="tabpanel" aria-labelledby="custodies-tab2"
+                      aria-expanded="false">
+
+<div class="row">
+
+<table id="users-contacts" style='width:100%;' class="table datatable table-hover table-responsive">
+                        <thead>
+                          <tr>
+
+                          
+                            <th>  {{__('backend.custody')}}  </th>
+                            <th>  {{__('backend.custody_type')}} </th>
+                            <th> {{__('backend.custody_expiry_date')}}   </th>
+                            <th> {{__('backend.custody_note')}}  </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+
+@foreach( $user->employee_custodies as $custody)
+
+                          <tr>
+                          <td>{{$custody->custody_id}}</td>
+                          <td>{{$custody->custody_type}}</td>
+                          <td>{{$custody->custody_expiry_date}} </td>
+                          <td>{{$custody->note}}</td>
+                            
+                            
+
+                          </tr>
+
+@endforeach
+
+
+                        
+                      </table>
+
+
+</div>
+
+
+</div>  
+
+
+
+
+
+
+
+
+
+
 		  
 </div>
 

@@ -1,44 +1,44 @@
 
                       <div class="form-body">
 
-                        @include('backend.includes.errors') 
+@include('backend.includes.errors') 
 
 
 
 
-        <ul class="nav nav-tabs nav-topline">
+<ul class="nav nav-tabs nav-topline">
 
-          <li class="nav-item">
-                        <a style="width: 150px;" class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" aria-controls="home2"
-                        aria-expanded="true">{{ __('backend.basic_information') }}</a>
-            </li>
-
-
-
-            <li class="nav-item">
-            <a style="width: 150px;"  class="nav-link" id="administrative_information-tab2" data-toggle="tab" href="#administrative_information" aria-controls="photos_properties"
-            aria-expanded="false">{{ __('backend.administrative_information') }}</a>
-          </li>
+<li class="nav-item">
+<a style="width: 150px;" class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" aria-controls="home2"
+aria-expanded="true">{{ __('backend.basic_information') }}</a>
+</li>
 
 
-          <li class="nav-item">
-            <a style="width: 150px;"  class="nav-link" id="files-tab2" data-toggle="tab" href="#files" aria-controls="files"
-            aria-expanded="false">{{ __('backend.files') }}</a>
-          </li>
 
-          <li class="nav-item">
-            <a style="width: 150px;"  class="nav-link" id="custodies-tab2" data-toggle="tab" href="#custodies" aria-controls="custodies"
-            aria-expanded="false">{{ __('backend.custodies') }}</a>
-          </li>
-          
+<li class="nav-item">
+<a style="width: 150px;"  class="nav-link" id="administrative_information-tab2" data-toggle="tab" href="#administrative_information" aria-controls="photos_properties"
+aria-expanded="false">{{ __('backend.administrative_information') }}</a>
+</li>
 
 
-          <li class="nav-item">
-            <a style="width: 150px;"  class="nav-link" id="photos_properties-tab2" data-toggle="tab" href="#photos_properties" aria-controls="photos_properties"
-            aria-expanded="false">{{ __('backend.login_information') }}</a>
-          </li>
+<li class="nav-item">
+<a style="width: 150px;"  class="nav-link" id="files-tab2" data-toggle="tab" href="#files" aria-controls="files"
+aria-expanded="false">{{ __('backend.files') }}</a>
+</li>
 
-          </ul>
+<li class="nav-item">
+<a style="width: 150px;"  class="nav-link" id="custodies-tab2" data-toggle="tab" href="#custodies" aria-controls="custodies"
+aria-expanded="false">{{ __('backend.custodies') }}</a>
+</li>
+
+
+
+<li class="nav-item">
+<a style="width: 150px;"  class="nav-link" id="photos_properties-tab2" data-toggle="tab" href="#photos_properties" aria-controls="photos_properties"
+aria-expanded="false">{{ __('backend.login_information') }}</a>
+</li>
+
+</ul>
 
 
 
@@ -52,204 +52,204 @@
 
 </br>
 
-                          <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.personal_photo')}}   </label>
+  <div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.personal_photo')}}   </label>
 
-               @if(isset($user))
-               <div class="card-body">
+@if(isset($user))
+<div class="card-body">
 
-                    <img  class="card-img img-fluid mb-1" src="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$user->data['photo']}}" alt="Card image cap">
+<img style="width:250px;"  class="card-img img-fluid mb-1" src="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$user->data['photo']}}" alt="Card image cap">
+
+</div>
+@endif
+
+      {!! Form::file('personal_photo', null , ['class' => 'form-control' , 'placeholder'=> __('backend.personal_photo')] ) !!}
+   
+    </div>
+  </div>
+  </div>
+
+
   
-               </div>
-               @endif
-
-                              {!! Form::file('personal_photo', null , ['class' => 'form-control' , 'placeholder'=> __('backend.personal_photo')] ) !!}
-                           
-                            </div>
-                          </div>
-                          </div>
+  <div class="row">
 
 
-                          
-                          <div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.first_name')}}   </label>
+
+      {!! Form::text('name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.first_name')] ) !!}
+   
+    </div>
+  </div>
 
 
-                          <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.first_name')}}   </label>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.last_name')}}   </label>
 
-                              {!! Form::text('name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.first_name')] ) !!}
-                           
-                            </div>
-                          </div>
-
-
-                          <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.last_name')}}   </label>
-
-                              {!! Form::text('last_name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.last_name')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::text('last_name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.last_name')] ) !!}
+   
+    </div>
+  </div>
 
 
-                          <div class="col-md-4">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.father_name')}}   </label>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.father_name')}}   </label>
 
-                              {!! Form::text('father_name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.father_name')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::text('father_name', null , ['class' => 'form-control' , 'placeholder'=> __('backend.father_name')] ) !!}
+   
+    </div>
+  </div>
 
-                          
+  
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.name_english')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.name_english')}}   </label>
 
-    {!! Form::text('name_english', null , ['class' => 'form-control' , 'placeholder'=> __('backend.name_english')] ) !!}
- 
-  </div>
+{!! Form::text('name_english', null , ['class' => 'form-control' , 'placeholder'=> __('backend.name_english')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.education')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.education')}}   </label>
 
-    {!! Form::select('education', [ 'before_high_school'=>__('backend.before_high_school') ,  'high_school'=>__('backend.high_school')  ,  'university'=>__('backend.university') ,  'after_university'=>__('backend.after_university') ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.education')] ) !!}
- 
-  </div>
+{!! Form::select('education', [ 'before_high_school'=>__('backend.before_high_school') ,  'high_school'=>__('backend.high_school')  ,  'university'=>__('backend.university') ,  'after_university'=>__('backend.after_university') ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.education')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.gender')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.gender')}}   </label>
 
-    {!! Form::select('gender', [ 'male'=>__('backend.male') ,  'female'=>__('backend.female')  ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.gender')] ) !!}
- 
-  </div>
+{!! Form::select('gender', [ 'male'=>__('backend.male') ,  'female'=>__('backend.female')  ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.gender')] ) !!}
+
+</div>
 </div>
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.social_status')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.social_status')}}   </label>
 
-    {!! Form::select('social_status', [ 'unmarried'=>__('backend.unmarried') ,  'married'=>__('backend.married') ,  'absolute'=>__('backend.absolute') ,  'widower'=>__('backend.widower')  ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.social_status')] ) !!}
- 
-  </div>
+{!! Form::select('social_status', [ 'unmarried'=>__('backend.unmarried') ,  'married'=>__('backend.married') ,  'absolute'=>__('backend.absolute') ,  'widower'=>__('backend.widower')  ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.social_status')] ) !!}
+
 </div>
-
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.number_childrens')}}   </label>
-
-    {!! Form::number('number_childrens', null , ['class' => 'form-control' , 'placeholder'=> __('backend.number_childrens')] ) !!}
- 
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.number_escorts')}}   </label>
-
-    {!! Form::number('number_escorts', null , ['class' => 'form-control' , 'placeholder'=> __('backend.number_escorts')] ) !!}
- 
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.nationality')}}   </label>
-
-    {!! Form::select('nationality' , $nationaliies , null , ['class' => 'form-control' , 'placeholder'=> __('backend.nationality')] ) !!}
- 
-  </div>
-</div>
-
-
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.mobile')}}   </label>
-    {!! Form::number('phone', null , ['class' => 'form-control' , 'placeholder'=> __('backend.mobile')] ) !!}
-
-  </div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.mobile_work')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.number_childrens')}}   </label>
 
-    {!! Form::number('mobile_work', null , ['class' => 'form-control' , 'placeholder'=> __('backend.mobile_work')] ) !!}
- 
-  </div>
+{!! Form::number('number_childrens', null , ['class' => 'form-control' , 'placeholder'=> __('backend.number_childrens')] ) !!}
+
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.number_escorts')}}   </label>
+
+{!! Form::number('number_escorts', null , ['class' => 'form-control' , 'placeholder'=> __('backend.number_escorts')] ) !!}
+
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.nationality')}}   </label>
+
+{!! Form::select('nationality' , $nationaliies , null , ['class' => 'form-control' , 'placeholder'=> __('backend.nationality')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.shunt_work')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.mobile')}}   </label>
+{!! Form::number('phone', null , ['class' => 'form-control' , 'placeholder'=> __('backend.mobile')] ) !!}
 
-    {!! Form::text('shunt_work', null , ['class' => 'form-control' , 'placeholder'=> __('backend.shunt_work')] ) !!}
- 
-  </div>
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.mobile_work')}}   </label>
+
+{!! Form::number('mobile_work', null , ['class' => 'form-control' , 'placeholder'=> __('backend.mobile_work')] ) !!}
+
+</div>
+</div>
+
+
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.shunt_work')}}   </label>
+
+{!! Form::text('shunt_work', null , ['class' => 'form-control' , 'placeholder'=> __('backend.shunt_work')] ) !!}
+
+</div>
 </div>
 
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.personal_email')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.personal_email')}}   </label>
 
-    {!! Form::email('personal_email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.personal_email')] ) !!}
- 
-  </div>
+{!! Form::email('personal_email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.personal_email')] ) !!}
+
+</div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_email')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_email')}}   </label>
 
-    {!! Form::email('work_email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_email')] ) !!}
- 
-  </div>
+{!! Form::email('work_email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_email')] ) !!}
+
+</div>
 </div>
 
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.birth_date')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.birth_date')}}   </label>
 
-    {!! Form::date('birth_date', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_date')] ) !!}
+{!! Form::date('birth_date', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_date')] ) !!}
 
- 
-  </div>
+
+</div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.birth_place')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.birth_place')}}   </label>
 
-    {!! Form::text('birth_place', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_place')] ) !!}
- 
-  </div>
+{!! Form::text('birth_place', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_place')] ) !!}
+
+</div>
 </div>
 
 </div>
@@ -263,60 +263,60 @@
 
 
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_building_number')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_building_number')}}   </label>
 
-    {!! Form::number('national_address_building_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_building_number')] ) !!}
- 
-  </div>
+{!! Form::number('national_address_building_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_building_number')] ) !!}
+
+</div>
 </div>
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_street')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_street')}}   </label>
 
-    {!! Form::text('national_address_street', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_street')] ) !!}
- 
-  </div>
+{!! Form::text('national_address_street', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_street')] ) !!}
+
+</div>
 </div>
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_district')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_district')}}   </label>
 
-    {!! Form::text('national_address_district', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_district')] ) !!}
- 
-  </div>
+{!! Form::text('national_address_district', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_district')] ) !!}
+
+</div>
 </div>
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_city')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_city')}}   </label>
 
-    {!! Form::text('national_address_city', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_city')] ) !!}
- 
-  </div>
+{!! Form::text('national_address_city', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_city')] ) !!}
+
+</div>
 </div>
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_zip')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_zip')}}   </label>
 
-    {!! Form::number('national_address_zip', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_zip')] ) !!}
- 
-  </div>
+{!! Form::number('national_address_zip', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_zip')] ) !!}
+
+</div>
 </div>
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_additional')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_additional')}}   </label>
 
-    {!! Form::number('national_address_additional', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_additional')] ) !!}
- 
-  </div>
+{!! Form::number('national_address_additional', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_additional')] ) !!}
+
+</div>
 </div>
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.national_address_unit')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.national_address_unit')}}   </label>
 
-    {!! Form::number('national_address_unit', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_unit')] ) !!}
- 
-  </div>
+{!! Form::number('national_address_unit', null , ['class' => 'form-control' , 'placeholder'=> __('backend.national_address_unit')] ) !!}
+
+</div>
 </div>
 
 
@@ -338,42 +338,42 @@
 
 <div class="row">
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.identification_number')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.identification_number')}}   </label>
 
-    {!! Form::text('identification_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.identification_number')] ) !!}
- 
-  </div>
+{!! Form::text('identification_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.identification_number')] ) !!}
+
+</div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.identification_expiry')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.identification_expiry')}}   </label>
 
-    {!! Form::date('identification_expiry', null , ['class' => 'form-control' , 'placeholder'=> __('backend.identification_expiry')] ) !!}
- 
-  </div>
+{!! Form::date('identification_expiry', null , ['class' => 'form-control' , 'placeholder'=> __('backend.identification_expiry')] ) !!}
+
+</div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.passport_number')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.passport_number')}}   </label>
 
-    {!! Form::text('passport_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.passport_number')] ) !!}
- 
-  </div>
+{!! Form::text('passport_number', null , ['class' => 'form-control' , 'placeholder'=> __('backend.passport_number')] ) !!}
+
+</div>
 </div>
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.passport_expiry')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.passport_expiry')}}   </label>
 
-    {!! Form::date('passport_expiry', null , ['class' => 'form-control' , 'placeholder'=> __('backend.passport_expiry')] ) !!}
- 
-  </div>
+{!! Form::date('passport_expiry', null , ['class' => 'form-control' , 'placeholder'=> __('backend.passport_expiry')] ) !!}
+
+</div>
 </div>
 
 
@@ -383,10 +383,10 @@
 
 
 <div class="col-md-12">
-  <div class="form-group">
-   
-  <h4  class="form-section">{{__('backend.close_persons')}}</h4>
-   
+<div class="form-group">
+
+<h4  class="form-section">{{__('backend.close_persons')}}</h4>
+
 <div class="row">
 
 
@@ -398,24 +398,24 @@
 
 
 <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.name') }}      </label>
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.name') }}      </label>
 
-                              {!! Form::text('close_names[]', $person->name, ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::text('close_names[]', $person->name, ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
+   
+    </div>
+  </div>
 
 
 
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.phone') }}      </label>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.phone') }}      </label>
 
-                              {!! Form::text('close_phones[]', $person->mobile , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::text('close_phones[]', $person->mobile , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
+   
+    </div>
+  </div>
 
 
 @empty
@@ -431,37 +431,37 @@
 
 
 
-                   <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.name') }}      </label>
+<div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.name') }}      </label>
 
-                              {!! Form::text('close_names[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
-                           
-                            </div>
-                          </div>
-
-
-
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.phone') }}      </label>
-
-                              {!! Form::text('close_phones[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
-                           
-                            </div>
-                          </div>
-
-                  
-
-
- </div>
-
-
-
- <button id='repeat_div' class="btn btn-success">  {{ __('backend.new') }} </button>
+      {!! Form::text('close_names[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
    
- 
+    </div>
   </div>
+
+
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.phone') }}      </label>
+
+      {!! Form::text('close_phones[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
+   
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+<button id='repeat_div' class="btn btn-success">  {{ __('backend.new') }} </button>
+
+
+</div>
 </div>
 
 
@@ -491,98 +491,98 @@
 
 
 <div class="tab-pane" id="administrative_information" role="tabpanel" aria-labelledby="administrative_information-tab2"
-                      aria-expanded="false">
+aria-expanded="false">
 
-     
+
 <div class="row">
 
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.private_situation')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.private_situation')}}   </label>
 
-    {!! Form::select('private_situation', [ 'special_arrival'=>__('backend.special_arrival') ,  'disabled'=>__('backend.disabled') ,  'chronic_disease'=>__('backend.chronic_disease')   ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.private_situation')] ) !!}
- 
-  </div>
+{!! Form::select('private_situation', [ 'special_arrival'=>__('backend.special_arrival') ,  'disabled'=>__('backend.disabled') ,  'chronic_disease'=>__('backend.chronic_disease')   ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.private_situation')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_place_country')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_place_country')}}   </label>
 
-    {!! Form::select('work_place_country' , $countries ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_country')] ) !!}
- 
-  </div>
+{!! Form::select('work_place_country' , $countries ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_country')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_place_city')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_place_city')}}   </label>
 <p id="cities_ajax">
 
-    {!! Form::select('work_place_city' , $cities ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_city')] ) !!}
+{!! Form::select('work_place_city' , $cities ,  null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_place_city')] ) !!}
 
 
- </p>
-  </div>
+</p>
+</div>
 </div>
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_start_at')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_start_at')}}   </label>
 
-    {!! Form::date('work_start_at', null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_start_at')] ) !!}
- 
-  </div>
+{!! Form::date('work_start_at', null , ['class' => 'form-control' , 'placeholder'=> __('backend.work_start_at')] ) !!}
+
 </div>
-
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="projectinput3">  {{__('backend.job')}}   </label>
-
-            {!! Form::select('role', $jobs , null , ['class' => 'form-control' , 'placeholder'=> __('backend.job')] ) !!}
-
-        </div>
-    </div>
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.job_type')}}   </label>
-
-    {!! Form::select('job_type', [ 'full_time'=>__('backend.full_time') ,  'part_time'=>__('backend.part_time') ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.job')] ) !!}
- 
-  </div>
-</div>
-
-
-<div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.department')}}   </label>
-
-    {!! Form::select('department_id', $departments  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.department')] ) !!}
- 
-  </div>
 </div>
 
 <div class="col-md-4">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.job')}}   </label>
 
-    {!! Form::select('manager_id', $managers  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.direct_manager')] ) !!}
- 
-  </div>
+{!! Form::select('role', $jobs , null , ['class' => 'form-control' , 'placeholder'=> __('backend.job')] ) !!}
+
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.job_type')}}   </label>
+
+{!! Form::select('job_type', [ 'full_time'=>__('backend.full_time') ,  'part_time'=>__('backend.part_time') ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.job')] ) !!}
+
+</div>
+</div>
+
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.department')}}   </label>
+
+{!! Form::select('department_id', $departments  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.department')] ) !!}
+
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
+
+{!! Form::select('manager_id', $managers  , null , ['class' => 'form-control' , 'placeholder'=> __('backend.direct_manager')] ) !!}
+
+</div>
 </div>
 
 
 <div class="col-md-12">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_days')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_days')}}   </label>
 
 <input type="checkbox" name="work_days[]" value="Friday" @if( isset($user->work_days) && in_array('Friday' , json_decode($user->work_days, true))) checked @endif > {{__('backend.Friday')}} |
 <input type="checkbox" name="work_days[]" value="Saturday" @if(isset($user->work_days) && in_array('Saturday' , json_decode($user->work_days, true))) checked @endif > {{__('backend.Saturday')}}  |   
@@ -592,21 +592,21 @@
 <input type="checkbox" name="work_days[]" value="Wednesday" @if(isset($user->work_days) && in_array('Wednesday' , json_decode($user->work_days, true))) checked @endif > {{__('backend.Wednesday')}}   |
 <input type="checkbox" name="work_days[]" value="Thursday" @if(isset($user->work_days) && in_array('Thursday' , json_decode($user->work_days, true))) checked @endif > {{__('backend.Thursday')}}  
 
-  </div>
+</div>
 </div>
 
 
 
 <div class="col-md-12">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.work_time')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.work_time')}}   </label>
 
 <div class="row">
 
 <div class="col-md-2">
-  <div class="form-group">
- 
-   
+<div class="form-group">
+
+
 <select name="work_time_from_1" class="select2 form-control" >
 <option value="">{{ __('backend.from') }}</option>
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '00:00' ) selected @endif @if( old('work_time_from_1') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
@@ -683,17 +683,17 @@
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:30' ) selected @endif @if( old('work_time_from_1') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 
 </select>  
- 
-  </div>
+
+</div>
 </div>
 
 
 
 
 <div class="col-md-2">
-  <div class="form-group">
- 
-   
+<div class="form-group">
+
+
 <select name="work_time_to_1" class="select2 form-control" >
 <option value="">{{ __('backend.to') }}</option>
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '00:00' ) selected @endif @if( old('work_time_to_1') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
@@ -770,8 +770,8 @@
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:30' ) selected @endif @if( old('work_time_to_1') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 </select> 
 
- 
-  </div>
+
+</div>
 </div>
 
 
@@ -780,9 +780,9 @@
 
 
 <div class="col-md-2">
-  <div class="form-group">
- 
-   
+<div class="form-group">
+
+
 <select name="work_time_from_2" class="select2 form-control" >
 
 <option value="">{{ __('backend.from') }}</option>
@@ -859,17 +859,17 @@
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:15' ) selected @endif @if( old('work_time_from_2') == '23:15' ) selected  @endif value="23:15">11:15 PM</option>
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:30' ) selected @endif @if( old('work_time_from_2') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 </select> 
- 
-  </div>
+
+</div>
 </div>
 
 
 
 <div class="col-md-2">
-  <div class="form-group">
- 
-   
- <select name="work_time_to_2" class="select2 form-control" >
+<div class="form-group">
+
+
+<select name="work_time_to_2" class="select2 form-control" >
 
 <option value="">{{ __('backend.to') }}</option>
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '00:00' ) selected @endif @if( old('work_time_to_2') == '00:00' ) selected  @endif value="00:00">12:00 AM</option>
@@ -945,14 +945,14 @@
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:15' ) selected @endif @if( old('work_time_to_2') == '23:15' ) selected  @endif value="23:15">11:15 PM</option>
 <option @if( isset($user) && json_decode($user->work_times, true)['from_1'] == '23:30' ) selected @endif @if( old('work_time_to_2') == '23:30' ) selected  @endif value="23:30">11:30 PM</option>
 </select> 
- 
-  </div>
+
+</div>
 </div>
 
 
 
 </div>
-  </div>
+</div>
 </div>
 
 
@@ -960,60 +960,60 @@
 
 
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.basic_salary')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.basic_salary')}}   </label>
 
-    {!! Form::text('basic_salary', null , ['id' => 'basic_salary','class' => 'form-control salary' , 'placeholder'=> __('backend.basic_salary')] ) !!}
- 
-  </div>
+{!! Form::text('basic_salary', null , ['id' => 'basic_salary','class' => 'form-control salary' , 'placeholder'=> __('backend.basic_salary')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.housing_allowance')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.housing_allowance')}}   </label>
 
-    {!! Form::text('housing_allowance', null , ['id' => 'housing_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.housing_allowance')] ) !!}
- 
-  </div>
+{!! Form::text('housing_allowance', null , ['id' => 'housing_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.housing_allowance')] ) !!}
+
+</div>
 </div>
 
 
 
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.transportation_allowance')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.transportation_allowance')}}   </label>
 
-    {!! Form::text('transportation_allowance', null , ['id' => 'transportation_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.transportation_allowance')] ) !!}
- 
-  </div>
+{!! Form::text('transportation_allowance', null , ['id' => 'transportation_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.transportation_allowance')] ) !!}
+
 </div>
-
-
-
-
-<div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.other_allowance')}}   </label>
-
-    {!! Form::text('other_allowance', null , ['id' => 'other_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.other_allowance')] ) !!}
- 
-  </div>
 </div>
 
 
 
 
 <div class="col-md-2">
-  <div class="form-group">
-    <label for="projectinput3">  {{__('backend.total_salary')}}   </label>
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.other_allowance')}}   </label>
 
-    {!! Form::text('total_salary', null , ['id' => 'total_salary','class' => 'form-control' , 'placeholder'=> __('backend.total_salary')] ) !!}
- 
-  </div>
+{!! Form::text('other_allowance', null , ['id' => 'other_allowance','class' => 'form-control salary' , 'placeholder'=> __('backend.other_allowance')] ) !!}
+
 </div>
-  
+</div>
+
+
+
+
+<div class="col-md-2">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.total_salary')}}   </label>
+
+{!! Form::text('total_salary', null , ['id' => 'total_salary','class' => 'form-control' , 'placeholder'=> __('backend.total_salary')] ) !!}
+
+</div>
+</div>
+
 </div>
 
 
@@ -1026,12 +1026,12 @@
 
 
 <div class="tab-pane" id="files" role="tabpanel" aria-labelledby="files-tab2"
-                      aria-expanded="false">
+aria-expanded="false">
 
 @if(isset($user))     
 @forelse( $user->employee_files as $file)
 
-<h4 class="card-title"> - <a target="_blank" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$file->file_name}}">  {{$file->file_title}} </h4>
+<h4 class="card-title"> - <a target="_blank" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$file->file_name}}">  {{$file->file_title}} </a></h4>
 
 @empty
 
@@ -1041,51 +1041,51 @@
 
 <hr>
 @endif
-                      <div class="row">
+<div class="row">
 
 
 
 
-                         
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.file_name') }}     </label>
+ 
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.file_name') }}     </label>
 
-                              {!! Form::text('file_name[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.file_name')] ) !!}
-                           
-                            </div>
-                          </div>
-
-
-
-                          
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{ __('backend.choose_file') }}     </label>
-
-                              {!! Form::file('personal_files[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.choose_file')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::text('file_name[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.file_name')] ) !!}
+   
+    </div>
+  </div>
 
 
 
-                          
+  
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.choose_file') }}     </label>
+
+      {!! Form::file('personal_files[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.choose_file')] ) !!}
+   
+    </div>
+  </div>
 
 
 
-                            
-                   </div>
+  
 
 
-                   <button id='repeat_div_file' class="btn btn-success">  {{ __('backend.new') }} </button>
 
-                      
+    
+</div>
+
+
+<button id='repeat_div_file' class="btn btn-success">  {{ __('backend.new') }} </button>
+
+
 
 </div>
 
 <div class="tab-pane" id="custodies" role="tabpanel" aria-labelledby="custodies-tab2"
-                      aria-expanded="false">
+aria-expanded="false">
 
 @if(isset($user)) 
 
@@ -1097,45 +1097,45 @@
 {!! Form::hidden('custody_row_id[]',  $custody->id  ) !!}
 
 <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody')}}   </label>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody')}}   </label>
 
-                              {!! Form::select('custody[]', $custodies , $custody->custody_id , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::select('custody[]', $custodies , $custody->custody_id , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
+   
+    </div>
+  </div>
 
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-                              {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
-                              
-                           
-                            </div>
-                          </div>
+      {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      
+   
+    </div>
+  </div>
 
-                          <div id="temporary_date" class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
+  <div id="temporary_date" class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
 
-                              {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+   
+    </div>
+  </div>
 
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
 
-                              {!! Form::textarea('custody_note[]',  $custody->custody_note , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::textarea('custody_note[]',  $custody->custody_note , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
+   
+    </div>
+  </div>
 
-                          
-                            </div>
+  
+    </div>
 
 @empty
 
@@ -1149,52 +1149,52 @@
 
 {!! Form::hidden('custody_row_id[]', null ) !!}
 
-                      <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody')}}   </label>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody')}}   </label>
 
-                              {!! Form::select('custody[]', $custodies , null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::select('custody[]', $custodies , null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
+   
+    </div>
+  </div>
 
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-                              {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , null , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
-                              
-                           
-                            </div>
-                          </div>
+      {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , null , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      
+   
+    </div>
+  </div>
 
-                          <div id="temporary_date" class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
+  <div id="temporary_date" class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
 
-                              {!! Form::date('custody_expiry_date[]',  null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::date('custody_expiry_date[]',  null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+   
+    </div>
+  </div>
 
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
 
-                              {!! Form::textarea('custody_note[]',  null , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
-                           
-                            </div>
-                          </div>
+      {!! Form::textarea('custody_note[]',  null , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
+   
+    </div>
+  </div>
 
-                          
-                            </div>
+  
+    </div>
 
 
 <button id='repeat_custody_div' class="btn btn-success">  {{ __('backend.new') }} </button>
-   
 
-                    
+
+
 
 </div>
 
@@ -1202,43 +1202,43 @@
 
 
 <div class="tab-pane" id="photos_properties" role="tabpanel" aria-labelledby="photos_properties-tab2"
-                      aria-expanded="false">
-
-     
-                      <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="projectinput3">  {{__('backend.email')}}   </label>
-
-                              {!! Form::text('email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.email')] ) !!}
-                           
-                            </div>
-                          </div>
-
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput1">  {{ __('backend.password')}}    </label>
-
-                              {!! Form::password('password', ['class' => 'form-control' , 'placeholder'=> __('backend.password')] ) !!}
-
-                            </div>
-                          
-                            </div>
+aria-expanded="false">
 
 
-                          
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.email')}}   </label>
+
+      {!! Form::text('email', null , ['class' => 'form-control' , 'placeholder'=> __('backend.email')] ) !!}
+   
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput1">  {{ __('backend.password')}}    </label>
+
+      {!! Form::password('password', ['class' => 'form-control' , 'placeholder'=> __('backend.password')] ) !!}
+
+    </div>
+  
+    </div>
+
+
+  
 
 
 
-                            
-                            </div>
+    
+    </div>
 
 <h4 class="form-section"><i class="la la-key"></i> {{ __('backend.roles')}}    </h4>
 
 <div class="row">
 
-                   
-                             
+
+     
 
 @foreach ($roles as $role)
 
@@ -1246,10 +1246,10 @@
 <label>
 
 <input             @if(isset($user->roles)) @foreach ( $user->roles as $current_role )
-                    @if ($current_role->id == $role->id) checked @endif
-                    @endforeach @endif
-                     name='role_id[]' value='{{$role->id}}' type="checkbox"  class="icheck" data-checkbox="icheckbox_square-purple"> <B 
-                     title='@foreach($role->permissions as $permission ){{$permission->label}} | @endforeach' > {{$role->title}}</B> 
+@if ($current_role->id == $role->id) checked @endif
+@endforeach @endif
+name='role_id[]' value='{{$role->id}}' type="checkbox"  class="icheck" data-checkbox="icheckbox_square-purple"> <B 
+title='@foreach($role->permissions as $permission ){{$permission->label}} | @endforeach' > {{$role->title}}</B> 
 
 </label>
 </div>					
@@ -1257,14 +1257,14 @@
 @endforeach
 
 
- </div>
+</div>
 
-                      <div class="form-actions">
-                        
-                        <button type="submit" class="btn btn-primary">
-                          <i class="la la-check-square-o"></i> {{ __('backend.save')}}
-                        </button>
-                      </div>
+<div class="form-actions">
+
+<button type="submit" class="btn btn-primary">
+  <i class="la la-check-square-o"></i> {{ __('backend.save')}}
+</button>
+</div>
 
 </div>
 
@@ -1272,11 +1272,3 @@
 
 
 </div>
-
-
-
-
-
-
-                    
-                  
