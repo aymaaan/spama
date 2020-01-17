@@ -10,6 +10,8 @@ use App\Role;
 use App\City;
 use App\VerifyUser;
 use App\Nationality;
+use App\CustodyTypes;
+use App\EmployeesCustodies;
 use App\Employee;
 use App\Department;
 use App\EmployeesClosePersons;
@@ -73,9 +75,10 @@ class UsersController extends Controller
    $managers = User::pluck('name' , 'id');
    $countries = Nationality::pluck('country_name_ar','id');
    $jobs = Job::pluck('title','title_en');
-$cities = City::pluck('title','id');
+   $cities = City::pluck('title','id');
+   $custodies = CustodyTypes::pluck('title','id');
 
-   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments','jobs','cities'));
+   return view('backend.pages.settings.users.create' , compact('custodies','countries','roles','nationaliies','managers','departments','jobs','cities'));
  }
 
 
@@ -195,8 +198,7 @@ $cities = City::pluck('title','id');
 
 
 
-  //Save close persons
-
+//Save close persons
 if( $request->close_names ) {
 foreach( $request->close_names  as $k=>$name) {
   $close_data = new EmployeesClosePersons;
@@ -208,6 +210,23 @@ foreach( $request->close_names  as $k=>$name) {
 }
 
  //ENd close persons
+
+
+ //Save custodies
+if( $request->custody_type ) {
+  foreach( $request->custody  as $k=>$custody) {
+    if($custody) {
+    $new_custody = new EmployeesCustodies;
+    $new_custody->employee_id = $user->id;
+    $new_custody->custody_id = $custody;
+    $new_custody->custody_type = $request->custody_type[$k];
+    $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
+    $new_custody->custody_note = $request->custody_note[$k];
+    $new_custody->save();
+  }
+  }
+  }
+ //ENd custodies
 
 //Save Files
 
@@ -226,8 +245,6 @@ foreach( $request->close_names  as $k=>$name) {
     $files_data->save();
   }
   }
-  
-
  //ENd Files
 
   Session::flash('msg', ' Done! ' );
@@ -241,6 +258,7 @@ public function edit($id)
   
   if ( Gate::denies(['users','update_users'])  ) { abort(404); }
   $user = User::where('users.id' , $id)
+  ->select('employees.*' , 'users.*' , 'employees.id as employee_id'  )
   ->join('employees' , 'employees.employee_id' , '=' , 'users.id')->first();
   
   $roles = Role::get();
@@ -248,17 +266,21 @@ public function edit($id)
   $departments = Department::pluck('title' , 'id');
   $managers = User::pluck('name' , 'id');
   $countries = Nationality::pluck('country_name_ar','id');
-   $jobs = Job::pluck('title','title_en');
+  $jobs = Job::pluck('title','title_en');
+  $custodies = CustodyTypes::pluck('title','id');
   if(isset($user->work_place_city)){
   $city = City::find($user->work_place_city);
   $cities = City::where('parent_id' , $city->parent_id )->pluck('title','id');
- 
+  
 } else {
   $cities = City::pluck('title','id');
 }
 
 
-  return view('backend.pages.settings.users.edit', compact('countries', 'cities','nationaliies','managers','roles','user','departments','jobs')  );
+$employee_custodies = EmployeesCustodies::where('employee_id', $user->id)->get();
+
+
+  return view('backend.pages.settings.users.edit', compact('employee_custodies','custodies','countries', 'cities','nationaliies','managers','roles','user','departments','jobs')  );
 }
 
 public function update(UserRequest $request, $id)
@@ -362,6 +384,27 @@ foreach( $request->close_names  as $k=>$name) {
 }
 
  //ENd close persons
+
+
+  //Save custodies
+if( $request->custody_type ) {
+  foreach( $request->custody  as $k=>$custody) {
+    if($custody) {
+    if( isset($request->custody_row_id[$k])  ) {
+      $new_custody = EmployeesCustodies::find($request->custody_row_id[$k])  ;
+    } else {
+      $new_custody = new EmployeesCustodies;
+    }
+    $new_custody->employee_id = $user->id;
+    $new_custody->custody_id = $custody;
+    $new_custody->custody_type = $request->custody_type[$k];
+    $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
+    $new_custody->custody_note = $request->custody_note[$k];
+    $new_custody->save();
+  }
+  }
+  }
+ //ENd custodies
 
 //Save Files
 

@@ -282,8 +282,13 @@ Route::get('/branches/{id}/delete', 'BranchController@destroy');
 Route::resource('/orderPending', 'OrderPendingController');
 Route::get('/statusChange', 'OrderPendingController@statusChange');
 
+//Jobs
 Route::resource('/jobs', 'JobController');
 Route::get('/jobs/{id}/delete', 'JobController@destroy');
+
+//Custody types
+Route::resource('/custody_types', 'CustodyTypesController');
+Route::get('/custody_types/{id}/delete', 'CustodyTypesController@destroy');
 
 });
 

@@ -20,7 +20,7 @@
 
 
 
-{!! Form::model( $user ,[ 'url' =>  config('settings.BackendPath').'/users/'.$user->employee_id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
+{!! Form::model( $user ,[ 'url' =>  config('settings.BackendPath').'/users/'.$user->id, 'method'=>'PATCH' ,  'class' => 'form' ,  'files' => 'true' ]) !!}  
 @include('backend.pages.settings.users.form')
 {!!Form::close()!!}
 
@@ -190,5 +190,16 @@ $(function () {
         //$self.remove();
     });
 });
+
+$(function () {
+    $("#repeat_custody_div").on('click', function (e) {
+        e.preventDefault();
+        var $self = $(this);
+        $self.before($self.prev('div').clone());
+        //$self.remove();
+    });
+});
+
+
 </script>
 @endsection

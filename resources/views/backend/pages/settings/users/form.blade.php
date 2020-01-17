@@ -9,27 +9,32 @@
         <ul class="nav nav-tabs nav-topline">
 
           <li class="nav-item">
-                        <a style="width: 200px;" class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" aria-controls="home2"
+                        <a style="width: 150px;" class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" aria-controls="home2"
                         aria-expanded="true">{{ __('backend.basic_information') }}</a>
             </li>
 
 
 
             <li class="nav-item">
-            <a style="width: 200px;"  class="nav-link" id="administrative_information-tab2" data-toggle="tab" href="#administrative_information" aria-controls="photos_properties"
+            <a style="width: 150px;"  class="nav-link" id="administrative_information-tab2" data-toggle="tab" href="#administrative_information" aria-controls="photos_properties"
             aria-expanded="false">{{ __('backend.administrative_information') }}</a>
           </li>
 
 
           <li class="nav-item">
-            <a style="width: 200px;"  class="nav-link" id="files-tab2" data-toggle="tab" href="#files" aria-controls="files"
+            <a style="width: 150px;"  class="nav-link" id="files-tab2" data-toggle="tab" href="#files" aria-controls="files"
             aria-expanded="false">{{ __('backend.files') }}</a>
           </li>
 
+          <li class="nav-item">
+            <a style="width: 150px;"  class="nav-link" id="custodies-tab2" data-toggle="tab" href="#custodies" aria-controls="custodies"
+            aria-expanded="false">{{ __('backend.custodies') }}</a>
+          </li>
+          
 
 
           <li class="nav-item">
-            <a style="width: 200px;"  class="nav-link" id="photos_properties-tab2" data-toggle="tab" href="#photos_properties" aria-controls="photos_properties"
+            <a style="width: 150px;"  class="nav-link" id="photos_properties-tab2" data-toggle="tab" href="#photos_properties" aria-controls="photos_properties"
             aria-expanded="false">{{ __('backend.login_information') }}</a>
           </li>
 
@@ -541,7 +546,7 @@
         <div class="form-group">
             <label for="projectinput3">  {{__('backend.job')}}   </label>
 
-            {!! Form::select('role', $jobs , null , ['class' => 'form-control' , 'placeholder'=> __('backend.roles')] ) !!}
+            {!! Form::select('role', $jobs , null , ['class' => 'form-control' , 'placeholder'=> __('backend.job')] ) !!}
 
         </div>
     </div>
@@ -1079,6 +1084,119 @@
 
 </div>
 
+<div class="tab-pane" id="custodies" role="tabpanel" aria-labelledby="custodies-tab2"
+                      aria-expanded="false">
+
+@if(isset($user)) 
+
+<h4 class="form-section"><i class="la la-key"></i> {{ __('backend.current_custody')}}    </h4>
+
+
+@forelse( $user->employee_custodies as $custody)
+
+{!! Form::hidden('custody_row_id[]',  $custody->id  ) !!}
+
+<div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody')}}   </label>
+
+                              {!! Form::select('custody[]', $custodies , $custody->custody_id , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
+
+                              {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+                              
+                           
+                            </div>
+                          </div>
+
+                          <div id="temporary_date" class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
+
+                              {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
+
+                              {!! Form::textarea('custody_note[]',  $custody->custody_note , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          
+                            </div>
+
+@empty
+
+لا توجد عُهد حاليا
+
+@endforelse
+<hr>
+@endif
+
+<h4 class="form-section"><i class="la la-key"></i> {{ __('backend.add_custody')}}    </h4>
+
+{!! Form::hidden('custody_row_id[]', null ) !!}
+
+                      <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody')}}   </label>
+
+                              {!! Form::select('custody[]', $custodies , null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
+
+                              {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , null , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+                              
+                           
+                            </div>
+                          </div>
+
+                          <div id="temporary_date" class="col-md-3">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
+
+                              {!! Form::date('custody_expiry_date[]',  null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
+
+                              {!! Form::textarea('custody_note[]',  null , ['class' => 'form-control' , 'rows' => '2' , 'placeholder'=> __('backend.custody_note')] ) !!}
+                           
+                            </div>
+                          </div>
+
+                          
+                            </div>
+
+
+<button id='repeat_custody_div' class="btn btn-success">  {{ __('backend.new') }} </button>
+   
+
+                    
+
+</div>
 
 
 

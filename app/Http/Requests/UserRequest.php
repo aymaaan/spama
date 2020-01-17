@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
             'private_situation' => 'required',
             'work_place_country' => 'required',
             'work_start_at' => 'required',
-            'job' => 'required',
+            //'job' => 'required',
             'job_type' => 'required',
             'department_id' => 'required',
             'manager_id' => 'required',
@@ -53,7 +53,8 @@ class UserRequest extends FormRequest
             //'role_id' => 'required',
 			'email' => 'required|min:6|unique:users,email,'.$request->segment(3),
             'phone' => 'required|digits:10',
-            'work_days' => 'required'
+            'work_days' => 'required',
+            'role' => 'required'
             
 
         ];
@@ -83,7 +84,7 @@ class UserRequest extends FormRequest
             'private_situation' => 'هل لديه وضع خاص؟',
             'work_place_country' => 'مكان العمل',
             'work_start_at' => 'تاريخ استلام العمل',
-            'job' => 'المسمي الوظيفي',
+            'role' => 'المسمي الوظيفي',
             'job_type' => 'نوع الوظيفة',
             'department_id' => 'الادارة',
             'manager_id' => 'المدير المباشر',

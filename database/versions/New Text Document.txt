@@ -1,0 +1,3 @@
+﻿INSERT INTO `permissions` (`id`, `name`, `label`, `is_menu`, `order_list`, `icon`, `parent_id`, `created_at`, `updated_at`) VALUES (NULL, 'custody_types', 'أنواع العُهد', '1', '07', NULL, '0', CURRENT_TIMESTAMP, NULL);
+UPDATE `permissions` SET `icon` = 'la la-group' WHERE `permissions`.`id` = 237;
+

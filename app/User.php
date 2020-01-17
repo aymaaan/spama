@@ -120,6 +120,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      
       }
 
-    
+      public function employee_custodies() {
+
+        return $this->hasMany(EmployeesCustodies::class , 'employee_id');
+     
+      }
 
 }
