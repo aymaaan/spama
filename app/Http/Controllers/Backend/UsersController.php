@@ -72,8 +72,10 @@ class UsersController extends Controller
    $departments = Department::pluck('title' , 'id');
    $managers = User::pluck('name' , 'id');
    $countries = Nationality::pluck('country_name_ar','id');
-   $jobs = Job::pluck('name','name');
-   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments','jobs'));
+   $jobs = Job::pluck('title','title_en');
+$cities = City::pluck('title','id');
+
+   return view('backend.pages.settings.users.create' , compact('countries','roles','nationaliies','managers','departments','jobs','cities'));
  }
 
 
@@ -236,6 +238,7 @@ foreach( $request->close_names  as $k=>$name) {
 
 public function edit($id)
 {
+  
   if ( Gate::denies(['users','update_users'])  ) { abort(404); }
   $user = User::where('users.id' , $id)
   ->join('employees' , 'employees.employee_id' , '=' , 'users.id')->first();
@@ -245,15 +248,17 @@ public function edit($id)
   $departments = Department::pluck('title' , 'id');
   $managers = User::pluck('name' , 'id');
   $countries = Nationality::pluck('country_name_ar','id');
+   $jobs = Job::pluck('title','title_en');
   if(isset($user->work_place_city)){
   $city = City::find($user->work_place_city);
   $cities = City::where('parent_id' , $city->parent_id )->pluck('title','id');
+ 
 } else {
   $cities = City::pluck('title','id');
 }
 
 
-  return view('backend.pages.settings.users.edit', compact('countries', 'cities','nationaliies','managers','roles','user','departments')  );
+  return view('backend.pages.settings.users.edit', compact('countries', 'cities','nationaliies','managers','roles','user','departments','jobs')  );
 }
 
 public function update(UserRequest $request, $id)
