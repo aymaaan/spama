@@ -1,4 +1,5 @@
 /vendor/
+/tests/
 /.git/
 /Test_Files_Spama/
 /config/
