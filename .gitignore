@@ -43,3 +43,5 @@ Homestead.json
 *.json
 spama.zip
 .idea/
+.ftpquota
+artisan
