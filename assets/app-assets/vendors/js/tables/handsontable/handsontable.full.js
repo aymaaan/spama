@@ -4243,7 +4243,7 @@ Handsontable.utils = {};
 ($__es6collections__ = _dereq_("es6collections"), $__es6collections__ && $__es6collections__.__esModule && $__es6collections__ || {default: $__es6collections__});
 var Hooks = ($__pluginHooks__ = _dereq_("pluginHooks"), $__pluginHooks__ && $__pluginHooks__.__esModule && $__pluginHooks__ || {default: $__pluginHooks__}).Hooks;
 var numbro = ($__numbro__ = _dereq_("numbro"), $__numbro__ && $__numbro__.__esModule && $__numbro__ || {default: $__numbro__}).default;
-var moment = ($__moment__ = _dereq_("moment.js"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
 if (typeof window === 'object') {
   if (typeof window.numbro === 'undefined') {
     window.numbro = numbro;
@@ -4305,7 +4305,7 @@ arrayHelpers.arrayEach(DOM, (function(helper) {
 }));
 
 //# 
-},{"cellTypes":25,"core":26,"es6collections":"es6collections","helpers/array":43,"helpers/browser":44,"helpers/data":45,"helpers/date":46,"helpers/dom/element":47,"helpers/dom/event":48,"helpers/feature":49,"helpers/function":50,"helpers/mixed":51,"helpers/number":52,"helpers/object":53,"helpers/setting":54,"helpers/string":55,"helpers/unicode":56,"moment":"moment.js","numbro":"numbro","pluginHooks":59,"plugins":60,"plugins/jqueryHandsontable":2,"renderers/_cellDecorator":106,"shims/runtime":113}],25:[function(_dereq_, module, exports){
+},{"cellTypes":25,"core":26,"es6collections":"es6collections","helpers/array":43,"helpers/browser":44,"helpers/data":45,"helpers/date":46,"helpers/dom/element":47,"helpers/dom/event":48,"helpers/feature":49,"helpers/function":50,"helpers/mixed":51,"helpers/number":52,"helpers/object":53,"helpers/setting":54,"helpers/string":55,"helpers/unicode":56,"moment":"moment","numbro":"numbro","pluginHooks":59,"plugins":60,"plugins/jqueryHandsontable":2,"renderers/_cellDecorator":106,"shims/runtime":113}],25:[function(_dereq_,module,exports){
 "use strict";
 var $__helpers_47_browser__,
     $__editors__,
@@ -7871,7 +7871,7 @@ var $__4 = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editor
 var isMetaKey = ($___46__46__47_helpers_47_unicode__ = _dereq_("helpers/unicode"), $___46__46__47_helpers_47_unicode__ && $___46__46__47_helpers_47_unicode__.__esModule && $___46__46__47_helpers_47_unicode__ || {default: $___46__46__47_helpers_47_unicode__}).isMetaKey;
 var stopPropagation = ($___46__46__47_helpers_47_dom_47_event__ = _dereq_("helpers/dom/event"), $___46__46__47_helpers_47_dom_47_event__ && $___46__46__47_helpers_47_dom_47_event__.__esModule && $___46__46__47_helpers_47_dom_47_event__ || {default: $___46__46__47_helpers_47_dom_47_event__}).stopPropagation;
 var TextEditor = ($__textEditor__ = _dereq_("textEditor"), $__textEditor__ && $__textEditor__.__esModule && $__textEditor__ || {default: $__textEditor__}).TextEditor;
-var moment = ($__moment__ = _dereq_("moment.js"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
 var Pikaday = ($__pikaday__ = _dereq_("pikaday"), $__pikaday__ && $__pikaday__.__esModule && $__pikaday__ || {default: $__pikaday__}).default;
 Handsontable.editors = Handsontable.editors || {};
 Handsontable.editors.DateEditor = DateEditor;
@@ -8033,7 +8033,7 @@ var $DateEditor = DateEditor;
 registerEditor('date', DateEditor);
 
 //# 
-},{"browser":24,"editors":30,"eventManager":42,"helpers/dom/element":47,"helpers/dom/event":48,"helpers/object":53,"helpers/unicode":56,"moment":"moment.js","pikaday":"pikaday","textEditor":41}],35:[function(_dereq_, module, exports){
+},{"browser":24,"editors":30,"eventManager":42,"helpers/dom/element":47,"helpers/dom/event":48,"helpers/object":53,"helpers/unicode":56,"moment":"moment","pikaday":"pikaday","textEditor":41}],35:[function(_dereq_,module,exports){
 "use strict";
 Object.defineProperties(exports, {
   DropdownEditor: {get: function() {
@@ -21360,7 +21360,7 @@ var $___46__46__47_browser__,
     $___46__46__47_helpers_47_date__,
     $___46__46__47_editors__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
-var moment = ($__moment__ = _dereq_("moment.js"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
 var getNormalizedDate = ($___46__46__47_helpers_47_date__ = _dereq_("../helpers/date"), $___46__46__47_helpers_47_date__ && $___46__46__47_helpers_47_date__.__esModule && $___46__46__47_helpers_47_date__ || {default: $___46__46__47_helpers_47_date__}).getNormalizedDate;
 var getEditor = ($___46__46__47_editors__ = _dereq_("editors"), $___46__46__47_editors__ && $___46__46__47_editors__.__esModule && $___46__46__47_editors__ || {default: $___46__46__47_editors__}).getEditor;
 Handsontable.DateValidator = function(value, callback) {
@@ -21407,7 +21407,7 @@ var correctFormat = function correctFormat(value, dateFormat) {
 };
 
 //# 
-},{"../helpers/date":46,"browser":24,"editors":30,"moment":"moment.js"}],120:[function(_dereq_, module, exports){
+},{"../helpers/date":46,"browser":24,"editors":30,"moment":"moment"}],120:[function(_dereq_,module,exports){
 "use strict";
 var $___46__46__47_browser__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
@@ -21430,7 +21430,7 @@ Handsontable.NumericValidator = function(value, callback) {
 var $___46__46__47_browser__,
     $__moment__;
 var Handsontable = ($___46__46__47_browser__ = _dereq_("browser"), $___46__46__47_browser__ && $___46__46__47_browser__.__esModule && $___46__46__47_browser__ || {default: $___46__46__47_browser__}).default;
-var moment = ($__moment__ = _dereq_("moment.js"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
+var moment = ($__moment__ = _dereq_("moment"), $__moment__ && $__moment__.__esModule && $__moment__ || {default: $__moment__}).default;
 var STRICT_FORMATS = ['YYYY-MM-DDTHH:mm:ss.SSSZ', 'X', 'x'];
 Handsontable.TimeValidator = function(value, callback) {
   var valid = true;
@@ -21469,7 +21469,7 @@ Handsontable.TimeValidator = function(value, callback) {
 };
 
 //# 
-},{"browser":24,"moment":"moment.js"}],"SheetClip":[function(_dereq_, module, exports){
+},{"browser":24,"moment":"moment"}],"SheetClip":[function(_dereq_,module,exports){
 /**
  * SheetClip - Spreadsheet Clipboard Parser
  * version 0.2
@@ -26766,8 +26766,8 @@ if (typeof exports !== "undefined") {
     });
 
     // Side effect imports
-    utils_hooks__hooks.lang = deprecate('moment.js.lang is deprecated. Use moment.locale instead.', locale_locales__getSetGlobalLocale);
-    utils_hooks__hooks.langData = deprecate('moment.js.langData is deprecated. Use moment.localeData instead.', locale_locales__getLocale);
+    utils_hooks__hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', locale_locales__getSetGlobalLocale);
+    utils_hooks__hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', locale_locales__getLocale);
 
     var mathAbs = Math.abs;
 
@@ -28473,14 +28473,14 @@ if (typeof exports !== "undefined") {
     if (typeof exports === 'object') {
         // CommonJS module
         // Load moment.js as an optional dependency
-        try { moment = _dereq_('moment.js'); } catch (e) {}
+        try { moment = _dereq_('moment'); } catch (e) {}
         module.exports = factory(moment);
     } else if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
         define(function (req)
         {
             // Load moment.js as an optional dependency
-            var id = 'moment.js';
+            var id = 'moment';
             try { moment = req(id); } catch (e) {}
             return factory(moment);
         });
@@ -29544,7 +29544,7 @@ if (typeof exports !== "undefined") {
 
 }));
 
-},{"moment":"moment.js"}],"zeroclipboard":[function(_dereq_, module, exports){
+},{"moment":"moment"}],"zeroclipboard":[function(_dereq_,module,exports){
 /*!
  * ZeroClipboard
  * The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.

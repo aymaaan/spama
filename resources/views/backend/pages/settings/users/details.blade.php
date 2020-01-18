@@ -424,8 +424,12 @@
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.department')}}   </label>
+    
+    @if(isset($user->data->department['title']))
 
     <h4 class="card-title">{{ $user->data->department['title'] }} </h4>
+    
+    @endif
  
   </div>
 </div>
@@ -433,9 +437,9 @@
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
-
+@if(isset($user->data->manager['name']))
     <h4 class="card-title">{{ $user->data->manager['name'] }} </h4>
- 
+ @endif
   </div>
 </div>
 
@@ -447,10 +451,11 @@
 
     <h4 class="card-title">
 
+@if(isset($user->data->work_days))
     @foreach( json_decode($user->data->work_days, true)   as $day  )
     -  {{ __('backend.'.$day)  }} 
     @endforeach
-
+@endif
     </h4>
  
   </div>
@@ -465,11 +470,11 @@
     <h4 class="card-title">
 
     
-
+@if(isset($user->data->work_times))
     @foreach( json_decode($user->data->work_times, true)   as $k=>$time  )
     @if( $k == 'from_2')
      </br>
-     @endif
+   @endif
 
      {{ __('backend.'.str_replace('_1','', str_replace('_2','', $k ) )) }} : {{ $time  }} 
 
@@ -488,12 +493,13 @@ $to_2 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_ti
 $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 @endphp
 
+@endif
 
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.total_working_hours_daily')}}   </label>
 
-    <h4 class="card-title"> {{ $diff_in_hours }}  </h4>
+    <h4 class="card-title"> {{ $diff_in_hours ?? '' }}  </h4>
  
   </div>
 </div>
@@ -501,9 +507,9 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.total_working_hours_weelky')}}   </label>
-
+@if(isset($user->data->work_days))
     <h4 class="card-title"> {{ $diff_in_hours * count(json_decode($user->data->work_days, true)) }}  </h4>
- 
+@endif
   </div>
 </div>
 
@@ -667,18 +673,18 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.department')}}   </label>
-
+@if(isset($user->data->department['title']))
     <h4 class="card-title">{{ $user->data->department['title'] }} </h4>
- 
+ @endif
   </div>
 </div>
 
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.direct_manager')}}   </label>
-
+@if(isset($user->data->manager['name']))
     <h4 class="card-title">{{ $user->data->manager['name'] }} </h4>
- 
+  @endif
   </div>
 </div>
 
@@ -689,11 +695,11 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
     <label for="projectinput3">  {{__('backend.work_days')}}  </label>
 
     <h4 class="card-title">
-
+@if(isset($user->data->work_days))
     @foreach( json_decode($user->data->work_days, true)   as $day  )
     -  {{ __('backend.'.$day)  }} 
     @endforeach
-
+ @endif
     </h4>
  
   </div>
@@ -708,7 +714,7 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
     <h4 class="card-title">
 
     
-
+@if(isset($user->data->work_times))
     @foreach( json_decode($user->data->work_times, true)   as $k=>$time  )
     @if( $k == 'from_2')
      </br>
@@ -717,12 +723,12 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
      {{ __('backend.'.str_replace('_1','', str_replace('_2','', $k ) )) }} : {{ $time  }} 
 
     @endforeach
-
+@endif
     </h4>
  
   </div>
 </div>
-
+@if(isset($user->data->work_times))
 @php
 $from_1 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['from_1'] ?? '00:00');
 $to_1 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['to_1'] ?? '00:00');
@@ -730,13 +736,13 @@ $from_2 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_
 $to_2 = \Carbon\Carbon::createFromFormat('H:s', json_decode($user->data->work_times, true)['to_2'] ?? '00:00');
 $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 @endphp
-
+@endif
 
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.total_working_hours_daily')}}   </label>
 
-    <h4 class="card-title"> {{ $diff_in_hours }}  </h4>
+    <h4 class="card-title"> {{ $diff_in_hours ?? '' }}  </h4>
  
   </div>
 </div>
@@ -744,9 +750,9 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 <div class="col-md-4">
   <div class="form-group">
     <label for="projectinput3">  {{__('backend.total_working_hours_weelky')}}   </label>
-
+@if(isset($user->data->work_days))
     <h4 class="card-title"> {{ $diff_in_hours * count(json_decode($user->data->work_days, true)) }}  </h4>
- 
+ @endif
   </div>
 </div>
 
@@ -838,8 +844,8 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 @foreach( $user->employee_custodies as $custody)
 
                           <tr>
-                          <td>{{$custody->custody_id}}</td>
-                          <td>{{$custody->custody_type}}</td>
+                          <td>{{$custody->custody['title']}}</td>
+                          <td>{{ __('backend.'.$custody->custody_type) }}</td>
                           <td>{{$custody->custody_expiry_date}} </td>
                           <td>{{$custody->custody_note}}</td>
                             

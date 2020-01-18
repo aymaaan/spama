@@ -276,10 +276,6 @@ public function edit($id)
   $cities = City::pluck('title','id');
 }
 
-
-$employee_custodies = EmployeesCustodies::where('employee_id', $user->id)->get();
-
-
   return view('backend.pages.settings.users.edit', compact('employee_custodies','custodies','countries', 'cities','nationaliies','managers','roles','user','departments','jobs')  );
 }
 

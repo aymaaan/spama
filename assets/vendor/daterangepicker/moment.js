@@ -3648,8 +3648,8 @@
     });
 
     // Side effect imports
-    utils_hooks__hooks.lang = deprecate('moment.js.lang is deprecated. Use moment.locale instead.', locale_locales__getSetGlobalLocale);
-    utils_hooks__hooks.langData = deprecate('moment.js.langData is deprecated. Use moment.localeData instead.', locale_locales__getLocale);
+    utils_hooks__hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', locale_locales__getSetGlobalLocale);
+    utils_hooks__hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', locale_locales__getLocale);
 
     var mathAbs = Math.abs;
 

@@ -56,7 +56,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}} </br> {{$user->phone}}</td>
                             
-                            <td>{{$user->data['job']}}</td>
+                            <td> {{$user->role}} </td>
                             
                             <td> 
 

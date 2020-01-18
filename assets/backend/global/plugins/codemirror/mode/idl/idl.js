@@ -125,7 +125,7 @@
     'mesh_obj', 'mesh_smooth', 'mesh_surfacearea',
     'mesh_validate', 'mesh_volume',
     'message', 'min', 'min_curve_surf', 'mk_html_help', 'modifyct',
-    'moment.js', 'morph_close', 'morph_distance',
+    'moment', 'morph_close', 'morph_distance',
     'morph_gradient', 'morph_hitormiss',
     'morph_open', 'morph_thin', 'morph_tophat', 'multi', 'n_elements',
     'n_params', 'n_tags', 'ncdf', 'newton', 'noise_hurl',
