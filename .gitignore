@@ -1,7 +1,6 @@
 /vendor/
 /.git/
 /Test_Files_Spama/
-/.idea/
 /config/
 /database/
 /filemanager/
