@@ -1,3 +1,0 @@
-ALTER TABLE `employees` CHANGE `national_address` `national_address_building_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
-
-ALTER TABLE `employees` ADD `national_address_street` VARCHAR(255) NULL AFTER `national_address_building_number`, ADD `national_address_district` VARCHAR(255) NULL AFTER `national_address_street`, ADD `national_address_city` VARCHAR(255) NULL AFTER `national_address_district`, ADD `national_address_zip` VARCHAR(255) NULL AFTER `national_address_city`, ADD `national_address_additional` VARCHAR(255) NULL AFTER `national_address_zip`, ADD `national_address_unit` VARCHAR(255) NULL AFTER `national_address_additional`;

@@ -1,1 +1,0 @@
-ALTER TABLE `customers_pricing_settings` ADD `payment_title1` VARCHAR(255) NULL AFTER `serial`, ADD `payment_title2` VARCHAR(255) NULL AFTER `payment_title1`, ADD `payment_title3` VARCHAR(255) NULL AFTER `payment_title2`;
