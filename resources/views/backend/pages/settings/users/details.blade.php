@@ -841,7 +841,7 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
                           <td>{{$custody->custody_id}}</td>
                           <td>{{$custody->custody_type}}</td>
                           <td>{{$custody->custody_expiry_date}} </td>
-                          <td>{{$custody->note}}</td>
+                          <td>{{$custody->custody_note}}</td>
                             
                             
 
