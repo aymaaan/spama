@@ -389,7 +389,7 @@ return array (
   'custody_note' => 'ملاحظات',
   'current_custody' => 'العهد الحالية',
   'add_custody' => 'اضافة عهدة جديدة',
-  'test' => 'test000000000000',
+  'test' => 'test',
   'test' => 'test',
   'test' => 'test',
   'test' => 'test',

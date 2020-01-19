@@ -247,7 +247,7 @@ aria-expanded="false">{{ __('backend.login_information') }}</a>
 <div class="form-group">
 <label for="projectinput3">  {{__('backend.birth_place')}}   </label>
 
-{!! Form::text('birth_place', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_place')] ) !!}
+{!! Form::select('birth_place', $countries , null , ['class' => 'form-control' , 'placeholder'=> __('backend.birth_place')] ) !!}
 
 </div>
 </div>

@@ -232,7 +232,7 @@
 <div class="col-md-4">
   <div class="form-group">
   <label for="projectinput3">  {{__('backend.birth_place')}}   </label>
-    <h4 class="card-title">{{$user->data['birth_place']}} </h4>
+    <h4 class="card-title">{{$user->data['country_birth_place']['country_name_ar']}} </h4>
 
   </div>
 </div>
