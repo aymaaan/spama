@@ -835,6 +835,7 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
                             <th>  {{__('backend.custody_type')}} </th>
                             <th> {{__('backend.custody_expiry_date')}}   </th>
                             <th> {{__('backend.custody_note')}}  </th>
+                            <th> {{__('backend.photo')}}  </th>
 
                           </tr>
                         </thead>
@@ -848,6 +849,8 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
                           <td>{{ __('backend.'.$custody->custody_type) }}</td>
                           <td>{{$custody->custody_expiry_date}} </td>
                           <td>{{$custody->custody_note}}</td>
+                          <td> @if($custody->photo) <a target="_blank"  class="card-img img-fluid mb-1" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$custody->photo}}" alt="Card image cap"> <i class="icon-book-open">
+</i> </a> @endif </td>
                             
                             
 

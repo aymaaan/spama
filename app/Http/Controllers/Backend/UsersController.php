@@ -222,22 +222,21 @@ if( $request->custody_type ) {
     $new_custody->custody_type = $request->custody_type[$k];
     $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
     $new_custody->custody_note = $request->custody_note[$k];
-
     if ($request->captured_image) {
-    $img = $request->captured_image;
-    $folderPath = "uploads/employees/custody_photos/". $LastEmployeeNumber;
-  
-    $image_parts = explode(";base64,", $img);
-    $image_type_aux = explode("image/", $image_parts[0]);
-    $image_type = $image_type_aux[1];
-  
-    $image_base64 = base64_decode($image_parts[1]);
-    $fileName = uniqid() . "_custody_photos_" . '.png';
-  
-    $file = $folderPath . $fileName;
-    file_put_contents($file, $image_base64);
-    $new_custody->photo = $filename;
-    }
+      $img = $request->captured_image;
+      $folderPath = "uploads/employees/files/". $data->serial;
+    
+      $image_parts = explode(";base64,", $img);
+      $image_type_aux = explode("image/", $image_parts[0]);
+      $image_type = $image_type_aux[1];
+    
+      $image_base64 = base64_decode($image_parts[1]);
+      $fileName = time() . "_custody_photos.png";
+    
+      $file = $folderPath . $fileName;
+      file_put_contents($file, $image_base64);
+      $new_custody->photo = $fileName;
+      }
 
     $new_custody->save();
   }
@@ -324,7 +323,7 @@ if($request->role_id){
     
     $personal_photo= $request->file('personal_photo');
     $extension = $personal_photo->getClientOriginalExtension();
-    $destinationPath = "uploads/employees/files/". $LastEmployeeNumber;
+    $destinationPath = "uploads/employees/files/". $user->serial;
     $filename = "personal_photo.".$extension;
     $personal_photo->move($destinationPath , $filename);
     $data->photo = $filename;
@@ -416,18 +415,18 @@ if( $request->custody_type ) {
     
     if ($request->captured_image) {
       $img = $request->captured_image;
-      $folderPath = "uploads/employees/custody_photos/". $LastEmployeeNumber;
+      $folderPath = "uploads/employees/files/". $data->serial . "/";
     
       $image_parts = explode(";base64,", $img);
       $image_type_aux = explode("image/", $image_parts[0]);
       $image_type = $image_type_aux[1];
     
       $image_base64 = base64_decode($image_parts[1]);
-      $fileName = uniqid() . "_custody_photos_" . '.png';
+      $fileName = time() . "_custody_photos.png";
     
       $file = $folderPath . $fileName;
       file_put_contents($file, $image_base64);
-      $new_custody->photo = $filename;
+      $new_custody->photo = $fileName;
       }
     $new_custody->save();
   }
@@ -442,7 +441,7 @@ if( $request->custody_type ) {
 
     $files_data = new EmployeesFiles;
     $extension = $file->getClientOriginalExtension();
-    $destinationPath = 'uploads/employees/files/'.$LastEmployeeNumber ;
+    $destinationPath = 'uploads/employees/files/'.$user->serial ;
     $filename = $k."_".date('Y')."_".date('m')."_".date('d'). ".".$extension;
     $file->move($destinationPath , $filename);
 

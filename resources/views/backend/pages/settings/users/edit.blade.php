@@ -137,7 +137,6 @@ $(".CapturedPhoto").on('click', function (e) {
 
   <script>
 
-
 $('select[name="custody_type[]"]').on('change', function() {
 
 if( $('select[name="custody_type[]"]').val() == 'temporary') {

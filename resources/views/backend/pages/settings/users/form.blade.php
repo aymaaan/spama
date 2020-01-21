@@ -1110,7 +1110,7 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-      {!! Form::select('custody_type[]', [ 'temporary'=>__('backend.temporary') , 'forever'=>__('backend.forever')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      {!! Form::select('custody_type_update[]', [ 'temporary'=>__('backend.temporary') , 'forever'=>__('backend.forever')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
       
    
     </div>
