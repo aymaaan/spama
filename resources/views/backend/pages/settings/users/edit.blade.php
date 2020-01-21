@@ -110,7 +110,32 @@
   <script src="{{url('')}}/assets/app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
 
+
   <script>
+
+
+$('select[name="custody_type[]"]').on('change', function() {
+
+if( $('select[name="custody_type[]"]').val() == 'temporary') {
+
+  $('#temporary_date').show();
+} else {
+  
+  $('#temporary_date').hide();
+}
+
+});
+
+
+$(function () {
+    $("#repeat_custody_div").on('click', function (e) {
+        e.preventDefault();
+        var $self = $(this);
+        $self.before($self.prev('div').clone());
+        //$self.remove();
+    });
+});
+
 
 $('select[name="work_place_country"]').on('change', function() {
 var country = $($(this)).val();
@@ -132,10 +157,12 @@ var country = $($(this)).val();
   
 });
 
+
+
 $(document).ready(function(){
 
 $("#basic_salary").on('keyup', function (e) {
-var basic_salary = (isNaN(parseInt($("#basic_salary").val()))) ? 0 : parseInt($("#basic_salary").val());
+  var basic_salary = (isNaN(parseInt($("#basic_salary").val()))) ? 0 : parseInt($("#basic_salary").val());
 var housing_allowance = (isNaN(parseInt($("#housing_allowance").val()))) ? 0 : parseInt($("#housing_allowance").val());
 var transportation_allowance = (isNaN(parseInt($("#transportation_allowance").val()))) ? 0 : parseInt($("#transportation_allowance").val());
 var other_allowance = (isNaN(parseInt($("#other_allowance").val()))) ? 0 : parseInt($("#other_allowance").val());
@@ -170,7 +197,15 @@ var sum = basic_salary + housing_allowance + transportation_allowance + other_al
 $('#total_salary').val(sum);
 });
 
+
+
+
+
+
+
 });
+
+
 
 
 
@@ -182,6 +217,7 @@ $('#total_salary').val(sum);
         //$self.remove();
     });
 });
+
 $(function () {
     $("#repeat_div_file").on('click', function (e) {
         e.preventDefault();
@@ -191,14 +227,10 @@ $(function () {
     });
 });
 
-$(function () {
-    $("#repeat_custody_div").on('click', function (e) {
-        e.preventDefault();
-        var $self = $(this);
-        $self.before($self.prev('div').clone());
-        //$self.remove();
-    });
-});
+
+
+
+
 
 
 </script>
