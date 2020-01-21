@@ -1110,17 +1110,17 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-      {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      {!! Form::select('custody_type[]', [ 'temporary'=>__('backend.temporary') , 'forever'=>__('backend.forever')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
       
    
     </div>
   </div>
 
-  <div id="temporary_date" class="col-md-3">
+  <div class="col-md-3">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
 
-      {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+      {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control custody_expiry_date'  , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
    
     </div>
   </div>
@@ -1163,7 +1163,7 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-      {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , null , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      {!! Form::select('custody_type[]', ['forever'=>__('backend.forever') , 'temporary'=>__('backend.temporary')] , null , ['class' => 'form-control custody_type' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
       
    
     </div>
@@ -1173,7 +1173,7 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
 
-      {!! Form::date('custody_expiry_date[]',  null , ['class' => 'form-control' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+      {!! Form::date('custody_expiry_date[]',  null , ['class' => 'form-control custody_expiry_date' , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
    
     </div>
   </div>
@@ -1245,7 +1245,7 @@ aria-expanded="false">
 <div class="form-group  col-md-2">
 <label>
 
-<input             @if(isset($user->roles)) @foreach ( $user->roles as $current_role )
+<input @if(isset($user->roles)) @foreach ( $user->roles as $current_role )
 @if ($current_role->id == $role->id) checked @endif
 @endforeach @endif
 name='role_id[]' value='{{$role->id}}' type="checkbox"  class="icheck" data-checkbox="icheckbox_square-purple"> <B 

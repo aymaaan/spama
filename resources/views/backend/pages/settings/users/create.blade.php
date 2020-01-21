@@ -113,6 +113,29 @@
 <script>
 
 
+$('select[name="custody_type[]"]').on('change', function() {
+
+if( $('select[name="custody_type[]"]').val() == 'temporary') {
+
+  $('#temporary_date').show();
+} else {
+  
+  $('#temporary_date').hide();
+}
+
+});
+
+
+$(function () {
+    $("#repeat_custody_div").on('click', function (e) {
+        e.preventDefault();
+        var $self = $(this);
+        $self.before($self.prev('div').clone());
+        //$self.remove();
+    });
+});
+
+
 $('select[name="work_place_country"]').on('change', function() {
 var country = $($(this)).val();
 
@@ -204,14 +227,7 @@ $(function () {
 });
 
 
-$(function () {
-    $("#repeat_custody_div").on('click', function (e) {
-        e.preventDefault();
-        var $self = $(this);
-        $self.before($self.prev('div').clone());
-        //$self.remove();
-    });
-});
+
 
 
 
