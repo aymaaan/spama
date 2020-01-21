@@ -222,6 +222,23 @@ if( $request->custody_type ) {
     $new_custody->custody_type = $request->custody_type[$k];
     $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
     $new_custody->custody_note = $request->custody_note[$k];
+
+    if ($request->captured_image) {
+    $img = $request->captured_image;
+    $folderPath = "uploads/employees/custody_photos/". $LastEmployeeNumber;
+  
+    $image_parts = explode(";base64,", $img);
+    $image_type_aux = explode("image/", $image_parts[0]);
+    $image_type = $image_type_aux[1];
+  
+    $image_base64 = base64_decode($image_parts[1]);
+    $fileName = uniqid() . "_custody_photos_" . '.png';
+  
+    $file = $folderPath . $fileName;
+    file_put_contents($file, $image_base64);
+    $new_custody->photo = $filename;
+    }
+
     $new_custody->save();
   }
   }
@@ -396,6 +413,22 @@ if( $request->custody_type ) {
     $new_custody->custody_type = $request->custody_type[$k];
     $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
     $new_custody->custody_note = $request->custody_note[$k];
+    
+    if ($request->captured_image) {
+      $img = $request->captured_image;
+      $folderPath = "uploads/employees/custody_photos/". $LastEmployeeNumber;
+    
+      $image_parts = explode(";base64,", $img);
+      $image_type_aux = explode("image/", $image_parts[0]);
+      $image_type = $image_type_aux[1];
+    
+      $image_base64 = base64_decode($image_parts[1]);
+      $fileName = uniqid() . "_custody_photos_" . '.png';
+    
+      $file = $folderPath . $fileName;
+      file_put_contents($file, $image_base64);
+      $new_custody->photo = $filename;
+      }
     $new_custody->save();
   }
   }

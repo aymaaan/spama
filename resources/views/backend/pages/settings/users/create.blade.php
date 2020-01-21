@@ -109,9 +109,35 @@
   <script src="{{url('')}}/assets/app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+
+<script language="JavaScript">
+
+$(".CapturedPhoto").on('click', function (e) {
+    Webcam.set({
+        width: 490,
+        height: 390,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+  
+    Webcam.attach( '#my_camera' );
+
+  });
+  
+    function take_snapshot() {
+        Webcam.snap( function(data_uri) {
+            $(".image-tag").val(data_uri);
+            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+            Webcam.reset( '#my_camera' )
+        } );
+    }
+
+
+</script>
+
 
 <script>
-
 
 $('select[name="custody_type[]"]').on('change', function() {
 
