@@ -43,11 +43,7 @@ public function work_city() {
 
 }
 
-public function country_birth_place() {
 
-  return $this->belongsTo(Nationality::class , 'birth_place');
-
-}
 
 
 }

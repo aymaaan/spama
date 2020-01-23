@@ -1110,7 +1110,7 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_type')}}   </label>
 
-      {!! Form::select('custody_type_update[]', [ 'temporary'=>__('backend.temporary') , 'forever'=>__('backend.forever')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
+      {!! Form::select('custody_type[]', [ 'temporary'=>__('backend.temporary') , 'forever'=>__('backend.forever')] , $custody->custody_type , ['class' => 'form-control' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_type')] ) !!}
       
    
     </div>
@@ -1120,7 +1120,18 @@ aria-expanded="false">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
 
-      {!! Form::date('custody_expiry_date[]',  $custody->custody_expiry_date , ['class' => 'form-control custody_expiry_date'  , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+      {!! Form::date('custody_expiry[]',  $custody->custody_expiry_date , ['class' => 'form-control custody_expiry_date'  , 'placeholder'=> __('backend.custody_expiry_date')] ) !!}
+   
+    </div>
+  </div>
+
+    
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.photo')}}   </label>
+
+      {!! Form::file('custody_photo[]', null , ['class' => 'form-control custody_photo' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_photo')] ) !!}
+      
    
     </div>
   </div>
@@ -1133,6 +1144,8 @@ aria-expanded="false">
    
     </div>
   </div>
+
+
 
   
     </div>
@@ -1178,6 +1191,17 @@ aria-expanded="false">
     </div>
   </div>
 
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.photo')}}   </label>
+
+      {!! Form::file('custody_photo[]', null , ['class' => 'form-control custody_photo' , 'id'=>'custody_type' , 'placeholder'=> __('backend.custody_photo')] ) !!}
+      
+   
+    </div>
+  </div>
+
   <div class="col-md-12">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_note')}}   </label>
@@ -1190,63 +1214,12 @@ aria-expanded="false">
 
 
 
-  
-
-<div class="col-md-12">
-    <div class="form-group">
-<div class="col-md-6">
-<button type="button" class="btn btn-primary CapturedPhoto" data-toggle="modal" data-target="#exampleModal">
-التقاط صورة
-</button>
-</div>
-
-<div class="col-md-6">
-<div id="results">Your captured image will appear here...</div>
-</div>
     </div>
 
-    </div>
-
-
-    </div>
-<!--
     <button id='repeat_custody_div' class="btn btn-success">  {{ __('backend.new') }} </button>
--->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> التقاط صورة </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <div class="col-md-6">
-                <div id="my_camera"></div>
-                <br/>
-                <input type=button value="Take Snapshot" onClick="take_snapshot()" data-dismiss="modal">
-                <input type="hidden" name="captured_image" class="image-tag">
-            </div>
-           
-      </div>
-      <div class="modal-footer">
-       
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 
 
 </div>
-
-
 
 
 <div class="tab-pane" id="photos_properties" role="tabpanel" aria-labelledby="photos_properties-tab2"
