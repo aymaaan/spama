@@ -128,10 +128,29 @@ var sales_channel_id = $(this).val();
   
         });
 
-    
-  $('#corporate_div').hide();
+
+
+@if(  old( 'customer_type' ) == 'individual' || $data->customer_type == 'individual'   ) 
+
+$('#individual_div').show();
+$('#corporate_div').hide();
+
+@elseif(  old( 'customer_type' ) == 'corporate'  || $data->customer_type == 'corporate'  ) 
+
+  $('#corporate_div').show();
   $('#individual_div').hide();
-  $('#is_sick').hide();
+
+@endif
+
+@if(  old( 'is_consumer' ) == '0' || $data->is_consumer == '0'   )
+$('#consumer_div').show();
+$('#is_sick').hide();
+@else
+$('#consumer_div').hide();
+$('#is_sick').show();
+@endif
+
+
   
 
 $('#customer_type').change(function(){

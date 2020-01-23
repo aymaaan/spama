@@ -133,12 +133,23 @@ var sales_channel_id = $(this).val();
 
      
 
-
-
-
   $('#corporate_div').hide();
   $('#individual_div').hide();
   $('#is_sick').hide();
+
+@if(  old( 'customer_type' ) == 'individual'  ) 
+
+$('#individual_div').show();
+$('#corporate_div').hide();
+
+@elseif(  old( 'customer_type' ) == 'corporate'  ) 
+
+  $('#corporate_div').show();
+  $('#individual_div').hide();
+
+
+@endif
+
   
 
 $('#customer_type').change(function(){

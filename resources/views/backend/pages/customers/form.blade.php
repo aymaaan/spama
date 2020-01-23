@@ -97,7 +97,7 @@
          <div class="form-group">
            <label for="projectinput1">  {{ __('backend.email') }}      </label>
 
-           {!! Form::text('email' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
+           {!! Form::email('email' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
 
          </div>
        
@@ -269,7 +269,7 @@
          <div class="form-group">
            <label for="projectinput1">  {{ __('backend.email') }}      </label>
 
-           {!! Form::text('consumer_email' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
+           {!! Form::email('consumer_email' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
 
          </div>
        
@@ -396,7 +396,7 @@
         <div class="form-group">
           <label for="projectinput1">  {{ __('backend.email') }}      </label>
 
-          {!! Form::text('facility_manager_email[]' , $manager->email , ['class' => 'form-control' ] ) !!}
+          {!! Form::email('facility_manager_email[]' , $manager->email , ['class' => 'form-control' ] ) !!}
 
         </div>
       
@@ -407,7 +407,7 @@
         <div class="form-group">
           <label for="projectinput1">  {{ __('backend.job') }} </label>
 
-          {!! Form::text('facility_manager_job[]', $manager->job , ['class' => 'form-control' ] ) !!}
+          {!! Form::select('facility_manager_job[]', $jobs , $manager->job  , ['class' => 'form-control' , 'placeholder' => '----'  ] ) !!}
          
         </div>
       </div>
@@ -447,7 +447,7 @@
          <div class="form-group">
            <label for="projectinput1">  {{ __('backend.email') }}      </label>
 
-           {!! Form::text('facility_manager_email[]' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
+           {!! Form::email('facility_manager_email[]' , null , ['class' => 'form-control' , 'placeholder'=> 'ex: info@google.com'] ) !!}
 
          </div>
        
@@ -458,7 +458,7 @@
         <div class="form-group">
           <label for="projectinput1">  {{ __('backend.job') }} </label>
 
-          {!! Form::text('facility_manager_job[]', null , ['class' => 'form-control' ] ) !!}
+          {!! Form::select('facility_manager_job[]', $jobs , null , ['class' => 'form-control' , 'placeholder' => '----' ] ) !!}
          
         </div>
       </div>

@@ -31,10 +31,10 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
 .tax2{position: absolute;top: 560px;right: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
 .nettax{position: absolute;top: 590px;right: 35px;}
 .nettax2{position: absolute;top: 590px;right: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
-.payment{position: absolute;top: 650px;right: 35px;}
-.exp{position: absolute;top: 680px;right: 35px;}
-.du{position: absolute;top: 680px;right: 320px;}
-.place{position: absolute;top: 710px;right: 35px;}
+.payment{position: absolute;top: 665px;right: 35px;}
+.exp{position: absolute;top: 690px;right: 35px;}
+.du{position: absolute;top: 690px;right: 320px;}
+.place{position: absolute;top: 720px;right: 35px;}
 .note{position: absolute;top: 796px;right: 35px;}
 .by1{position: absolute;top: 894px;right: 35px;}
 .by2{position: absolute;top: 894px;right: 476px;}
@@ -61,7 +61,7 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
   <div class="total">المجموع</div>
   <div class="total2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') }}
+      {{ $total_products->sum('total_all_price') }} ريال سعودى
 
       @else
 
@@ -69,11 +69,11 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
 
      @endif</div>
   <div class="dis">الخصم</div>
-  <div class="dis2">{{ $total_discount }}</div>
+  <div class="dis2">{{ $total_discount }} ريال سعودى</div>
   <div class="net">الصافى</div>
   <div class="net2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') - $total_discount  }}
+      {{ $total_products->sum('total_all_price') - $total_discount  }} ريال سعودى
 
       @else
 
@@ -87,13 +87,13 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
 
     @else
 
-     لا يوجد
+    0
 
     @endif</div>
   <div class="nettax">الصافى مع الضريبة</div>
   <div class="nettax2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') + $total_vat -  $total_discount }}
+      {{ $total_products->sum('total_all_price') + $total_vat -  $total_discount }} ريال سعودى
 
       @else
 
@@ -103,7 +103,7 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
      
   <div class="payment"><b>طريقة الدفع&nbsp;:&nbsp;</b>  قبل التعميد {{$payment_before}}% - عند التسليم {{$payment_while}}% - بعد التركيب {{$payment_after }}%</div>
   <div class="exp"><b>صلاحية العرض&nbsp;:&nbsp;</b>  {{$offer_validity}} يوم </div>
-  <div class="du"><b>مدة التوريد&nbsp;:&nbsp;</b> {{$supplying_duration}}</div>
+  <div class="du"><b>مدة التوريد&nbsp;:&nbsp;</b> {{$supplying_duration}} يوم عمل</div>
   <div class="place"><b>مكان التسليم&nbsp;:&nbsp;</b> {{$delivery_place_value}}  </div>
   <div class="note"><b>ملاحظات&nbsp;:&nbsp;</b> {{$notes}}</div>
   <div class="by1"><b>أعدت بواسطة&nbsp;:&nbsp;</b>   </div>

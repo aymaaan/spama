@@ -274,7 +274,7 @@ return array (
   'branch' => 'الفروع',
   'remove' => 'حذف ',
   'before' => 'قبل',
-  'while' => 'اثناء',
+  'while' => 'عند',
   'after' => 'بعد',
   'departments' => 'الاقسام الادارية',
   'add_departments' => 'اضافة ادارة جديدة',

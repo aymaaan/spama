@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\backend;
 use Illuminate\Http\Request;
+use App\Http\Requests\CustomersRequest;
 use App\Http\Controllers\Controller;
 use App\Customers;
 use App\CustomersCases;
@@ -18,6 +19,7 @@ use App\Branch;
 use App\Units;
 use App\Products;
 use App\CustomersPricingSettings;
+use App\Job;
 use Session;
 use Gate;
 use Auth;
@@ -170,15 +172,15 @@ if(isset( $_GET['t'] ) && $_GET['t'] == 'print') {
    $diseases = Diseases::pluck('title','id');
    $doctors = Doctors::pluck('name','id');
    $assessment_questions = AssessmentQuestions::whereStatus(1)->get();
-   return view('backend.pages.customers.create' , compact('assessment_questions','doctors','diseases','ages','commercial_activities','customers_cases','sales_channels') );
+   $jobs = Job::pluck('title','id');
+   return view('backend.pages.customers.create' , compact('jobs','assessment_questions','doctors','diseases','ages','commercial_activities','customers_cases','sales_channels') );
  }
 
 
-public function store(Request $request)
+public function store(CustomersRequest $request)
  {
   if ( Gate::denies(['customers','create_customers'])  ) { abort(404); }
-  
-
+ 
   $data = new Customers;
 
   $data->name = $request->name;
@@ -250,12 +252,13 @@ public function edit($id)
   $diseases = Diseases::pluck('title','id');
   $doctors = Doctors::pluck('name','id');
   $assessment_questions = AssessmentQuestions::whereStatus(1)->get();
-  return view('backend.pages.customers.edit', compact('assessment_questions','doctors','diseases','ages','commercial_activities','data','customers_cases','sales_channels')  );
+  $jobs = Job::pluck('title','id');
+  return view('backend.pages.customers.edit', compact('jobs','assessment_questions','doctors','diseases','ages','commercial_activities','data','customers_cases','sales_channels')  );
 }
 
 
 
-public function update(Request $request, $id)
+public function update(CustomersRequest $request, $id)
 {
   if ( Gate::denies(['customers','update_customers'])  ) { abort(404); }
 
