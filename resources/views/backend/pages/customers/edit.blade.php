@@ -150,9 +150,6 @@ $('#consumer_div').hide();
 $('#is_sick').show();
 @endif
 
-
-  
-
 $('#customer_type').change(function(){
 
   $type = $(this).val();

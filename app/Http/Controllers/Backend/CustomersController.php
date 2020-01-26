@@ -47,13 +47,11 @@ class CustomersController extends Controller
   public function index(Request $request)
   {
     if ( Gate::denies(['customers'])  ) { abort(404); }
-    $data = Customers::paginate(10);
+    $data = Customers::latest()->paginate(10);
     return view('backend.pages.customers.index' , compact('data') );
   }
 
 
-
-  
   public function details($id)
   {
 
@@ -209,10 +207,13 @@ public function store(CustomersRequest $request)
   $data->google_map = $request->google_map;
   $data->continuity = $request->continuity;
   $data->is_sick = $request->is_sick;
-  
+
+  $data->lat = $request->lat;
+  $data->long = $request->long;
+  $data->address_google = $request->address_google;
   if($data->save()) {
 
-    
+    if($request->facility_manager_name) {
     foreach ($request->facility_manager_name as $key => $name) {
       
     if ($name != '') {
@@ -225,7 +226,7 @@ public function store(CustomersRequest $request)
     $delegates->save();
  
     }
- 
+  }
      }
  
  
@@ -289,10 +290,14 @@ public function update(CustomersRequest $request, $id)
   $data->google_map = $request->google_map;
   $data->continuity = $request->continuity;
   $data->is_sick = $request->is_sick;
+  $data->address_lat = $request->lat;
+  $data->address_long = $request->long;
+  $data->address_google = $request->address_google;
     
   if($data->save()) {
 
     $delegates = CustomersCorporateManagers::where('customer_id' , $data->id )->delete(); 
+    if($request->facility_manager_name) {
     foreach ($request->facility_manager_name as $key => $name) {
       
     if ($name != '') {
@@ -305,6 +310,7 @@ public function update(CustomersRequest $request, $id)
     $delegates->save();
  
     }
+  }
  
      }
  
