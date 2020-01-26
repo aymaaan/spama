@@ -207,9 +207,8 @@ public function store(CustomersRequest $request)
   $data->google_map = $request->google_map;
   $data->continuity = $request->continuity;
   $data->is_sick = $request->is_sick;
-
-  $data->lat = $request->lat;
-  $data->long = $request->long;
+  $data->address_lat = $request->lat;
+  $data->address_long = $request->long;
   $data->address_google = $request->address_google;
   if($data->save()) {
 

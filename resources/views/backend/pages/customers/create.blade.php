@@ -106,6 +106,29 @@
   <script src="{{url('')}}/assets/app-assets/js/scripts/pages/dashboard-ecommerce.js" type="text/javascript"></script>
   <!-- END PAGE LEVEL JS-->
   <script src="{{url('')}}/assets/app-assets/js/scripts/forms/checkbox-radio.js" type="text/javascript"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7n99W41rc00c8Fmp4nHrr6aLE-G88e5E&amp;libraries=places"></script>
+
+<script>
+    google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        var input = document.getElementById('address_google');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+
+            // place variable will have all the information you are looking for.
+            $('#lat').val(place.geometry['location'].lat());
+            $('#long').val(place.geometry['location'].lng());
+
+            console.log(lat);
+
+        });
+    }
+</script>
+<script>
+
+
 <script>
   
 $(document).ready(function(){
