@@ -61,23 +61,23 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
   <div class="total">المجموع</div>
   <div class="total2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') }} ريال سعودى
+      {{ $total_products->sum('total_all_price') }} ريال سعودي
 
       @else
 
-      0
+      0 ريال سعودي
 
      @endif</div>
   <div class="dis">الخصم</div>
-  <div class="dis2">{{ $total_discount }} ريال سعودى</div>
+  <div class="dis2">{{ $total_discount }} ريال سعودي</div>
   <div class="net">الصافى</div>
   <div class="net2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') - $total_discount  }} ريال سعودى
+      {{ $total_products->sum('total_all_price') - $total_discount  }} ريال سعودي
 
       @else
 
-      0
+      0 ريال سعودي
 
      @endif</div>
   <div class="tax">الضريبة</div>
@@ -87,17 +87,17 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
 
     @else
 
-    0
+    0 ريال سعودي
 
     @endif</div>
   <div class="nettax">الصافى مع الضريبة</div>
   <div class="nettax2">@if($total_products)
       
-      {{ $total_products->sum('total_all_price') + $total_vat -  $total_discount }} ريال سعودى
+      {{ $total_products->sum('total_all_price') + $total_vat -  $total_discount }} ريال سعودي
 
       @else
 
-     0
+     0 ريال سعودي
 
      @endif</div>
      

@@ -158,14 +158,7 @@ aria-expanded="false">{{ __('backend.login_information') }}</a>
 </div>
 </div>
 
-<div class="col-md-4">
-<div class="form-group">
-<label for="projectinput3">  {{__('backend.number_escorts')}}   </label>
 
-{!! Form::number('number_escorts', null , ['class' => 'form-control' , 'placeholder'=> __('backend.number_escorts')] ) !!}
-
-</div>
-</div>
 
 <div class="col-md-4">
 <div class="form-group">
@@ -391,8 +384,6 @@ aria-expanded="false">{{ __('backend.login_information') }}</a>
 
 
 @if(isset($user))
-
-
 @forelse( $user->close_persons as $person)
 
 
@@ -419,11 +410,7 @@ aria-expanded="false">{{ __('backend.login_information') }}</a>
 
 
 @empty
-
-
 @endforelse
-
-
 @endif
 
 
@@ -459,6 +446,150 @@ aria-expanded="false">{{ __('backend.login_information') }}</a>
 
 
 <button id='repeat_div' class="btn btn-success">  {{ __('backend.new') }} </button>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-12">
+<div class="form-group">
+
+<h4  class="form-section">{{__('backend.employees_escorts')}}</h4>
+
+
+
+@if(isset($user))
+@forelse( $user->employees_escorts as $person)
+
+
+<div class="row">
+
+{!! Form::hidden('escort_id[]', $person->id, ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
+
+<div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.name') }}      </label>
+
+      {!! Form::text('escort_names[]', $person->name, ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
+   
+    </div>
+</div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.phone') }}      </label>
+
+      {!! Form::text('escort_phones[]', $person->mobile , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
+   
+    </div>
+  </div>
+
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.email') }}      </label>
+
+      {!! Form::email('escort_emails[]', $person->escort_email , ['class' => 'form-control' , 'placeholder'=> __('backend.email')] ) !!}
+   
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.birthdate') }}      </label>
+
+      {!! Form::date('escort_birthdates[]', $person->escort_birthdate , ['class' => 'form-control' , 'placeholder'=> __('backend.birthdate')] ) !!}
+   
+    </div>
+  </div>
+
+  
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.relative_relation') }}      </label>
+
+      {!! Form::select('escort_relations[]', [ 'wife'=> __('backend.wife') , 'son'=> __('backend.son') , 'daughter'=>__('backend.daughter') , 'father'=> __('backend.father'), 'mother'=>__('backend.mother') ] , $person->escort_relation , ['class' => 'form-control' , 'placeholder'=> __('backend.relative_relation') ] ) !!}
+   
+    </div>
+  </div>
+
+
+  </div>
+
+@empty
+@endforelse
+@endif
+
+
+<div class="row">
+
+<div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.name') }}      </label>
+
+      {!! Form::text('escort_names[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.name')] ) !!}
+   
+    </div>
+  </div>
+
+
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.phone') }}      </label>
+
+      {!! Form::text('escort_phones[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.phone')] ) !!}
+   
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.email') }}      </label>
+
+      {!! Form::email('escort_emails[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.email')] ) !!}
+   
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.birthdate') }}      </label>
+
+      {!! Form::text('escort_birthdates[]', null , ['class' => 'form-control' , 'placeholder'=> __('backend.birthdate')] ) !!}
+   
+    </div>
+  </div>
+
+  
+
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.relative_relation') }}      </label>
+
+      {!! Form::select('escort_relations[]', [ 'wife'=> __('backend.wife') , 'son'=> __('backend.son') , 'daughter'=>__('backend.daughter') , 'father'=> __('backend.father'), 'mother'=>__('backend.mother') ] , null , ['class' => 'form-control' , 'placeholder'=> __('backend.relative_relation') ] ) !!}
+   
+    </div>
+  </div>
+
+
+</div>
+
+
+<button id='erepeat_div' class="btn btn-success">  {{ __('backend.new') }} </button>
 
 
 </div>
@@ -1014,6 +1145,17 @@ aria-expanded="false">
 </div>
 </div>
 
+
+
+<div class="col-md-2">
+<div class="form-group">
+<label for="projectinput3">  {{__('backend.vacation_days')}}   </label>
+
+{!! Form::number('vacation_days', null , ['id' => 'vacation_days','class' => 'form-control' , 'placeholder'=> __('backend.vacation_days')] ) !!}
+
+</div>
+</div>
+
 </div>
 
 
@@ -1116,6 +1258,18 @@ aria-expanded="false">
     </div>
   </div>
 
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_start_date')}}   </label>
+
+      {!! Form::date('custody_start_date[]',  $custody->custody_start_date , ['class' => 'form-control custody_start_date'  , 'placeholder'=> __('backend.custody_start_date')] ) !!}
+   
+    </div>
+  </div>
+
+
+
   <div class="col-md-3">
     <div class="form-group">
       <label for="projectinput3">  {{__('backend.custody_expiry_date')}}   </label>
@@ -1150,6 +1304,8 @@ aria-expanded="false">
   
     </div>
 
+    <hr>
+
 @empty
 
 لا توجد عُهد حاليا
@@ -1181,6 +1337,17 @@ aria-expanded="false">
    
     </div>
   </div>
+
+
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{__('backend.custody_start_date')}}   </label>
+
+      {!! Form::date('custody_start_date[]',  null , ['class' => 'form-control custody_start_date'  , 'placeholder'=> __('backend.custody_start_date')] ) !!}
+   
+    </div>
+  </div>
+
 
   <div id="temporary_date" class="col-md-3">
     <div class="form-group">

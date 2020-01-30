@@ -96,11 +96,11 @@
       
       @if($total_products)
       
-       {{ $total_products->sum('total_all_price') }}
+       {{ $total_products->sum('total_all_price') }} ريال سعودي
 
        @else
-
-       0
+ 
+       0 ريال سعودي
 
       @endif
 
@@ -116,7 +116,7 @@
    
     <div class="form-group">
 
-      الخصم  :  {{ $total_discount }}
+      الخصم  :  {{ $total_discount }} ريال سعودي
 
     </div>
   
@@ -130,11 +130,11 @@
      
       الصافى  :  @if($total_products)
       
-      {{ $total_products->sum('total_all_price') - $total_discount  }}
+      {{ $total_products->sum('total_all_price') - $total_discount  }} ريال سعودي
 
       @else
 
-      0
+      0 ريال سعودي
 
      @endif
 
@@ -157,7 +157,7 @@
 
     @else
 
-     لا يوجد
+     0  ريال سعودي
 
     @endif
 
@@ -177,7 +177,7 @@
 
       @else
 
-     ---
+     0 ريال سعودي
 
      @endif
 
@@ -531,7 +531,7 @@
 
 </a>
 
-{{$supplying_duration}}
+{{$supplying_duration}} يوم عمل
 
 </div>
 
@@ -773,19 +773,6 @@
                              
                             </div>
                           </div>
-
-
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="projectinput1"> <B> الاستهلاك  </B>   </label>
-
-                              {!! Form::text('estimate_consumption', null , ['rows'=>'5' , 'class' => 'form-control' ] ) !!}
-                             
-                            </div>
-                          </div>
-
-
-                          
 
 
                           </div>

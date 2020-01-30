@@ -346,22 +346,73 @@
 
 </div> 
 
-			  
+
+<div class="row">
+
+<h4  class="form-section">{{__('backend.employees_escorts')}}</h4>
+
+<div class="col-md-12">
+  <div class="form-group">
+   
+
+   
+<div class="row">
+
+<div class="col-md-12">
+
+<table id="users-contacts" style='width:100%;' class="table datatable table-hover table-responsive">
+                        <thead>
+                          <tr>
+
+                          
+                            <th>  {{__('backend.name')}}  </th>
+                            <th>  {{__('backend.phone')}} </th>
+                            <th> {{__('backend.email')}}   </th>
+                            <th> {{__('backend.birthdate')}}  </th>
+                            <th> {{__('backend.relative_relation')}}  </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+
+
+@foreach( $user->employees_escorts as $person)
+
+                          <tr>
+                          <td>{{$person->name}} </td>
+                          <td>{{$person->mobile}} </td>
+                          <td>{{$person->escort_email}}  </td>
+                          <td> {{$person->escort_birthdate}} </td>
+                          <td> {{__('backend.'.$person->escort_relation)}}  </td>
+                            
+                            
+
+                          </tr>
+
+@endforeach
+
+
+                        
+                      </table>
+
+
+
+
+ </div>
+
+ </div>
+
+   
+ 
+  </div>
 </div>
 
 
 
+</div> 
 
-
-
-
-
-
-
-
-
-
-
+			  
+</div>
 
 
 
@@ -564,22 +615,19 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
 </div>
 
 
+<div class="col-md-4">
+  <div class="form-group">
+    <label for="projectinput3">  {{__('backend.vacation_days')}}   </label>
 
-
-
+    <h4 class="card-title">{{ $user->data['vacation_days'] }} </h4>
+ 
+  </div>
+</div>
 
   
 </div>
 
 </div>   
-
-
-
-
-
-
-
-
 
 
 
@@ -833,6 +881,8 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
                           
                             <th>  {{__('backend.custody')}}  </th>
                             <th>  {{__('backend.custody_type')}} </th>
+                            <th>  {{__('backend.custody_start_date')}} </th>
+                            
                             <th> {{__('backend.custody_expiry_date')}}   </th>
                             <th> {{__('backend.custody_note')}}  </th>
                             <th> {{__('backend.photo')}}  </th>
@@ -847,6 +897,8 @@ $diff_in_hours = $to_1->diffInHours($from_1) + $to_2->diffInHours($from_2);
                           <tr>
                           <td>{{$custody->custody['title']}}</td>
                           <td>{{ __('backend.'.$custody->custody_type) }}</td>
+                          
+                          <td>{{$custody->custody_start_date}} </td>
                           <td>{{$custody->custody_expiry_date}} </td>
                           <td>{{$custody->custody_note}}</td>
                           <td> @if($custody->photo) <a target="_blank"  class="card-img img-fluid mb-1" href="{{url('')}}/uploads/employees/files/{{$user->data['serial']}}/{{$custody->photo}}" alt="Card image cap"> <i class="icon-book-open">

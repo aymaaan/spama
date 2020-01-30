@@ -126,4 +126,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      
       }
 
+      public function employees_escorts() {
+
+        return $this->hasMany(EmployeesEscorts::class , 'employee_id');
+     
+      }
+
 }

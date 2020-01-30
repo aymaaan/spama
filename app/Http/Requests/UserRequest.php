@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'education' => 'required',
             'gender' => 'required',
             'social_status' => 'required',
-            'number_escorts' => 'required',
+           
             'nationality' => 'required',
             'personal_email' => 'required|email',
             'birth_date' => 'required',

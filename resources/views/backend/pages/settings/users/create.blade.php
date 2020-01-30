@@ -227,6 +227,16 @@ $(function () {
 });
 
 
+$(function () {
+    $("#erepeat_div").on('click', function (e) {
+        e.preventDefault();
+        var $self = $(this);
+        $self.before($self.prev('div').clone());
+        //$self.remove();
+    });
+});
+
+
 
 
 

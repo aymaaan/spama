@@ -15,6 +15,7 @@ use App\EmployeesCustodies;
 use App\Employee;
 use App\Department;
 use App\EmployeesClosePersons;
+use App\EmployeesEscorts;
 use App\EmployeesFiles;
 use App\Mail\VerifyMail;
 use Auth;
@@ -152,7 +153,7 @@ class UsersController extends Controller
   $data->gender = $request->gender;
   $data->social_status = $request->social_status;
   $data->number_childrens = $request->number_childrens;
-  $data->number_escorts = $request->number_escorts;
+  $data->vacation_days = $request->vacation_days;
   $data->nationality = $request->nationality;
   $data->mobile = $request->phone;
   $data->mobile_work = $request->mobile_work;
@@ -201,6 +202,7 @@ class UsersController extends Controller
 //Save close persons
 if( $request->close_names ) {
 foreach( $request->close_names  as $k=>$name) {
+  if(isset($name)) {
   $close_data = new EmployeesClosePersons;
   $close_data->employee_id = $user->id;
   $close_data->name = $name;
@@ -208,8 +210,28 @@ foreach( $request->close_names  as $k=>$name) {
   $close_data->save();
 }
 }
+}
 
  //ENd close persons
+
+
+ 
+//Save EmployeesEscorts
+if( $request->escorts_names ) {
+  foreach( $request->escorts_names  as $k=>$name) {
+    if(isset($name)) {
+    $escorts_data = new EmployeesEscorts;
+    $escorts_data->employee_id = $user->id;
+    $escorts_data->name = $name;
+    $escorts_data->mobile = $request->escorts_phones[$k];
+    $escorts_data->escort_email = $request->escort_emails[$k];
+    $escorts_data->escort_birthdate = $request->escort_birthdates[$k];
+    $escorts_data->escort_relation = $request->escort_relations[$k];
+    $escorts_data->save();
+  }
+  }
+  }
+ //ENd EmployeesEscorts
 
 
   //Save custodies
@@ -223,6 +245,8 @@ foreach( $request->close_names  as $k=>$name) {
       $new_custody->custody_id = $custody;
       $new_custody->custody_type = $request->custody_type[$k];
       $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
+      $new_custody->custody_start_date = $request->custody_start_date[$k];
+      
       $new_custody->custody_note = $request->custody_note[$k];
   
       if ( $request->custody_photo[$k] ) {
@@ -334,7 +358,7 @@ if($request->role_id){
   $data->gender = $request->gender;
   $data->social_status = $request->social_status;
   $data->number_childrens = $request->number_childrens;
-  $data->number_escorts = $request->number_escorts;
+  $data->vacation_days = $request->vacation_days;
   $data->nationality = $request->nationality;
   $data->mobile = $request->phone;
   $data->mobile_work = $request->mobile_work;
@@ -384,6 +408,7 @@ if($request->role_id){
 
 if( $request->close_names ) {
 foreach( $request->close_names  as $k=>$name) {
+  if(isset($name)) {
   $close_data = new EmployeesClosePersons;
   $close_data->employee_id = $user->id;
   $close_data->name = $name;
@@ -391,8 +416,34 @@ foreach( $request->close_names  as $k=>$name) {
   $close_data->save();
 }
 }
+}
 
  //ENd close persons
+
+
+ 
+//Save EmployeesEscorts
+if( $request->escort_names ) {
+  foreach( $request->escort_names  as $k=>$name) {
+    if(isset($name)) {
+
+      if( isset($request->escort_id[$k])  ) {
+        $escorts_data = EmployeesEscorts::find($request->escort_id[$k])  ;
+      } else {
+        $escorts_data = new EmployeesEscorts;
+      }
+ 
+    $escorts_data->employee_id = $user->id;
+    $escorts_data->name = $name;
+    $escorts_data->mobile = $request->escort_phones[$k];
+    $escorts_data->escort_email = $request->escort_emails[$k];
+    $escorts_data->escort_birthdate = $request->escort_birthdates[$k];
+    $escorts_data->escort_relation = $request->escort_relations[$k];
+    $escorts_data->save();
+  }
+  }
+  }
+ //ENd EmployeesEscorts
 
 
   //Save custodies
@@ -413,6 +464,10 @@ if( $request->custody_type ) {
     if ( isset($request->custody_expiry_date[$k]) ) {
     $new_custody->custody_expiry_date = $request->custody_expiry_date[$k];
     }
+    if ( isset($request->custody_start_date[$k]) ) {
+    $new_custody->custody_start_date = $request->custody_start_date[$k];
+  }
+
     $new_custody->custody_note = $request->custody_note[$k];
 
     if ( isset($request->custody_photo[$k]) ) {

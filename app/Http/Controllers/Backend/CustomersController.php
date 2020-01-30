@@ -472,7 +472,6 @@ if($request->serial) {
      $customer_question->price = $request->quantity  * $request->unit_price;
      $customer_question->quantity = $request->quantity;
      $customer_question->request_by = 'delegates';
-     $customer_question->estimate_consumption = $request->estimate_consumption;
      $customer_question->product_id = $data->id;
      $customer_question->save();
 

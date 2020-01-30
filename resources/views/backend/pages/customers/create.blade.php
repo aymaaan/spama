@@ -128,9 +128,6 @@
 </script>
 <script>
 
-
-<script>
-  
 $(document).ready(function(){
 
 $('select[name="sales_channel_id"]').on('change', function() {
