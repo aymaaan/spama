@@ -17,6 +17,7 @@ use App\CustomersAssessmentProducts;
 use App\Doctors;
 use App\Branch;
 use App\Units;
+use App\User;
 use App\Products;
 use App\CustomersPricingSettings;
 use App\Job;
@@ -80,6 +81,7 @@ class CustomersController extends Controller
   $customer = Customers::find($id);
   $serial = CustomersAssessmentProducts::where('customer_id',$id)->orderBy('serial','desc')->first();
   if($serial) {
+  $delgate_name = User::find($serial->user_id);
   $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)
    ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
    ->groupBy('product_id')
@@ -150,11 +152,9 @@ $units = Units::where('status' , 1)->pluck('title' , 'id');
 
 
 if(isset( $_GET['t'] ) && $_GET['t'] == 'print') {
-
-  return view('backend.pages.customers.pricing_print' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
-
+  return view('backend.pages.customers.invoices.'.$_GET['lang'] , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
 } else {
-  return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer') );
+  return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
 }
 
 }

@@ -106,8 +106,8 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: rtl;    direction
   <div class="du"><b>مدة التوريد&nbsp;:&nbsp;</b> {{$supplying_duration}} يوم عمل</div>
   <div class="place"><b>مكان التسليم&nbsp;:&nbsp;</b> {{$delivery_place_value}}  </div>
   <div class="note"><b>ملاحظات&nbsp;:&nbsp;</b> {{$notes}}</div>
-  <div class="by1"><b>أعدت بواسطة&nbsp;:&nbsp;</b>   </div>
-  <div class="by2"><b>أعتمدت من&nbsp;:&nbsp;</b>   </div>
+  <div class="by1"><b>أعدت بواسطة&nbsp;:&nbsp;</b>{{$delgate_name->name}} {{$delgate_name->data['last_name'] ?? ''}} </div>
+  <div class="by2"><b>أعتمدت من&nbsp;:&nbsp;</b> {{$delgate_name->data->manager->data->first_name ?? ''}} {{$delgate_name->data->manager->data->last_name ?? ''}}  </div>
   </td>
    </tr>
 

@@ -35,7 +35,6 @@ class ImportExcelController extends Controller
      ]);
 
      //Import Product File
-
      if ($request->file('select_file')) {
 
      $path_products = $request->file('select_file')->getRealPath();
@@ -45,7 +44,6 @@ class ImportExcelController extends Controller
      if($data_products->count() > 0)
      {
 
-     
       foreach( array_chunk( $data_products->toArray() , 1000 , true )  as $key => $value_part )
       {
 

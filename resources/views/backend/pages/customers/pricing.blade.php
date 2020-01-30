@@ -920,15 +920,14 @@
 
 
         @endforeach
-            
-        
-           
-        
+ 
           </tbody>
         </table>
-        
-        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print"  style="float:left;" class="btn btn-info">  طباعة   </a> 
-        </div>
+
+        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  style="float:left;" class="btn btn-success">  طباعة عربي   </a> 
+
+        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  style="float:left;" class="btn btn-info"> Print English   </a> 
+
 
         @endif
 	  
