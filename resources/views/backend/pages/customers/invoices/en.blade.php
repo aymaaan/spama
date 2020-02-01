@@ -22,15 +22,15 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: ltr;    direction
 .tit3{position: absolute;top: 350px;left: 35px;}
 .salam{position: absolute;top: 390px;left: 35px;}
 .total{position: absolute;top: 470px;left: 35px;}
-.total2{position: absolute;top: 470px;left: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
+.total2{position: absolute;top: 470px;left: 175px;border: 1px solid #ebebec;padding: 0px 10px;border-radius: 10px;}
 .dis{position: absolute;top: 500px;left: 35px;}
-.dis2{position: absolute;top: 500px;left: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
+.dis2{position: absolute;top: 500px;left: 175px;border: 1px solid #ebebec;padding: 0px 10px;border-radius: 10px;}
 .net{position: absolute;top: 530px;left: 35px;}
-.net2{position: absolute;top: 530px;left: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
+.net2{position: absolute;top: 530px;left: 175px;border: 1px solid #ebebec;padding: 0px 10px;border-radius: 10px;}
 .tax{position: absolute;top: 560px;left: 35px;}
-.tax2{position: absolute;top: 560px;left: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
+.tax2{position: absolute;top: 560px;left: 175px;border: 1px solid #ebebec;padding: 0px 10px;border-radius: 10px;}
 .nettax{position: absolute;top: 590px;left: 35px;}
-.nettax2{position: absolute;top: 590px;left: 175px;border: 1px solid #ebebec;padding: 0px 41px;border-radius: 10px;}
+.nettax2{position: absolute;top: 590px;left: 175px;border: 1px solid #ebebec;padding: 0px 10px;border-radius: 10px;}
 .payment{position: absolute;top: 665px;left: 35px;}
 .exp{position: absolute;top: 690px;left: 35px;}
 .du{position: absolute;top: 690px;left: 320px;}

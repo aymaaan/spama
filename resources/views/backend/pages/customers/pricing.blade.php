@@ -836,7 +836,8 @@
               %{{ $product->discount OR '0' }}
                </a>
                </th>
-              <th> @if($product->info['value_added'] == 'YES') {{ ($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100 }} @else 0  @endif </th>
+              <th>
+                 @if($product->info['value_added'] == 'YES') {{ ($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100 }} @else 0  @endif </th>
               
               <th>
                 
@@ -911,9 +912,85 @@
           </tbody>
         </table>
 
-        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  style="float:left;" class="btn btn-success">  طباعة عربي   </a> 
+        <a target="#"  data-toggle="modal" data-target="#print" style="float:left;" class="btn btn-success">  طباعة    </a> 
 
-        <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  style="float:left;" class="btn btn-info"> Print English   </a> 
+        
+      
+<!-- Modal -->
+<div class="modal fade" id="print" tabindex="-1" role="dialog" aria-labelledby="print" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.print') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+<div class="form-body">
+
+<h4 class="form-section"><i class="la la-commenting"></i>  عربي      </h4>
+
+<div class="row">
+                          
+                          <div class="col-md-6">
+                            <div class="form-group">
+
+                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  >   الموجز    </a> 
+
+
+                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4"  >   ال التفاصيل     </a> 
+
+
+
+                             
+                            </div>
+                          </div>
+
+                          </div>
+
+
+
+                          
+<h4 class="form-section"><i class="la la-commenting"></i>  انجليزي      </h4>
+
+<div class="row">
+                          
+                          <div class="col-md-6">
+                            <div class="form-group">
+
+                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  >   الموجز    </a> 
+
+
+                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4"  >    التفاصيل    </a> 
+
+
+
+                             
+                            </div>
+                          </div>
+
+                          </div>
+
+
+
+
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        
+      </div>
+
+      {!!Form::close()!!}
+
+
+  </div>
+</div>
+
 
 
         @endif
@@ -930,6 +1007,10 @@
           </section>
         </div>
       </div>
+
+
+
+
 
 
 @endsection

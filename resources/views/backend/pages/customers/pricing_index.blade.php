@@ -23,7 +23,7 @@
                   <option value="0" >----</option>
                   @foreach($customers as $customer)
                           <option value="{{$customer->id}}">
-                          {{$customer->name}}    
+                          {{$customer->name}} - {{$customer->phone}} 
                           </option>
                   @endforeach 
                         
