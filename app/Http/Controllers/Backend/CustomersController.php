@@ -151,13 +151,26 @@ foreach($total_products as $product) {
 $units = Units::where('status' , 1)->pluck('title' , 'id');
 
 
-if(isset( $_GET['t'] ) && $_GET['t'] == 'print') {
-  if(isset( $_GET['table'] ) && $_GET['table'] == 'a4') {
-  return view('backend.pages.customers.invoices.'.$_GET['lang']."_table" , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
-  } else {
-    return view('backend.pages.customers.invoices.'.$_GET['lang'] , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
-  }
-} 
+if( isset( $_GET['t'] ) && $_GET['t'] == 'print') {
+
+
+    if(isset( $_GET['width'] ) && $_GET['width'] == 'full') {
+    $width = "_full";
+    }else {
+      $width = "";
+    }
+
+
+    if(isset( $_GET['table'] ) && $_GET['table'] == 'a4') {
+      $table = "_table";
+    } else {
+      $table = "";
+    }
+ 
+  return view('backend.pages.customers.invoices.'.$_GET['lang'].$table.$width , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
+ 
+ }
+
 else {
   return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
 }

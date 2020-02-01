@@ -940,10 +940,12 @@
 
                               <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  >   الموجز    </a> 
 
+                              | 
 
                               <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4"  >    التفاصيل     </a> 
 
-
+|
+<a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4&width=full"  >   2 التفاصيل     </a> 
 
                              
                             </div>
@@ -962,11 +964,12 @@
                             <div class="form-group">
 
                               <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  >   الموجز    </a> 
-
+| 
 
                               <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4"  >    التفاصيل    </a> 
 
-
+                              |
+<a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4&width=full"  >   2 التفاصيل     </a> 
 
                              
                             </div>
