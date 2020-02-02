@@ -8,6 +8,8 @@ use App\AssessmentQuestions;
 use App\CustomersAssessmentQuestions;
 use App\CustomersAssessmentProducts;
 use App\Categories;
+use App\Products;
+use App\AssessmentRules;
 use App\MotherProducts;
 use App\Units;
 use Session;
@@ -197,6 +199,7 @@ class AssessmentController extends Controller
      $customer_question->user_id = \Auth::user()->id;
      $customer_question->unit_price = $customer_price;
      $customer_question->save();
+
     
     }
 
@@ -235,7 +238,7 @@ class AssessmentController extends Controller
 
     foreach( $request->products_doc as $k=>$product_id) {
 
-    if ( $request->quantity[$k] && $request->price[$k] ) {
+    if ( $request->quantity[$k] && $request->price[$k]) {
 
     $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
 
@@ -259,9 +262,46 @@ class AssessmentController extends Controller
      $customer_question->user_id = \Auth::user()->id;
      $customer_question->unit_price = $customer_price;
      $customer_question->save();
-    }
+
+
+
+
+//Check Rules
+/*
+$valid_save = 0;
+$product = Products::find($product_id);
+//Check Price
+$products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
+if($products_units) {
+$customer_price = $products_units->customer_price * $request->quantity[$k];
+} else {
+$customer_price = 0;
+}
+if(!$customer_price) {
+$customer_price = 0;
+}
+
+$valid = new AssessmentRules;
+$valid->product_id = $product_id;
+$valid->serial = $serial + 1;
+if ( $customer_price != $request->price[$k] ) {
+$valid->price = 'invalid';
+$valid_save = 1;
+} 
+//save valid process
+if($valid_save == 1) {
+$valid->save();
+}
+*/
+//End Check Rules
+
+
+
+}
+
+
     
-    }
+}
 
     Session::flash('msg', ' تم اضافة المنتجات بنجاح ' );
     Session::flash('alert', 'success');
@@ -293,8 +333,6 @@ class AssessmentController extends Controller
     
 
   }
-
-
 
 
   public function assessment_index(Request $request )

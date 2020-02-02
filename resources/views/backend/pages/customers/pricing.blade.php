@@ -209,13 +209,13 @@
    
    
 </a>
-@if($pricing_settings->payment_title1)
+@if(isset($pricing_settings->payment_title1))
 :  {{__('backend.'.$pricing_settings->payment_title1)}} التعميد {{$payment_before}}% -
 @endif
-@if($pricing_settings->payment_title2)
+@if( isset($pricing_settings->payment_title2))
  {{__('backend.'.$pricing_settings->payment_title2)}} التسليم {{$payment_while}}% -
  @endif
- @if($pricing_settings->payment_title3)
+ @if(isset($pricing_settings->payment_title3))
   {{__('backend.'.$pricing_settings->payment_title3)}} التركيب {{$payment_after }}%
   @endif
 
