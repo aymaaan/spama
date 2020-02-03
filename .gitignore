@@ -47,3 +47,5 @@ app.zip
 .idea/
 .ftpquota
 artisan
+.cpanel.yml
+cpanel.yml

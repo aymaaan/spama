@@ -211,11 +211,6 @@ class AssessmentController extends Controller
 
   }
 
-    
-
-
-
-
     return view('backend.pages.customers.re_assessment_products' , compact('total_products','units','customer','categories') );
   }
 
@@ -264,12 +259,9 @@ class AssessmentController extends Controller
      $customer_question->save();
 
 
-
-
 //Check Rules
-/*
+
 $valid_save = 0;
-$product = Products::find($product_id);
 //Check Price
 $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
 if($products_units) {
@@ -284,6 +276,7 @@ $customer_price = 0;
 $valid = new AssessmentRules;
 $valid->product_id = $product_id;
 $valid->serial = $serial + 1;
+$valid->assessment_id = $customer_question->id;
 if ( $customer_price != $request->price[$k] ) {
 $valid->price = 'invalid';
 $valid_save = 1;
@@ -292,7 +285,7 @@ $valid_save = 1;
 if($valid_save == 1) {
 $valid->save();
 }
-*/
+
 //End Check Rules
 
 
