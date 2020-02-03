@@ -104,7 +104,12 @@ page[size="A4"] {  width: 21cm;  height: 29.7cm;    direction: ltr;    direction
   <div class="place"><b>- Delivery Place:&nbsp;:&nbsp;</b>{{$delivery_place_value}}</div>
   <div class="note"><b>- Notes:&nbsp;:&nbsp;</b>{{$notes}} </div>
   <div class="by1"><b>Prepared by:&nbsp;:&nbsp;</b>  {{$delgate_name->name}} {{$delgate_name->data['last_name'] ?? ''}}    </div>
-  <div class="by2"><b>Prepared by:&nbsp;:&nbsp;</b>   {{$delgate_name->data->manager->data->first_name ?? ''}} {{$delgate_name->data->manager->data->last_name ?? ''}}   </div>
+  <div class="by2"><b>Confirmed by:&nbsp;:&nbsp;</b>     @if(isset($is_confirmed))
+  {{$is_confirmed->manager->data->first_name ??  '' }} {{ $is_confirmed->manager->data->last_name ??  '' }}
+  @else
+  {{ $delgate_name->data->manager->data->first_name ?? '' }}
+  {{ $delgate_name->data->manager->data->last_name ??  '' }}
+  @endif  </div>
   </td>
    </tr>
 

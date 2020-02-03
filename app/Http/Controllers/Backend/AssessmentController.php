@@ -233,7 +233,7 @@ class AssessmentController extends Controller
 
     foreach( $request->products_doc as $k=>$product_id) {
 
-    if ( $request->quantity[$k] && $request->price[$k]) {
+    if ( $request->quantity[$k] ) {
 
     $products_units = \DB::table('products_units')->where('product_id'  , $product_id )->where('unit_id',$request->unit_id[$k])->first();
 
@@ -278,14 +278,9 @@ $valid->product_id = $product_id;
 $valid->serial = $serial + 1;
 $valid->assessment_id = $customer_question->id;
 if ( $customer_price != $request->price[$k] ) {
-$valid->price = 'invalid';
-$valid_save = 1;
-} 
-//save valid process
-if($valid_save == 1) {
+$valid->rule_title = 'price';
 $valid->save();
 }
-
 //End Check Rules
 
 

@@ -5,9 +5,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CustomersRequest;
 use App\Http\Controllers\Controller;
 use App\Customers;
+use App\AssessmentConfirmations;
+use App\ProductsRepositories;
 use App\CustomersCases;
 use App\SalesChannels;
 use App\SalesDelegates;
+use App\AssessmentRules;
 use App\CommercialActivities;
 use App\AgeCtegories;
 use App\CustomersCorporateManagers;
@@ -124,8 +127,8 @@ class CustomersController extends Controller
    $delivery_place_value = null;
    }
 
-   
-
+$can_print = 1;
+$rule_check_repositories = array();
 $total_vat = 0;
 $total_discount = 0;
 foreach($total_products as $product) {
@@ -134,6 +137,14 @@ foreach($total_products as $product) {
     $total_vat = $total_vat + ( $product->total_all_price  * 5 / 100);
     
   }
+
+//check Repositories
+  $check_repositories = ProductsRepositories::where('product_id',$product->info['id'])->where('quantity_each_repository' , '>=' ,$product->total_all_products)->first();
+
+if( !$check_repositories ) {
+  $rule_check_repositories[] = $product->info['id'];
+  $can_print = 0;
+}
 
 
 }
@@ -152,6 +163,35 @@ foreach($total_products as $product) {
 
 $units = Units::where('status' , 1)->pluck('title' , 'id');
 
+//check_rules
+$rule_payment = AssessmentRules::where('serial', $serial->serial)->where('rule_title', 'payment')->first();
+if(isset($rule_payment)) {
+$can_print = 0;
+}
+
+$rules_prices = AssessmentRules::where('serial', $serial->serial)->where('rule_title', 'price')->get();
+$rule_prices = array();
+if(isset($rules_prices)) {
+foreach( $rules_prices as $rule_price ) {
+$rule_prices[] = $rule_price->product_id;
+}
+$can_print = 0;
+}
+
+
+if($delivery_place_type != 'from') {
+  $rule_delivery_place = 1;
+  $can_print = 0;
+}
+
+if($supplying_duration > 7) {
+  $rule_supplying_duration = 1;
+  $can_print = 0;
+}
+
+
+
+
 
 
 
@@ -166,12 +206,30 @@ $table = "_table";
 } else {
 $table = "";
 }
-return view('backend.pages.customers.invoices.'.$_GET['lang'].$table.$width , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
+
+$is_confirmed = AssessmentConfirmations::where('serial',$serial->serial)->first();
+
+return view('backend.pages.customers.invoices.'.$_GET['lang'].$table.$width , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name','rule_payment','rule_prices','rule_delivery_place','rule_supplying_duration','rule_check_repositories','can_print','is_confirmed') );
 }
 
 else {
-  return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name') );
+  return view('backend.pages.customers.pricing' , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name','rule_payment','rule_prices','rule_delivery_place','rule_supplying_duration','rule_check_repositories','can_print','is_confirmed') );
 }
+
+}
+
+public function pricing_confirmation($id)
+{
+  if ( Gate::denies(['confirm_pricing'])  ) { abort(404); }
+
+  $data = new AssessmentConfirmations;
+  $data->serial = $id;
+  $data->user_id = \Auth::user()->id; ;
+  $data->save();
+
+  Session::flash('msg', ' تم اعتماد عرض السعر' );
+  Session::flash('alert', 'success');
+  return back();
 
 }
 
@@ -379,7 +437,7 @@ if(!$data) {
   $data = new CustomersPricingSettings;
 }
 
-if($request->serial) {
+if( $request->serial ) {
     
    if( $request->payment_before ) {
     $data->payment_before = $request->payment_before;
@@ -395,6 +453,22 @@ if($request->serial) {
     $data->payment_after = $request->payment_after;
     $data->payment_title3 = $request->payment_title3;
    }
+
+//check payment rule 100%
+$valid = AssessmentRules::where('serial', $request->serial)->first();
+if(!$valid) {
+$valid = new AssessmentRules;
+}
+$valid->serial = $request->serial;
+if ( $request->payment_before + $request->payment_while + $request->payment_after != 100 ) {
+$valid->rule_title = 'payment';
+$valid->save();
+} else {
+  $valid->delete();
+}
+//check payment rule 100%
+
+
 
    if($request->offer_validity) {
     $data->offer_validity = $request->offer_validity;

@@ -85,6 +85,7 @@ Route::resource('/products', 'ProductsController');
 Route::post('/pricing/update_settings_pricing', 'CustomersController@update_settings_pricing');
 Route::post('/pricing/update_discount_pricing', 'CustomersController@update_discount_pricing');
 Route::get('/pricing/delivery_place_type/{id}', 'CustomersController@get_delivery_place_type');
+Route::get('/pricing/pricing_confirmation/{id}', 'CustomersController@pricing_confirmation');
 Route::post('/pricing/settings_add_fast_product', 'CustomersController@settings_add_fast_product');
 //ZIP files
 Route::get('/coupons/qr/{title}', 'ArchiveZipController@zip_qr');

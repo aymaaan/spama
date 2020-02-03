@@ -27,7 +27,7 @@
 
     <div class="form-group">
    
-      رقم  : {{ $total_products[0]->serial }}
+      رقم  : {{ $total_products[0]->serial ?? 0 }}
 
     </div>
   
@@ -116,7 +116,7 @@
    
     <div class="form-group">
 
-      الخصم  :  {{ $total_discount }} ريال سعودي
+      الخصم  :  {{ $total_discount ?? '0' }} ريال سعودي
 
     </div>
   
@@ -204,10 +204,10 @@
  
 <div class="form-group">
 
+@if(isset( $rule_payment )) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif
+
 <a href="#" data-toggle="modal" data-target="#settings_payment_methods" >
    طريقة الدفع  
-   
-   
 </a>
 @if(isset($pricing_settings->payment_title1))
 :  {{__('backend.'.$pricing_settings->payment_title1)}} التعميد {{$payment_before}}% -
@@ -240,7 +240,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
 
@@ -376,7 +376,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0  , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
                           
@@ -415,13 +415,15 @@
 <div class="col-md-6">
 
 <div class="form-group">
-
+@if(isset( $rule_delivery_place )) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif
  
 <a href="#" data-toggle="modal" data-target="#settings_delivery_place" >
  
    مكان التسليم     : 
 
 </a>
+
+
 
 {{$delivery_place_value}}
 
@@ -450,7 +452,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
 
@@ -525,6 +527,11 @@
 
 <div class="form-group">
 
+
+@if(isset( $rule_supplying_duration )) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif
+
+
+
 <a href="#" data-toggle="modal" data-target="#settings_supplying_duration" >
 
    مدة التوريد      :
@@ -559,7 +566,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
                           
@@ -633,7 +640,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
                           
@@ -719,7 +726,7 @@
 
 <div class="form-body">
 
-{!! Form::hidden('serial', $total_products[0]->serial   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
 {!! Form::hidden('customer_id', $customer->id   , ['class' => 'form-control' ] ) !!}
 
 <div class="row">
@@ -820,15 +827,16 @@
           </thead>
           <tbody>
         
-        
+          
 @foreach( $total_products as $k=>$product)
             <tr>
-              <th> {{ $k + 1 }}</th>
+              <th>  {{ $k + 1 }}</th>
         
-              <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif</th>
-              <th> {{ $product->info['title_ar'] }} </th>
+              <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif 
+              </th>
+              <th>  {{ $product->info['title_ar'] }} </th>
               <th> {{ $product->unit['title']  }} </th>
-              <th> {{ $product->total_all_products  }} </th>
+              <th> @if( in_array( $product->info['id'] , $rule_check_repositories) ) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif {{ $product->total_all_products  }} </th>
               <th> {{ $product->unit_price }} </th>
               <th>
               <a href="#" data-toggle="modal" data-target="#settings_discount_{{$product->id}}" >
@@ -840,7 +848,7 @@
                  @if($product->info['value_added'] == 'YES') {{ ( $product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100 }} @else 0  @endif </th>
               
               <th>
-                
+              @if( in_array( $product->info['id'] , $rule_prices) ) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif
 
               @if($product->info['value_added'] == 'YES')
                {{ $product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) +  (($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100)  }}
@@ -912,7 +920,15 @@
           </tbody>
         </table>
 
-        <a target="#"  data-toggle="modal" data-target="#print" style="float:left;" class="btn btn-success">  طباعة    </a> 
+@can('confirm_pricing')
+@if( !isset($is_confirmed) )
+<a href="{{url('')}}/{{config('settings.BackendPath')}}/pricing/pricing_confirmation/{{$product->serial}}"  style="float:left;color:#fff;" class="btn btn-danger">  اعتماد عرض السعر    </a> 
+@endif
+@endcan
+
+ @if( $can_print ==  1 ||  Gate::check('print_without_confirmation') || isset($is_confirmed) )
+
+        <a target="#"  data-toggle="modal" data-target="#print" style="float:left;color:#fff;" class="btn btn-success">  طباعة    </a> 
 
         
       
@@ -999,6 +1015,8 @@
         @endif
 	  
 </div>
+
+@endif
 
 
 
