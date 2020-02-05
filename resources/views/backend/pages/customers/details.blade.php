@@ -462,9 +462,15 @@
     <tr>
       <th> {{ $k + 2 }}</th>
       <th>
+      @if( $activity->request_by != 'print' )
       <a href="{{url('')}}/{{config('settings.BackendPath')}}/assessment_products/details/{{ $activity->serial }}">
       @if($activity->request_by == 'delegates') التقييم @else إحالة من طبيب @endif  رقم ( {{ $activity->serial }} )  </th>
-      </a>
+      @else
+
+       عرض اسعار 
+
+      @endif
+    </a>
       <th> {{ $activity->created_at }}</th>
       <th> {{ $activity->user[0]['name'] }}</th>
     </tr>
