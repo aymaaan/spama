@@ -62,11 +62,10 @@ class CustomersController extends Controller
 
    if ( Gate::denies(['customers','create_customers'])  ) { abort(404); }
    $customer = Customers::find($id);
-   $activities = CustomersAssessmentProducts::where('customer_id',$id)
-   ->groupBy('assessment_date')->orderBy('assessment_date','asc')->get();
+   $activities = CustomersAssessmentProducts::where('customer_id',$id)->groupBy('assessment_date')->get();
    $serial = CustomersAssessmentProducts::where('customer_id',$id)->orderBy('serial','desc')->first();
    if($serial) {
-   $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)
+   $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)->where('request_by','!=','print')
     ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
     ->groupBy('product_id')
     ->orderBy('customers_assessment_products.id','desc')
@@ -87,7 +86,7 @@ class CustomersController extends Controller
   $serial = CustomersAssessmentProducts::where('customer_id',$id)->orderBy('serial','desc')->first();
   if($serial) {
   $delgate_name = User::find($serial->user_id);
-  $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)
+  $total_products = CustomersAssessmentProducts::where('serial',$serial->serial)->where('request_by','!=','print')
    ->select('customers_assessment_products.*',DB::raw("SUM(quantity) as total_all_products"),DB::raw("SUM(price) as total_all_price") ,DB::raw("SUM(estimate_consumption) as total_all_estimate") )
    ->groupBy('product_id')
    ->orderBy('customers_assessment_products.id','desc')
@@ -220,6 +219,7 @@ $customer_question->customer_id = $id;
 $customer_question->user_id = \Auth::user()->id;
 $customer_question->serial = $serial->serial;
 $customer_question->request_by = 'print';
+$customer_question->assessment_date = date('Y-m-d');
 $customer_question->save();
 
 return view('backend.pages.customers.invoices.'.$_GET['lang'].$table.$width , compact('pricing_settings','units','delivery_place_type','delivery_place_value','notes','supplying_duration','offer_validity','payment_while','payment_after','payment_before','total_discount','total_vat','total_products','customer','delgate_name','rule_payment','rule_prices','rule_delivery_place','rule_supplying_duration','rule_check_repositories','can_print','is_confirmed') );
