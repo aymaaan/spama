@@ -30,6 +30,7 @@ table{width:100%}
     <th class="tg-0lax">رقم المنتج</th>
     <th class="tg-0lax"> صورة المنتج </th>
     <th class="tg-0lax">البيان</th>
+    <th class="tg-0lax">الوصف</th>
     <th class="tg-0lax">الوحدة</th>
     <th class="tg-0lax">الكمية</th>
     <th class="tg-0lax">سعر الوحدة</th>
@@ -45,6 +46,7 @@ table{width:100%}
     <td class="tg-0lax"> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif </td>
     <td class="tg-0lax"> @if(isset($product->info->photos[0]))   <img src="{{url('')}}/uploads/products_photos/{{$product->info->id}}/{!! $product->info->photos[0]['photo_name'] !!}"   width="150" heigh="100"> @else <img src="https://spama.com/image/cache/catalog/logo-2-2x-322x70.png"   width="150" heigh="100">  @endif </td>
     <td class="tg-0lax"> {{ $product->info['title_ar'] }} </td>
+    <td class="tg-0lax"> {{ GetDescription('ar',$total_products[0]->serial,$product->info['id']) }} </td>
     <td class="tg-0lax"> {{ $product->unit['title']  }} </td>
     <td class="tg-0lax"> {{ $product->total_all_products  }} </td>
     <td class="tg-0lax"> {{ $product->unit_price }} </td>

@@ -17,6 +17,7 @@ use App\CustomersCorporateManagers;
 use App\Diseases;
 use App\AssessmentQuestions;
 use App\CustomersAssessmentProducts;
+use App\AssessmentProductsDescriptions;
 use App\Doctors;
 use App\Branch;
 use App\Units;
@@ -573,6 +574,28 @@ $valid->save();
 
 
 
+
+  public function update_settings_descriptions_pricing( Request $request )
+  {
+    if ( Gate::denies(['update_customers'])  ) { abort(404); }
+
+    //if exsit
+    $customer_question = AssessmentProductsDescriptions::where('serial',$request->serial)
+    ->where('product_id',$request->product_id)->first();
+
+    if( !$customer_question ) {
+
+    $customer_question = new AssessmentProductsDescriptions;
+  }
+
+     $customer_question->serial = $request->serial;
+     $customer_question->product_id = $request->product_id;
+     $customer_question->description_ar = $request->description_ar;
+     $customer_question->description_en = $request->description_en;
+     $customer_question->save();
+
+    return back();
+  }
 
 
 

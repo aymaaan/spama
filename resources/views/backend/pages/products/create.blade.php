@@ -887,36 +887,71 @@
                  
   
 
-                    <div class="tab-pane" id="websites_properties" role="tabpanel" aria-labelledby="websites_properties-tab2"
+<div class="tab-pane" id="websites_properties" role="tabpanel" aria-labelledby="websites_properties-tab2"
                       aria-expanded="false">
 
 
         <ul class="nav nav-tabs nav-topline">
 					
-        
+        <li class="nav-item">
+                        <a class="nav-link active" id="homesss-tab2" data-toggle="tab" href="#homesss2" aria-controls="homesss2"
+                        aria-expanded="true">عروض الاسعار</a>
+                      </li>
 
 
         @foreach($websites as $k=>$website)
           <li class="nav-item">
-            <a style="width: 200px;" class="nav-link @if($k == 0) {{'active'}} @endif" id="websites_tab_properties-tab2{{$website->id}}" data-toggle="tab" href="#websites_tab_properties{{$website->id}}" aria-controls="websites_tab_properties"
+            <a style="width: 200px;" class="nav-link " id="websites_tab_properties-tab2{{$website->id}}" data-toggle="tab" href="#websites_tab_properties{{$website->id}}" aria-controls="websites_tab_properties"
             aria-expanded="true">{{$website->title}}</a>
           </li>
        @endforeach
 
+      
+
 
 
         </ul>
+
+
+        
+                        
+
         <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
 
+        <div role="tabpanel" class="tab-pane active" id="homesss2" aria-labelledby="homesss-tab2" aria-expanded="true">
+                       
+        
 
 
+        <div  class="row">
+
+<div class="col-md-6">
+  <div class="form-group">
+    <label for="projectinput3">   {{ __('backend.description_ar') }}       </label>
+
+    {!! Form::textarea('description_ar', null , ['id'=>'description_ar', 'class' => 'form-control' , 'placeholder'=>  __('backend.description_ar')   ] ) !!}
+
+  </div>
+</div>
 
 
+<div class="col-md-6">
+  <div class="form-group">
+    <label for="projectinput3">{{ __('backend.description_en') }}</label>
+
+    {!! Form::textarea('description_en', null , ['id'=>'description_en', 'class' => 'form-control' , 'placeholder'=>  __('backend.description_en')   ] ) !!}
+
+  </div>
+</div>
+
+
+</div>
+                      </div>
 
         @foreach($websites as $k=>$website)
 
 
-        <div role="tabpanel" class="tab-pane @if($k == 0) {{'active'}} @endif" id="websites_tab_properties{{$website->id}}" aria-labelledby="home-tab2{{$website->id}}" aria-expanded="true">
+        <div role="tabpanel" class="tab-pane" id="websites_tab_properties{{$website->id}}" aria-labelledby="home-tab2{{$website->id}}" aria-expanded="false">
                         
 
                           <div class="row">

@@ -816,6 +816,7 @@
               <th scope="col">#</th>
               <th scope="col">رقم المنتج</th>
               <th scope="col">البيان</th>
+              <th scope="col">الوصف</th>
               <th scope="col">الوحدة</th>
               <th scope="col">الكمية</th>
               <th scope="col">سعر الوحدة</th>
@@ -835,9 +836,77 @@
               <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif 
               </th>
               <th>  {{ $product->info['title_ar'] }} </th>
+              <th> <a href="#" data-toggle="modal" data-target="#settings_descriptions{{$k}}" > <i class="la la-cog"></i> </a>
+
+
+              
+<!-- Modal -->
+<div class="modal fade" id="settings_descriptions{{$k}}" tabindex="-1" role="dialog" aria-labelledby="settings_descriptions{{$k}}" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings_pricing">{{ __('backend.settings') }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+{!! Form::open([ 'url' => config('settings.BackendPath').'/pricing/update_settings_descriptions_pricing'   , 'role' => 'form' , 'class' => 'form' ,  'files' => 'true' ]) !!}  
+
+<div class="form-body">
+
+{!! Form::hidden('serial', $total_products[0]->serial ?? 0   , ['class' => 'form-control' ] ) !!}
+{!! Form::hidden('product_id', $product->info['id']   , ['class' => 'form-control' ] ) !!}
+
+<div class="row">
+                          
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  الوصف بالعربية   </B>   </label>
+
+                              {!! Form::textarea('description_ar', GetDescription('ar',$total_products[0]->serial,$product->info['id'])  , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="projectinput1"> <B>  الوصف بالانجليزية   </B>   </label>
+
+                              {!! Form::textarea('description_en', GetDescription('en',$total_products[0]->serial,$product->info['id'])   , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
+                             
+                            </div>
+                          </div>
+
+                          </div>
+
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('backend.close') }}</button>
+        <button type="submit" type="button" class="btn btn-primary"> {{ __('backend.save') }}  </button>
+      </div>
+
+      {!!Form::close()!!}
+     
+
+    </div>
+
+
+  </div>
+</div>
+<!-- End MOdal -->
+            
+            
+            
+            </th>
               <th> {{ $product->unit['title']  }} </th>
               <th> @if( in_array( $product->info['id'] , $rule_check_repositories) ) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif {{ $product->total_all_products  }} </th>
-              <th> {{ $product->unit_price }} </th>
+              <th>  @if( in_array( $product->info['id'] , $rule_prices) ) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif {{ $product->unit_price }} </th>
               <th>
               <a href="#" data-toggle="modal" data-target="#settings_discount_{{$product->id}}" >
                
@@ -848,7 +917,8 @@
                  @if($product->info['value_added'] == 'YES') {{ ( $product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100 }} @else 0  @endif </th>
               
               <th>
-              @if( in_array( $product->info['id'] , $rule_prices) ) <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span> @endif
+
+             
 
               @if($product->info['value_added'] == 'YES')
                {{ $product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) +  (($product->total_all_price - ( $product->total_all_price * $product->discount / 100  ) ) * 5 / 100)  }}

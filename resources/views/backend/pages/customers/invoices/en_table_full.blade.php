@@ -29,6 +29,7 @@ table{width:100%}
     <th class="tg-0lax">#</th>
     <th class="tg-0lax">SKU</th>
     <th class="tg-0lax">Photo</th>
+    <th class="tg-0lax">Title</th>
     <th class="tg-0lax">Description</th>
     <th class="tg-0lax">Unit</th>
     <th class="tg-0lax">QTY.</th>
@@ -52,6 +53,8 @@ table{width:100%}
 
     
     <td class="tg-0lax"> {{ $product->info['title_en'] }} </td>
+
+    <td class="tg-0lax"> {{ GetDescription('en',$total_products[0]->serial,$product->info['id']) }}</td>
 
     <td class="tg-0lax"> {{ $product->unit['title']  }} </td>
     <td class="tg-0lax"> {{ $product->total_all_products  }} </td>

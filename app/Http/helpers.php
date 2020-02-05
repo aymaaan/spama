@@ -6,7 +6,17 @@ function ClearCache($table) {
     foreach ( \App\Language::get() as $Language) {
     \Cache::forget($table.$Language->code);
 }
- 
+}
+
+
+
+function GetDescription($lng , $serial , $product_id) {
+  $desc = \App\AssessmentProductsDescriptions::where('serial',$serial)
+    ->where('product_id',$product_id)->first();
+    if( !$desc ) {
+      $desc = \App\Products::find($product_id);
+    }
+    return $desc['description_'.$lng];
 }
 
 function LangUser ($lang) {

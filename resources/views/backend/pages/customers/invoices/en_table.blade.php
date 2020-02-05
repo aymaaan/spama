@@ -34,6 +34,7 @@ table{width:100%}
     <th class="tg-0lax">QTY.</th>
     <th class="tg-0lax">Unit Price</th>
     <th class="tg-0lax">DISC.%</th>
+    <th class="tg-0lax">VAT</th>
     <th class="tg-0lax">Total</th>
   </tr>
 
@@ -44,7 +45,8 @@ table{width:100%}
     <td class="tg-0lax"> {{ $k + 1 }} </td>
     <td class="tg-0lax"> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif </td>
     <td class="tg-0lax"> {{ $product->info['title_en'] }} </td>
-    <td class="tg-0lax"> {{ $product->unit['title_en']  }} </td>
+    <td class="tg-0lax"> {{ GetDescription('en',$total_products[0]->serial,$product->info['id']) }} </td>
+    <td class="tg-0lax"> {{ $product->unit['title']  }}  </td>
     <td class="tg-0lax"> {{ $product->total_all_products  }} </td>
     <td class="tg-0lax"> {{ $product->unit_price }} </td>
     <td class="tg-0lax"> %{{ $product->discount OR '0' }} </td>

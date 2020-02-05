@@ -217,7 +217,8 @@ public function store(Request $request)
   $data->average_purchase_price = $request->average_purchase_price;
   $data->value_added = $request->value_added;
   $data->notes = $request->notes;
-  
+  $data->description_ar = nl2br($request->description_ar);
+  $data->description_en = nl2br($request->description_en);
   $data->expiration_date = $request->expiration_date;
   $data->production_date = $request->production_date;
   $data->loot_number = $request->loot_number;
@@ -548,7 +549,8 @@ public function update(Request $request, $id)
   $data->title_ar_old = $request->title_ar_old;
   $data->title_en_old = $request->title_en_old;
   $data->sku_old = $request->sku_old;
-
+  $data->description_ar = nl2br($request->description_ar);
+  $data->description_en = nl2br($request->description_en);
   $data->type_id = $request->type_id;
   $data->category_id = $request->category_id;
   $data->brand_id = $request->brand_id;
