@@ -836,7 +836,16 @@
               <th> @if( $product->info['sku']  != 'FAST_ADDED') {{ $product->info['sku'] }} @else 010101010101 @endif 
               </th>
               <th>  {{ $product->info['title_ar'] }} </th>
-              <th> <a href="#" data-toggle="modal" data-target="#settings_descriptions{{$k}}" > <i class="la la-cog"></i> </a>
+              <th>
+              
+              @if(  GetDescription('ar',$total_products[0]->serial, $product->info['id']) != $product->info['description_ar'] ||   GetDescription('en',$total_products[0]->serial, $product->info['id']) != $product->info['description_en'] )
+
+              <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span>
+              
+              @endif
+
+
+               <a href="#" data-toggle="modal" data-target="#settings_descriptions{{$k}}" > <i class="la la-cog"></i> </a>
 
 
               
@@ -866,7 +875,14 @@
                             <div class="form-group">
                               <label for="projectinput1"> <B>  الوصف بالعربية   </B>   </label>
 
-                              {!! Form::textarea('description_ar', GetDescription('ar',$total_products[0]->serial,$product->info['id'])  , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
+
+@if(  GetDescription('ar',$total_products[0]->serial, $product->info['id']) != $product->info['description_ar'] )
+
+              <span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span>
+              
+@endif
+
+                              {!! Form::textarea('description_ar', GetDescription('ar',$total_products[0]->serial, $product->info['id'])  , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
                              
                             </div>
                           </div>
@@ -874,9 +890,13 @@
 
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="projectinput1"> <B>  الوصف بالانجليزية   </B>   </label>
+                              <label for="projectinput1"> <B>   الوصف بالانجليزية   </B>   </label>
+@if(  GetDescription('en',$total_products[0]->serial, $product->info['id']) != $product->info['description_en'] )
 
-                              {!! Form::textarea('description_en', GetDescription('en',$total_products[0]->serial,$product->info['id'])   , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
+<span title="تحتاج الى التعميد" style="color:red;"> <i class="la la-exclamation-triangle"></i> </span>
+
+@endif
+                              {!! Form::textarea('description_en', GetDescription('en',$total_products[0]->serial, $product->info['id'])   , ['rows'=>'3' , 'class' => 'form-control' ] ) !!}
                              
                             </div>
                           </div>
@@ -1017,56 +1037,87 @@
 
 <div class="form-body">
 
-<h4 class="form-section"><i class="la la-commenting"></i>  عربي      </h4>
 
-<div class="row">
+
+<div  class="row">
+                          
+                          <div class="col-md-4">
+                            <div class="form-group">
+
+<label for="projectinput1"> اختر اللغة </label>
+
+{!! Form::select('print_lang', ['ar'=>'عربي' , 'en'=>'الانجليزية'] , null , ['class' => 'form-control' , 'placeholder' => '----' ] ) !!}
+
+</div>
+
+                             
+                            </div>
+
+
+                            <div  id="print_type"  style="display:none;" class="col-md-4">
+                            <div class="form-group">
+
+<label for="projectinput1">  طريقة العرض  </label>
+
+{!! Form::select('print_type', ['small'=>'الطولى' , 'desc'=>'التفصيلى'] , null , ['class' => 'form-control' , 'placeholder' => '----' ] ) !!}
+
+</div>
+
+                             
+                            </div>
+
+
+                          </div>
+
+</div>
+
+<div id="print_ar"  style="display:none;" class="row">
                           
                           <div class="col-md-6">
                             <div class="form-group">
 
-                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  >   الموجز    </a> 
+                              <a id="print_intro_ar" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar"  >   الموجز    </a> 
 
                               | 
 
-                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4"  >    التفاصيل     </a> 
+                              <a  style="display:none;" id="print_ar_small" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4"  >    الصفحة الثانية     </a> 
 
-|
-<a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4&width=full"  >   2 التفاصيل     </a> 
+
+<a id="print_ar_desc"  style="display:none;" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=ar&table=a4&width=full"  >   الصفحة الثانية      </a> 
 
                              
                             </div>
                           </div>
 
-                          </div>
+</div>
 
 
 
-                          
-<h4 class="form-section"><i class="la la-commenting"></i>  انجليزي      </h4>
 
-<div class="row">
+<div style="display:none;" id="print_en" class="row">
                           
                           <div class="col-md-6">
                             <div class="form-group">
 
-                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  >   الموجز    </a> 
+                              <a  id="print_intro_en" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en"  >   الموجز    </a> 
+
+
 | 
 
-                              <a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4"  >    التفاصيل    </a> 
+                              <a  style="display:none;" id="print_en_small" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4"  >    الصفحة الثانية    </a> 
 
-                              |
-<a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4&width=full"  >   2 التفاصيل     </a> 
+
+
+                             
+<a id="print_en_desc"  style="display:none;" target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/customers/pricing/{{$customer->id}}?t=print&lang=en&table=a4&width=full"  >   الصفحة الثانية      </a> 
 
                              
                             </div>
                           </div>
 
-                          </div>
-
-
-
-
 </div>
+
+
 
       </div>
       <div class="modal-footer">
@@ -1202,6 +1253,43 @@ $("#pricing").attr("href","{{url('')}}/{{config('settings.BackendPath')}}/assess
         });
 
       });
+
+
+      
+
+  $('select[name="print_lang"]').on('change', function() {
+  $("#print_ar" ).hide();
+  $("#print_en" ).hide();
+  $("#print_ar_small" ).hide();
+  $("#print_en_small" ).hide();
+  $("#print_ar_desc" ).hide();
+  $("#print_en_desc" ).hide();
+  $("#print_intro_ar" ).hide();
+  $("#print_intro_en" ).hide();
+  $("#print_type").show();
+
+  });
+
+
+  $('select[name="print_type"]').on('change', function() {
+    var print_type= $('select[name="print_type"]').val();
+  var print_lang = $('select[name="print_lang"]').val();
+  $("#print_ar" ).hide();
+  $("#print_en" ).hide();
+  $("#print_ar_small" ).hide();
+  $("#print_en_small" ).hide();
+  $("#print_ar_desc" ).hide();
+  $("#print_en_desc" ).hide();
+  $("#print_intro_ar" ).hide();
+  $("#print_intro_en" ).hide();
+  
+
+  $("#print_" + print_lang ).show(); 
+  $("#print_intro_" + print_lang ).show(); 
+  $("#print_" + print_lang + "_" + print_type ).show(); 
+  });
+
+
 
 
 

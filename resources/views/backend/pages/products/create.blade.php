@@ -91,6 +91,23 @@
                     
 <h4 class="form-section"><i class="la la-commenting"></i>{{ __('backend.basic_information') }}</h4>
 
+
+
+<div class="row">
+
+<div class="col-md-3">
+    <div class="form-group">
+      <label for="projectinput3">  {{ __('backend.choose_photo') }}  </label>
+
+      <input type="file" id="photo" name="photo" >
+
+    </div>
+  </div>
+
+</div>
+
+
+
   <div class="row">
 
 
@@ -526,7 +543,7 @@
   <div class="form-group">
     <label for="projectinput3">   {{ __('backend.complementary_products') }}       </label>
 
-    <select  style="width:100%" required name='complementary_products[]' class="select2 form-control" multiple="multiple">
+    <select  style="width:100%"  name='complementary_products[]' class="select2 form-control" multiple="multiple">
                       
                       @foreach ($all_products as $row)
                      <option  value="{{$row->id}}">{{ $row->title_ar }}</option>

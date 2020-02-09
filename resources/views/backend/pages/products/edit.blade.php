@@ -153,6 +153,10 @@
 <div class="row">
 
 <div class="col-md-3">
+
+
+
+
     <div class="form-group">
       <label for="projectinput3">  {{ __('backend.choose_photo') }}  </label>
 
@@ -171,6 +175,21 @@
                         
                     
 <h4 class="form-section"><i class="la la-commenting"></i>{{ __('backend.basic_information') }}</h4>
+
+
+<div class="row">
+
+<div class="col-md-3">
+    <div class="form-group">
+      
+      @if(isset($data->photo))   <img src="{{url('')}}/uploads/products_photos/{!! $data->photo!!}"   width="150" heigh="100"> @else <img src="https://spama.com/image/cache/catalog/logo-2-2x-322x70.png"   width="150" heigh="100">  @endif
+      <input type="file" id="photo" name="photo" >
+      <label for="projectinput3">  {{ __('backend.choose_photo') }}  </label>
+    </div>
+  </div>
+
+</div>
+
 
   <div class="row">
 
@@ -435,6 +454,7 @@
 <h4 class="form-section"><i class="la la-commenting"></i> {{ __('backend.units') }} & {{ __('backend.prices') }}        </h4>
 
 @foreach( $units_data_prices as $uniprice )
+@if( $uniprice->customer_price )
 
 <div class="row">
 
@@ -508,7 +528,7 @@
 
 
 </div>
-
+@endif
 @endforeach
 
 
@@ -746,7 +766,7 @@ selected
   <div class="form-group">
     <label for="projectinput3">   {{ __('backend.complementary_products') }}       </label>
 
-    <select  style="width:100%" required name='complementary_products[]' class="select2 form-control" multiple="multiple">
+    <select  style="width:100%"  name='complementary_products[]' class="select2 form-control" multiple="multiple">
                       
                       @foreach ($all_products as $row)
                      <option 

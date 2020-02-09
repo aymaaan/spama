@@ -203,7 +203,14 @@ public function store(Request $request)
   $data->title_ar_old = $request->title_ar_old;
   $data->title_en_old = $request->title_en_old;
   $data->sku_old = $request->sku_old;
-
+  if ( $request->photo ) {
+    $photo = $request->photo;
+    $extension = $photo->getClientOriginalExtension();
+    $destinationPath = 'uploads/products_photos/' ;
+    $photo_filename = time().".".$extension;
+    $photo->move($destinationPath , $photo_filename);
+    $data->photo = $photo_filename;
+  }
 
   $data->type_id = $request->type_id;
   $data->category_id = $request->category_id;
@@ -545,6 +552,15 @@ public function update(Request $request, $id)
   $data->title_ar = $request->title_ar;
   $data->title_en = $request->title_en;
   $data->sku = $request->sku;
+
+  if ( $request->photo ) {
+      $photo = $request->photo;
+      $extension = $photo->getClientOriginalExtension();
+      $destinationPath = 'uploads/products_photos/' ;
+      $photo_filename = time().".".$extension;
+      $photo->move($destinationPath , $photo_filename);
+      $data->photo = $photo_filename;
+    }
 
   $data->title_ar_old = $request->title_ar_old;
   $data->title_en_old = $request->title_en_old;
