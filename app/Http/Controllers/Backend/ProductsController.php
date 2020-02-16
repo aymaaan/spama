@@ -1045,22 +1045,42 @@ return view('backend.pages.products.show'  , compact('product','websites') );
     $file = 'uploads/products_photos/'.$photo->product_id.'/'.$photo->photo_name;
 
     if (!unlink($file)) { 
-      echo ("cannot be deleted due to an error"); 
+      
   } 
   else { 
-      echo ("Photo has been deleted"); 
+      
      $photo = ProductsPhotos::find($id)->delete();
     
   } 
+
+  return back();
+  }
+
+
+
+  public function set_main_photos($id)
+  {
+
+  if ( Gate::denies(['delete_products'])  ) { abort(404); }
+  $photo = ProductsPhotos::find($id);
+
+
+  $photo_main = ProductsPhotos::where('product_id' , $photo->product_id )->where('is_main_photo' , 1 )->first();
+  if($photo_main) {
+  $photo_main->is_main_photo = 0;
+  $photo_main->save();
+}
+
+  $photo->is_main_photo = 1;
+  $photo->save();
+   
+  return back();
 
 
   }
 
 
-
-
-
-
+  
 
 
 

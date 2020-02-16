@@ -363,4 +363,12 @@ return [
     'supervisor' => 'Supervisor',
     'jobs' => 'Jobs',
     'add_jobs' => 'Add Job',
+    'menu_products' => 'Products',
+    'menu_settings' => 'Settings',
+    'menu_hr' => 'HR',
+    'menu_customers_service' => 'Customers Service',
+    'menu_assessment' => 'Assessment',
+    'menu_orders' => 'Orders',
+    'menu_pricing' => 'Quotations',
+    
 ];

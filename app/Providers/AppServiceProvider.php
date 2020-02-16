@@ -27,13 +27,9 @@ app('view')->composer('*', function ($view) {
 
 //backend
 app('view')->composer('backend.includes.sidebar', function ($view) {
-
-        $sidebar_menus = \App\Permission::whereIsMenu(1)->orderBy('order_list','ASC')->get();
-  
+        $sidebar_menus = \App\Permission::whereIsMenu(2)->orderBy('order_list','ASC')->get();
         $view->with(compact('sidebar_menus'));
 });
-
-
 
 
 

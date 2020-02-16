@@ -23,4 +23,12 @@ class Permission extends Model
 }
 
 
+public function menus() {
+
+  return $this->hasMany(Permission::class , 'menu_parent_id' , 'id');
+
+}
+
+
+
 }

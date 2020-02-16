@@ -91,7 +91,21 @@
 
 <br>
 
-<a target="_blank" href="{{url('')}}/{{config('settings.BackendPath')}}/products/photos/delete/{{$photo->id}}" style="color:#fff;" type="button" class="btn btn-danger" data-dismiss="modal">Delete</a>
+
+
+@if( $photo->is_main_photo == 0 )
+<a  href="{{url('')}}/{{config('settings.BackendPath')}}/products/photos/delete/{{$photo->id}}" style="color:#fff;" type="button" class="btn btn-danger" data-dismiss="modal">Delete</a>
+
+<a  href="{{url('')}}/{{config('settings.BackendPath')}}/products/photos/set_main/{{$photo->id}}" style="color:#fff;" type="button" class="btn btn-success" data-dismiss="modal"> تعيين كرئيسية </a>
+
+@else 
+
+<a href="#" style="color:#fff;" type="button" class="btn btn-info">  الصورة الرئيسية </a>
+
+@endif
+
+
+
 
     </div>
   </div>
@@ -182,9 +196,22 @@
 <div class="col-md-3">
     <div class="form-group">
       
-      @if(isset($data->photo))   <img src="{{url('')}}/uploads/products_photos/{!! $data->photo!!}"   width="150" heigh="100"> @else <img src="https://spama.com/image/cache/catalog/logo-2-2x-322x70.png"   width="150" heigh="100">  @endif
-      <input type="file" id="photo" name="photo" >
-      <label for="projectinput3">  {{ __('backend.choose_photo') }}  </label>
+      @if(isset($data->photos))
+
+         @foreach ( $data->photos->where('is_main_photo' , 1) as $photo) 
+      
+         <img src="{{url('')}}/uploads/products_photos/{{$data->id}}/{{$photo->photo_name}}"   width="150" heigh="100">
+         
+         @endforeach
+         
+         @else
+         
+         
+          <img src="https://spama.com/image/cache/catalog/logo-2-2x-322x70.png"   width="150" heigh="100">
+         
+        @endif
+     
+      
     </div>
   </div>
 

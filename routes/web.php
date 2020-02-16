@@ -80,6 +80,7 @@ Route::get('/products/get_names_products_ajax/{type}', 'ProductsController@get_n
 Route::get('/products/get_features_products_ajax/{type}', 'ProductsController@get_features_products_ajax');
 Route::get('/products/get_product_serial_ajax/{sku}', 'ProductsController@get_product_serial_ajax');
 Route::get('/products/photos/delete/{id}', 'ProductsController@delete_photos');
+Route::get('/products/photos/set_main/{id}', 'ProductsController@set_main_photos');
 Route::get('/products/get_consumer_price/{product_id}/{unit_id}/{quantity}', 'ProductsController@get_consumer_price_ajax');
 Route::resource('/products', 'ProductsController');
 Route::post('/pricing/update_settings_pricing', 'CustomersController@update_settings_pricing');
