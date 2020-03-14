@@ -31,7 +31,12 @@ public function products() {
 }
 
 
+public function category() {
 
+    return $this->belongsTo('App\Categories' ,  'categories_id' );
+
+
+}
  
 
 }

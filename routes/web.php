@@ -37,6 +37,23 @@ Route::get('qr-code', function () {
 
 Route::group( ['prefix' => config('settings.BackendPath') , 'middleware' => 'admin' , 'namespace' => 'Backend'], function () {
 
+//pages
+
+Route::get('/quotations_page', 'HomeController@quotations_page');
+Route::get('/orders_page', 'HomeController@orders_page');
+Route::get('/assessments_page', 'HomeController@assessments_page');
+Route::get('/purchase_orders_page', 'HomeController@purchase_orders_page');
+Route::get('/products_page', 'HomeController@products_page');
+Route::get('/customers_service_page', 'HomeController@customers_service_page');
+Route::get('/hr_page', 'HomeController@hr_page');
+
+
+//purchase_orders
+Route::get('/list_purchase_orders', 'PurchaseOrdersController@list_purchase_orders');
+
+
+
+
 //Users And Settings
 Route::get('/', 'HomeController@index');
 Route::get('/block/{id}/{action}', 'UsersController@block');
@@ -109,6 +126,7 @@ Route::get('/categories/{id}/delete', 'CategoriesController@destroy');
 Route::get('/categories/photos/delete/{id}', 'CategoriesController@delete_photos');
 
 //Mother Products
+Route::get('/list-mother-products', 'MotherProductsController@list');
 Route::resource('/mother-products', 'MotherProductsController');
 Route::get('/mother-products/approve/{id}/{status}', 'MotherProductsController@approve');
 Route::get('/mother-products/{id}/delete', 'MotherProductsController@destroy');
@@ -293,6 +311,10 @@ Route::get('/jobs/{id}/delete', 'JobController@destroy');
 //Custody types
 Route::resource('/custody_types', 'CustodyTypesController');
 Route::get('/custody_types/{id}/delete', 'CustodyTypesController@destroy');
+//invoices
+Route::resource('/invoices', 'InvoicesController');
+Route::get('/invoices/{id}/delete', 'InvoicesController@destroy');
+
 
 });
 

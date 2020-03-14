@@ -20,12 +20,12 @@
 <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up">
               <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/quotations_page">
+                <a href="{{url(config('settings.BackendPath'))}}/">
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
                       <h3 class="info"> --- </h3>
-                      <h5>   {{__('backend.menu_pricing')}}    </h5>
+                      <h5>طلب توصيل جديد</h5>
                     </div>
                     <div>
                       <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -37,40 +37,37 @@
               </div>
             </div>
           </div>
-
-
-        
-          <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up">
-              <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/orders">
-                <div class="card-body">
-                  <div class="media d-flex">
-                    <div class="media-body text-left">
-                      <h3 class="info"> --- </h3>
-                      <h5>   {{__('backend.orders')}}  </h5>
-                    </div>
-                    <div>
-                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                  
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-
 
           <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up">
               <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/assessments_page">
+                <a href="{{url(config('settings.BackendPath'))}}/">
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">
                       <h3 class="info"> --- </h3>
-                      <h5> {{__('backend.menu_assessment')}} </h5>
+                      <h5>الطلبات المعلقة</h5>
+                    </div>
+                    <div>
+                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  
+                </div>
+              </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <a href="{{url(config('settings.BackendPath'))}}/">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="info"> --- </h3>
+                      <h5>الطلبات المؤكدة</h5>
                     </div>
                     <div>
                       <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -84,234 +81,43 @@
           </div>
 
 
+          <div class="col-xl-4 col-lg-4 col-12">
+            <div class="card pull-up">
+              <div class="card-content">
+                <a href="{{url(config('settings.BackendPath'))}}/">
+                <div class="card-body">
+                  <div class="media d-flex">
+                    <div class="media-body text-left">
+                      <h3 class="info"> --- </h3>
+                      <h5>	استعراض الطلبات  </h5>
+                    </div>
+                    <div>
+                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
+                    </div>
+                  </div>
+                  
+                </div>
+              </a>
+              </div>
+            </div>
           </div>
+
+
+
+
+
+
+
+
+          </div>
+
+
+        </div>
+
        
-<div class="row">
-
-          <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up">
-              <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/purchase_orders_page">
-                <div class="card-body">
-                  <div class="media d-flex">
-                    <div class="media-body text-left">
-                      <h3 class="info"> --- </h3>
-                      <h5>   {{__('backend.menu_purchase_orders')}}     </h5>
-                    </div>
-                    <div>
-                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                  
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up">
-              <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/products_page">
-                <div class="card-body">
-                  <div class="media d-flex">
-                    <div class="media-body text-left">
-                      <h3 class="info"> --- </h3>
-                      <h5>  {{__('backend.menu_products')}}  </h5>
-                    </div>
-                    <div>
-                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                  
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up">
-              <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/customers_service_page">
-                <div class="card-body">
-                  <div class="media d-flex">
-                    <div class="media-body text-left">
-                      <h3 class="info"> --- </h3>
-                      <h5>   {{__('backend.menu_customers_service')}}       </h5>
-                    </div>
-                    <div>
-                      <i class="icon-basket-loaded info font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                  
-                </div>
-              </a>
-              </div>
-            </div>
-          </div>
-
-
-
-          </div>
-
-
- 
-          <div class="row">
-
-
-
-<div class="col-xl-4 col-lg-4 col-12">
-  <div class="card pull-up">
-    <div class="card-content">
-      <a href="{{url(config('settings.BackendPath'))}}/hr_page">
-      <div class="card-body">
-        <div class="media d-flex">
-          <div class="media-body text-left">
-            <h3 class="info"> --- </h3>
-            <h5>   {{__('backend.menu_hr')}}       </h5>
-          </div>
-          <div>
-            <i class="icon-basket-loaded info font-large-2 float-right"></i>
-          </div>
-        </div>
-        
-      </div>
-    </a>
-    </div>
-  </div>
-</div>
-
-
-
-</div>
-
-
-
-
-        </div>
-
-        <!--/ eCommerce statistic -->
-      
-        <!--/ Products sell and New Orders -->
-        <!-- Recent Transactions -->
-        
-
-
-
-<!--
-        <div class="row">
-        
-          <div id="recent-transactions" class="col-12">
-          @include('backend.includes.errors')
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">{{ __('backend.latest_products') }}</h4>
-                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                
-                
-                
-              </div>
-              <div class="card-content">
-                <div class="table-responsive">
-
- <table id="users-contacts" style='width:100%;' class="table datatable table-hover ">
-                        <thead>
-
-
-                          <tr>
-
-
-                            <th>SKU</th>
-                           @if( Auth::user()->display_content_ar == 1 )
-                            <th>{{ __('backend.arabic_title') }}</th>
-                            @endif
-                            @if( Auth::user()->display_content_en == 1 )
-                            <th>{{ __('backend.english_title') }}</th>
-                            @endif
-                             <th>{{ __('backend.category') }}</th>
-                             <th>{{ __('backend.brand') }}</th>
-                             <th>{{ __('backend.mother_product') }}</th>
-
-                          </tr>
-
-                        </thead>
-                        <tbody>
-
-
-@foreach ( $products_data as $row)
-                          <tr>
-
-                            <td> {{$row->sku}} </td>
-                            @if( Auth::user()->display_content_ar == 1 )
-                            <td> {{$row->title_ar}} </td>
-                            @endif
-                            @if( Auth::user()->display_content_en == 1 )
-                            <td style="text-align:left;"> {{$row->title_en}} </td>
-                            @endif
-
-                            <td> 
-                            @if( Auth::user()->display_content_ar == 1 )
-                            {{$row->category['title']}} <br>
-                            @endif
-                            @if( Auth::user()->display_content_en == 1 ) 
-                            <div style="text-align:left;"> {{$row->category['title_en']}} </div>
-                            @endif
-                             </td>
-
-                            <td>
-                            @if( Auth::user()->display_content_ar == 1 )
-                            {{$row->brand['title']}} <br>
-                            @endif
-                            @if( Auth::user()->display_content_en == 1 ) 
-                            {{$row->brand['title_en']}}
-                            @endif 
-                            
-                            </td>
-                            
-                            <td>
-
-                            @if( Auth::user()->display_content_ar == 1 )
-                            {{$row->mother_product['title']}} <br>
-                            @endif
-                            @if( Auth::user()->display_content_en == 1 ) 
-                            {{$row->mother_product['title_en']}}
-                            @endif 
-  
-                              </td>
-         
-                          </tr>
-@endforeach
-
-
-                        
-                      </table>
-                      
-
-                </div>  
-              </div> 
-            </div> 
-
-          </div> 
-        </div>
-
--->
-        
-        <!--/ Recent Transactions -->
-        <!--Recent Orders & Monthly Sales -->
-       
-        <!--/Recent Orders & Monthly Sales -->
-        <!-- Basic Horizontal Timeline -->
-        
-        <!--/ Basic Horizontal Timeline -->
       </div>
     </div>
   </div>
-
 
 
 

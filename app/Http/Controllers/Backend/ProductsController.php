@@ -338,8 +338,10 @@ public function store(Request $request)
       if ( $request->repositories ) {
       
         foreach ($request->repositories as $k=>$repository) {
+
+if( $request->quantity_each_repository[$k] && $request->minimum_quantity_each_repository[$k] ) {
     
-        $repository_data = new ProductsRepositories;
+        $repository_data = new ProductsRepositories; 
         $repository_data->product_id = $data->id;
         $repository_data->repositories_id = $repository;
         $repository_data->quantity_each_repository = $request->quantity_each_repository[$k];
@@ -351,6 +353,8 @@ public function store(Request $request)
         $repository_data->product_place_y = $request->product_place_y[$k];
         $repository_data->product_place_z = $request->product_place_z[$k];
         $repository_data->save();
+
+      }
     
         }
     
@@ -688,15 +692,16 @@ public function update(Request $request, $id)
       }
 
 
-      ProductsRepositories::where('product_id' , $data->id)->delete();
+ProductsRepositories::where('product_id' , $data->id)->delete();
 
-      if ( $request->repositories ) {
-      
-        foreach ($request->repositories as $k=>$repository) {
+if ( $request->repositories ) {
 
-          if(!empty($repository)) {
+foreach ($request->repositories as $k=>$repository) {
 
-        $repository_data = new ProductsRepositories;
+if(isset($repository) && isset($request->quantity_each_repository[$k]) && isset($request->minimum_quantity_each_repository[$k])  ) {
+
+  $repository_data = new ProductsRepositories;
+
         $repository_data->product_id = $data->id;
         $repository_data->repositories_id = $repository;
         $repository_data->quantity_each_repository = $request->quantity_each_repository[$k];
@@ -709,7 +714,9 @@ public function update(Request $request, $id)
         $repository_data->product_place_z = $request->product_place_z[$k];
         $repository_data->save();
       }
+      
       }
+      
         }
     
         
@@ -728,24 +735,6 @@ public function update(Request $request, $id)
         }
     
         }
-
-
-
-
-        if ( $request->repositories ) {
-      
-          foreach ($request->repositories as $repository) {
-      
-          $repositories = new ProductsRepositories;
-          $repositories->product_id = $data->id;
-          $repositories->repositories_id = $repository;
-          $repositories->save();
-      
-          }
-      
-          }
-
-
 
 
 

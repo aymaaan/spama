@@ -1,3 +1,5 @@
+
+
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info navbar-shadow">
     <div class="navbar-wrapper">
       <div class="navbar-header">
@@ -9,18 +11,18 @@
               
             </a>
           </li>
-          <li class="nav-item d-md-none">
-            <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a>
-          </li>
+          
         </ul>
       </div>
       <div class="navbar-container content">
         <div class="collapse navbar-collapse" id="navbar-mobile">
+
+
           
           <ul class="nav navbar-nav float-right">
             <li class="dropdown dropdown-user nav-item">
               <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                <span class="mr-1">Welcome ,
+                <span class="mr-1">مرحبا ,
                   <span class="user-name text-bold-700">{{ strstr(Auth::user()->name, ' ', true) }} </span>
                 </span>
                 <span class="avatar avatar-online">
@@ -28,7 +30,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right">
 
-                <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('/logout')}}"><i class="lnr lnr-lock"></i> {{ __('backend.Logout') }} </a>
+                <div class="dropdown-divider"></div><a class="dropdown-item" href="{{url('/logout')}}"><i class="lnr lnr-lock"></i> الخروج </a>
               </div>
             </li>
 
@@ -54,17 +56,120 @@
               aria-haspopup="true" aria-expanded="false">
               <i class="la la-cog"></i><span class="selected-language"></span>
               </a>
-
             </li>
 
-
- 
-            
 
 
 
 
           </ul>
+
+
+
+          <ul class="nav navbar-nav mr-auto float-left">
+ 
+          <li class="dropdown nav-item mega-dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown">وصول سريع</a>
+            <ul class="mega-dropdown-menu dropdown-menu row">
+
+            <li class="col-md-2">
+
+              @can('roles')
+                <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/roles">
+                الصلاحيات
+               </a>
+              </h6> 
+              @endcan
+
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+              </li>
+
+
+              <li class="col-md-2">
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+              </li>
+
+
+
+
+
+
+
+              <li class="col-md-2">
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+
+
+              <h6 class="dropdown-menu-header text-uppercase mb-1"><i class="la la-newspaper-o"></i> 
+                <a href="{{url('')}}/{{config('settings.BackendPath')}}/">
+                عنصر جديد
+               </a>
+              </h6>
+
+              </li>
+
+             
+            </ul>
+          </li>
+         
+        </ul>
         </div>
       </div>
     </div>

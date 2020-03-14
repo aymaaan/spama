@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/elweeeys/public_html/demos/products/
+    - /bin/cp -R * $DEPLOYPATH
+    

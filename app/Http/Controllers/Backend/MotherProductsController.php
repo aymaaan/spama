@@ -19,6 +19,18 @@ class MotherProductsController extends Controller
   }
 
 
+  
+
+  public function list(Request $request)
+  {
+    if ( Gate::denies(['create_mother_products'])  ) { abort(404); }
+  
+    $data = MotherProducts::paginate(20);
+    return view('backend.pages.mother_products.list' , compact('data') );
+  }
+
+
+
   public function index(Request $request)
   {
     if ( Gate::denies(['create_mother_products'])  ) { abort(404); }

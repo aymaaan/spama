@@ -191,7 +191,7 @@
 
                   <a href="{{url('')}}/{{config('settings.BackendPath')}}/mother-products?cat={{$row->id}}">
                   <button class="btn btn-success btn">
-                  {{ __('backend.products') }}   <span class="badge badge badge-dark  badge-pill float-right mr-2">{{count( $row->mother_products )}}</span></button>
+                  {{ __('backend.mother_products') }}   <span class="badge badge badge-dark  badge-pill float-right mr-2">{{count( $row->mother_products )}}</span></button>
                   </a> 
 
 
