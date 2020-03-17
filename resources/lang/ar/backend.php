@@ -438,6 +438,8 @@ return array (
   'unit_price' => 'سعر الوحده',
   'disc' => 'الخصم',
   'net' => 'الصافي',
-  'list_purchase_orders' => 'استعراض أوامر الشراء',
-  
+  'supplier_name' => 'أسم المورد',
+  'supplier_tax' => 'الرقم الضريبي',
+    'purchases_invoice' => ' فواتير الشراء',
+
 ) ;

@@ -6,6 +6,7 @@ use App\Invoice_details;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\invoices;
+use Illuminate\Support\Facades\Input;
 use Session;
 use Gate;
 
@@ -23,7 +24,7 @@ class InvoicesController extends Controller
   {
 //    if ( Gate::denies(['invoices'])  ) { abort(404); }
   
-    $data = Invoice::get();
+    $data = Invoice::where('is_customer',0)->get();
   
     return view('backend.pages.invoices.index' , compact('data') );
   }
@@ -111,14 +112,32 @@ class InvoicesController extends Controller
     return back();
   }
 
-    public function show($id)
+    public function show($id,Request $request)
     {
-        //    if ( Gate::denies(['update_invoices'])  ) { abort(404); }
+//            if ( Gate::denies(['update_invoices'])  ) { abort(404); }
         $data  = Invoice::find($id);
         $data_details  = Invoice_details::where('invoice_id',$id)->get();
 // dd($data_details);
+        if ( $request->input('print')){
+            dd(Input::get('print'));
+        }
+
         return view('backend.pages.invoices.edit', compact('data','data_details')  );
     }
+
+    public function print($id, Request $request)
+    {
+//            if ( Gate::denies(['update_invoices'])  ) { abort(404); }
+        $data = Invoice::find($id);
+        $data_details = Invoice_details::where('invoice_id', $id)->get();
+ dd($request->toArray());
+        if ($request->input('print')) {
+            dd(Input::get('print'));
+        }
+
+        return view('backend.pages.invoices.print', compact('data', 'data_details'));
+    }
+
   
   
   

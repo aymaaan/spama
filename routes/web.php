@@ -48,12 +48,6 @@ Route::get('/customers_service_page', 'HomeController@customers_service_page');
 Route::get('/hr_page', 'HomeController@hr_page');
 
 
-//purchase_orders
-Route::get('/list_purchase_orders', 'PurchaseOrdersController@list_purchase_orders');
-
-
-
-
 //Users And Settings
 Route::get('/', 'HomeController@index');
 Route::get('/block/{id}/{action}', 'UsersController@block');
@@ -311,9 +305,14 @@ Route::get('/jobs/{id}/delete', 'JobController@destroy');
 //Custody types
 Route::resource('/custody_types', 'CustodyTypesController');
 Route::get('/custody_types/{id}/delete', 'CustodyTypesController@destroy');
+
 //invoices
 Route::resource('/invoices', 'InvoicesController');
-Route::get('/invoices/{id}/delete', 'InvoicesController@destroy');
+Route::get('/invoices/{id}/print', 'InvoicesController@print');
+
+//invoices
+Route::resource('/purchases_invoice', 'InvoicesPurchasesController');
+Route::get('/purchases_invoice/{id}/delete', 'InvoicesPurchasesController@destroy');
 
 
 });

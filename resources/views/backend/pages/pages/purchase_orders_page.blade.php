@@ -43,7 +43,7 @@
           <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up">
               <div class="card-content">
-                <a href="{{url(config('settings.BackendPath'))}}/list_purchase_orders">
+                <a href="#">
                 <div class="card-body">
                   <div class="media d-flex">
                     <div class="media-body text-left">

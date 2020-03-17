@@ -97,6 +97,9 @@ public function photos() {
     return $this->hasMany(ProductsPhotos::class , 'product_id' );
 
 }
-
+    public function supliers()
+    {
+        return $this->belongsToMany(Supplier::class,'products_suppliers','product_id','supplier_id');
+    }
 
 }
