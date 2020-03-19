@@ -1427,6 +1427,24 @@
                                                         {{--                                                        <input type="hidden" value="other" name="stop_type[]">--}}
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4">
+                                                    <div id="custom-search-input">
+                                                        <label for="projectinput1">  {{__('backend.address_location')}}     </label>
+                                                        <div class="input-group">
+
+
+
+                                                            {!! Form::text('address_google', null , ['class' => 'form-control' , 'id' => 'address_google'  , 'placeholder'=> 'Search'  ] ) !!}
+
+                                                            {!! Form::hidden('longitude_des', null , ['class' => 'form-control' , 'id' => 'long'  , 'placeholder'=> 'Search'  ] ) !!}
+
+                                                            {!! Form::hidden('latitude_des', null , ['class' => 'form-control' , 'id' => 'lat'  , 'placeholder'=> 'Search'  ] ) !!}
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                         </div>
@@ -1584,6 +1602,26 @@
     <script type='text/javascript'src='{{url('')}}/assets/backend/timepicki.js'></script>
     <script type='text/javascript' >
         $('#timepicker').timepicki();
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7n99W41rc00c8Fmp4nHrr6aLE-G88e5E&amp;libraries=places"></script>
+
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+        function initialize() {
+            var input = document.getElementById('address_google');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+
+                // place variable will have all the information you are looking for.
+                $('#lat').val(place.geometry['location'].lat());
+                $('#long').val(place.geometry['location'].lng());
+
+                console.log(lat);
+
+            });
+        }
     </script>
     <script>
 

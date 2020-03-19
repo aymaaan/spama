@@ -134,6 +134,9 @@ class OrderController extends Controller
         $data->other_des = $request->other_des;
         $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
+        $data->longitude_des = $request->longitude_des;
+        $data->latitude_des = $request->latitude_des;
+        $data->address_google = $request->address_google;
         $data->order_status = 1;
         $data->user_id = Auth::user()->id;
         $data->save();
@@ -215,6 +218,9 @@ class OrderController extends Controller
         $data->city_id = $request->city_id;
         $data->driver_id = $request->driver_id;
         $data->order_status = $request->order_status;
+        $data->longitude_des = $request->longitude_des;
+        $data->latitude_des = $request->latitude_des;
+        $data->address_google = $request->address_google;
         $data->user_id = Auth::user()->id;
         $data->save();
 
@@ -308,5 +314,9 @@ class OrderController extends Controller
         return $color;
     }
 
+public function mapReview()
+{
+    return view('backend.pages.orders.map_review', compact('branchStop', 'customerStop', 'otherStop', 'user', 'data', 'drivers', 'cities', 'branches', 'customers', 'statuses', 'inputs'));
 
+}
 }

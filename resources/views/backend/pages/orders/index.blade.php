@@ -115,7 +115,7 @@
                                     <div class="col-xl-3 col-lg-3 col-12">
                                         <div class="card pull-up">
                                             <div class="card-content">
-                                                <a href="#">
+                                                <a href="{{url(config('settings.BackendPath'))}}/orders/show/map_review">
                                                     <div class="card-body">
                                                         <div class="media d-flex">
                                                             <div class="media-body text-left">

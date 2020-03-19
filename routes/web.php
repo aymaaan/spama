@@ -288,6 +288,7 @@ Route::get('/orders/{id}/delete/stop', 'OrderController@destoryStop');
 Route::get('/getCustomer', 'OrderController@getCustomer');
 Route::get('/orders/confirmed/order', 'OrderController@confirmedOrder');
 Route::get('/orders/details/{id}', 'OrderController@details');
+Route::get('/orders/show/map_review', 'OrderController@mapReview');
 Route::get('/calendar', 'OrderController@calendar');
 
 //branches

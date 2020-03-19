@@ -48,6 +48,8 @@ class BranchController extends Controller
         $data->title = $request->title;
         $data->title_en = $request->title_en;
         $data->address = $request->autocomplete_search;
+        $data->long = $request->longitude;
+        $data->	lat = $request->latitude;
         $data->save();
 
 
@@ -79,6 +81,8 @@ class BranchController extends Controller
         $data->title = $request->title;
         $data->title_en = $request->title_en;
         $data->address = $request->autocomplete_search;
+        $data->long = $request->longitude;
+        $data->	lat = $request->latitude;
         $data->save();
 
 
